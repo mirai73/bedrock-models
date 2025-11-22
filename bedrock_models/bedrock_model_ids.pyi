@@ -1,0 +1,96 @@
+"""
+Type stub file for bedrock_model_ids.py
+Provides IDE support and type hints for Bedrock model IDs.
+"""
+
+from typing import Final
+
+
+class Models:
+    """Static class containing Bedrock foundation model IDs as constants."""
+
+    AI21_JAMBA_1_5_LARGE: Final[str]
+    AI21_JAMBA_1_5_MINI: Final[str]
+    AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS: Final[str]
+    AMAZON_NOVA_CANVAS: Final[str]
+    AMAZON_NOVA_LITE: Final[str]
+    AMAZON_NOVA_MICRO: Final[str]
+    AMAZON_NOVA_PREMIER: Final[str]
+    AMAZON_NOVA_PRO: Final[str]
+    AMAZON_NOVA_REEL: Final[str]
+    AMAZON_NOVA_SONIC: Final[str]
+    AMAZON_RERANK: Final[str]
+    AMAZON_TITAN_EMBED_G1_TEXT_02: Final[str]
+    AMAZON_TITAN_EMBED_IMAGE: Final[str]
+    AMAZON_TITAN_EMBED_TEXT: Final[str]
+    AMAZON_TITAN_IMAGE_GENERATOR: Final[str]
+    AMAZON_TITAN_TG1_LARGE: Final[str]
+    ANTHROPIC_CLAUDE_3_5_HAIKU_20241022: Final[str]
+    ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[str]
+    ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[str]
+    ANTHROPIC_CLAUDE_HAIKU_4_5_20251001: Final[str]
+    ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[str]
+    ANTHROPIC_CLAUDE_OPUS_4_20250514: Final[str]
+    ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[str]
+    ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[str]
+    COHERE_COMMAND_R: Final[str]
+    COHERE_COMMAND_R_PLUS: Final[str]
+    COHERE_EMBED: Final[str]
+    COHERE_EMBED_ENGLISH: Final[str]
+    COHERE_EMBED_MULTILINGUAL: Final[str]
+    COHERE_RERANK: Final[str]
+    DEEPSEEK_R1: Final[str]
+    DEEPSEEK_V3: Final[str]
+    LUMA_RAY: Final[str]
+    META_LLAMA3_1_405B_INSTRUCT: Final[str]
+    META_LLAMA3_1_70B_INSTRUCT: Final[str]
+    META_LLAMA3_1_8B_INSTRUCT: Final[str]
+    META_LLAMA3_2_11B_INSTRUCT: Final[str]
+    META_LLAMA3_2_1B_INSTRUCT: Final[str]
+    META_LLAMA3_2_3B_INSTRUCT: Final[str]
+    META_LLAMA3_2_90B_INSTRUCT: Final[str]
+    META_LLAMA3_3_70B_INSTRUCT: Final[str]
+    META_LLAMA3_70B_INSTRUCT: Final[str]
+    META_LLAMA3_8B_INSTRUCT: Final[str]
+    META_LLAMA4_MAVERICK_17B_INSTRUCT: Final[str]
+    META_LLAMA4_SCOUT_17B_INSTRUCT: Final[str]
+    MISTRAL_MISTRAL_7B_INSTRUCT: Final[str]
+    MISTRAL_MISTRAL_LARGE_2402: Final[str]
+    MISTRAL_MISTRAL_LARGE_2407: Final[str]
+    MISTRAL_MISTRAL_SMALL_2402: Final[str]
+    MISTRAL_MIXTRAL_8X7B_INSTRUCT: Final[str]
+    MISTRAL_PIXTRAL_LARGE_2502: Final[str]
+    OPENAI_GPT_OSS_120B: Final[str]
+    OPENAI_GPT_OSS_20B: Final[str]
+    QWEN_QWEN3_235B_A22B_2507: Final[str]
+    QWEN_QWEN3_32B: Final[str]
+    QWEN_QWEN3_CODER_30B_A3B: Final[str]
+    QWEN_QWEN3_CODER_480B_A35B: Final[str]
+    STABILITY_SD3_5_LARGE: Final[str]
+    STABILITY_STABLE_CONSERVATIVE_UPSCALE: Final[str]
+    STABILITY_STABLE_CREATIVE_UPSCALE: Final[str]
+    STABILITY_STABLE_FAST_UPSCALE: Final[str]
+    STABILITY_STABLE_IMAGE_CONTROL_SKETCH: Final[str]
+    STABILITY_STABLE_IMAGE_CONTROL_STRUCTURE: Final[str]
+    STABILITY_STABLE_IMAGE_CORE: Final[str]
+    STABILITY_STABLE_IMAGE_ERASE_OBJECT: Final[str]
+    STABILITY_STABLE_IMAGE_INPAINT: Final[str]
+    STABILITY_STABLE_IMAGE_REMOVE_BACKGROUND: Final[str]
+    STABILITY_STABLE_IMAGE_SEARCH_RECOLOR: Final[str]
+    STABILITY_STABLE_IMAGE_SEARCH_REPLACE: Final[str]
+    STABILITY_STABLE_IMAGE_STYLE_GUIDE: Final[str]
+    STABILITY_STABLE_IMAGE_ULTRA: Final[str]
+    STABILITY_STABLE_OUTPAINT: Final[str]
+    STABILITY_STABLE_STYLE_TRANSFER: Final[str]
+    TWELVELABS_MARENGO_EMBED_2_7: Final[str]
+    TWELVELABS_MARENGO_EMBED_3_0: Final[str]
+    TWELVELABS_PEGASUS_1_2: Final[str]
+    WRITER_PALMYRA_X4: Final[str]
+    WRITER_PALMYRA_X5: Final[str]
+    AMAZON_TITAN_IMAGE_GENERATOR: Final[str]  # deprecated: Model 'amazon.titan-image-generator-v1' has LEGACY status
+    AMAZON_TITAN_TEXT_EXPRESS: Final[str]  # deprecated: Model 'amazon.titan-text-express-v1' has LEGACY status
+    AMAZON_TITAN_TEXT_LITE: Final[str]  # deprecated: Model 'amazon.titan-text-lite-v1' has LEGACY status
+    ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
+    ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
+    ANTHROPIC_CLAUDE_3_OPUS_20240229: Final[str]  # deprecated: Model 'anthropic.claude-3-opus-20240229-v1:0' has LEGACY status
+    ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[str]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status

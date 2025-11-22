@@ -1,0 +1,3606 @@
+{
+  "anthropic.claude-sonnet-4-5-20250929-v1:0": {
+    "regions": [
+      "af-south-1",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "me-south-1",
+      "mx-central-1",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "af-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ca-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ca-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "me-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "mx-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "sa-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "amazon.nova-pro-v1:0": {
+    "regions": [
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-5",
+      "ap-southeast-7",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "me-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "ap-southeast-5": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-7": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "il-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "me-central-1": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "amazon.nova-lite-v1:0": {
+    "regions": [
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-5",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "me-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "ap-southeast-5": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-7": [
+        "INFERENCE_PROFILE"
+      ],
+      "ca-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ca-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "il-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "me-central-1": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "amazon.nova-micro-v1:0": {
+    "regions": [
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-5",
+      "ap-southeast-7",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "me-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-5": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-7": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "il-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "me-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "anthropic.claude-sonnet-4-20250514-v1:0": {
+    "regions": [
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-5",
+      "ap-southeast-7",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-3",
+      "il-central-1",
+      "me-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-5": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-7": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "il-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "me-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "deepseek.v3-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-3",
+      "eu-north-1",
+      "eu-west-2",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "qwen.qwen3-coder-480b-a35b-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-3",
+      "eu-north-1",
+      "eu-west-2",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "qwen.qwen3-coder-30b-a3b-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "qwen.qwen3-32b-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-haiku-4-5-20251001-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ca-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "sa-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "qwen.qwen3-235b-a22b-2507-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-2",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "openai.gpt-oss-120b-1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "openai.gpt-oss-20b-1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "cohere.embed-v4:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ca-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "sa-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "amazon.titan-text-express-v1:0:8k": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [],
+      "ap-south-1": [
+        "PROVISIONED"
+      ],
+      "ap-southeast-2": [
+        "PROVISIONED"
+      ],
+      "ca-central-1": [
+        "PROVISIONED"
+      ],
+      "eu-central-1": [],
+      "eu-west-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "sa-east-1": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.titan-text-express-v1": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.titan-embed-text-v1:2:8k": {
+    "regions": [
+      "ap-northeast-1",
+      "eu-central-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [],
+      "eu-central-1": [],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.titan-embed-text-v1": {
+    "regions": [
+      "ap-northeast-1",
+      "eu-central-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.titan-embed-text-v2:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-northeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-northeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-2": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.rerank-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ca-central-1",
+      "eu-central-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.nova-canvas-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND",
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.nova-reel-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.nova-sonic-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "eu-north-1",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-haiku-20240307-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-northeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20240620-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-northeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "anthropic.claude-3-sonnet-20240229-v1:0:28k": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [],
+      "ap-northeast-2": [],
+      "ap-south-1": [
+        "PROVISIONED"
+      ],
+      "ap-southeast-1": [],
+      "ap-southeast-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-sonnet-20240229-v1:0:200k": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [],
+      "ap-northeast-2": [],
+      "ap-southeast-1": [],
+      "ap-southeast-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-sonnet-20240229-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20241022-v2:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-7-sonnet-20250219-v1:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-northeast-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-south-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "ap-southeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "cohere.embed-english-v3": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "cohere.embed-multilingual-v3": {
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "cohere.rerank-v3-5:0": {
+    "regions": [
+      "ap-northeast-1",
+      "ca-central-1",
+      "eu-central-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "twelvelabs.marengo-embed-2-7-v1:0": {
+    "regions": [
+      "ap-northeast-2",
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "twelvelabs.pegasus-1-2-v1:0": {
+    "regions": [
+      "ap-northeast-2",
+      "eu-central-1",
+      "eu-west-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "twelvelabs.marengo-embed-3-0-v1:0": {
+    "regions": [
+      "ap-northeast-2",
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-northeast-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE",
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-haiku-20240307-v1:0:200k": {
+    "regions": [
+      "ap-northeast-2",
+      "ap-southeast-2",
+      "eu-west-3",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-2": [],
+      "ap-southeast-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-east-2": [],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.titan-embed-text-v2:0:8k": {
+    "regions": [
+      "ap-northeast-3",
+      "ap-south-2",
+      "eu-central-2",
+      "eu-south-1",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-northeast-3": [],
+      "ap-south-2": [],
+      "eu-central-2": [],
+      "eu-south-1": [],
+      "us-east-1": []
+    }
+  },
+  "amazon.titan-text-lite-v1:0:4k": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "PROVISIONED"
+      ],
+      "ap-southeast-2": [
+        "PROVISIONED"
+      ],
+      "ca-central-1": [
+        "PROVISIONED"
+      ],
+      "eu-central-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "sa-east-1": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.titan-text-lite-v1": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.titan-embed-image-v1:0": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "PROVISIONED"
+      ],
+      "ap-southeast-2": [
+        "PROVISIONED"
+      ],
+      "ca-central-1": [
+        "PROVISIONED"
+      ],
+      "eu-central-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "sa-east-1": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.titan-embed-image-v1": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.titan-image-generator-v1:0": {
+    "regions": [
+      "ap-south-1",
+      "eu-west-2",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-2": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.titan-image-generator-v1": {
+    "regions": [
+      "ap-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-haiku-20240307-v1:0:48k": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "PROVISIONED"
+      ],
+      "ap-southeast-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-8b-instruct-v1:0": {
+    "regions": [
+      "ap-south-1",
+      "ca-central-1",
+      "eu-west-2",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "meta.llama3-70b-instruct-v1:0": {
+    "regions": [
+      "ap-south-1",
+      "ca-central-1",
+      "eu-west-2",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "mistral.mistral-7b-instruct-v0:2": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "mistral.mixtral-8x7b-instruct-v0:1": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "mistral.mistral-large-2402-v1:0": {
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.nova-pro-v1:0:24k": {
+    "regions": [
+      "ap-southeast-3",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-southeast-3": [],
+      "us-east-1": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.nova-pro-v1:0:300k": {
+    "regions": [
+      "ap-southeast-3",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-southeast-3": [],
+      "us-east-1": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.nova-lite-v1:0:24k": {
+    "regions": [
+      "ap-southeast-3",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-southeast-3": [],
+      "us-east-1": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.nova-lite-v1:0:300k": {
+    "regions": [
+      "ap-southeast-3",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-southeast-3": [],
+      "us-east-1": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.nova-micro-v1:0:24k": {
+    "regions": [
+      "ap-southeast-3",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-southeast-3": [],
+      "us-east-1": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "amazon.nova-micro-v1:0:128k": {
+    "regions": [
+      "ap-southeast-3",
+      "us-east-1"
+    ],
+    "inference_types": {
+      "ap-southeast-3": [],
+      "us-east-1": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "cohere.embed-english-v3:0:512": {
+    "regions": [
+      "ca-central-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ca-central-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "sa-east-1": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "cohere.embed-multilingual-v3:0:512": {
+    "regions": [
+      "ca-central-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ca-central-1": [
+        "PROVISIONED"
+      ],
+      "eu-west-2": [
+        "PROVISIONED"
+      ],
+      "eu-west-3": [
+        "PROVISIONED"
+      ],
+      "sa-east-1": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-v2:1:18k": {
+    "regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "eu-central-1": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-v2:1:200k": {
+    "regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "eu-central-1": [
+        "PROVISIONED"
+      ],
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "mistral.pixtral-large-2502-v1:0": {
+    "regions": [
+      "eu-central-1",
+      "eu-north-1",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-north-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama3-2-1b-instruct-v1:0": {
+    "regions": [
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama3-2-3b-instruct-v1:0": {
+    "regions": [
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "eu-central-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "eu-west-3": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-fast-upscale-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-erase-object-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-control-structure-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "writer.palmyra-x4-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-creative-upscale-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "amazon.nova-2-multimodal-embeddings-v1:0": {
+    "regions": [
+      "us-east-1"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "stability.stable-outpaint-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-inpaint-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "anthropic.claude-opus-4-1-20250805-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-remove-background-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-style-guide-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-control-sketch-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-conservative-upscale-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-search-recolor-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-style-transfer-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "stability.stable-image-search-replace-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "writer.palmyra-x5-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "amazon.titan-tg1-large": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.titan-image-generator-v2:0": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "PROVISIONED",
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "PROVISIONED",
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.nova-premier-v1:0:8k": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [],
+      "us-east-2": [],
+      "us-west-2": []
+    }
+  },
+  "amazon.nova-premier-v1:0:20k": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [],
+      "us-east-2": [],
+      "us-west-2": []
+    }
+  },
+  "amazon.nova-premier-v1:0:1000k": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [],
+      "us-east-2": [],
+      "us-west-2": []
+    }
+  },
+  "amazon.nova-premier-v1:0:mm": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [],
+      "us-east-2": [],
+      "us-west-2": []
+    }
+  },
+  "amazon.nova-premier-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "amazon.nova-reel-v1:1": {
+    "regions": [
+      "us-east-1"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "amazon.titan-embed-g1-text-02": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "ai21.jamba-1-5-large-v1:0": {
+    "regions": [
+      "us-east-1"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "ai21.jamba-1-5-mini-v1:0": {
+    "regions": [
+      "us-east-1"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-instant-v1:2:100k": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-v2:0:18k": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-v2:0:100k": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "PROVISIONED"
+      ],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-opus-20240229-v1:0:12k": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [],
+      "us-west-2": []
+    }
+  },
+  "anthropic.claude-3-opus-20240229-v1:0:28k": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [],
+      "us-west-2": []
+    }
+  },
+  "anthropic.claude-3-opus-20240229-v1:0:200k": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [],
+      "us-west-2": []
+    }
+  },
+  "anthropic.claude-3-opus-20240229-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-haiku-20241022-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-opus-4-20250514-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "cohere.command-r-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "cohere.command-r-plus-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "deepseek.r1-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama3-1-8b-instruct-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama3-1-70b-instruct-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama3-2-11b-instruct-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama3-2-90b-instruct-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama3-3-70b-instruct-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "ON_DEMAND",
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama4-scout-17b-instruct-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "meta.llama4-maverick-17b-instruct-v1:0": {
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-1": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "INFERENCE_PROFILE"
+      ]
+    }
+  },
+  "mistral.mistral-small-2402-v1:0": {
+    "regions": [
+      "us-east-1"
+    ],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "meta.llama3-1-8b-instruct-v1:0:128k": {
+    "regions": [
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-2": [],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-1-70b-instruct-v1:0:128k": {
+    "regions": [
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-2": [],
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-1-405b-instruct-v1:0": {
+    "regions": [
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-east-2": [
+        "INFERENCE_PROFILE"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-sonnet-4-20250514-v1:0:32k": {
+    "regions": [
+      "us-west-1"
+    ],
+    "inference_types": {
+      "us-west-1": []
+    }
+  },
+  "anthropic.claude-sonnet-4-20250514-v1:0:200k": {
+    "regions": [
+      "us-west-1"
+    ],
+    "inference_types": {
+      "us-west-1": []
+    }
+  },
+  "meta.llama4-scout-17b-instruct-v1:0:128k": {
+    "regions": [
+      "us-west-1"
+    ],
+    "inference_types": {
+      "us-west-1": []
+    }
+  },
+  "meta.llama4-scout-17b-instruct-v1:0:10m": {
+    "regions": [
+      "us-west-1"
+    ],
+    "inference_types": {
+      "us-west-1": []
+    }
+  },
+  "meta.llama4-maverick-17b-instruct-v1:0:128k": {
+    "regions": [
+      "us-west-1"
+    ],
+    "inference_types": {
+      "us-west-1": []
+    }
+  },
+  "meta.llama4-maverick-17b-instruct-v1:0:1m": {
+    "regions": [
+      "us-west-1"
+    ],
+    "inference_types": {
+      "us-west-1": []
+    }
+  },
+  "stability.sd3-5-large-v1:0": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "stability.stable-image-core-v1:1": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "stability.stable-image-ultra-v1:1": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20241022-v2:0:18k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20241022-v2:0:51k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20241022-v2:0:200k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20240620-v1:0:18k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20240620-v1:0:51k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "anthropic.claude-3-5-sonnet-20240620-v1:0:200k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-2-11b-instruct-v1:0:128k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-2-90b-instruct-v1:0:128k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-2-1b-instruct-v1:0:128k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-2-3b-instruct-v1:0:128k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "PROVISIONED"
+      ]
+    }
+  },
+  "meta.llama3-3-70b-instruct-v1:0:128k": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": []
+    }
+  },
+  "mistral.mistral-large-2407-v1:0": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  },
+  "luma.ray-v2:0": {
+    "regions": [
+      "us-west-2"
+    ],
+    "inference_types": {
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "bedrock-models"
+version = "0.1.0"
+description = "A library that provides Bedrock models id"
+authors = ["Massimiliano Angelino <massi.ang@gmail.com>"]
+license = "MIT-0"
+readme = "README.md"
+packages = [{include = "bedrock_models"}]
+include = ["bedrock_models/bedrock_models.json"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+boto3 = ">=1.41.2,<2.0.0"
+pytest = "^9.0.1"
+typing-extensions = "^4.15.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

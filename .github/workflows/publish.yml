@@ -37,10 +37,10 @@ jobs:
       
       - name: Generate model enum from AWS Bedrock
         run: |
-          python utils/generate_models_json.py
+          poetry run python utils/generate_models_json.py
       
       - name: Generate model class
-        run: python utils/generate_model_class.py
+        run: poetry run python utils/generate_model_class.py
       
       - name: Run tests
         run: poetry run pytest tests/

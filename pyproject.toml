@@ -10,9 +10,11 @@ include = ["bedrock_models/bedrock_models.json"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+typing-extensions = "^4.15.0"
+
+[tool.poetry.group.dev.dependencies]
 boto3 = ">=1.41.2,<2.0.0"
 pytest = "^9.0.1"
-typing-extensions = "^4.15.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

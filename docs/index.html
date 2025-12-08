@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Bedrock Models Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1 class="main-title">Amazon Bedrock Models</h1>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.5 4.5L14 6M6 14L4.5 15.5M15.5 15.5L14 14M6 6L4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M17 10.5C16.1 13.5 13.4 15.7 10.2 15.7C6.3 15.7 3.1 12.5 3.1 8.6C3.1 5.4 5.3 2.7 8.3 1.8C5.1 2.5 2.7 5.4 2.7 8.9C2.7 12.9 5.9 16.1 9.9 16.1C13.4 16.1 16.3 13.7 17 10.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">Explore the available foundation models in Amazon Bedrock that can be tested.</p>
+        </header>
+        
+        <div class="controls">
+            <div class="search-box">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M7 12C9.76142 12 12 9.76142 12 7C12 4.23858 9.76142 2 7 2C4.23858 2 2 4.23858 2 7C2 9.76142 4.23858 12 7 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 14L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search models...">
+            </div>
+            
+            <div class="filters">
+                <div class="custom-select" id="regionFilterContainer">
+                    <button class="select-button" id="regionButton">
+                        <svg class="filter-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M2 4H14M4 8H12M6 12H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span class="select-text">All Regions</span>
+                        <svg class="chevron-icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="select-dropdown" id="regionDropdown">
+                        <div class="dropdown-search">
+                            <input type="text" id="regionSearch" placeholder="Search regions...">
+                        </div>
+                        <div class="dropdown-options" id="regionOptions"></div>
+                    </div>
+                </div>
+                
+                <div class="custom-select" id="typeFilterContainer">
+                    <button class="select-button" id="typeButton">
+                        <span class="select-text">All Types</span>
+                        <svg class="chevron-icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="select-dropdown" id="typeDropdown">
+                        <div class="dropdown-options" id="typeOptions">
+                            <div class="dropdown-option selected" data-value="">All Types</div>
+                            <div class="dropdown-option" data-value="global-cris">Global CRIS</div>
+                            <div class="dropdown-option" data-value="cris">CRIS (Any)</div>
+                            <div class="dropdown-option" data-value="on-demand">On-Demand</div>
+                            <div class="dropdown-option" data-value="provisioned">Provisioned</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results-info">
+            <span id="resultsCount">Showing 0 of 0 models</span>
+        </div>
+        
+        <div id="modelsGrid" class="models-grid"></div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

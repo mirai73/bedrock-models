@@ -1,0 +1,49 @@
+# Bedrock Models Explorer
+
+A sleek, searchable static website for exploring Amazon Bedrock foundation models.
+
+## Features
+
+- **Search**: Find models by name or ID
+- **Filter by Region**: View models available in specific AWS regions
+- **Filter by Type**: 
+  - Global CRIS models
+  - Any CRIS models (US, EU, APAC, JP, AU, CA)
+  - On-Demand models
+  - Provisioned models
+- **Model Information**: View regions, inference types, and lifecycle status
+- **Copy Model IDs**: Quick copy-to-clipboard functionality
+- **Responsive Design**: Works on desktop and mobile devices
+
+## Local Development
+
+To test locally, you can use any static file server:
+
+```bash
+# Using Python
+python -m http.server 8000 --directory docs
+
+# Using Node.js (http-server)
+npx http-server docs -p 8000
+
+# Using PHP
+php -S localhost:8000 -t docs
+```
+
+Then open http://localhost:8000 in your browser.
+
+## GitHub Pages Deployment
+
+This site is designed to be hosted on GitHub Pages. To deploy:
+
+1. Push the `docs` folder to your repository
+2. Go to repository Settings > Pages
+3. Set Source to "Deploy from a branch"
+4. Select the `main` branch and `/docs` folder
+5. Save and wait for deployment
+
+Your site will be available at: `https://<username>.github.io/<repository-name>/`
+
+## Data Source
+
+The model data is sourced from `bedrock_models.json`, which is automatically copied from the main package data.

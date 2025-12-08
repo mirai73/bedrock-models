@@ -250,6 +250,25 @@ function copyToClipboard(text) {
     });
 }
 
+function formatModelName(modelId) {
+    // Get the part after the provider (e.g., "nova-2-sonic-v1:0" from "amazon.nova-2-sonic-v1:0")
+    const modelPart = modelId.split('.')[1] || modelId;
+    
+    // Remove the version suffix (everything after the last hyphen followed by 'v')
+    // e.g., "nova-2-sonic-v1:0" -> "nova-2-sonic"
+    const withoutVersion = modelPart.replace(/-v\d+.*$/, '');
+    
+    // Replace hyphens with spaces and convert to uppercase
+    let formatted = withoutVersion.replace(/-/g, ' ').toUpperCase();
+    
+    // Replace space between a digit and a single digit (not followed by more digits or B) with a period
+    // e.g., "LLAMA3 3" -> "LLAMA3.3", "LLAMA3 2 1B" -> "LLAMA3.2 1B"
+    // but "LLAMA3 8B" stays "LLAMA3 8B", "GEMMA 3 27B" stays "GEMMA 3 27B"
+    formatted = formatted.replace(/(\d)\s+(\d)(?!\d|B)/g, '$1.$2');
+    
+    return formatted;
+}
+
 function renderModels() {
     const grid = document.getElementById('modelsGrid');
     
@@ -267,11 +286,12 @@ function renderModels() {
         
         const displayRegions = model.regions.slice(0, 3);
         const moreRegions = model.regions.length - 3;
+        const formattedName = formatModelName(model.id);
         
         return `
             <div class="model-card">
                 <div class="model-header">
-                    <div class="model-name">${model.id.split('.')[1] || model.id}</div>
+                    <div class="model-name">${formattedName}</div>
                 </div>
                 
                 <div class="model-badges">

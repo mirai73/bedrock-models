@@ -2615,6 +2615,9 @@
   },
   "mistral.ministral-3-3b-instruct": {
     "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
       "ap-south-1": [
         "ON_DEMAND"
       ],
@@ -2633,6 +2636,7 @@
     },
     "model_lifecycle_status": "ACTIVE",
     "regions": [
+      "ap-northeast-1",
       "ap-south-1",
       "sa-east-1",
       "us-east-1",

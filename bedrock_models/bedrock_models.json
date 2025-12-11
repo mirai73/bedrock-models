@@ -875,9 +875,6 @@
       "eu-west-1": [
         "ON_DEMAND"
       ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
       "eu-west-3": [
         "ON_DEMAND"
       ],
@@ -898,7 +895,6 @@
       "ca-central-1",
       "eu-central-1",
       "eu-west-1",
-      "eu-west-2",
       "eu-west-3",
       "sa-east-1",
       "us-east-1",
@@ -1439,46 +1435,59 @@
         "GLOBAL"
       ],
       "ca-central-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "eu-central-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-central-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-north-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-south-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-south-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-3": [
+        "EU",
         "GLOBAL"
       ],
       "sa-east-1": [
         "GLOBAL"
       ],
       "us-east-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-east-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-west-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-west-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ]
     },
     "model_lifecycle_status": "ACTIVE",

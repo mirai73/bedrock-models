@@ -9,7 +9,7 @@ import boto3
 import json
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Dict, List
+from typing import Dict, List, Set, Any
 import threading
 
 
@@ -38,39 +38,71 @@ def get_foundation_models_in_region(region: str) -> tuple[str, List[Dict]]:
         return region, []
 
 
-def get_inference_profiles_in_region(region: str) -> Dict[str, List[str]]:
+def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[str]]]:
     """
-    Get all inference profiles available in a specific region.
-    Maps model IDs to their available profile prefixes (EU, US, GLOBAL, CA, etc.)
+    Get all inference profiles available in a specific region and their covered regions.
+    Maps model IDs to a dictionary of profile prefixes and their covered regions.
     
     Args:
         region: AWS region name
         
     Returns:
-        Dictionary mapping model IDs to list of profile prefixes
+        Dictionary mapping model IDs to profile info:
+        {
+            "model.id": {
+                "US": ["us-east-1", "us-west-2"],
+                "EU": ["eu-central-1"]
+            }
+        }
     """
     try:
         bedrock = boto3.client('bedrock', region_name=region)
         response = bedrock.list_inference_profiles()
         
-        model_profiles = defaultdict(list)
+        # Structure: model_id -> {prefix -> [regions]}
+        model_profiles = defaultdict(lambda: defaultdict(list))
         
         for profile in response.get('inferenceProfileSummaries', []):
             profile_id = profile.get('inferenceProfileId', '')
             
-            # Extract prefix from profile ID (e.g., "us.anthropic.claude-3-5-sonnet-20240620-v1:0" -> "US")
+            # Extract prefix from profile ID (e.g., "us.anthropic...:0" -> "US")
             if '.' in profile_id:
-                prefix = profile_id.split('.')[0].upper()
-                model_id  = '.'.join(profile_id.split('.')[1:])
-                model_profiles[model_id].append(prefix)
-        
-        return dict(model_profiles)
+                parts = profile_id.split('.')
+                prefix = parts[0].upper()
+                model_id = '.'.join(parts[1:])
+                
+                # Fetch detailed profile info to get covered regions
+                try:
+                    details = bedrock.get_inference_profile(inferenceProfileIdentifier=profile_id)
+                    covered_regions = set()
+                    
+                    for model in details.get('models', []):
+                        # Arn format: arn:aws:bedrock:REGION::...
+                        arn = model.get('modelArn', '')
+                        if ':' in arn:
+                            arn_parts = arn.split(':')
+                            if len(arn_parts) > 3:
+                                region_part = arn_parts[3]
+                                if region_part:
+                                    covered_regions.add(region_part)
+                    
+                    if covered_regions:
+                        model_profiles[model_id][prefix] = sorted(list(covered_regions))
+                        
+                except Exception as e:
+                    # If we can't get details, just record the prefix exists (backward compatibility)
+                    print(f"    ⚠ Could not get details for profile {profile_id}: {e}")
+                    if prefix not in model_profiles[model_id]:
+                        model_profiles[model_id][prefix] = []
+
+        # Convert to standard dict for return
+        return {k: dict(v) for k, v in model_profiles.items()}
     except Exception as e:
         print(f"  Error listing inference profiles in {region}: {e}")
         return {}
 
 
-def process_region(region: str) -> tuple[str, List[Dict], Dict[str, List[str]], int]:
+def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, List[str]]], int]:
     """
     Process a single region: get models and inference profiles.
     
@@ -95,7 +127,7 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, List[str]], 
         else:
             excluded_count += 1
             model_id = model.get('modelId', 'unknown')
-            print(f"    ⓧ Excluding {model_id} (only PROVISIONED)")
+#            print(f"    ⓧ Excluding {model_id} (only PROVISIONED)")
     
     print(f"  Kept {len(filtered_models)} models after filtering")
     
@@ -103,14 +135,13 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, List[str]], 
     model_to_profiles = get_inference_profiles_in_region(region)
     
     if model_to_profiles:
-        print(f"  Found inference profiles for {len(model_to_profiles)} models")
-        for model_id, prefixes in model_to_profiles.items():
-            print(f"    ✓ {model_id}: {', '.join(prefixes)}")
+        count = sum(len(profiles) for profiles in model_to_profiles.values())
+        print(f"  Found {count} profile definitions")
     
     return region, filtered_models, model_to_profiles, excluded_count
 
 
-def scan_all_regions_parallel() -> Dict[str, Dict[str, List[str]]]:
+def scan_all_regions_parallel() -> Dict[str, Any]:
     """
     Scan all AWS regions in parallel and build a mapping of model IDs to regions and inference types.
     
@@ -121,7 +152,14 @@ def scan_all_regions_parallel() -> Dict[str, Dict[str, List[str]]]:
     print(f"Scanning {len(bedrock_regions)} Bedrock-enabled regions in parallel...")
     print(f"Regions: {', '.join(bedrock_regions)}\n")
     
-    model_mapping = defaultdict(lambda: {'regions': [], 'inference_types': {}, 'model_lifecycle_status': 'ACTIVE'})
+    # Structure: model_id -> {regions, inference_types, ...}
+    model_mapping = defaultdict(lambda: {
+        'regions': [], 
+        'inference_types': {}, 
+        'model_lifecycle_status': 'ACTIVE',
+        'inferenceProfile': {}
+    })
+    
     total_excluded = 0
     lock = threading.Lock()
     
@@ -164,8 +202,17 @@ def scan_all_regions_parallel() -> Dict[str, Dict[str, List[str]]]:
                             
                             # Add the actual profile prefixes for this model
                             if model_id in model_to_profiles:
-                                inference_types.extend(model_to_profiles[model_id])
-                        
+                                # model_to_profiles is now {model_id: {prefix: [regions]}}
+                                prefixes = list(model_to_profiles[model_id].keys())
+                                inference_types.extend(prefixes)
+                                
+                                # Update global inferenceProfile registry for this model
+                                for prefix, covered_regions in model_to_profiles[model_id].items():
+                                    # We merge regions if we see this profile from multiple places (should be consistent)
+                                    existing = set(model_mapping[model_id]['inferenceProfile'].get(prefix, []))
+                                    existing.update(covered_regions)
+                                    model_mapping[model_id]['inferenceProfile'][prefix] = sorted(list(existing))
+
                         # Store inference types for this region
                         model_mapping[model_id]['inference_types'][region] = inference_types
                 
@@ -177,7 +224,7 @@ def scan_all_regions_parallel() -> Dict[str, Dict[str, List[str]]]:
     return dict(model_mapping)
 
 
-def print_summary(model_mapping: Dict[str, Dict[str, List[str]]]):
+def print_summary(model_mapping: Dict[str, Any]):
     """Print a summary of the model mapping."""
     print("\n" + "="*80)
     print("SUMMARY")
@@ -195,23 +242,40 @@ def print_summary(model_mapping: Dict[str, Dict[str, List[str]]]):
         
         print(f"\nModel: {model_id}{lifecycle_marker}")
         print(f"  Available in {len(regions)} region(s): {', '.join(sorted(regions))}")
+        
+        # Print inference profiles if any
+        if data.get('inferenceProfile'):
+            print("  Inference Profiles:")
+            for prefix, covered in data['inferenceProfile'].items():
+                print(f"    {prefix}: {covered}")
+        
         print(f"  Inference types by region:")
         for region in sorted(regions):
             inference_types = data['inference_types'].get(region, [])
             print(f"    {region}: {', '.join(inference_types)}")
 
 
-def save_to_json(model_mapping: Dict[str, Dict[str, List[str]]], filename: str = 'bedrock_models/bedrock_models.json'):
+def save_to_json(model_mapping: Dict[str, Any], filename: str = 'bedrock_models/bedrock_models.json'):
     """Save the model mapping to a JSON file with sorted keys and values for deterministic output."""
     # Sort regions and inference_types lists for deterministic output
     sorted_mapping = {}
     for model_id in sorted(model_mapping.keys()):
         data = model_mapping[model_id]
-        sorted_mapping[model_id] = {
+        
+        entry = {
             'regions': sorted(data['regions']),
             'inference_types': {region: sorted(types) for region, types in sorted(data['inference_types'].items())},
             'model_lifecycle_status': data.get('model_lifecycle_status', 'ACTIVE')
         }
+        
+        # Add inferenceProfile if it exists and is not empty
+        if data.get('inferenceProfile'):
+            entry['inferenceProfile'] = {
+                prefix: sorted(regions) 
+                for prefix, regions in sorted(data['inferenceProfile'].items())
+            }
+            
+        sorted_mapping[model_id] = entry
     
     with open(filename, 'w') as f:
         json.dump(sorted_mapping, f, indent=2, sort_keys=True)

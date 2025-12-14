@@ -22,6 +22,55 @@
     ]
   },
   "amazon.nova-2-lite-v1:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "GLOBAL": [
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-south-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "me-central-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "JP": [
+        "ap-northeast-1",
+        "ap-northeast-3"
+      ],
+      "US": [
+        "ca-central-1",
+        "ca-west-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-east-2": [
         "GLOBAL"
@@ -196,6 +245,42 @@
     ]
   },
   "amazon.nova-lite-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-7",
+        "me-central-1"
+      ],
+      "CA": [
+        "ca-central-1",
+        "ca-west-1"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3",
+        "il-central-1"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-east-2": [
         "APAC"
@@ -309,6 +394,37 @@
     ]
   },
   "amazon.nova-micro-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-7",
+        "me-central-1"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3",
+        "il-central-1"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-east-2": [
         "APAC"
@@ -402,6 +518,13 @@
     ]
   },
   "amazon.nova-premier-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -421,6 +544,38 @@
     ]
   },
   "amazon.nova-pro-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-7",
+        "me-central-1"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3",
+        "il-central-1"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-east-2": [
         "APAC"
@@ -863,9 +1018,6 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ca-central-1": [
-        "ON_DEMAND"
-      ],
       "eu-west-1": [
         "ON_DEMAND"
       ],
@@ -882,7 +1034,6 @@
     "model_lifecycle_status": "LEGACY",
     "regions": [
       "ap-south-1",
-      "ca-central-1",
       "eu-west-1",
       "eu-west-3",
       "sa-east-1",
@@ -905,6 +1056,13 @@
     ]
   },
   "anthropic.claude-3-5-haiku-20241022-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -924,6 +1082,24 @@
     ]
   },
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-south-1",
+        "ap-southeast-1",
+        "ap-southeast-2"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -982,6 +1158,22 @@
     ]
   },
   "anthropic.claude-3-5-sonnet-20241022-v2:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "APAC"
@@ -1030,6 +1222,28 @@
     ]
   },
   "anthropic.claude-3-7-sonnet-20250219-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "APAC"
@@ -1097,6 +1311,18 @@
     ]
   },
   "anthropic.claude-3-haiku-20240307-v1:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -1165,6 +1391,12 @@
     ]
   },
   "anthropic.claude-3-opus-20240229-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -1180,6 +1412,20 @@
     ]
   },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-south-1",
+        "ap-southeast-1",
+        "ap-southeast-2"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-west-1",
+        "eu-west-3"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "APAC"
@@ -1240,6 +1486,58 @@
     ]
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
+    "inferenceProfile": {
+      "AU": [
+        "ap-southeast-2",
+        "ap-southeast-4"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3"
+      ],
+      "GLOBAL": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ca-central-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "JP": [
+        "ap-northeast-1",
+        "ap-northeast-3"
+      ],
+      "US": [
+        "ca-central-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "GLOBAL",
@@ -1356,6 +1654,13 @@
     ]
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -1375,6 +1680,13 @@
     ]
   },
   "anthropic.claude-opus-4-20250514-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -1394,6 +1706,50 @@
     ]
   },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3"
+      ],
+      "GLOBAL": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ca-central-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "US": [
+        "ca-central-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "GLOBAL"
@@ -1506,6 +1862,45 @@
     ]
   },
   "anthropic.claude-sonnet-4-20250514-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-7",
+        "me-central-1"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3",
+        "il-central-1"
+      ],
+      "GLOBAL": [
+        "ap-northeast-1",
+        "eu-west-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-east-2": [
         "APAC"
@@ -1614,6 +2009,62 @@
     ]
   },
   "anthropic.claude-sonnet-4-5-20250929-v1:0": {
+    "inferenceProfile": {
+      "AU": [
+        "ap-southeast-2",
+        "ap-southeast-4"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3"
+      ],
+      "GLOBAL": [
+        "af-south-1",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "me-south-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "JP": [
+        "ap-northeast-1",
+        "ap-northeast-3"
+      ],
+      "US": [
+        "ca-central-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "af-south-1": [
         "GLOBAL"
@@ -1886,6 +2337,47 @@
     ]
   },
   "cohere.embed-v4:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "GLOBAL": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ca-central-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-1": [
         "GLOBAL",
@@ -2025,6 +2517,13 @@
     ]
   },
   "deepseek.r1-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2219,6 +2718,13 @@
     ]
   },
   "meta.llama3-1-405b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-2": [
         "US"
@@ -2234,6 +2740,13 @@
     ]
   },
   "meta.llama3-1-70b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2254,6 +2767,13 @@
     ]
   },
   "meta.llama3-1-8b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2274,6 +2794,13 @@
     ]
   },
   "meta.llama3-2-11b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2293,6 +2820,18 @@
     ]
   },
   "meta.llama3-2-1b-instruct-v1:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "eu-central-1": [
         "EU"
@@ -2324,6 +2863,18 @@
     ]
   },
   "meta.llama3-2-3b-instruct-v1:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "eu-central-1": [
         "EU"
@@ -2355,6 +2906,13 @@
     ]
   },
   "meta.llama3-2-90b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2374,6 +2932,13 @@
     ]
   },
   "meta.llama3-3-70b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2448,6 +3013,14 @@
     ]
   },
   "meta.llama4-maverick-17b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2471,6 +3044,14 @@
     ]
   },
   "meta.llama4-scout-17b-instruct-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -2867,6 +3448,19 @@
     ]
   },
   "mistral.pixtral-large-2502-v1:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "eu-central-1": [
         "EU"
@@ -3586,6 +4180,13 @@
     ]
   },
   "stability.stable-conservative-upscale-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3605,6 +4206,13 @@
     ]
   },
   "stability.stable-creative-upscale-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3624,6 +4232,13 @@
     ]
   },
   "stability.stable-fast-upscale-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3643,6 +4258,13 @@
     ]
   },
   "stability.stable-image-control-sketch-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3662,6 +4284,13 @@
     ]
   },
   "stability.stable-image-control-structure-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3692,6 +4321,13 @@
     ]
   },
   "stability.stable-image-erase-object-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3711,6 +4347,13 @@
     ]
   },
   "stability.stable-image-inpaint-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3730,6 +4373,13 @@
     ]
   },
   "stability.stable-image-remove-background-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3749,6 +4399,13 @@
     ]
   },
   "stability.stable-image-search-recolor-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3768,6 +4425,13 @@
     ]
   },
   "stability.stable-image-search-replace-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3787,6 +4451,13 @@
     ]
   },
   "stability.stable-image-style-guide-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3817,6 +4488,13 @@
     ]
   },
   "stability.stable-outpaint-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3836,6 +4514,13 @@
     ]
   },
   "stability.stable-style-transfer-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -3855,6 +4540,33 @@
     ]
   },
   "twelvelabs.marengo-embed-2-7-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-2": [
         "APAC"
@@ -3874,6 +4586,21 @@
     ]
   },
   "twelvelabs.marengo-embed-3-0-v1:0": {
+    "inferenceProfile": {
+      "EU": [
+        "eu-central-1",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-3"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "ap-northeast-2": [
         "ON_DEMAND"
@@ -3894,6 +4621,64 @@
     ]
   },
   "twelvelabs.pegasus-1-2-v1:0": {
+    "inferenceProfile": {
+      "APAC": [
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-4"
+      ],
+      "EU": [
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3"
+      ],
+      "GLOBAL": [
+        "af-south-1",
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "me-central-1",
+        "me-south-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1"
+      ],
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "af-south-1": [
         "GLOBAL"
@@ -4032,6 +4817,14 @@
     ]
   },
   "writer.palmyra-x4-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"
@@ -4055,6 +4848,14 @@
     ]
   },
   "writer.palmyra-x5-v1:0": {
+    "inferenceProfile": {
+      "US": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ]
+    },
     "inference_types": {
       "us-east-1": [
         "US"

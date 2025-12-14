@@ -16,7 +16,7 @@ const CRIS_REGIONS = {
 function initTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    
+
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', toggleTheme);
 }
@@ -24,7 +24,7 @@ function initTheme() {
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
+
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
 }
@@ -39,23 +39,23 @@ async function init() {
     try {
         const response = await fetch('bedrock_models.json');
         const data = await response.json();
-        
+
         allModels = Object.entries(data).map(([id, info]) => ({
             id,
             ...info
         }));
-        
+
         populateRegionFilter();
         initCustomDropdowns();
         filteredModels = [...allModels];
         renderModels();
         updateResultsCount();
-        
+
         // Add event listeners
         document.getElementById('searchInput').addEventListener('input', filterModels);
     } catch (error) {
         console.error('Error loading models:', error);
-        document.getElementById('modelsGrid').innerHTML = 
+        document.getElementById('modelsGrid').innerHTML =
             '<p style="color: #c62828;">Error loading models data. Please try again.</p>';
     }
 }
@@ -65,17 +65,17 @@ function populateRegionFilter() {
     allModels.forEach(model => {
         model.regions.forEach(region => regions.add(region));
     });
-    
+
     const regionOptions = document.getElementById('regionOptions');
     const sortedRegions = Array.from(regions).sort();
-    
+
     // Add "All Regions" option
     const allOption = document.createElement('div');
     allOption.className = 'dropdown-option selected';
     allOption.dataset.value = '';
     allOption.textContent = 'All Regions';
     regionOptions.appendChild(allOption);
-    
+
     // Add region options
     sortedRegions.forEach(region => {
         const option = document.createElement('div');
@@ -93,7 +93,7 @@ function initCustomDropdowns() {
     const regionDropdown = document.getElementById('regionDropdown');
     const regionOptions = document.getElementById('regionOptions');
     const regionSearch = document.getElementById('regionSearch');
-    
+
     regionButton.addEventListener('click', (e) => {
         e.stopPropagation();
         regionContainer.classList.toggle('open');
@@ -102,7 +102,7 @@ function initCustomDropdowns() {
             regionSearch.focus();
         }
     });
-    
+
     regionSearch.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         const options = regionOptions.querySelectorAll('.dropdown-option');
@@ -111,18 +111,18 @@ function initCustomDropdowns() {
             option.style.display = text.includes(searchTerm) ? 'block' : 'none';
         });
     });
-    
+
     regionOptions.addEventListener('click', (e) => {
         if (e.target.classList.contains('dropdown-option')) {
             selectedRegion = e.target.dataset.value;
             regionButton.querySelector('.select-text').textContent = e.target.textContent;
-            
+
             // Update selected state
             regionOptions.querySelectorAll('.dropdown-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
             e.target.classList.add('selected');
-            
+
             regionContainer.classList.remove('open');
             regionSearch.value = '';
             regionOptions.querySelectorAll('.dropdown-option').forEach(opt => {
@@ -131,46 +131,46 @@ function initCustomDropdowns() {
             filterModels();
         }
     });
-    
+
     // Type dropdown
     const typeContainer = document.getElementById('typeFilterContainer');
     const typeButton = document.getElementById('typeButton');
     const typeDropdown = document.getElementById('typeDropdown');
     const typeOptions = document.getElementById('typeOptions');
-    
+
     typeButton.addEventListener('click', (e) => {
         e.stopPropagation();
         typeContainer.classList.toggle('open');
         regionContainer.classList.remove('open');
     });
-    
+
     typeOptions.addEventListener('click', (e) => {
         if (e.target.classList.contains('dropdown-option')) {
             selectedType = e.target.dataset.value;
             typeButton.querySelector('.select-text').textContent = e.target.textContent;
-            
+
             // Update selected state
             typeOptions.querySelectorAll('.dropdown-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
             e.target.classList.add('selected');
-            
+
             typeContainer.classList.remove('open');
             filterModels();
         }
     });
-    
+
     // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
         regionContainer.classList.remove('open');
         typeContainer.classList.remove('open');
     });
-    
+
     // Prevent dropdown from closing when clicking inside
     regionDropdown.addEventListener('click', (e) => {
         e.stopPropagation();
     });
-    
+
     typeDropdown.addEventListener('click', (e) => {
         e.stopPropagation();
     });
@@ -178,40 +178,45 @@ function initCustomDropdowns() {
 
 function filterModels() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    
+
     filteredModels = allModels.filter(model => {
         // Search filter
         const matchesSearch = model.id.toLowerCase().includes(searchTerm);
-        
+
         // Region filter
         const matchesRegion = !selectedRegion || model.regions.includes(selectedRegion);
-        
+
         // Type filter
         let matchesType = true;
         if (selectedType === 'global-cris') {
-            matchesType = hasInferenceType(model, 'GLOBAL');
+            matchesType = hasInferenceType(model, 'GLOBAL', selectedRegion);
         } else if (selectedType === 'cris') {
-            matchesType = hasCRIS(model);
+            matchesType = hasCRIS(model, selectedRegion);
         } else if (selectedType === 'on-demand') {
-            matchesType = hasInferenceType(model, 'ON_DEMAND');
-        } else if (selectedType === 'provisioned') {
-            matchesType = hasInferenceType(model, 'PROVISIONED');
+            matchesType = hasInferenceType(model, 'ON_DEMAND', selectedRegion);
         }
-        
+
         return matchesSearch && matchesRegion && matchesType;
     });
-    
+
     renderModels();
     updateResultsCount();
 }
 
-function hasInferenceType(model, type) {
+function hasInferenceType(model, type, region) {
+    if (region) {
+        return model.inference_types[region]?.includes(type);
+    }
     return Object.values(model.inference_types).some(types => types.includes(type));
 }
 
-function hasCRIS(model) {
+function hasCRIS(model, region) {
     const crisTypes = Object.keys(CRIS_REGIONS);
-    return Object.values(model.inference_types).some(types => 
+    if (region) {
+        const typesAtRegion = model.inference_types[region];
+        return typesAtRegion?.some(type => crisTypes.includes(type));
+    }
+    return Object.values(model.inference_types).some(types =>
         types.some(type => crisTypes.includes(type))
     );
 }
@@ -253,41 +258,41 @@ function copyToClipboard(text) {
 function formatModelName(modelId) {
     // Get the part after the provider (e.g., "nova-2-sonic-v1:0" from "amazon.nova-2-sonic-v1:0")
     const modelPart = modelId.split('.')[1] || modelId;
-    
+
     // Remove the version suffix (everything after the last hyphen followed by 'v')
     // e.g., "nova-2-sonic-v1:0" -> "nova-2-sonic"
     const withoutVersion = modelPart.replace(/-v\d+.*$/, '');
-    
+
     // Replace hyphens with spaces and convert to uppercase
     let formatted = withoutVersion.replace(/-/g, ' ').toUpperCase();
-    
+
     // Replace space between a digit and a single digit (not followed by more digits or B) with a period
     // e.g., "LLAMA3 3" -> "LLAMA3.3", "LLAMA3 2 1B" -> "LLAMA3.2 1B"
     // but "LLAMA3 8B" stays "LLAMA3 8B", "GEMMA 3 27B" stays "GEMMA 3 27B"
     formatted = formatted.replace(/(\d)\s+(\d)(?!\d|B)/g, '$1.$2');
-    
+
     return formatted;
 }
 
 function renderModels() {
     const grid = document.getElementById('modelsGrid');
-    
+
     if (filteredModels.length === 0) {
         grid.innerHTML = '<p style="color: #666; grid-column: 1/-1; text-align: center; padding: 40px;">No models found matching your criteria.</p>';
         return;
     }
-    
+
     grid.innerHTML = filteredModels.map(model => {
         const provider = getModelProvider(model.id);
         const badgeClass = getBadgeClass(model.id);
         const inferenceTypes = getInferenceTypes(model);
         const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
         const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
-        
+
         const displayRegions = model.regions.slice(0, 3);
         const moreRegions = model.regions.length - 3;
         const formattedName = formatModelName(model.id);
-        
+
         return `
             <div class="model-card">
                 <div class="model-header">
@@ -296,12 +301,12 @@ function renderModels() {
                 
                 <div class="model-badges">
                     <span class="badge ${badgeClass}">${provider}</span>
-                    ${crisTypes.map(type => 
-                        `<span class="badge badge-inference">${CRIS_REGIONS[type]}</span>`
-                    ).join('')}
-                    ${otherTypes.map(type => 
-                        `<span class="badge badge-inference">${type.replace('_', ' ')}</span>`
-                    ).join('')}
+                    ${crisTypes.map(type =>
+            `<span class="badge badge-inference">${CRIS_REGIONS[type]}</span>`
+        ).join('')}
+                    ${otherTypes.map(type =>
+            `<span class="badge badge-inference">${type.replace('_', ' ')}</span>`
+        ).join('')}
                     <span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">
                         ${model.model_lifecycle_status}
                     </span>
@@ -320,9 +325,9 @@ function renderModels() {
                 <div class="model-section">
                     <div class="section-title">Available Regions</div>
                     <div class="regions-list">
-                        ${displayRegions.map(region => 
-                            `<span class="region-tag">${region}</span>`
-                        ).join('')}
+                        ${displayRegions.map(region =>
+            `<span class="region-tag">${region}</span>`
+        ).join('')}
                         ${moreRegions > 0 ? `<span class="region-more">+${moreRegions} more</span>` : ''}
                     </div>
                 </div>

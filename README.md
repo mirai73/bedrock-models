@@ -201,6 +201,14 @@ The AWS credentials need the following least-privilege IAM policy:
 ```
 
 
+
+## Credits
+
+This project uses the following open-source libraries and data in the github pages site:
+
+-   **[Leaflet](https://leafletjs.com/)**: An open-source JavaScript library for mobile-friendly interactive maps. Copyright (c) 2010-2023, Volodymyr Agafonkin.
+-   **[OpenStreetMap](https://www.openstreetmap.org/)**: Map data © OpenStreetMap contributors.
+
 ## License
 
 MIT-0

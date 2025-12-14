@@ -12,6 +12,47 @@ const CRIS_REGIONS = {
     'CA': 'Canada CRIS'
 };
 
+// Region locations (lat, lng)
+const REGION_LOCATIONS = {
+    'us-east-1': { lat: 38.03, lng: -78.51, name: 'N. Virginia' },
+    'us-east-2': { lat: 40.42, lng: -82.91, name: 'Ohio' },
+    'us-west-1': { lat: 37.77, lng: -122.41, name: 'N. California' },
+    'us-west-2': { lat: 45.52, lng: -122.68, name: 'Oregon' },
+    'ca-central-1': { lat: 45.50, lng: -73.56, name: 'Montreal' },
+    'ca-west-1': { lat: 51.04, lng: -114.07, name: 'Calgary' },
+    'sa-east-1': { lat: -23.55, lng: -46.63, name: 'São Paulo' },
+    'eu-central-1': { lat: 50.11, lng: 8.68, name: 'Frankfurt' },
+    'eu-central-2': { lat: 47.37, lng: 8.54, name: 'Zurich' },
+    'eu-north-1': { lat: 59.33, lng: 18.06, name: 'Stockholm' },
+    'eu-south-1': { lat: 45.46, lng: 9.19, name: 'Milan' },
+    'eu-south-2': { lat: 40.41, lng: -3.70, name: 'Spain' },
+    'eu-west-1': { lat: 53.35, lng: -6.26, name: 'Dublin' },
+    'eu-west-2': { lat: 51.50, lng: -0.12, name: 'London' },
+    'eu-west-3': { lat: 48.86, lng: 2.35, name: 'Paris' },
+    'il-central-1': { lat: 32.08, lng: 34.78, name: 'Tel Aviv' },
+    'me-central-1': { lat: 25.27, lng: 55.30, name: 'UAE' },
+    'af-south-1': { lat: -33.92, lng: 18.42, name: 'Cape Town' },
+    'ap-east-1': { lat: 22.31, lng: 114.16, name: 'Hong Kong' },
+    'ap-east-2': { lat: 22.31, lng: 114.16, name: 'Hong Kong' }, // Often maps to Hong Kong
+    'ap-northeast-1': { lat: 35.68, lng: 139.76, name: 'Tokyo' },
+    'ap-northeast-2': { lat: 37.56, lng: 126.97, name: 'Seoul' },
+    'ap-northeast-3': { lat: 34.69, lng: 135.50, name: 'Osaka' },
+    'ap-south-1': { lat: 19.07, lng: 72.87, name: 'Mumbai' },
+    'ap-south-2': { lat: 17.38, lng: 78.48, name: 'Hyderabad' },
+    'ap-southeast-1': { lat: 1.35, lng: 103.82, name: 'Singapore' },
+    'ap-southeast-2': { lat: -33.87, lng: 151.21, name: 'Sydney' },
+    'ap-southeast-3': { lat: -6.20, lng: 106.84, name: 'Jakarta' },
+    'ap-southeast-4': { lat: -37.81, lng: 144.96, name: 'Melbourne' },
+    'ap-southeast-5': { lat: 3.13, lng: 101.68, name: 'Malaysia' },
+    'ap-southeast-7': { lat: 13.75, lng: 100.50, name: 'Thailand' }
+};
+
+// CRIS Profile underlying regions (dynamically populated)
+let CRIS_PROFILE_REGIONS = {};
+
+let map = null;
+let mapMarkers = [];
+
 // Theme management
 function initTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -45,6 +86,7 @@ async function init() {
             ...info
         }));
 
+        populateCrisRegions();
         populateRegionFilter();
         initCustomDropdowns();
         filteredModels = [...allModels];
@@ -53,11 +95,102 @@ async function init() {
 
         // Add event listeners
         document.getElementById('searchInput').addEventListener('input', filterModels);
+
+        // Modal close listeners
+        document.querySelector('.close-modal').addEventListener('click', closeMapModal);
+        document.getElementById('mapModal').addEventListener('click', (e) => {
+            if (e.target.id === 'mapModal') closeMapModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMapModal();
+        });
+
     } catch (error) {
         console.error('Error loading models:', error);
         document.getElementById('modelsGrid').innerHTML =
             '<p style="color: #c62828;">Error loading models data. Please try again.</p>';
     }
+}
+
+function initMap() {
+    if (map) return;
+
+    // Initialize map centered on world
+    map = L.map('map').setView([20, 0], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+}
+
+function showRegionMap(crisType, modelName) {
+    const modal = document.getElementById('mapModal');
+    const title = document.getElementById('modalTitle');
+
+    title.textContent = `${modelName} - ${CRIS_REGIONS[crisType]} Regions`;
+    modal.classList.add('show');
+    modal.style.display = 'flex'; // Ensure display is flex for centering
+
+    // Need to wait for modal to be visible before sizing map
+    setTimeout(() => {
+        initMap();
+        map.invalidateSize();
+
+        // Clear existing markers
+        mapMarkers.forEach(marker => map.removeLayer(marker));
+        mapMarkers = [];
+
+        const regions = CRIS_PROFILE_REGIONS[crisType] || [];
+        const bounds = L.latLngBounds();
+
+        regions.forEach(regionCode => {
+            const location = REGION_LOCATIONS[regionCode];
+            if (location) {
+                const marker = L.marker([location.lat, location.lng])
+                    .bindPopup(`<b>${location.name}</b><br>${regionCode}`)
+                    .addTo(map);
+                mapMarkers.push(marker);
+                bounds.extend([location.lat, location.lng]);
+            }
+        });
+
+        if (regions.length > 0) {
+            map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
+        } else {
+            map.setView([20, 0], 2);
+        }
+    }, 100);
+}
+
+function closeMapModal() {
+    const modal = document.getElementById('mapModal');
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+function populateCrisRegions() {
+    const regionSets = {};
+
+    allModels.forEach(model => {
+        if (model.inferenceProfile) {
+            Object.entries(model.inferenceProfile).forEach(([profile, regions]) => {
+                if (!regionSets[profile]) {
+                    regionSets[profile] = new Set();
+                }
+                regions.forEach(region => regionSets[profile].add(region));
+            });
+        }
+    });
+
+    // Convert Sets to Arrays
+    CRIS_PROFILE_REGIONS = {};
+    Object.entries(regionSets).forEach(([profile, set]) => {
+        CRIS_PROFILE_REGIONS[profile] = Array.from(set).sort();
+    });
+
+    console.log('Populated CRIS Regions:', CRIS_PROFILE_REGIONS);
 }
 
 function populateRegionFilter() {
@@ -302,7 +435,7 @@ function renderModels() {
                 <div class="model-badges">
                     <span class="badge ${badgeClass}">${provider}</span>
                     ${crisTypes.map(type =>
-            `<span class="badge badge-inference">${CRIS_REGIONS[type]}</span>`
+            `<span class="badge badge-inference badge-interactive" onclick="showRegionMap('${type}', '${formattedName}')" title="View Map">${CRIS_REGIONS[type]}</span>`
         ).join('')}
                     ${otherTypes.map(type =>
             `<span class="badge badge-inference">${type.replace('_', ' ')}</span>`

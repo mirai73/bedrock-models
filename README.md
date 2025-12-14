@@ -6,7 +6,7 @@ A Python library that provides AWS Bedrock Foundation Model IDs with autocomplet
 
 This library helps developer to easily use Bedrock foundation models without having to lookup the model id or the correct cris profile prefix to use. The list of models is checked and updated daily.
 
-## 🌐 [Browse Models Online](https://massi-ang.github.io/bedrock-models/)
+## 🌐 [Browse Models Online](https://mirai73.github.io/bedrock-models/)
 
 Explore all available Bedrock models with our interactive web interface. Search by model name, filter by region, and find CRIS-enabled models.
 

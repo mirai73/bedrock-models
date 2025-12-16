@@ -116,12 +116,18 @@ function initMap() {
     if (map) return;
 
     // Initialize map centered on world
-    map = L.map('map').setView([20, 0], 2);
+    map = L.map('map', { maxZoom: 5 }).setView([20, 0], 2);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 }
+
+
+// CRIS Profile underlying regions (dynamically populated)
+// Structure: 
+// For GLOBAL: ["region1", "region2"]
+// For others: { "source_region1": ["target1", "target2"], ... }
 
 function showRegionMap(crisType, modelName) {
     const modal = document.getElementById('mapModal');
@@ -140,26 +146,170 @@ function showRegionMap(crisType, modelName) {
         mapMarkers.forEach(marker => map.removeLayer(marker));
         mapMarkers = [];
 
-        const regions = CRIS_PROFILE_REGIONS[crisType] || [];
+        const profileData = CRIS_PROFILE_REGIONS[crisType];
+
+        if (!profileData) {
+            map.setView([20, 0], 2);
+            return;
+        }
+
+        const isGlobal = Array.isArray(profileData);
         const bounds = L.latLngBounds();
 
-        regions.forEach(regionCode => {
+        // Helper to add marker
+        const addMarker = (regionCode, color, isSource = false, sourceFor = null) => {
             const location = REGION_LOCATIONS[regionCode];
-            if (location) {
-                const marker = L.marker([location.lat, location.lng])
-                    .bindPopup(`<b>${location.name}</b><br>${regionCode}`)
-                    .addTo(map);
-                mapMarkers.push(marker);
-                bounds.extend([location.lat, location.lng]);
-            }
-        });
+            if (!location) return null;
 
-        if (regions.length > 0) {
+            const marker = L.circleMarker([location.lat, location.lng], {
+                radius: 8,
+                fillColor: color,
+                color: '#fff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(map);
+
+            let popupContent = `<b>${location.name}</b><br>${regionCode}`;
+            if (isSource && !isGlobal) {
+                popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to see coverage</span>`;
+            }
+            marker.bindPopup(popupContent);
+
+            // Add tooltip for hover
+            marker.bindTooltip(`<b>${location.name}</b><br>${regionCode}`, {
+                permanent: false,
+                direction: 'top'
+            });
+
+            // Interaction for non-global source regions
+            if (isSource && !isGlobal && sourceFor) {
+                marker.on('click', () => {
+                    // Reset all markers to default state first
+                    updateMapState(profileData, regionCode);
+                });
+            }
+
+            mapMarkers.push(marker);
+            bounds.extend([location.lat, location.lng]);
+            return marker;
+        };
+
+        // Render Initial State
+        if (isGlobal) {
+            // GLOBAL: Just show all regions as Blue
+            profileData.forEach(region => addMarker(region, '#2196F3'));
+        } else {
+            // Regional: Check for selected region filter
+            let initialSource = null;
+            if (selectedRegion && profileData[selectedRegion]) {
+                initialSource = selectedRegion;
+            }
+
+            updateMapState(profileData, initialSource);
+        }
+
+        if (mapMarkers.length > 0) {
             map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
         } else {
             map.setView([20, 0], 2);
         }
     }, 100);
+}
+
+function updateMapState(profileData, activeSource) {
+    // Clear existing markers to redraw (simplest approach for state change)
+    mapMarkers.forEach(marker => map.removeLayer(marker));
+    mapMarkers = [];
+    const bounds = L.latLngBounds();
+
+    const sources = Object.keys(profileData);
+
+    // 1. Draw all sources first (z-index lower ideally, but map order matters)
+    sources.forEach(source => {
+        const isSelected = source === activeSource;
+        const color = isSelected ? '#2196F3' : '#9E9E9E'; // Blue if selected, Grey otherwise
+
+        const location = REGION_LOCATIONS[source];
+        if (!location) return;
+
+        const marker = L.circleMarker([location.lat, location.lng], {
+            radius: isSelected ? 10 : 8,
+            fillColor: color,
+            color: '#fff',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(map);
+
+        let popupContent = `<b>${location.name}</b><br>${source} (Source)`;
+        if (!isSelected) {
+            popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to show coverage</span>`;
+        }
+        marker.bindPopup(popupContent);
+
+        marker.bindTooltip(`<b>${location.name}</b><br>${source}`, {
+            permanent: false,
+            direction: 'top'
+        });
+
+        marker.on('click', () => {
+            updateMapState(profileData, source);
+        });
+
+        mapMarkers.push(marker);
+        bounds.extend([location.lat, location.lng]);
+    });
+
+    // 2. If a source is active, draw its targets
+    if (activeSource && profileData[activeSource]) {
+        const targets = profileData[activeSource];
+        targets.forEach(target => {
+            if (target === activeSource) return; // Already drawn as source
+
+            const location = REGION_LOCATIONS[target];
+            if (!location) return;
+
+            const marker = L.circleMarker([location.lat, location.lng], {
+                radius: 6,
+                fillColor: '#2196F3', // Blue for targets
+                color: '#fff',
+                weight: 1,
+                opacity: 0.8,
+                fillOpacity: 0.6
+            }).addTo(map);
+
+            // Check if this target is also a valid source
+            const isAlsoSource = !!profileData[target];
+
+            let popupContent = `<b>${location.name}</b><br>${target} (Target)`;
+            if (isAlsoSource) {
+                popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to switch view</span>`;
+            }
+            marker.bindPopup(popupContent);
+
+            marker.bindTooltip(`<b>${location.name}</b><br>${target}`, {
+                permanent: false,
+                direction: 'top'
+            });
+
+            if (isAlsoSource) {
+                marker.on('click', () => {
+                    updateMapState(profileData, target);
+                });
+            }
+
+            mapMarkers.push(marker);
+            bounds.extend([location.lat, location.lng]);
+        });
+
+        // Draw lines from source to targets? Optional but cool. 
+        // Keeping it simple for now as per plan: just highlight markers.
+    }
+
+    if (mapMarkers.length > 0) {
+        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
+    }
 }
 
 function closeMapModal() {
@@ -175,19 +325,46 @@ function populateCrisRegions() {
 
     allModels.forEach(model => {
         if (model.inferenceProfile) {
-            Object.entries(model.inferenceProfile).forEach(([profile, regions]) => {
-                if (!regionSets[profile]) {
-                    regionSets[profile] = new Set();
+            Object.entries(model.inferenceProfile).forEach(([profile, data]) => {
+                if (Array.isArray(data)) {
+                    // GLOBAL: List of regions
+                    if (!regionSets[profile]) {
+                        regionSets[profile] = new Set(); // Use Set for unique list
+                    }
+                    // For GLOBAL, we just store the list of regions
+                    data.forEach(r => regionSets[profile].add(r));
+                } else {
+                    // Regional: Dict of Source -> Targets
+                    // We need to merge this structure.
+                    // If multiple models have "US" profile, we merge their source maps.
+                    if (!regionSets[profile]) {
+                        regionSets[profile] = {}; // Object for source maps
+                    }
+
+                    Object.entries(data).forEach(([source, targets]) => {
+                        if (!regionSets[profile][source]) {
+                            regionSets[profile][source] = new Set();
+                        }
+                        targets.forEach(t => regionSets[profile][source].add(t));
+                    });
                 }
-                regions.forEach(region => regionSets[profile].add(region));
             });
         }
     });
 
-    // Convert Sets to Arrays
+    // Convert Sets to Arrays for final structure
     CRIS_PROFILE_REGIONS = {};
-    Object.entries(regionSets).forEach(([profile, set]) => {
-        CRIS_PROFILE_REGIONS[profile] = Array.from(set).sort();
+    Object.entries(regionSets).forEach(([profile, data]) => {
+        if (data instanceof Set) {
+            // Global
+            CRIS_PROFILE_REGIONS[profile] = Array.from(data).sort();
+        } else {
+            // Regional
+            CRIS_PROFILE_REGIONS[profile] = {};
+            Object.entries(data).forEach(([source, targetSet]) => {
+                CRIS_PROFILE_REGIONS[profile][source] = Array.from(targetSet).sort();
+            });
+        }
     });
 
     console.log('Populated CRIS Regions:', CRIS_PROFILE_REGIONS);

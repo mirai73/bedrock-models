@@ -208,10 +208,19 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
                                 
                                 # Update global inferenceProfile registry for this model
                                 for prefix, covered_regions in model_to_profiles[model_id].items():
-                                    # We merge regions if we see this profile from multiple places (should be consistent)
-                                    existing = set(model_mapping[model_id]['inferenceProfile'].get(prefix, []))
-                                    existing.update(covered_regions)
-                                    model_mapping[model_id]['inferenceProfile'][prefix] = sorted(list(existing))
+                                    if prefix == 'GLOBAL':
+                                        # GLOBAL is a list of all regions covered across all source regions
+                                        existing = set(model_mapping[model_id]['inferenceProfile'].get('GLOBAL', []))
+                                        existing.update(covered_regions)
+                                        model_mapping[model_id]['inferenceProfile']['GLOBAL'] = sorted(list(existing))
+                                    else:
+                                        # Regional profiles are now keyed by Source Region
+                                        # Structure: prefix -> { source_region -> [covered_regions] }
+                                        if prefix not in model_mapping[model_id]['inferenceProfile']:
+                                            model_mapping[model_id]['inferenceProfile'][prefix] = {}
+                                        
+                                        # Current 'region' is the source region
+                                        model_mapping[model_id]['inferenceProfile'][prefix][region] = sorted(list(covered_regions))
 
                         # Store inference types for this region
                         model_mapping[model_id]['inference_types'][region] = inference_types
@@ -246,8 +255,13 @@ def print_summary(model_mapping: Dict[str, Any]):
         # Print inference profiles if any
         if data.get('inferenceProfile'):
             print("  Inference Profiles:")
-            for prefix, covered in data['inferenceProfile'].items():
-                print(f"    {prefix}: {covered}")
+            for prefix, content in data['inferenceProfile'].items():
+                if prefix == 'GLOBAL':
+                    print(f"    {prefix}: {content}")
+                else:
+                    print(f"    {prefix}:")
+                    for src, covered in content.items():
+                        print(f"      From {src}: {covered}")
         
         print(f"  Inference types by region:")
         for region in sorted(regions):
@@ -270,10 +284,14 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = 'bedrock_models/
         
         # Add inferenceProfile if it exists and is not empty
         if data.get('inferenceProfile'):
-            entry['inferenceProfile'] = {
-                prefix: sorted(regions) 
-                for prefix, regions in sorted(data['inferenceProfile'].items())
-            }
+            entry['inferenceProfile'] = {}
+            for prefix, content in sorted(data['inferenceProfile'].items()):
+                if prefix == 'GLOBAL':
+                    entry['inferenceProfile'][prefix] = sorted(content)
+                else:
+                    entry['inferenceProfile'][prefix] = {
+                        src: sorted(tgts) for src, tgts in sorted(content.items())
+                    }
             
         sorted_mapping[model_id] = entry
     

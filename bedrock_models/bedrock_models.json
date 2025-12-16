@@ -796,9 +796,6 @@
       "eu-west-1": [
         "ON_DEMAND"
       ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
       "us-east-1": [
         "ON_DEMAND"
       ],
@@ -810,7 +807,6 @@
     "regions": [
       "ap-south-1",
       "eu-west-1",
-      "eu-west-2",
       "us-east-1",
       "us-west-2"
     ]
@@ -899,9 +895,6 @@
       ],
       "sa-east-1": [
         "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
@@ -910,8 +903,7 @@
       "ca-central-1",
       "eu-west-1",
       "eu-west-3",
-      "sa-east-1",
-      "us-east-1"
+      "sa-east-1"
     ]
   },
   "amazon.titan-tg1-large": {

@@ -28,11 +28,9 @@ class Models:
     AMAZON_TITAN_IMAGE_GENERATOR: Final[str]
     AMAZON_TITAN_TG1_LARGE: Final[str]
     ANTHROPIC_CLAUDE_3_5_HAIKU_20241022: Final[str]
-    ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[str]
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[str]
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001: Final[str]
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[str]
-    ANTHROPIC_CLAUDE_OPUS_4_20250514: Final[str]
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101: Final[str]
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[str]
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[str]
@@ -113,5 +111,7 @@ class Models:
     AMAZON_TITAN_TEXT_LITE: Final[str]  # deprecated: Model 'amazon.titan-text-lite-v1' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
+    ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[str]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_OPUS_20240229: Final[str]  # deprecated: Model 'anthropic.claude-3-opus-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[str]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
+    ANTHROPIC_CLAUDE_OPUS_4_20250514: Final[str]  # deprecated: Model 'anthropic.claude-opus-4-20250514-v1:0' has LEGACY status

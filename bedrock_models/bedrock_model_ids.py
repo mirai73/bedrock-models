@@ -43,11 +43,9 @@ class Models:
     AMAZON_TITAN_IMAGE_GENERATOR = "amazon.titan-image-generator-v2:0"
     AMAZON_TITAN_TG1_LARGE = "amazon.titan-tg1-large"
     ANTHROPIC_CLAUDE_3_5_HAIKU_20241022 = "anthropic.claude-3-5-haiku-20241022-v1:0"
-    ANTHROPIC_CLAUDE_3_7_SONNET_20250219 = "anthropic.claude-3-7-sonnet-20250219-v1:0"
     ANTHROPIC_CLAUDE_3_HAIKU_20240307 = "anthropic.claude-3-haiku-20240307-v1:0"
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001 = "anthropic.claude-haiku-4-5-20251001-v1:0"
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = "anthropic.claude-opus-4-1-20250805-v1:0"
-    ANTHROPIC_CLAUDE_OPUS_4_20250514 = "anthropic.claude-opus-4-20250514-v1:0"
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101 = "anthropic.claude-opus-4-5-20251101-v1:0"
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = "anthropic.claude-sonnet-4-20250514-v1:0"
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929 = "anthropic.claude-sonnet-4-5-20250929-v1:0"
@@ -128,5 +126,7 @@ class Models:
     AMAZON_TITAN_TEXT_LITE = _DeprecatedModelDescriptor("amazon.titan-text-lite-v1", "Model 'amazon.titan-text-lite-v1' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20240620-v1:0", "Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20241022-v2:0", "Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    ANTHROPIC_CLAUDE_3_7_SONNET_20250219 = _DeprecatedModelDescriptor("anthropic.claude-3-7-sonnet-20250219-v1:0", "Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_OPUS_20240229 = _DeprecatedModelDescriptor("anthropic.claude-3-opus-20240229-v1:0", "Model 'anthropic.claude-3-opus-20240229-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_SONNET_20240229 = _DeprecatedModelDescriptor("anthropic.claude-3-sonnet-20240229-v1:0", "Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    ANTHROPIC_CLAUDE_OPUS_4_20250514 = _DeprecatedModelDescriptor("anthropic.claude-opus-4-20250514-v1:0", "Model 'anthropic.claude-opus-4-20250514-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

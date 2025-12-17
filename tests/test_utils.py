@@ -6,7 +6,7 @@ from bedrock_models import Models, is_model_available, get_available_regions
 
 def test_is_model_available():
     """Test checking model availability in regions."""
-    model_id = Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219
+    model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
     # This should be available in us-east-1
     assert is_model_available(model_id, "us-east-1") or is_model_available(model_id, "us-west-2")
 
@@ -24,12 +24,12 @@ def test_is_model_available_without_region():
     # Mock _get_region_from_boto3 to return None
     with patch.object(utils, '_get_region_from_boto3', return_value=None):
         with pytest.raises(ValueError, match="Region must be provided"):
-            is_model_available(Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219)
+            is_model_available(Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929)
 
 
 def test_get_available_regions():
     """Test getting available regions for a model."""
-    model_id = Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219
+    model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
     regions = get_available_regions(model_id)
     assert isinstance(regions, list)
     assert len(regions) > 0
@@ -46,7 +46,7 @@ def test_has_global_profile():
     from bedrock_models import has_global_profile
     
     # Test with a model that might have global profile
-    model_id = Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219
+    model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
     regions = get_available_regions(model_id)
     
     # Just verify the function works without errors
@@ -66,7 +66,7 @@ def test_cris_model_id():
     """Test getting CRIS model ID (geo or global)."""
     from bedrock_models import cris_model_id
     
-    model_id = Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219
+    model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
     
     # Test with explicit region
     result = cris_model_id(model_id, region="us-east-1")
@@ -84,14 +84,14 @@ def test_cris_model_id_without_region():
     # Mock _get_region_from_boto3 to return None
     with patch.object(utils, '_get_region_from_boto3', return_value=None):
         with pytest.raises(ValueError, match="Region must be provided"):
-            cris_model_id(Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219)
+            cris_model_id(Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929)
 
 
 def test_global_model_id():
     """Test getting global model ID."""
     from bedrock_models import global_model_id
     
-    model_id = Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219
+    model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
     regions = get_available_regions(model_id)
     
     # Test with a region where the model is available
@@ -115,7 +115,7 @@ def test_global_model_id_without_region():
     # Mock _get_region_from_boto3 to return None
     with patch.object(utils, '_get_region_from_boto3', return_value=None):
         with pytest.raises(ValueError, match="Region must be provided"):
-            global_model_id(Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219)
+            global_model_id(Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929)
 
 
 def test_ca_central_1_inference_profiles():

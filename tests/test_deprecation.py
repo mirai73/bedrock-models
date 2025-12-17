@@ -25,12 +25,12 @@ def test_active_model_no_deprecation_warning():
     with warnings.catch_warnings(record=True) as w:
         warnings.simplefilter("always")
         
-        # Access an ACTIVE model (Claude 3.7 Sonnet is newer and active)
-        model_id = Models.ANTHROPIC_CLAUDE_3_7_SONNET_20250219
+        # Access an ACTIVE model (Claude 4.5 Sonnet is newer and active)
+        model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
         
         # Check that no warning was issued
         assert len(w) == 0
-        assert model_id == "anthropic.claude-3-7-sonnet-20250219-v1:0"
+        assert model_id == "anthropic.claude-sonnet-4-5-20250929-v1:0"
 
 
 def test_multiple_legacy_model_accesses():

@@ -894,17 +894,13 @@
       ],
       "us-east-1": [
         "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
     "regions": [
       "ap-south-1",
       "eu-west-1",
-      "us-east-1",
-      "us-west-2"
+      "us-east-1"
     ]
   },
   "amazon.titan-image-generator-v2:0": {
@@ -979,15 +975,11 @@
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
-      ],
-      "ca-central-1": [
-        "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
     "regions": [
-      "ap-south-1",
-      "ca-central-1"
+      "ap-south-1"
     ]
   },
   "amazon.titan-tg1-large": {
@@ -4461,7 +4453,8 @@
       ],
       "ap-northeast-2": [
         "APAC",
-        "GLOBAL"
+        "GLOBAL",
+        "ON_DEMAND"
       ],
       "ap-northeast-3": [
         "GLOBAL"
@@ -4470,6 +4463,12 @@
         "GLOBAL"
       ],
       "ap-south-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
         "GLOBAL"
       ],
       "ap-southeast-3": [
@@ -4511,7 +4510,8 @@
         "GLOBAL"
       ],
       "eu-west-1": [
-        "EU"
+        "EU",
+        "GLOBAL"
       ],
       "eu-west-2": [
         "EU",
@@ -4538,6 +4538,7 @@
       ],
       "us-east-1": [
         "GLOBAL",
+        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -4549,6 +4550,7 @@
         "US"
       ],
       "us-west-2": [
+        "GLOBAL",
         "US"
       ]
     },
@@ -4561,6 +4563,8 @@
       "ap-northeast-3",
       "ap-south-1",
       "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",

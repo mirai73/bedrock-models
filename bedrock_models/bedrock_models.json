@@ -886,21 +886,13 @@
   },
   "amazon.titan-image-generator-v1": {
     "inference_types": {
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
       "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
         "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
     "regions": [
-      "ap-south-1",
-      "eu-west-1",
-      "us-east-1"
+      "eu-west-1"
     ]
   },
   "amazon.titan-image-generator-v2:0": {

@@ -89,6 +89,7 @@ class Models:
     MISTRAL_VOXTRAL_SMALL_24B_2507 = "mistral.voxtral-small-24b-2507"
     MOONSHOT_KIMI_K2_THINKING = "moonshot.kimi-k2-thinking"
     NVIDIA_NEMOTRON_NANO_12B = "nvidia.nemotron-nano-12b-v2"
+    NVIDIA_NEMOTRON_NANO_3_30B = "nvidia.nemotron-nano-3-30b"
     NVIDIA_NEMOTRON_NANO_9B = "nvidia.nemotron-nano-9b-v2"
     OPENAI_GPT_OSS_120B = "openai.gpt-oss-120b-1:0"
     OPENAI_GPT_OSS_20B = "openai.gpt-oss-20b-1:0"
@@ -121,7 +122,6 @@ class Models:
     TWELVELABS_PEGASUS_1_2 = "twelvelabs.pegasus-1-2-v1:0"
     WRITER_PALMYRA_X4 = "writer.palmyra-x4-v1:0"
     WRITER_PALMYRA_X5 = "writer.palmyra-x5-v1:0"
-    AMAZON_TITAN_IMAGE_GENERATOR = _DeprecatedModelDescriptor("amazon.titan-image-generator-v1", "Model 'amazon.titan-image-generator-v1' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     AMAZON_TITAN_TEXT_EXPRESS = _DeprecatedModelDescriptor("amazon.titan-text-express-v1", "Model 'amazon.titan-text-express-v1' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     AMAZON_TITAN_TEXT_LITE = _DeprecatedModelDescriptor("amazon.titan-text-lite-v1", "Model 'amazon.titan-text-lite-v1' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20240620-v1:0", "Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

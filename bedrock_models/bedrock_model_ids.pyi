@@ -74,6 +74,7 @@ class Models:
     MISTRAL_VOXTRAL_SMALL_24B_2507: Final[str]
     MOONSHOT_KIMI_K2_THINKING: Final[str]
     NVIDIA_NEMOTRON_NANO_12B: Final[str]
+    NVIDIA_NEMOTRON_NANO_3_30B: Final[str]
     NVIDIA_NEMOTRON_NANO_9B: Final[str]
     OPENAI_GPT_OSS_120B: Final[str]
     OPENAI_GPT_OSS_20B: Final[str]
@@ -106,7 +107,6 @@ class Models:
     TWELVELABS_PEGASUS_1_2: Final[str]
     WRITER_PALMYRA_X4: Final[str]
     WRITER_PALMYRA_X5: Final[str]
-    AMAZON_TITAN_IMAGE_GENERATOR: Final[str]  # deprecated: Model 'amazon.titan-image-generator-v1' has LEGACY status
     AMAZON_TITAN_TEXT_EXPRESS: Final[str]  # deprecated: Model 'amazon.titan-text-express-v1' has LEGACY status
     AMAZON_TITAN_TEXT_LITE: Final[str]  # deprecated: Model 'amazon.titan-text-lite-v1' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status

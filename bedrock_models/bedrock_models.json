@@ -842,17 +842,6 @@
       "us-west-2"
     ]
   },
-  "amazon.titan-image-generator-v1": {
-    "inference_types": {
-      "eu-west-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "regions": [
-      "eu-west-1"
-    ]
-  },
   "amazon.titan-image-generator-v2:0": {
     "inference_types": {
       "us-east-1": [
@@ -872,49 +861,13 @@
   },
   "amazon.titan-text-express-v1": {
     "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ca-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-3": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
       "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
         "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
     "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-2",
-      "ca-central-1",
-      "eu-central-1",
-      "eu-west-1",
-      "eu-west-3",
-      "sa-east-1",
-      "us-east-1",
-      "us-west-2"
+      "us-east-1"
     ]
   },
   "amazon.titan-text-lite-v1": {
@@ -3415,6 +3368,45 @@
       "ap-south-1",
       "eu-south-1",
       "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ]
+  },
+  "nvidia.nemotron-nano-3-30b": {
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "eu-south-1",
       "eu-west-2",
       "sa-east-1",
       "us-east-1",

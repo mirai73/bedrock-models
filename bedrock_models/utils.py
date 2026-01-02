@@ -218,7 +218,7 @@ def cris_model_id(model_id: str, region: Optional[str] = None) -> str:
 
     
     # Check for geo-specific profile first (prefer regional over global)
-    available_geo_profiles = [t for t in inference_types if t != "GLOBAL"]
+    available_geo_profiles = [t for t in inference_types if t != "GLOBAL" and t != "ON_DEMAND"]
     if available_geo_profiles:
         # Use the first available geo-specific profile (typically there's only one per region)
         prefix = available_geo_profiles[0].lower()

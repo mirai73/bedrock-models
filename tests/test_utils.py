@@ -54,14 +54,6 @@ def test_has_global_profile():
         result = has_global_profile(model_id, regions[0])
         assert isinstance(result, bool)
 
-
-
-
-
-
-
-
-
 def test_cris_model_id():
     """Test getting CRIS model ID (geo or global)."""
     from bedrock_models import cris_model_id
@@ -71,9 +63,32 @@ def test_cris_model_id():
     # Test with explicit region
     result = cris_model_id(model_id, region="us-east-1")
     # Should return geo CRIS if INFERENCE_PROFILE is available
-    assert result.startswith("us.") or result.startswith("global.")
+    assert result.startswith("us.")
     assert model_id in result
 
+def test_cris_model_id_on_demand():
+    """Test getting CRIS model ID (geo or global)."""
+    from bedrock_models import cris_model_id
+    
+    model_id = Models.AMAZON_NOVA_LITE
+    
+    # Test with explicit region
+    result = cris_model_id(model_id, region="us-east-1")
+    # Should return geo CRIS if INFERENCE_PROFILE is available
+    assert result.startswith("us.")
+    assert model_id in result
+
+def test_cris_model_id_global():
+    """Test getting CRIS model ID (geo or global)."""
+    from bedrock_models import cris_model_id
+    
+    model_id = Models.AMAZON_NOVA_2_LITE
+    
+    # Test with explicit region
+    result = cris_model_id(model_id, region="eu-west-2")
+    # Should return geo CRIS if INFERENCE_PROFILE is available
+    assert result.startswith("global.")
+    assert model_id in result
 
 def test_cris_model_id_without_region():
     """Test CRIS model ID without region (should use boto3)."""

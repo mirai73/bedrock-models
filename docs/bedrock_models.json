@@ -23,56 +23,6 @@
   },
   "amazon.nova-2-lite-v1:0": {
     "inferenceProfile": {
-      "EU": {
-        "eu-central-1": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-south-1",
-          "eu-south-2",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-north-1": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-south-1",
-          "eu-south-2",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-south-1": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-south-1",
-          "eu-south-2",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-south-2": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-south-1",
-          "eu-south-2",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-1": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-south-1",
-          "eu-south-2",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-3": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-south-1",
-          "eu-south-2",
-          "eu-west-1",
-          "eu-west-3"
-        ]
-      },
       "GLOBAL": [
         "ap-east-2",
         "ap-northeast-1",
@@ -86,13 +36,7 @@
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
-        "eu-central-1",
-        "eu-north-1",
-        "eu-south-1",
-        "eu-south-2",
-        "eu-west-1",
         "eu-west-2",
-        "eu-west-3",
         "il-central-1",
         "me-central-1",
         "us-east-1",
@@ -182,31 +126,7 @@
         "GLOBAL",
         "US"
       ],
-      "eu-central-1": [
-        "EU",
-        "GLOBAL"
-      ],
-      "eu-north-1": [
-        "EU",
-        "GLOBAL"
-      ],
-      "eu-south-1": [
-        "EU",
-        "GLOBAL"
-      ],
-      "eu-south-2": [
-        "EU",
-        "GLOBAL"
-      ],
-      "eu-west-1": [
-        "EU",
-        "GLOBAL"
-      ],
       "eu-west-2": [
-        "GLOBAL"
-      ],
-      "eu-west-3": [
-        "EU",
         "GLOBAL"
       ],
       "il-central-1": [
@@ -246,13 +166,7 @@
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-south-2",
-      "eu-west-1",
       "eu-west-2",
-      "eu-west-3",
       "il-central-1",
       "me-central-1",
       "us-east-1",
@@ -277,9 +191,6 @@
       "ap-northeast-1": [
         "ON_DEMAND"
       ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
       "us-east-1": [
         "ON_DEMAND"
       ],
@@ -290,7 +201,6 @@
     "model_lifecycle_status": "ACTIVE",
     "regions": [
       "ap-northeast-1",
-      "eu-north-1",
       "us-east-1",
       "us-west-2"
     ]
@@ -1448,29 +1358,6 @@
       "us-west-2"
     ]
   },
-  "amazon.titan-image-generator-v1": {
-    "inference_types": {
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "regions": [
-      "ap-south-1",
-      "eu-west-1",
-      "us-east-1",
-      "us-west-2"
-    ]
-  },
   "amazon.titan-image-generator-v2:0": {
     "inference_types": {
       "us-east-1": [
@@ -1490,80 +1377,24 @@
   },
   "amazon.titan-text-express-v1": {
     "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ca-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "eu-west-3": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
       "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
         "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
     "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-2",
-      "ca-central-1",
-      "eu-central-1",
-      "eu-west-1",
-      "eu-west-2",
-      "eu-west-3",
-      "sa-east-1",
-      "us-east-1",
-      "us-west-2"
+      "us-east-1"
     ]
   },
   "amazon.titan-text-lite-v1": {
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
-      ],
-      "ca-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-3": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
     "regions": [
-      "ap-south-1",
-      "ca-central-1",
-      "eu-west-1",
-      "eu-west-3",
-      "sa-east-1"
+      "ap-south-1"
     ]
   },
   "amazon.titan-tg1-large": {
@@ -2000,7 +1831,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -2547,7 +2378,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "regions": [
       "us-east-1",
       "us-east-2",
@@ -5108,6 +4939,45 @@
       "us-west-2"
     ]
   },
+  "nvidia.nemotron-nano-3-30b": {
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "eu-south-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ]
+  },
   "nvidia.nemotron-nano-9b-v2": {
     "inference_types": {
       "ap-northeast-1": [
@@ -6329,6 +6199,8 @@
         "ap-northeast-3",
         "ap-south-1",
         "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
@@ -6340,6 +6212,7 @@
         "eu-north-1",
         "eu-south-1",
         "eu-south-2",
+        "eu-west-1",
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
@@ -6349,7 +6222,8 @@
         "sa-east-1",
         "us-east-1",
         "us-east-2",
-        "us-west-1"
+        "us-west-1",
+        "us-west-2"
       ],
       "US": {
         "us-east-1": [
@@ -6388,7 +6262,8 @@
       ],
       "ap-northeast-2": [
         "APAC",
-        "GLOBAL"
+        "GLOBAL",
+        "ON_DEMAND"
       ],
       "ap-northeast-3": [
         "GLOBAL"
@@ -6397,6 +6272,12 @@
         "GLOBAL"
       ],
       "ap-south-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
         "GLOBAL"
       ],
       "ap-southeast-3": [
@@ -6438,7 +6319,8 @@
         "GLOBAL"
       ],
       "eu-west-1": [
-        "EU"
+        "EU",
+        "GLOBAL"
       ],
       "eu-west-2": [
         "EU",
@@ -6465,6 +6347,7 @@
       ],
       "us-east-1": [
         "GLOBAL",
+        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -6476,6 +6359,7 @@
         "US"
       ],
       "us-west-2": [
+        "GLOBAL",
         "US"
       ]
     },
@@ -6488,6 +6372,8 @@
       "ap-northeast-3",
       "ap-south-1",
       "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",

@@ -27,9 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Copy latest models data
-        run: cp bedrock_models/bedrock_models.json docs/bedrock_models.json
-      
       - name: Setup Pages
         uses: actions/configure-pages@v4
       

@@ -129,7 +129,7 @@ function initMap() {
 // For GLOBAL: ["region1", "region2"]
 // For others: { "source_region1": ["target1", "target2"], ... }
 
-function showRegionMap(crisType, modelName) {
+function showRegionMap(crisType, modelId, modelName) {
     const modal = document.getElementById('mapModal');
     const title = document.getElementById('modalTitle');
 
@@ -146,12 +146,31 @@ function showRegionMap(crisType, modelName) {
         mapMarkers.forEach(marker => map.removeLayer(marker));
         mapMarkers = [];
 
-        const profileData = CRIS_PROFILE_REGIONS[crisType];
+        let profileData = CRIS_PROFILE_REGIONS[crisType];
 
         if (!profileData) {
             map.setView([20, 0], 2);
             return;
         }
+
+        // Filter profileData based on model availability logic from hasInferenceType
+        const model = allModels.find(m => m.id === modelId);
+        if (model) {
+            if (Array.isArray(profileData)) {
+                // Global: Filter the array of regions
+                profileData = profileData.filter(region => hasInferenceType(model, crisType, region));
+            } else {
+                // Regional: Filter the keys (sources) of the object
+                const filteredData = {};
+                Object.keys(profileData).forEach(source => {
+                    if (hasInferenceType(model, crisType, source)) {
+                        filteredData[source] = profileData[source];
+                    }
+                });
+                profileData = filteredData;
+            }
+        }
+
 
         const isGlobal = Array.isArray(profileData);
         const bounds = L.latLngBounds();
@@ -612,7 +631,7 @@ function renderModels() {
                 <div class="model-badges">
                     <span class="badge ${badgeClass}">${provider}</span>
                     ${crisTypes.map(type =>
-            `<span class="badge badge-inference badge-interactive" onclick="showRegionMap('${type}', '${formattedName}')" title="View Map">${CRIS_REGIONS[type]}</span>`
+            `<span class="badge badge-inference badge-interactive" onclick="showRegionMap('${type}', '${model.id}', '${formattedName}')" title="View Map">${CRIS_REGIONS[type]}</span>`
         ).join('')}
                     ${otherTypes.map(type =>
             `<span class="badge badge-inference">${type.replace('_', ' ')}</span>`

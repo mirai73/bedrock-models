@@ -277,6 +277,9 @@
       "ap-northeast-1": [
         "ON_DEMAND"
       ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
       "us-east-1": [
         "ON_DEMAND"
       ],
@@ -287,6 +290,7 @@
     "model_lifecycle_status": "ACTIVE",
     "regions": [
       "ap-northeast-1",
+      "eu-north-1",
       "us-east-1",
       "us-west-2"
     ]

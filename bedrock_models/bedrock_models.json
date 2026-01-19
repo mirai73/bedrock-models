@@ -1465,28 +1465,6 @@
       "us-west-2"
     ]
   },
-  "amazon.titan-text-express-v1": {
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "regions": [
-      "us-east-1"
-    ]
-  },
-  "amazon.titan-text-lite-v1": {
-    "inference_types": {
-      "ap-south-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "regions": [
-      "ap-south-1"
-    ]
-  },
   "amazon.titan-tg1-large": {
     "inference_types": {
       "us-east-1": [

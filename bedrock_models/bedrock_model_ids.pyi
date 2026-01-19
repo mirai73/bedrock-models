@@ -107,8 +107,6 @@ class Models:
     TWELVELABS_PEGASUS_1_2: Final[str]
     WRITER_PALMYRA_X4: Final[str]
     WRITER_PALMYRA_X5: Final[str]
-    AMAZON_TITAN_TEXT_EXPRESS: Final[str]  # deprecated: Model 'amazon.titan-text-express-v1' has LEGACY status
-    AMAZON_TITAN_TEXT_LITE: Final[str]  # deprecated: Model 'amazon.titan-text-lite-v1' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[str]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status

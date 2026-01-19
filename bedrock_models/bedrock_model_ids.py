@@ -122,8 +122,6 @@ class Models:
     TWELVELABS_PEGASUS_1_2 = "twelvelabs.pegasus-1-2-v1:0"
     WRITER_PALMYRA_X4 = "writer.palmyra-x4-v1:0"
     WRITER_PALMYRA_X5 = "writer.palmyra-x5-v1:0"
-    AMAZON_TITAN_TEXT_EXPRESS = _DeprecatedModelDescriptor("amazon.titan-text-express-v1", "Model 'amazon.titan-text-express-v1' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    AMAZON_TITAN_TEXT_LITE = _DeprecatedModelDescriptor("amazon.titan-text-lite-v1", "Model 'amazon.titan-text-lite-v1' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20240620-v1:0", "Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20241022-v2:0", "Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219 = _DeprecatedModelDescriptor("anthropic.claude-3-7-sonnet-20250219-v1:0", "Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

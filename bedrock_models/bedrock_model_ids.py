@@ -47,6 +47,7 @@ class Models:
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001 = "anthropic.claude-haiku-4-5-20251001-v1:0"
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = "anthropic.claude-opus-4-1-20250805-v1:0"
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101 = "anthropic.claude-opus-4-5-20251101-v1:0"
+    ANTHROPIC_CLAUDE_OPUS_4_6 = "anthropic.claude-opus-4-6-v1"
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = "anthropic.claude-sonnet-4-20250514-v1:0"
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929 = "anthropic.claude-sonnet-4-5-20250929-v1:0"
     COHERE_COMMAND_R = "cohere.command-r-v1:0"

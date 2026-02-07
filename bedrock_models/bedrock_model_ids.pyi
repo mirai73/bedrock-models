@@ -43,6 +43,7 @@ class Models:
     COHERE_RERANK: Final[str]
     DEEPSEEK_R1: Final[str]
     DEEPSEEK_V3: Final[str]
+    DEEPSEEK_V3_2: Final[str]
     GOOGLE_GEMMA_3_12B_IT: Final[str]
     GOOGLE_GEMMA_3_27B_IT: Final[str]
     GOOGLE_GEMMA_3_4B_IT: Final[str]
@@ -60,6 +61,7 @@ class Models:
     META_LLAMA4_MAVERICK_17B_INSTRUCT: Final[str]
     META_LLAMA4_SCOUT_17B_INSTRUCT: Final[str]
     MINIMAX_MINIMAX_M2: Final[str]
+    MINIMAX_MINIMAX_M2_1: Final[str]
     MISTRAL_MAGISTRAL_SMALL_2509: Final[str]
     MISTRAL_MINISTRAL_3_14B_INSTRUCT: Final[str]
     MISTRAL_MINISTRAL_3_3B_INSTRUCT: Final[str]
@@ -73,6 +75,7 @@ class Models:
     MISTRAL_PIXTRAL_LARGE_2502: Final[str]
     MISTRAL_VOXTRAL_MINI_3B_2507: Final[str]
     MISTRAL_VOXTRAL_SMALL_24B_2507: Final[str]
+    MOONSHOTAI_KIMI_K2_5: Final[str]
     MOONSHOT_KIMI_K2_THINKING: Final[str]
     NVIDIA_NEMOTRON_NANO_12B: Final[str]
     NVIDIA_NEMOTRON_NANO_3_30B: Final[str]
@@ -85,6 +88,7 @@ class Models:
     QWEN_QWEN3_32B: Final[str]
     QWEN_QWEN3_CODER_30B_A3B: Final[str]
     QWEN_QWEN3_CODER_480B_A35B: Final[str]
+    QWEN_QWEN3_CODER_NEXT: Final[str]
     QWEN_QWEN3_NEXT_80B_A3B: Final[str]
     QWEN_QWEN3_VL_235B_A22B: Final[str]
     STABILITY_SD3_5_LARGE: Final[str]
@@ -108,6 +112,8 @@ class Models:
     TWELVELABS_PEGASUS_1_2: Final[str]
     WRITER_PALMYRA_X4: Final[str]
     WRITER_PALMYRA_X5: Final[str]
+    ZAI_GLM_4_7: Final[str]
+    ZAI_GLM_4_7_FLASH: Final[str]
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[str]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[str]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status

@@ -58,6 +58,7 @@ class Models:
     COHERE_RERANK = "cohere.rerank-v3-5:0"
     DEEPSEEK_R1 = "deepseek.r1-v1:0"
     DEEPSEEK_V3 = "deepseek.v3-v1:0"
+    DEEPSEEK_V3_2 = "deepseek.v3.2"
     GOOGLE_GEMMA_3_12B_IT = "google.gemma-3-12b-it"
     GOOGLE_GEMMA_3_27B_IT = "google.gemma-3-27b-it"
     GOOGLE_GEMMA_3_4B_IT = "google.gemma-3-4b-it"
@@ -75,6 +76,7 @@ class Models:
     META_LLAMA4_MAVERICK_17B_INSTRUCT = "meta.llama4-maverick-17b-instruct-v1:0"
     META_LLAMA4_SCOUT_17B_INSTRUCT = "meta.llama4-scout-17b-instruct-v1:0"
     MINIMAX_MINIMAX_M2 = "minimax.minimax-m2"
+    MINIMAX_MINIMAX_M2_1 = "minimax.minimax-m2.1"
     MISTRAL_MAGISTRAL_SMALL_2509 = "mistral.magistral-small-2509"
     MISTRAL_MINISTRAL_3_14B_INSTRUCT = "mistral.ministral-3-14b-instruct"
     MISTRAL_MINISTRAL_3_3B_INSTRUCT = "mistral.ministral-3-3b-instruct"
@@ -88,6 +90,7 @@ class Models:
     MISTRAL_PIXTRAL_LARGE_2502 = "mistral.pixtral-large-2502-v1:0"
     MISTRAL_VOXTRAL_MINI_3B_2507 = "mistral.voxtral-mini-3b-2507"
     MISTRAL_VOXTRAL_SMALL_24B_2507 = "mistral.voxtral-small-24b-2507"
+    MOONSHOTAI_KIMI_K2_5 = "moonshotai.kimi-k2.5"
     MOONSHOT_KIMI_K2_THINKING = "moonshot.kimi-k2-thinking"
     NVIDIA_NEMOTRON_NANO_12B = "nvidia.nemotron-nano-12b-v2"
     NVIDIA_NEMOTRON_NANO_3_30B = "nvidia.nemotron-nano-3-30b"
@@ -100,6 +103,7 @@ class Models:
     QWEN_QWEN3_32B = "qwen.qwen3-32b-v1:0"
     QWEN_QWEN3_CODER_30B_A3B = "qwen.qwen3-coder-30b-a3b-v1:0"
     QWEN_QWEN3_CODER_480B_A35B = "qwen.qwen3-coder-480b-a35b-v1:0"
+    QWEN_QWEN3_CODER_NEXT = "qwen.qwen3-coder-next"
     QWEN_QWEN3_NEXT_80B_A3B = "qwen.qwen3-next-80b-a3b"
     QWEN_QWEN3_VL_235B_A22B = "qwen.qwen3-vl-235b-a22b"
     STABILITY_SD3_5_LARGE = "stability.sd3-5-large-v1:0"
@@ -123,6 +127,8 @@ class Models:
     TWELVELABS_PEGASUS_1_2 = "twelvelabs.pegasus-1-2-v1:0"
     WRITER_PALMYRA_X4 = "writer.palmyra-x4-v1:0"
     WRITER_PALMYRA_X5 = "writer.palmyra-x5-v1:0"
+    ZAI_GLM_4_7 = "zai.glm-4.7"
+    ZAI_GLM_4_7_FLASH = "zai.glm-4.7-flash"
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20240620-v1:0", "Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20241022-v2:0", "Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219 = _DeprecatedModelDescriptor("anthropic.claude-3-7-sonnet-20250219-v1:0", "Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

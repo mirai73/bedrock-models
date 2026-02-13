@@ -1,218 +1,102 @@
-# Bedrock Models
+# Bedrock Models Explorer Monorepo
 
-[![PyPI version](https://badge.fury.io/py/bedrock-models.svg)](https://badge.fury.io/py/bedrock-models)
+[![Build Status](https://github.com/mirai73/bedrock-models/actions/workflows/ci.yml/badge.svg)](https://github.com/mirai73/bedrock-models/actions)
+[![License: MIT-0](https://img.shields.io/badge/License-MIT--0-blue.svg)](https://opensource.org/licenses/MIT-0)
 
-A Python library that provides AWS Bedrock Foundation Model IDs with autocomplete support and utility functions for cross-region inference.
-
-This library helps developer to easily use Bedrock foundation models without having to lookup the model id or the correct cris profile prefix to use. The list of models is checked and updated daily.
+A comprehensive toolkit for working with Amazon Bedrock foundation models, providing type-safe model IDs, cross-region inference utilities, and an interactive explorer.
 
 ## 🌐 [Browse Models Online](https://mirai73.github.io/bedrock-models/)
 
 Explore all available Bedrock models with our interactive web interface. Search by model name, filter by region, and find CRIS-enabled models.
 
+## Repository Structure
+
+This is a monorepo managed with `pnpm` and `turbo`.
+
+- **[`packages/python`](file:///packages/python)**: Python library with model constants and CRIS utilities.
+- **[`packages/typescript`](file:///packages/typescript)**: TypeScript/JavaScript library with parity to the Python implementation.
+- **[`apps/docs`](file:///apps/docs)**: Source for the interactive Model Explorer website.
+- **[`packages/shared`](file:///packages/shared)**: Shared data (`bedrock_models.json`) and generation scripts.
+
 ## Features
 
-- **Type-safe model IDs**: Access all Bedrock model IDs as Python constants with full autocomplete support
-- **Cross-region inference**: Automatically generate CRIS (Cross-Region Inference Service) prefixed model IDs
-- **Region validation**: Check model availability across AWS regions
-- **Auto-updated**: Model IDs are automatically updated weekly from AWS Bedrock API
+- **Type-safe model IDs**: Access all Bedrock model IDs as constants with full autocomplete support in Python and TypeScript.
+- **Cross-Region Inference (CRIS)**: Automatically generate geo-prefixed or global model IDs.
+- **Region Validation**: Check model availability across AWS regions.
+- **Auto-updated**: Model data is refreshed weekly from the AWS Bedrock API.
 
-## Installation
+## Quick Start
+
+### Python
 
 ```bash
 pip install bedrock-models
 ```
 
-## Quick Start
-
-The following code is portable across regions without any change
-
-```python
-import boto3
-from bedrock_models import Models, cris_model_id, global_model_id
-
-
-client = boto3.client('bedrock-runtime')
-
-# Get model ID with autocomplete
-model = Models.ANTHROPIC_CLAUDE_HAIKU_4_5_20251001
-
-# The correct geo profile id is determined from the boto3 default region
-# regional geo profile is preferred, and falls back to global profile
-client.converse(modelId=cris_model_id(model), messages=[...])
-
-# To force a global profile, if available in the region, use global_model_id
-client.converse(modelId=global_model_id(model), messages=[...])
-
-```
-
-## Usage
-
-### Basic Model IDs
-
-```python
-from bedrock_models import Models
-
-# Access model IDs with autocomplete
-model_id = Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022
-# Returns: "anthropic.claude-3-5-sonnet-20241022-v2:0"
-
-model_id = Models.AMAZON_NOVA_PRO
-# Returns: "amazon.nova-pro-v1:0"
-```
-
-### Cross-Region Inference (CRIS)
-
 ```python
 from bedrock_models import Models, cris_model_id
 
-# Get CRIS model ID (automatically chooses geo or global based on availability)
-cris_id = cris_model_id(
-    Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022,
-    region="us-east-1"
-)
-# Returns: "us.anthropic.claude-3-5-sonnet-20241022-v2:0" (geo CRIS if INFERENCE_PROFILE available)
-# Or: "global.anthropic.claude-3-5-sonnet-20241022-v2:0" (if only GLOBAL available)
+# Use model IDs with autocomplete
+model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
+# Get regional CRIS ID
+cris_id = cris_model_id(model_id, region="us-east-1")
 
-# Different region prefix (AP regions use "apac")
-cris_id = cris_model_id(
-    Models.AMAZON_NOVA_PRO,
-    region="ap-south-1"
-)
-# Returns: "apac.amazon.nova-pro-v1:0"
-
-# Auto-detect region from boto3 (if installed and configured)
-# AWS_DEFAULT_REGION=us-west-2
-import boto3
-
-cris_id = cris_model_id(
-    Models.AMAZON_NOVA_PRO  # region auto-detected from boto3
-)
-# Returns: "us.amazon.nova-pro-v1:0"
+# Qwen example
+qwen_id = Models.QWEN_QWEN3_32B.cris("ap-southeast-1")
 ```
 
-### Check Model Availability
+### TypeScript / JavaScript
 
-```python
-from bedrock_models import Models, is_model_available, get_available_regions
-
-# Check if a model is available in a specific region
-available = is_model_available(Models.AMAZON_NOVA_PRO, "us-west-2")
-# Returns: True or False
-
-# Auto-detect region from boto3 (if installed and configured)
-available = is_model_available(Models.AMAZON_NOVA_PRO)
-# Uses region from boto3 session
-
-# Get all regions where a model is available
-regions = get_available_regions(Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022)
-# Returns: ['us-east-1', 'us-west-2', 'ap-south-1', ...]
+```bash
+npm install bedrock-models
 ```
 
-### Inference Profiles
+```typescript
+import { Models, crisModelId } from 'bedrock-models';
 
-```python
-from bedrock_models import (
-    Models,
-    cris_model_id,
-    global_model_id,
-    has_global_profile,
-)
+// Use model IDs with autocomplete
+const modelId = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929;
+// Get regional CRIS ID
+const crisId = crisModelId(modelId, 'us-east-1');
 
-# Get CRIS model ID (automatically chooses geo or global based on availability)
-model_id = cris_model_id(Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022, region="us-east-1")
-# Returns: "us.anthropic.claude-3-5-sonnet-20241022-v2:0" (geo CRIS)
-# Or: "global.anthropic.claude-3-5-sonnet-20241022-v2:0" (if only global available)
+// Or use the fluent API
+const fluentId = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929.cris('us-east-1');
 
-# Get global inference profile ID (if supported in region)
-global_id = global_model_id(Models.AMAZON_NOVA_PRO, region="us-east-1")
-# Returns: "global.amazon.nova-pro-v1:0"
-# Raises ValueError if global profile not supported in region
-
-# Check if a model has a global inference profile in a region
-has_global = has_global_profile(
-    Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022,
-    "us-east-1"
-)
-# Returns: True or False
+// Qwen example
+const qwenId = Models.QWEN_QWEN3_32B.cris('ap-southeast-1');
 ```
 
 ## Development
 
+### Prerequisites
+
+- [pnpm](https://pnpm.io/)
+- [Python 3.10+](https://www.python.org/)
+- [Poetry](https://python-poetry.org/) (for Python package development)
+
 ### Setup
 
 ```bash
-# Install Poetry
-curl -sSL https://install.python-poetry.org | python3 -
+# Install Node.js dependencies
+pnpm install
 
-# Install dependencies
-poetry install
+# Build all packages
+pnpm build
 
 # Run tests
-poetry run pytest
+pnpm test
 ```
 
-### Regenerate Model IDs
+### Regenerating Model Data
 
-To update the model IDs from AWS Bedrock:
+The model data is centralized in `packages/shared/bedrock_models.json`. To update it:
 
 ```bash
-# Set AWS credentials
-export AWS_ACCESS_KEY_ID=your_key
-export AWS_SECRET_ACCESS_KEY=your_secret
-
-# Generate model data from AWS
-python utils/generate_models_json.py
-
-# Generate Python class
-python utils/generate_model_class.py
-
-# Run tests
-poetry run pytest
+pnpm generate
 ```
 
-### Required IAM Permissions
-
-The AWS credentials need the following least-privilege IAM policy:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "BedrockReadOnly",
-      "Effect": "Allow",
-      "Action": [
-        "bedrock:ListFoundationModels",
-        "bedrock:ListInferenceProfiles"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "EC2DescribeRegions",
-      "Effect": "Allow",
-      "Action": [
-        "ec2:DescribeRegions"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-
-
-
-## Credits
-
-This project uses the following open-source libraries and data in the github pages site:
-
--   **[Leaflet](https://leafletjs.com/)**: An open-source JavaScript library for mobile-friendly interactive maps. Copyright (c) 2010-2023, Volodymyr Agafonkin.
--   **[OpenStreetMap](https://www.openstreetmap.org/)**: Map data © OpenStreetMap contributors.
+This runs the Python script that fetches the latest models from AWS (requires AWS credentials).
 
 ## License
 
 MIT-0
-
-## Author
-
-Massimiliano Angelino <massi.ang@gmail.com>

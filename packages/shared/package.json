@@ -1,0 +1,8 @@
+{
+    "name": "@bedrock-models/shared",
+    "version": "0.1.0",
+    "private": true,
+    "exports": {
+        "./bedrock_models.json": "./bedrock_models.json"
+    }
+}

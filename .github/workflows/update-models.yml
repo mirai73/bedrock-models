@@ -1,0 +1,85 @@
+name: Update Bedrock Models
+
+on:
+  workflow_dispatch:  # Manual trigger
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+
+jobs:
+  update-models:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: latest
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      
+      - name: Install dependencies
+        run: |
+          cd packages/python
+          poetry install --no-interaction --with dev
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      
+      - name: Generate model data from AWS Bedrock
+        run: |
+          cd packages/python
+          poetry run python utils/generate_models_json.py
+          # Ensure it's copied to shared
+          cp bedrock_models/bedrock_models.json ../shared/bedrock_models.json
+      
+      - name: Generate model classes (Python and TypeScript)
+        run: |
+          python3 packages/shared/scripts/generate_models.py
+      
+      - name: Copy latest models data to docs
+        run: cp packages/shared/bedrock_models.json apps/docs/bedrock_models.json
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet packages/shared/bedrock_models.json || echo "changes=true" >> $GITHUB_OUTPUT
+      
+      - name: Bump version, commit and push
+        if: steps.check_changes.outputs.changes == 'true'
+        id: bump_version
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Bump patch version in python
+          cd packages/python
+          poetry version patch
+          NEW_VERSION=$(poetry version -s)
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          
+          # Add all changed files
+          git add ../shared/bedrock_models.json
+          git add bedrock_models/
+          git add pyproject.toml
+          git add ../typescript/src/models.ts
+          git add ../../apps/docs/bedrock_models.json
+          
+          git commit -m "chore: update Bedrock model IDs to v$NEW_VERSION"
+          git tag "v$NEW_VERSION"
+          git push
+          git push --tags

@@ -630,12 +630,22 @@ function renderModels() {
                 
                 <div class="model-badges">
                     <span class="badge ${badgeClass}">${provider}</span>
-                    ${crisTypes.map(type =>
-            `<span class="badge badge-inference badge-interactive" onclick="showRegionMap('${type}', '${model.id}', '${formattedName}')" title="View Map">${CRIS_REGIONS[type]}</span>`
-        ).join('')}
-                    ${otherTypes.map(type =>
-            `<span class="badge badge-inference">${type.replace('_', ' ')}</span>`
-        ).join('')}
+                    ${crisTypes.map(type => {
+            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+            const disabledClass = isDisabled ? 'badge-disabled' : '';
+            const clickHandler = isDisabled ? '' : `onclick="showRegionMap('${type}', '${model.id}', '${formattedName}')"`;
+            // If disabled, remove interactive class and title
+            const interactiveClass = isDisabled ? '' : 'badge-interactive';
+            const titleAttr = isDisabled ? 'title="Not available in selected region"' : 'title="View Map"';
+
+            return `<span class="badge badge-inference ${interactiveClass} ${disabledClass}" ${clickHandler} ${titleAttr}>${CRIS_REGIONS[type]}</span>`;
+        }).join('')}
+                    ${otherTypes.map(type => {
+            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+            const disabledClass = isDisabled ? 'badge-disabled' : '';
+            const titleAttr = isDisabled ? 'title="Not available in selected region"' : '';
+            return `<span class="badge badge-inference ${disabledClass}" ${titleAttr}>${type.replace('_', ' ')}</span>`;
+        }).join('')}
                     <span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">
                         ${model.model_lifecycle_status}
                     </span>

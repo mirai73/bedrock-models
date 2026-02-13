@@ -6,6 +6,9 @@ A Python library that provides AWS Bedrock Foundation Model IDs with autocomplet
 
 This library helps developer to easily use Bedrock foundation models without having to lookup the model id or the correct cris profile prefix to use. The list of models is checked and updated daily.
 
+> [!NOTE]
+> This package is part of the [Bedrock Models Monorepo](../../README.md). A **TypeScript/JavaScript** version is also available in the [`packages/typescript`](../typescript) directory.
+
 ## 🌐 [Browse Models Online](https://mirai73.github.io/bedrock-models/)
 
 Explore all available Bedrock models with our interactive web interface. Search by model name, filter by region, and find CRIS-enabled models.
@@ -44,6 +47,9 @@ client.converse(modelId=cris_model_id(model), messages=[...])
 # To force a global profile, if available in the region, use global_model_id
 client.converse(modelId=global_model_id(model), messages=[...])
 
+# Qwen example
+client.converse(modelId=Models.QWEN_QWEN3_32B.cris("ap-southeast-1"), messages=[...])
+
 ```
 
 ## Usage
@@ -54,8 +60,8 @@ client.converse(modelId=global_model_id(model), messages=[...])
 from bedrock_models import Models
 
 # Access model IDs with autocomplete
-model_id = Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022
-# Returns: "anthropic.claude-3-5-sonnet-20241022-v2:0"
+model_id = Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929
+# Returns: "anthropic.claude-sonnet-4-5-20250929-v1:0"
 
 model_id = Models.AMAZON_NOVA_PRO
 # Returns: "amazon.nova-pro-v1:0"
@@ -68,11 +74,11 @@ from bedrock_models import Models, cris_model_id
 
 # Get CRIS model ID (automatically chooses geo or global based on availability)
 cris_id = cris_model_id(
-    Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022,
+    Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929,
     region="us-east-1"
 )
-# Returns: "us.anthropic.claude-3-5-sonnet-20241022-v2:0" (geo CRIS if INFERENCE_PROFILE available)
-# Or: "global.anthropic.claude-3-5-sonnet-20241022-v2:0" (if only GLOBAL available)
+# Returns: "us.anthropic.claude-sonnet-4-5-20250929-v1:0" (geo CRIS if INFERENCE_PROFILE available)
+# Or: "global.anthropic.claude-sonnet-4-5-20250929-v1:0" (if only GLOBAL available)
 
 # Different region prefix (AP regions use "apac")
 cris_id = cris_model_id(
@@ -105,7 +111,7 @@ available = is_model_available(Models.AMAZON_NOVA_PRO)
 # Uses region from boto3 session
 
 # Get all regions where a model is available
-regions = get_available_regions(Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022)
+regions = get_available_regions(Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929)
 # Returns: ['us-east-1', 'us-west-2', 'ap-south-1', ...]
 ```
 
@@ -120,9 +126,9 @@ from bedrock_models import (
 )
 
 # Get CRIS model ID (automatically chooses geo or global based on availability)
-model_id = cris_model_id(Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022, region="us-east-1")
-# Returns: "us.anthropic.claude-3-5-sonnet-20241022-v2:0" (geo CRIS)
-# Or: "global.anthropic.claude-3-5-sonnet-20241022-v2:0" (if only global available)
+model_id = cris_model_id(Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929, region="us-east-1")
+# Returns: "us.anthropic.claude-sonnet-4-5-20250929-v1:0" (geo CRIS)
+# Or: "global.anthropic.claude-sonnet-4-5-20250929-v1:0" (if only global available)
 
 # Get global inference profile ID (if supported in region)
 global_id = global_model_id(Models.AMAZON_NOVA_PRO, region="us-east-1")
@@ -131,7 +137,7 @@ global_id = global_model_id(Models.AMAZON_NOVA_PRO, region="us-east-1")
 
 # Check if a model has a global inference profile in a region
 has_global = has_global_profile(
-    Models.ANTHROPIC_CLAUDE_3_5_SONNET_20241022,
+    Models.ANTHROPIC_CLAUDE_SONNET_4_5_20250929,
     "us-east-1"
 )
 # Returns: True or False

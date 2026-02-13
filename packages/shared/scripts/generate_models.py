@@ -52,12 +52,25 @@ def generate_python(active_models, legacy_models, output_file, stub_file):
         '"""',
         '',
         'import warnings',
+        'from .utils import cris_model_id, global_model_id',
+        '',
+        '',
+        'class BedrockModel(str):',
+        '    """Specialized string type that adds Bedrock-specific methods."""',
+        '',
+        '    def cris(self, region: str = None) -> str:',
+        '        """Get the cross-region inference (CRIS) model ID for this model."""',
+        '        return cris_model_id(str(self), region)',
+        '',
+        '    def global_cris(self, region: str = None) -> str:',
+        '        """Get the global inference profile ID for this model."""',
+        '        return global_model_id(str(self), region)',
         '',
         '',
         'class _DeprecatedModelDescriptor:',
         '    """Descriptor that emits deprecation warning when accessed."""',
         '    def __init__(self, model_id: str, message: str):',
-        '        self.model_id = model_id',
+        '        self.model_id = BedrockModel(model_id)',
         '        self.message = message',
         '    def __get__(self, obj, objtype=None):',
         '        warnings.warn(self.message, DeprecationWarning, stacklevel=2)',
@@ -72,7 +85,7 @@ def generate_python(active_models, legacy_models, output_file, stub_file):
     ]
     
     for field_name in sorted(active_models.keys()):
-        lines.append(f'    {field_name} = "{active_models[field_name]}"')
+        lines.append(f'    {field_name} = BedrockModel("{active_models[field_name]}")')
     
     for field_name in sorted(legacy_models.keys()):
         model_id = legacy_models[field_name]
@@ -83,16 +96,20 @@ def generate_python(active_models, legacy_models, output_file, stub_file):
         f.write('\n'.join(lines) + '\n')
         
     stub_lines = [
-        'from typing import Final',
+        'from typing import Final, Optional',
+        '',
+        'class BedrockModel(str):',
+        '    def cris(self, region: Optional[str] = None) -> str: ...',
+        '    def global_cris(self, region: Optional[str] = None) -> str: ...',
         '',
         'class Models:',
         ''
     ]
     for field_name in sorted(active_models.keys()):
-        stub_lines.append(f'    {field_name}: Final[str]')
+        stub_lines.append(f'    {field_name}: Final[BedrockModel]')
     for field_name in sorted(legacy_models.keys()):
         model_id = legacy_models[field_name]
-        stub_lines.append(f'    {field_name}: Final[str]  # deprecated: Model \'{model_id}\' has LEGACY status')
+        stub_lines.append(f'    {field_name}: Final[BedrockModel]  # deprecated: Model \'{model_id}\' has LEGACY status')
         
     with open(stub_file, 'w') as f:
         f.write('\n'.join(stub_lines) + '\n')

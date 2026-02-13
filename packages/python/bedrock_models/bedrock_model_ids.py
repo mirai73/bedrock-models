@@ -1,6 +1,5 @@
 """
 Auto-generated class containing AWS Bedrock Foundation Model IDs.
-Generated from bedrock_models.json
 """
 
 import warnings
@@ -8,15 +7,12 @@ import warnings
 
 class _DeprecatedModelDescriptor:
     """Descriptor that emits deprecation warning when accessed."""
-    
     def __init__(self, model_id: str, message: str):
         self.model_id = model_id
         self.message = message
-    
     def __get__(self, obj, objtype=None):
         warnings.warn(self.message, DeprecationWarning, stacklevel=2)
         return self.model_id
-    
     def __set_name__(self, owner, name):
         self.name = name
 

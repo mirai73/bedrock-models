@@ -1,0 +1,19 @@
+{
+    "name": "bedrock-models-monorepo",
+    "private": true,
+    "packageManager": "pnpm@8.15.1",
+    "scripts": {
+        "build": "turbo build",
+        "test": "turbo test",
+        "lint": "turbo lint",
+        "dev": "turbo dev",
+        "generate": "python3 packages/shared/scripts/generate_models.py"
+    },
+    "devDependencies": {
+        "turbo": "latest"
+    },
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ]
+}

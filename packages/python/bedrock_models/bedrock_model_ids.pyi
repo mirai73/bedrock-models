@@ -1,13 +1,6 @@
-"""
-Type stub file for bedrock_model_ids.py
-Provides IDE support and type hints for Bedrock model IDs.
-"""
-
 from typing import Final
 
-
 class Models:
-    """Static class containing Bedrock foundation model IDs as constants."""
 
     AI21_JAMBA_1_5_LARGE: Final[str]
     AI21_JAMBA_1_5_MINI: Final[str]

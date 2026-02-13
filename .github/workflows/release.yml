@@ -8,6 +8,9 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     
     steps:
       - name: Checkout code
@@ -26,21 +29,27 @@ jobs:
           virtualenvs-in-project: true
       
       - name: Install dependencies
-        run: poetry install --no-interaction
+        run: |
+          cd packages/python
+          poetry install --no-interaction
       
       - name: Run tests
-        run: poetry run pytest tests/
+        run: |
+          cd packages/python
+          poetry run pytest tests/
       
       - name: Build package
-        run: poetry build
+        run: |
+          cd packages/python
+          poetry build
       
       - name: Publish to PyPI
-        env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
-        run: poetry publish --no-interaction
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: packages/python/dist/
       
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/*
+          files: packages/python/dist/*
           generate_release_notes: true

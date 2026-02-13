@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'bedrock_models/bedrock_models.json'
-      - 'docs/**'
+      - 'packages/shared/bedrock_models.json'
+      - 'apps/docs/**'
   workflow_dispatch:
 
 permissions:
@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'docs'
+          path: 'apps/docs'
       
       - name: Deploy to GitHub Pages
         id: deployment

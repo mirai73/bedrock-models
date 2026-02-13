@@ -8,6 +8,9 @@ on:
 jobs:
   generate-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     
     steps:
       - name: Checkout code
@@ -82,9 +85,7 @@ jobs:
       
       - name: Publish to PyPI
         if: steps.check_changes.outputs.changes == 'true'
-        env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
-        run: poetry publish --no-interaction
+        uses: pypa/gh-action-pypi-publish@release/v1
       
       - name: Create GitHub Release
         if: steps.check_changes.outputs.changes == 'true'

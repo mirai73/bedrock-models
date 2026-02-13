@@ -4149,6 +4149,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "ap-southeast-3": [
         "ON_DEMAND"
       ],
@@ -4169,6 +4172,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-north-1",
       "eu-west-2",
@@ -4182,6 +4186,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
@@ -4210,6 +4217,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-north-1",
       "eu-west-2",
@@ -4227,6 +4235,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -4253,6 +4264,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -4270,6 +4282,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -4296,6 +4311,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -4313,6 +4329,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -4339,6 +4358,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -4860,6 +4880,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -4886,6 +4909,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -4901,6 +4925,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
@@ -4938,6 +4965,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-central-1",
       "eu-north-1",
@@ -4958,35 +4986,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "ACTIVE",
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ]
-  },
-  "mistral.ministral-3-14b-instruct": {
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -5015,6 +5015,54 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ]
+  },
+  "mistral.ministral-3-14b-instruct": {
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5032,35 +5080,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "ACTIVE",
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ]
-  },
-  "mistral.ministral-3-8b-instruct": {
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -5089,6 +5109,54 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ]
+  },
+  "mistral.ministral-3-8b-instruct": {
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5203,6 +5271,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "sa-east-1": [
         "ON_DEMAND"
       ],
@@ -5220,6 +5291,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
@@ -5368,6 +5440,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -5394,6 +5469,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5411,6 +5487,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -5437,6 +5516,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5452,6 +5532,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "sa-east-1": [
@@ -5471,6 +5554,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
@@ -5483,6 +5567,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
@@ -5511,6 +5598,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-north-1",
       "eu-west-2",
@@ -5528,6 +5616,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -5554,6 +5645,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5571,6 +5663,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -5597,6 +5692,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5614,6 +5710,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -5640,6 +5739,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5655,6 +5755,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
@@ -5692,6 +5795,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-central-1",
       "eu-north-1",
@@ -5712,6 +5816,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "ap-southeast-3": [
         "ON_DEMAND"
       ],
@@ -5747,6 +5854,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-central-1",
       "eu-north-1",
@@ -5767,6 +5875,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -5793,6 +5904,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5810,6 +5922,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -5836,6 +5951,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5853,6 +5969,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "ap-southeast-3": [
         "ON_DEMAND"
       ],
@@ -5879,6 +5998,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-central-1",
       "eu-north-1",
@@ -5894,6 +6014,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
@@ -5931,6 +6054,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-central-1",
       "eu-north-1",
@@ -5951,6 +6075,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "ap-southeast-3": [
         "ON_DEMAND"
       ],
@@ -5986,6 +6113,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-central-1",
       "eu-north-1",
@@ -6004,6 +6132,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
@@ -6026,6 +6157,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-north-1",
       "eu-west-2",
@@ -6035,6 +6167,9 @@
   },
   "qwen.qwen3-coder-next": {
     "inference_types": {
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-west-2": [
         "ON_DEMAND"
       ],
@@ -6044,6 +6179,7 @@
     },
     "model_lifecycle_status": "ACTIVE",
     "regions": [
+      "ap-southeast-2",
       "eu-west-2",
       "us-east-1"
     ]
@@ -6054,6 +6190,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -6082,6 +6221,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -6099,6 +6239,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "eu-south-1": [
         "ON_DEMAND"
       ],
@@ -6125,6 +6268,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -7146,6 +7290,9 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
       "ap-southeast-3": [
         "ON_DEMAND"
       ],
@@ -7172,6 +7319,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-north-1",
       "eu-west-2",
@@ -7187,6 +7335,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
@@ -7224,6 +7375,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
+      "ap-southeast-2",
       "ap-southeast-3",
       "eu-central-1",
       "eu-north-1",

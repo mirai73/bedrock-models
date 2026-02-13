@@ -30,6 +30,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
+      - name: Prepare site
+        run: |
+          # Create .nojekyll
+          touch apps/docs/.nojekyll
+          # Dereference symlinks (replace bedrock_models.json symlink with real file)
+          cp -L apps/docs/bedrock_models.json apps/docs/bedrock_models_real.json
+          mv apps/docs/bedrock_models_real.json apps/docs/bedrock_models.json
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

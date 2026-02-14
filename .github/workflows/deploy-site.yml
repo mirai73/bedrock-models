@@ -5,7 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'packages/shared/bedrock_models.json'
-      - 'apps/docs/**'
+      - 'docs/**'
   workflow_dispatch:
 
 permissions:
@@ -29,19 +29,25 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
       
       - name: Prepare site
         run: |
-          # Create .nojekyll
-          touch apps/docs/.nojekyll
           # Dereference symlinks (replace bedrock_models.json symlink with real file)
-          cp -L apps/docs/bedrock_models.json apps/docs/bedrock_models_real.json
-          mv apps/docs/bedrock_models_real.json apps/docs/bedrock_models.json
+          if [ -L docs/bedrock_models.json ]; then
+            cp -L docs/bedrock_models.json docs/bedrock_models_real.json
+            rm docs/bedrock_models.json
+            mv docs/bedrock_models_real.json docs/bedrock_models.json
+          fi
+          # Create .nojekyll to bypass Jekyll processing
+          touch docs/.nojekyll
+          ls -la docs/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'apps/docs'
+          path: 'docs'
       
       - name: Deploy to GitHub Pages
         id: deployment

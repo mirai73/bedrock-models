@@ -15,7 +15,7 @@ This is a monorepo managed with `pnpm` and `turbo`.
 
 - **[`packages/python`](file:///packages/python)**: Python library with model constants and CRIS utilities.
 - **[`packages/typescript`](file:///packages/typescript)**: TypeScript/JavaScript library with parity to the Python implementation.
-- **[`apps/docs`](file:///apps/docs)**: Source for the interactive Model Explorer website.
+- **[`docs`](file:///docs)**: Source for the interactive Model Explorer website.
 - **[`packages/shared`](file:///packages/shared)**: Shared data (`bedrock_models.json`) and generation scripts.
 
 ## Features

@@ -81,7 +81,7 @@ jobs:
           git add packages/python/pyproject.toml
           git add packages/typescript/src/models.ts
           git add packages/typescript/package.json
-          git add apps/docs/bedrock_models.json
+          git add docs/bedrock_models.json
           
           git commit -m "chore: update Bedrock model IDs to v$NEW_VERSION / ts-v$TS_VERSION"
           git tag "v$NEW_VERSION"

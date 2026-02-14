@@ -397,7 +397,7 @@ function showAllRegions(modelId, modelName) {
     if (hasOnDemand) legendHtml += `
         <div class="legend-item">
             <span class="inference-icon-small type-r" title="On-Demand">R</span>
-            <span>On-Demand</span>
+            <span>In-Region</span>
         </div>`;
 
     legend.innerHTML = legendHtml;

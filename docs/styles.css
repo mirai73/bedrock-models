@@ -468,6 +468,61 @@ header {
     color: #2e7d32;
 }
 
+[data-theme="dark"] .badge-anthropic {
+    background: #3d1f66;
+    color: #d4b3ff;
+}
+
+[data-theme="dark"] .badge-amazon {
+    background: #663d00;
+    color: #ffcc80;
+}
+
+[data-theme="dark"] .badge-ai21 {
+    background: #0d3d66;
+    color: #90caf9;
+}
+
+[data-theme="dark"] .badge-cohere {
+    background: #004d40;
+    color: #80cbc4;
+}
+
+[data-theme="dark"] .badge-meta {
+    background: #5c0f33;
+    color: #f48fb1;
+}
+
+[data-theme="dark"] .badge-mistral {
+    background: #663d00;
+    color: #ffb74d;
+}
+
+[data-theme="dark"] .badge-stability {
+    background: #4a1466;
+    color: #ce93d8;
+}
+
+[data-theme="dark"] .badge-default {
+    background: #1a237e;
+    color: #9fa8da;
+}
+
+[data-theme="dark"] .badge-inference {
+    background: #1b5e20;
+    color: #a5d6a7;
+}
+
+[data-theme="dark"] .badge-legacy {
+    background: #5c1414;
+    color: #ef9a9a;
+}
+
+[data-theme="dark"] .badge-active {
+    background: #1b5e20;
+    color: #a5d6a7;
+}
+
 .model-id {
     font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
     font-size: 12px;
@@ -661,6 +716,10 @@ header {
     display: flex;
     align-items: center;
     color: #0066cc;
+}
+
+[data-theme="dark"] .region-count-section .section-title {
+    color: #5eb3ff;
 }
 
 .info-hint {

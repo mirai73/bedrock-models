@@ -396,8 +396,8 @@ function showAllRegions(modelId, modelName) {
         </div>`;
     if (hasOnDemand) legendHtml += `
         <div class="legend-item">
-            <span class="inference-icon-small type-r" title="On-Demand">R</span>
-            <span>In-Region</span>
+            <span class="inference-icon-small type-r" title="In Region">R</span>
+            <span>In Region</span>
         </div>`;
 
     legend.innerHTML = legendHtml;
@@ -418,7 +418,7 @@ function showAllRegions(modelId, modelName) {
                 <div class="inference-icons-container">
                     ${isGlobal ? '<span class="inference-icon-small type-g" title="Global CRIS">G</span>' : ''}
                     ${isCris ? '<span class="inference-icon-small type-c" title="Region CRIS">C</span>' : ''}
-                    ${isOnDemand ? '<span class="inference-icon-small type-r" title="On-Demand">R</span>' : ''}
+                    ${isOnDemand ? '<span class="inference-icon-small type-r" title="In Region">R</span>' : ''}
                 </div>
             </div>
         `;
@@ -751,7 +751,7 @@ function renderModels() {
             const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
             const disabledClass = isDisabled ? 'badge-disabled' : '';
             const titleAttr = isDisabled ? 'title="Not available in selected region"' : '';
-            return `<span class="badge badge-inference ${disabledClass}" ${titleAttr}>${type.replace('_', ' ')}</span>`;
+            return `<span class="badge badge-inference ${disabledClass}" ${titleAttr}>${type !== 'ON_DEMAND' ? type.replace('_', ' ') : 'In Region'}</span>`;
         }).join('')}
                     <span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">
                         ${model.model_lifecycle_status}

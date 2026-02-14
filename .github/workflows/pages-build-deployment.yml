@@ -1,4 +1,4 @@
-name: Deploy Bedrock Models Explorer
+name: pages build and deployment
 
 on:
   push:

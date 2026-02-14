@@ -1,27 +1,44 @@
 {
   "ai21.jamba-1-5-large-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "ai21.jamba-1-5-mini-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.nova-2-lite-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-central-1": [
@@ -232,7 +249,15 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-east-2",
       "ap-northeast-1",
@@ -259,20 +284,33 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.nova-2-multimodal-embeddings-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "AUDIO",
+      "IMAGE",
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.nova-2-sonic-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -287,15 +325,26 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "SPEECH"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "SPEECH",
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "eu-north-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.nova-canvas-v1:0": {
+    "customizationsSupported": [
+      "FINE_TUNING"
+    ],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -308,14 +357,23 @@
         "PROVISIONED"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "ap-northeast-1",
       "eu-west-1",
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.nova-lite-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-east-2": [
@@ -593,7 +651,15 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-east-2",
       "ap-northeast-1",
@@ -620,9 +686,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.nova-micro-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-east-2": [
@@ -858,7 +926,13 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-east-2",
       "ap-northeast-1",
@@ -881,9 +955,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.nova-premier-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -914,14 +990,24 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.nova-pro-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-east-2": [
@@ -1181,7 +1267,15 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-east-2",
       "ap-northeast-1",
@@ -1206,9 +1300,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.nova-reel-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -1220,25 +1316,43 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "VIDEO"
+    ],
     "regions": [
       "ap-northeast-1",
       "eu-west-1",
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.nova-reel-v1:1": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "VIDEO"
+    ],
     "regions": [
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.nova-sonic-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -1250,14 +1364,23 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "SPEECH"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "SPEECH",
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "eu-north-1",
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "amazon.rerank-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -1272,15 +1395,23 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ca-central-1",
       "eu-central-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.titan-embed-g1-text-02": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
@@ -1289,13 +1420,21 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.titan-embed-image-v1": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
@@ -1328,7 +1467,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-south-1",
       "ap-southeast-2",
@@ -1340,9 +1486,11 @@
       "sa-east-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.titan-embed-text-v1": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -1357,15 +1505,23 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-northeast-1",
       "eu-central-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.titan-embed-text-v2:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -1425,7 +1581,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -1446,9 +1608,13 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.titan-image-generator-v2:0": {
+    "customizationsSupported": [
+      "FINE_TUNING"
+    ],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND",
@@ -1459,13 +1625,22 @@
         "PROVISIONED"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "amazon.titan-tg1-large": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
@@ -1474,13 +1649,21 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-3-5-haiku-20241022-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -1506,14 +1689,22 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-south-1": [
@@ -1604,7 +1795,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "LEGACY",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -1618,9 +1816,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-3-5-sonnet-20241022-v2:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-northeast-1": [
@@ -1727,7 +1927,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "LEGACY",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -1739,9 +1946,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-3-7-sonnet-20250219-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-northeast-1": [
@@ -1899,7 +2108,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "LEGACY",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -1916,9 +2132,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-3-haiku-20240307-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-central-1": [
@@ -1983,7 +2201,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -2000,9 +2225,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-3-opus-20240229-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -2019,13 +2246,22 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "LEGACY",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-northeast-1": [
@@ -2100,7 +2336,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "LEGACY",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -2115,9 +2358,11 @@
       "sa-east-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "AU": {
         "ap-southeast-2": [
@@ -2386,7 +2631,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "af-south-1",
       "ap-east-2",
@@ -2420,9 +2672,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -2453,14 +2707,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-opus-4-20250514-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -2491,14 +2754,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "LEGACY",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-central-1": [
@@ -2743,7 +3015,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "af-south-1",
       "ap-east-2",
@@ -2777,9 +3056,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-opus-4-6-v1": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "AU": {
         "ap-southeast-2": [
@@ -3043,7 +3324,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "af-south-1",
       "ap-east-2",
@@ -3077,9 +3365,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-sonnet-4-20250514-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-east-2": [
@@ -3391,7 +3681,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-east-2",
       "ap-northeast-1",
@@ -3417,9 +3714,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "anthropic.claude-sonnet-4-5-20250929-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "AU": {
         "ap-southeast-2": [
@@ -3688,7 +3987,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "af-south-1",
       "ap-east-2",
@@ -3722,9 +4028,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "cohere.command-r-plus-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
@@ -3733,13 +4041,21 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "cohere.command-r-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
@@ -3748,13 +4064,21 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "cohere.embed-english-v3": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -3793,7 +4117,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -3807,9 +4137,11 @@
       "sa-east-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "cohere.embed-multilingual-v3": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -3848,7 +4180,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -3862,9 +4200,11 @@
       "sa-east-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "cohere.embed-v4:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-central-1": [
@@ -4049,7 +4389,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-northeast-2",
@@ -4074,9 +4421,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "cohere.rerank-v3-5:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4094,16 +4443,24 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ca-central-1",
       "eu-central-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "deepseek.r1-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4134,14 +4491,22 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "deepseek.v3-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4168,7 +4533,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -4178,9 +4549,11 @@
       "eu-west-2",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "deepseek.v3.2": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4213,7 +4586,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -4225,9 +4604,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "google.gemma-3-12b-it": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4260,7 +4641,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -4272,9 +4660,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "google.gemma-3-27b-it": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4307,7 +4697,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -4319,9 +4716,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "google.gemma-3-4b-it": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4354,7 +4753,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -4366,20 +4772,30 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "luma.ray-v2:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-west-2": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "VIDEO"
+    ],
     "regions": [
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "meta.llama3-1-405b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-2": [
@@ -4397,13 +4813,21 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-1-70b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4435,14 +4859,22 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-1-8b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4474,14 +4906,22 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-2-11b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4510,14 +4950,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-2-1b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-central-1": [
@@ -4572,7 +5021,13 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "eu-central-1",
       "eu-west-1",
@@ -4580,9 +5035,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-2-3b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-central-1": [
@@ -4637,7 +5094,13 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "eu-central-1",
       "eu-west-1",
@@ -4645,9 +5108,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-2-90b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4676,14 +5141,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-3-70b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4715,14 +5189,22 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-70b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
@@ -4740,16 +5222,24 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-south-1",
       "ca-central-1",
       "eu-west-2",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama3-8b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
@@ -4767,16 +5257,24 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-south-1",
       "ca-central-1",
       "eu-west-2",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama4-maverick-17b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4816,15 +5314,24 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "meta.llama4-scout-17b-instruct-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -4864,15 +5371,24 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "minimax.minimax-m2": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4905,7 +5421,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -4917,9 +5439,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "minimax.minimax-m2.1": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -4961,7 +5485,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -4976,9 +5506,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.magistral-small-2509": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5011,7 +5543,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5023,9 +5562,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.ministral-3-14b-instruct": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5058,7 +5599,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5070,9 +5618,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.ministral-3-3b-instruct": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5105,7 +5655,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5117,9 +5674,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.ministral-3-8b-instruct": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5152,7 +5711,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5164,9 +5730,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.mistral-7b-instruct-v0:2": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
@@ -5196,7 +5764,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-south-1",
       "ap-southeast-2",
@@ -5207,9 +5781,11 @@
       "sa-east-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.mistral-large-2402-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
@@ -5239,7 +5815,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-south-1",
       "ap-southeast-2",
@@ -5250,20 +5832,30 @@
       "sa-east-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.mistral-large-2407-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-west-2": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.mistral-large-3-675b-instruct": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5287,7 +5879,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5296,20 +5895,30 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.mistral-small-2402-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-east-1": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.mixtral-8x7b-instruct-v0:1": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
@@ -5339,7 +5948,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-south-1",
       "ap-southeast-2",
@@ -5350,9 +5965,11 @@
       "sa-east-1",
       "us-east-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.pixtral-large-2502-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-central-1": [
@@ -5421,7 +6038,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "eu-central-1",
       "eu-north-1",
@@ -5430,9 +6054,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.voxtral-mini-3b-2507": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5465,7 +6091,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "SPEECH",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5477,9 +6110,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "mistral.voxtral-small-24b-2507": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5512,7 +6147,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "SPEECH",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5524,9 +6166,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "moonshot.kimi-k2-thinking": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5550,7 +6194,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5559,9 +6209,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "moonshotai.kimi-k2.5": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5594,7 +6246,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5606,9 +6265,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "nvidia.nemotron-nano-12b-v2": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5641,7 +6302,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5653,9 +6321,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "nvidia.nemotron-nano-3-30b": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5688,7 +6358,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5700,9 +6376,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "nvidia.nemotron-nano-9b-v2": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5735,7 +6413,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5747,9 +6431,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "openai.gpt-oss-120b-1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5791,7 +6477,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5806,9 +6498,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "openai.gpt-oss-20b-1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5850,7 +6544,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5865,9 +6565,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "openai.gpt-oss-safeguard-120b": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5900,7 +6602,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5912,9 +6620,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "openai.gpt-oss-safeguard-20b": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5947,7 +6657,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -5959,9 +6675,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "qwen.qwen3-235b-a22b-2507-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -5994,7 +6712,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -6006,9 +6730,11 @@
       "eu-west-2",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "qwen.qwen3-32b-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -6050,7 +6776,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -6065,9 +6797,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "qwen.qwen3-coder-30b-a3b-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -6109,7 +6843,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -6124,9 +6864,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "qwen.qwen3-coder-480b-a35b-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -6153,7 +6895,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -6163,9 +6911,11 @@
       "eu-west-2",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "qwen.qwen3-coder-next": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-southeast-2": [
         "ON_DEMAND"
@@ -6177,14 +6927,22 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-southeast-2",
       "eu-west-2",
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "qwen.qwen3-next-80b-a3b": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -6217,7 +6975,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -6229,9 +6993,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "qwen.qwen3-vl-235b-a22b": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -6264,7 +7030,14 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -6276,20 +7049,31 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "stability.sd3-5-large-v1:0": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-west-2": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-conservative-upscale-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6320,14 +7104,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-creative-upscale-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6358,14 +7151,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-fast-upscale-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6396,14 +7198,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-control-sketch-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6434,14 +7245,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-control-structure-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6472,25 +7292,42 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-core-v1:1": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-west-2": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-erase-object-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6521,14 +7358,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-inpaint-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6559,14 +7405,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-remove-background-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6597,14 +7452,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-search-recolor-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6635,14 +7499,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-search-replace-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6673,14 +7546,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-style-guide-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6711,25 +7593,42 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-image-ultra-v1:1": {
+    "customizationsSupported": [],
     "inference_types": {
       "us-west-2": [
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-outpaint-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6760,14 +7659,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "stability.stable-style-transfer-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -6798,14 +7706,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "IMAGE"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "twelvelabs.marengo-embed-2-7-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-northeast-2": [
@@ -6850,14 +7767,25 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "SPEECH",
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-northeast-2",
       "eu-west-1",
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "twelvelabs.marengo-embed-3-0-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "EU": {
         "eu-west-1": [
@@ -6889,14 +7817,25 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "IMAGE",
+      "SPEECH",
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "EMBEDDING"
+    ],
     "regions": [
       "ap-northeast-2",
       "eu-west-1",
       "us-east-1"
-    ]
+    ],
+    "responseStreamingSupported": false
   },
   "twelvelabs.pegasus-1-2-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
         "ap-northeast-2": [
@@ -7150,7 +8089,14 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT",
+      "VIDEO"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "af-south-1",
       "ap-east-2",
@@ -7184,9 +8130,11 @@
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "writer.palmyra-x4-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -7226,15 +8174,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "writer.palmyra-x5-v1:0": {
+    "customizationsSupported": [],
     "inferenceProfile": {
       "US": {
         "us-east-1": [
@@ -7274,15 +8230,23 @@
         "US"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "us-east-1",
       "us-east-2",
       "us-west-1",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "zai.glm-4.7": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -7315,7 +8279,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -7327,9 +8297,11 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   },
   "zai.glm-4.7-flash": {
+    "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
         "ON_DEMAND"
@@ -7371,7 +8343,13 @@
         "ON_DEMAND"
       ]
     },
+    "inputModalities": [
+      "TEXT"
+    ],
     "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
@@ -7386,6 +8364,7 @@
       "us-east-1",
       "us-east-2",
       "us-west-2"
-    ]
+    ],
+    "responseStreamingSupported": true
   }
 }

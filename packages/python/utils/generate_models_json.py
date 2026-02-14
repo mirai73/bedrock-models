@@ -157,7 +157,11 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
         'regions': [], 
         'inference_types': {}, 
         'model_lifecycle_status': 'ACTIVE',
-        'inferenceProfile': {}
+        'inferenceProfile': {},
+        'inputModalities': set(),
+        'outputModalities': set(),
+        'responseStreamingSupported': None,
+        'customizationsSupported': set()
     })
     
     total_excluded = 0
@@ -191,6 +195,23 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
                             model_mapping[model_id]['model_lifecycle_status'] = model_lifecycle_status
                             if model_lifecycle_status == 'LEGACY':
                                 print(f"    ⚠ LEGACY model: {model_id}")
+                        
+                        # Capture modalities, streaming, and customizations
+                        input_modalities = model.get('inputModalities', [])
+                        output_modalities = model.get('outputModalities', [])
+                        streaming_supported = model.get('responseStreamingSupported', False)
+                        customizations = model.get('customizationsSupported', [])
+                        
+                        model_mapping[model_id]['inputModalities'].update(input_modalities)
+                        model_mapping[model_id]['outputModalities'].update(output_modalities)
+                        
+                        # Set streaming to True if any region supports it
+                        if streaming_supported:
+                            model_mapping[model_id]['responseStreamingSupported'] = True
+                        elif model_mapping[model_id]['responseStreamingSupported'] is None:
+                            model_mapping[model_id]['responseStreamingSupported'] = False
+                        
+                        model_mapping[model_id]['customizationsSupported'].update(customizations)
                         
                         # Get base inference types from the model
                         inference_types = list(model.get('inferenceTypesSupported', []))
@@ -252,6 +273,18 @@ def print_summary(model_mapping: Dict[str, Any]):
         print(f"\nModel: {model_id}{lifecycle_marker}")
         print(f"  Available in {len(regions)} region(s): {', '.join(sorted(regions))}")
         
+        # Print modalities and capabilities
+        input_mods = sorted(list(data.get('inputModalities', set())))
+        output_mods = sorted(list(data.get('outputModalities', set())))
+        streaming = data.get('responseStreamingSupported', False)
+        customizations = sorted(list(data.get('customizationsSupported', set())))
+        
+        print(f"  Input: {', '.join(input_mods) if input_mods else 'N/A'}")
+        print(f"  Output: {', '.join(output_mods) if output_mods else 'N/A'}")
+        print(f"  Streaming: {'Yes' if streaming else 'No'}")
+        if customizations:
+            print(f"  Customizations: {', '.join(customizations)}")
+        
         # Print inference profiles if any
         if data.get('inferenceProfile'):
             print("  Inference Profiles:")
@@ -269,7 +302,7 @@ def print_summary(model_mapping: Dict[str, Any]):
             print(f"    {region}: {', '.join(inference_types)}")
 
 
-def save_to_json(model_mapping: Dict[str, Any], filename: str = 'bedrock_models/bedrock_models.json'):
+def save_to_json(model_mapping: Dict[str, Any], filename: str = 'packages/shared/bedrock_models.json'):
     """Save the model mapping to a JSON file with sorted keys and values for deterministic output."""
     # Sort regions and inference_types lists for deterministic output
     sorted_mapping = {}
@@ -279,7 +312,11 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = 'bedrock_models/
         entry = {
             'regions': sorted(data['regions']),
             'inference_types': {region: sorted(types) for region, types in sorted(data['inference_types'].items())},
-            'model_lifecycle_status': data.get('model_lifecycle_status', 'ACTIVE')
+            'model_lifecycle_status': data.get('model_lifecycle_status', 'ACTIVE'),
+            'inputModalities': sorted(list(data.get('inputModalities', set()))),
+            'outputModalities': sorted(list(data.get('outputModalities', set()))),
+            'responseStreamingSupported': data.get('responseStreamingSupported', False),
+            'customizationsSupported': sorted(list(data.get('customizationsSupported', set())))
         }
         
         # Add inferenceProfile if it exists and is not empty

@@ -36,6 +36,7 @@ jobs:
         run: |
           cp  packages/shared/bedrock_models.json docs/bedrock_models.json
           # Create .nojekyll to bypass Jekyll processing
+          rm docs/serve.sh
           touch docs/.nojekyll
           ls -la docs/
       

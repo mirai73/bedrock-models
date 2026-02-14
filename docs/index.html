@@ -24,10 +24,9 @@
                             d="M10 2V4M10 16V18M18 10H16M4 10H2M15.5 4.5L14 6M6 14L4.5 15.5M15.5 15.5L14 14M6 6L4.5 4.5"
                             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                     </svg>
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path
-                            d="M17 10.5C16.1 13.5 13.4 15.7 10.2 15.7C6.3 15.7 3.1 12.5 3.1 8.6C3.1 5.4 5.3 2.7 8.3 1.8C5.1 2.5 2.7 5.4 2.7 8.9C2.7 12.9 5.9 16.1 9.9 16.1C13.4 16.1 16.3 13.7 17 10.5Z"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
             </div>
@@ -88,6 +87,7 @@
             </div>
         </div>
 
+
         <div class="results-info">
             <span id="resultsCount">Showing 0 of 0 models</span>
         </div>
@@ -103,6 +103,18 @@
             <div id="map"></div>
         </div>
     </div>
+
+    <!-- Regions List Modal -->
+    <div id="regionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="regionsModalTitle">Available Regions</h2>
+            <div id="regionsListContainer" class="modal-regions-list"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
 
     <script src="app.js"></script>
 </body>

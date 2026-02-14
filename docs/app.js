@@ -97,12 +97,26 @@ async function init() {
         document.getElementById('searchInput').addEventListener('input', filterModels);
 
         // Modal close listeners
-        document.querySelector('.close-modal').addEventListener('click', closeMapModal);
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                closeMapModal();
+                closeRegionsModal();
+            });
+        });
+
         document.getElementById('mapModal').addEventListener('click', (e) => {
             if (e.target.id === 'mapModal') closeMapModal();
         });
+
+        document.getElementById('regionsModal').addEventListener('click', (e) => {
+            if (e.target.id === 'regionsModal') closeRegionsModal();
+        });
+
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeMapModal();
+            if (e.key === 'Escape') {
+                closeMapModal();
+                closeRegionsModal();
+            }
         });
 
     } catch (error) {
@@ -333,6 +347,89 @@ function updateMapState(profileData, activeSource) {
 
 function closeMapModal() {
     const modal = document.getElementById('mapModal');
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+function showAllRegions(modelId, modelName) {
+    const model = allModels.find(m => m.id === modelId);
+    if (!model) return;
+
+    const modal = document.getElementById('regionsModal');
+    const title = document.getElementById('regionsModalTitle');
+    const container = document.getElementById('regionsListContainer');
+
+    title.textContent = modelName;
+
+    // Detect which types are present for this model across all its regions
+    const modelTypes = new Set();
+    model.regions.forEach(r => {
+        const types = model.inference_types[r] || [];
+        types.forEach(t => modelTypes.add(t));
+    });
+
+    const hasGlobal = modelTypes.has('GLOBAL');
+    const hasCris = Array.from(modelTypes).some(t => CRIS_REGIONS[t] && t !== 'GLOBAL');
+    const hasOnDemand = modelTypes.has('ON_DEMAND');
+
+    // Add legend under the title
+    let legend = document.getElementById('modalLegend');
+    if (!legend) {
+        legend = document.createElement('div');
+        legend.id = 'modalLegend';
+        legend.className = 'legend-container modal-legend';
+        title.after(legend);
+    }
+
+    let legendHtml = '';
+    if (hasGlobal) legendHtml += `
+        <div class="legend-item">
+            <span class="inference-icon-small type-g">G</span>
+            <span>Global CRIS</span>
+        </div>`;
+    if (hasCris) legendHtml += `
+        <div class="legend-item">
+            <span class="inference-icon-small type-c">C</span>
+            <span>Region CRIS</span>
+        </div>`;
+    if (hasOnDemand) legendHtml += `
+        <div class="legend-item">
+            <span class="inference-icon-small type-r" title="On-Demand">R</span>
+            <span>On-Demand</span>
+        </div>`;
+
+    legend.innerHTML = legendHtml;
+    legend.style.display = legendHtml ? 'flex' : 'none';
+
+    container.innerHTML = model.regions.map(region => {
+        const types = model.inference_types[region] || [];
+        const isGlobal = types.includes('GLOBAL');
+        const isCris = types.some(t => CRIS_REGIONS[t] && t !== 'GLOBAL');
+        const isOnDemand = types.includes('ON_DEMAND');
+
+        return `
+            <div class="modal-region-item">
+                <div class="region-info">
+                    <span class="region-code">${region}</span>
+                    <span class="region-name">${REGION_LOCATIONS[region]?.name || ''}</span>
+                </div>
+                <div class="inference-icons-container">
+                    ${isGlobal ? '<span class="inference-icon-small type-g" title="Global CRIS">G</span>' : ''}
+                    ${isCris ? '<span class="inference-icon-small type-c" title="Region CRIS">C</span>' : ''}
+                    ${isOnDemand ? '<span class="inference-icon-small type-r" title="On-Demand">R</span>' : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    modal.classList.add('show');
+    modal.style.display = 'flex';
+}
+
+function closeRegionsModal() {
+    const modal = document.getElementById('regionsModal');
     modal.classList.remove('show');
     setTimeout(() => {
         modal.style.display = 'none';
@@ -577,10 +674,18 @@ function getInferenceTypes(model) {
     return Array.from(types);
 }
 
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        // Could add a toast notification here
-        console.log('Copied:', text);
+        showToast(`Copied: ${text}`);
     });
 }
 
@@ -617,15 +722,18 @@ function renderModels() {
         const inferenceTypes = getInferenceTypes(model);
         const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
         const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
-
-        const displayRegions = model.regions.slice(0, 3);
-        const moreRegions = model.regions.length - 3;
         const formattedName = formatModelName(model.id);
 
         return `
             <div class="model-card">
                 <div class="model-header">
                     <div class="model-name">${formattedName}</div>
+                    <button class="copy-btn mobile-only" onclick="copyToClipboard('${model.id}')" title="Copy model ID">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                 </div>
                 
                 <div class="model-badges">
@@ -634,7 +742,6 @@ function renderModels() {
             const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
             const disabledClass = isDisabled ? 'badge-disabled' : '';
             const clickHandler = isDisabled ? '' : `onclick="showRegionMap('${type}', '${model.id}', '${formattedName}')"`;
-            // If disabled, remove interactive class and title
             const interactiveClass = isDisabled ? '' : 'badge-interactive';
             const titleAttr = isDisabled ? 'title="Not available in selected region"' : 'title="View Map"';
 
@@ -651,7 +758,7 @@ function renderModels() {
                     </span>
                 </div>
                 
-                <div class="model-id">
+                <div class="model-id desktop-only">
                     <span>${model.id}</span>
                     <button class="copy-btn" onclick="copyToClipboard('${model.id}')" title="Copy model ID">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -661,22 +768,14 @@ function renderModels() {
                     </button>
                 </div>
                 
-                <div class="model-section">
-                    <div class="section-title">Available Regions</div>
-                    <div class="regions-list">
-                        ${displayRegions.map(region =>
-            `<span class="region-tag">${region}</span>`
-        ).join('')}
-                        ${moreRegions > 0 ? `<span class="region-more">+${moreRegions} more</span>` : ''}
-                    </div>
-                </div>
                 
-                <div class="model-section">
+                <div class="model-section region-count-section" onclick="showAllRegions('${model.id}', '${formattedName}')" title="View all regions">
                     <div class="section-title">
                         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="display: inline; vertical-align: middle; margin-right: 4px;">
                             <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
                         </svg>
-                        ${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}
+                        <span>${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span>
+                        <span class="info-hint"> (tap to view)</span>
                     </div>
                 </div>
             </div>

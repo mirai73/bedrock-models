@@ -691,11 +691,11 @@ function copyToClipboard(text) {
 
 function formatModelName(modelId) {
     // Get the part after the provider (e.g., "nova-2-sonic-v1:0" from "amazon.nova-2-sonic-v1:0")
-    const modelPart = modelId.split('.')[1] || modelId;
+    const modelPart = modelId.split('.').slice(1).join('.') || modelId;
 
     // Remove the version suffix (everything after the last hyphen followed by 'v')
     // e.g., "nova-2-sonic-v1:0" -> "nova-2-sonic"
-    const withoutVersion = modelPart.replace(/-v\d+.*$/, '');
+    const withoutVersion = modelPart.replace(/-v(\d+.*)$/, ' v$1');
 
     // Replace hyphens with spaces and convert to uppercase
     let formatted = withoutVersion.replace(/-/g, ' ').toUpperCase();

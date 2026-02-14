@@ -34,8 +34,6 @@ jobs:
       
       - name: Prepare site
         run: |
-          # Dereference symlinks (replace bedrock_models.json symlink with real file)
-          rm docs/bedrock_models.json
           cp  packages/shared/bedrock_models.json docs/bedrock_models.json
           # Create .nojekyll to bypass Jekyll processing
           touch docs/.nojekyll

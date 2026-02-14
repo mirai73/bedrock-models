@@ -139,6 +139,12 @@ header {
     gap: 16px;
     margin-bottom: 24px;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    background: var(--bg-primary);
+    z-index: 100;
+    padding: 16px 0;
+    margin-top: -16px;
 }
 
 .search-box {

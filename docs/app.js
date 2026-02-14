@@ -723,11 +723,15 @@ function renderModels() {
         const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
         const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
         const formattedName = formatModelName(model.id);
+        
+        const modalityIcons = getModalityIcons(model);
+        const streamingIcon = getStreamingIcon(model);
 
         return `
             <div class="model-card">
                 <div class="model-header">
                     <div class="model-name">${formattedName}</div>
+                    <span class="badge ${badgeClass}">${provider}</span>
                     <button class="copy-btn mobile-only" onclick="copyToClipboard('${model.id}')" title="Copy model ID">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -736,8 +740,11 @@ function renderModels() {
                     </button>
                 </div>
                 
+                <div class="model-capabilities">
+                    ${modalityIcons}
+                </div>
+                
                 <div class="model-badges">
-                    <span class="badge ${badgeClass}">${provider}</span>
                     ${crisTypes.map(type => {
             const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
             const disabledClass = isDisabled ? 'badge-disabled' : '';
@@ -786,6 +793,20 @@ function renderModels() {
 function updateResultsCount() {
     const count = document.getElementById('resultsCount');
     count.textContent = `Showing ${filteredModels.length} of ${allModels.length} models`;
+}
+
+function getModalityIcons(model) {
+    const modalityMap = { TEXT: 'T', IMAGE: 'I', VIDEO: 'V', AUDIO: 'A' };
+    const input = (model.inputModalities || []).map(m => modalityMap[m] || m.charAt(0)).join('');
+    const output = (model.outputModalities || []).map(m => modalityMap[m] || m.charAt(0)).join('');
+    const streaming = model.responseStreamingSupported;
+    const streamClass = streaming ? 'streaming' : '';
+    const streamTitle = streaming ? 'Streaming supported' : 'Streaming not supported';
+    return `<span class="icon-badge" title="Input: ${(model.inputModalities || []).join(', ')}">${input}</span><span class="icon-arrow">→</span><span class="icon-badge ${streamClass}" title="Output: ${(model.outputModalities || []).join(', ')} (${streamTitle})">${output}</span>`;
+}
+
+function getStreamingIcon(model) {
+    return '';
 }
 
 // Initialize on load

@@ -30,8 +30,18 @@
                     </svg>
                 </button>
             </div>
-            <p class="subtitle">Explore the available foundation models in Amazon Bedrock.</p>
+            <p class="subtitle">Explore the available foundation models in Amazon Bedrock. Click on the CRIS badges to
+                see the regions included in the profile.</p>
         </header>
+
+        <div class="legend">
+            <span class="legend-title">Capabilities:</span>
+            <span class="legend-item"><span class="icon-badge">T</span> Text</span>
+            <span class="legend-item"><span class="icon-badge">I</span> Image</span>
+            <span class="legend-item"><span class="icon-badge">V</span> Video</span>
+            <span class="legend-item"><span class="icon-badge">A</span> Audio</span>
+            <span class="legend-item"><span class="icon-badge streaming">Orange</span> = Streaming</span>
+        </div>
 
         <div class="controls">
             <div class="search-box">
@@ -100,6 +110,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 id="modalTitle">Region Map</h2>
+            <p class="modal-subtitle">Click on a source region to see the regions included in the profile</p>
             <div id="map"></div>
         </div>
     </div>

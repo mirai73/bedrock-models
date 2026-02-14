@@ -134,6 +134,28 @@ header {
     display: none;
 }
 
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 8px 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.legend-title {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .controls {
     display: flex;
     gap: 16px;
@@ -384,15 +406,78 @@ header {
 .model-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 12px;
+    position: relative;
 }
 
 .model-name {
     font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 8px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    padding-right: 20px;
+}
+
+.model-name::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to right, transparent, var(--card-bg));
+    pointer-events: none;
+}
+
+.model-capabilities {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 12px;
+}
+
+.icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    background: #e8e8e8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+}
+
+[data-theme="dark"] .icon-badge {
+    background: #3a3a3a;
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+.icon-badge.streaming {
+    background: #fff3e0;
+    color: #e65100;
+    border-color: #ffb74d;
+}
+
+[data-theme="dark"] .icon-badge.streaming {
+    background: #663d00;
+    color: #ffb74d;
+    border-color: #e65100;
+}
+
+.icon-arrow {
+    color: var(--text-tertiary);
+    font-size: 12px;
 }
 
 .model-badges {
@@ -454,8 +539,8 @@ header {
 }
 
 .badge-inference {
-    background: #e8f5e9;
-    color: #2e7d32;
+    background: #e3f2fd;
+    color: #1565c0;
 }
 
 .badge-legacy {
@@ -509,8 +594,8 @@ header {
 }
 
 [data-theme="dark"] .badge-inference {
-    background: #1b5e20;
-    color: #a5d6a7;
+    background: #0d3d66;
+    color: #90caf9;
 }
 
 [data-theme="dark"] .badge-legacy {
@@ -762,6 +847,12 @@ header {
     transform: scale(0.95);
     transition: transform 0.3s ease;
     border: 1px solid var(--border-primary);
+}
+
+.modal-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin: -8px 0 16px 0;
 }
 
 .modal.show .modal-content {

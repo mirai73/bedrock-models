@@ -386,7 +386,7 @@ header {
 
 .models-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
     gap: 20px;
 }
 
@@ -396,6 +396,8 @@ header {
     border-radius: 8px;
     padding: 20px;
     transition: box-shadow 0.2s, transform 0.2s, background-color 0.3s, border-color 0.3s;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .model-card:hover {
@@ -485,6 +487,7 @@ header {
     gap: 8px;
     flex-wrap: wrap;
     margin-bottom: 12px;
+    min-width: 0;
 }
 
 .badge {
@@ -496,6 +499,8 @@ header {
     font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .badge-anthropic {

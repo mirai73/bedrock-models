@@ -302,7 +302,7 @@ def print_summary(model_mapping: Dict[str, Any]):
             print(f"    {region}: {', '.join(inference_types)}")
 
 
-def save_to_json(model_mapping: Dict[str, Any], filename: str = 'packages/shared/bedrock_models.json'):
+def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedrock_models.json'):
     """Save the model mapping to a JSON file with sorted keys and values for deterministic output."""
     # Sort regions and inference_types lists for deterministic output
     sorted_mapping = {}

@@ -42,12 +42,11 @@ jobs:
       
       - name: Generate model data from AWS Bedrock
         run: |
-          cd packages/python
-          poetry run python utils/generate_models_json.py
+          poetry run python packages/shared/scripts/generate_models_json.py
       
       - name: Generate model classes (Python and TypeScript)
         run: |
-          python3 packages/shared/scripts/generate_models.py
+          poetry run python packages/shared/scripts/generate_models.py
       
       
       - name: Check for changes

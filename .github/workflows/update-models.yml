@@ -45,6 +45,16 @@ jobs:
           cd packages/python
           poetry run python utils/generate_models_json.py
       
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      
       - name: Generate model classes (Python and TypeScript)
         run: |
           python3 packages/shared/scripts/generate_models.py
@@ -71,7 +81,7 @@ jobs:
           
           # Bump patch version in typescript
           cd packages/typescript
-          npm version patch --no-git-tag-version
+          pnpm version patch --no-git-tag-version
           TS_VERSION=$(node -p "require('./package.json').version")
           cd ../..
           

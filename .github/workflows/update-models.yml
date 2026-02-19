@@ -81,8 +81,9 @@ jobs:
           
           # Bump patch version in typescript
           cd packages/typescript
-          pnpm version patch --no-git-tag-version
-          TS_VERSION=$(node -p "require('./package.json').version")
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          TS_VERSION=$(node -p "const v = '$CURRENT_VERSION'.split('.'); v[2] = parseInt(v[2]) + 1; v.join('.')")
+          node -e "const pkg = require('./package.json'); pkg.version = '$TS_VERSION'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');"
           cd ../..
           
           # Add all changed files using root paths

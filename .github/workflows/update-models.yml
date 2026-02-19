@@ -50,11 +50,6 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8.15.1
-      
       - name: Generate model classes (Python and TypeScript)
         run: |
           python3 packages/shared/scripts/generate_models.py
@@ -92,7 +87,6 @@ jobs:
           git add packages/python/pyproject.toml
           git add packages/typescript/src/models.ts
           git add packages/typescript/package.json
-          git add docs/bedrock_models.json
           
           git commit -m "chore: update Bedrock model IDs to v$NEW_VERSION / ts-v$TS_VERSION"
           git tag "v$NEW_VERSION"

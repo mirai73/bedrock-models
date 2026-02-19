@@ -8,6 +8,8 @@ on:
 jobs:
   update-models:
     runs-on: ubuntu-latest
+    outputs:
+      changes: ${{ steps.check_changes.outputs.changes }}
     permissions:
       contents: write
       id-token: write
@@ -93,3 +95,15 @@ jobs:
           git tag "typescript-v$TS_VERSION"
           git push
           git push --tags
+  
+  publish-python:
+    needs: update-models
+    if: needs.update-models.outputs.changes == 'true'
+    uses: ./.github/workflows/release.yml
+    secrets: inherit
+  
+  publish-typescript:
+    needs: update-models
+    if: needs.update-models.outputs.changes == 'true'
+    uses: ./.github/workflows/publish-typescript.yml
+    secrets: inherit

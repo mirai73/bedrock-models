@@ -2241,9 +2241,6 @@
     "inference_types": {
       "us-east-1": [
         "US"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
       ]
     },
     "inputModalities": [
@@ -2255,8 +2252,7 @@
       "TEXT"
     ],
     "regions": [
-      "us-east-1",
-      "us-west-2"
+      "us-east-1"
     ],
     "responseStreamingSupported": true
   },

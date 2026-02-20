@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bedrock-models"
-version = "0.1.25"
+version = "0.1.26"
 description = "A library that provides Bedrock models id"
 authors = ["Massimiliano Angelino <massi.ang@gmail.com>"]
 license = "MIT-0"

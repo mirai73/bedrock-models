@@ -2228,34 +2228,6 @@
     ],
     "responseStreamingSupported": true
   },
-  "anthropic.claude-3-opus-20240229-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "us-east-1": [
-        "US"
-      ]
-    },
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1"
-    ],
-    "responseStreamingSupported": true
-  },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
     "customizationsSupported": [],
     "inferenceProfile": {
@@ -4266,7 +4238,8 @@
       ],
       "eu-west-2": [
         "EU",
-        "GLOBAL"
+        "GLOBAL",
+        "ON_DEMAND"
       ],
       "eu-west-3": [
         "EU",

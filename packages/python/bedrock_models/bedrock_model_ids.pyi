@@ -116,6 +116,5 @@ class Models:
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_OPUS_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-opus-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-20250514-v1:0' has LEGACY status

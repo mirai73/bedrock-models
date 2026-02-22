@@ -95,39 +95,3 @@ jobs:
           git tag "typescript-v$TS_VERSION"
           git push
           git push --tags
-  
-  publish-python:
-    needs: update-models
-    if: needs.update-models.outputs.changes == 'true'
-    uses: ./.github/workflows/release.yml
-    secrets: inherit
-  
-  publish-typescript:
-    needs: update-models
-    if: needs.update-models.outputs.changes == 'true'
-    uses: ./.github/workflows/publish-typescript.yml
-    secrets: inherit
-  
-  create-release:
-    needs: [update-models, publish-python, publish-typescript]
-    if: needs.update-models.outputs.changes == 'true'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: Get latest version tag
-        id: get_tag
-        run: |
-          TAG=$(git describe --tags --match "v*.*.*" --abbrev=0)
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-      
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ steps.get_tag.outputs.tag }}
-          generate_release_notes: true

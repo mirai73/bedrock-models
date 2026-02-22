@@ -4,6 +4,10 @@
   "description": "A TypeScript library for AWS Bedrock Model IDs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirai73/bedrock-models"
+  },
   "files": [
     "dist"
   ],

@@ -4505,6 +4505,15 @@
           "eu-west-1",
           "eu-west-3"
         ],
+        "eu-central-2": [
+          "eu-central-1",
+          "eu-central-2",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
         "eu-north-1": [
           "eu-central-1",
           "eu-north-1",
@@ -4535,6 +4544,15 @@
           "eu-south-1",
           "eu-south-2",
           "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-west-2": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-2",
           "eu-west-3"
         ],
         "eu-west-3": [
@@ -4632,6 +4650,7 @@
         "GLOBAL"
       ],
       "eu-central-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-north-1": [
@@ -4652,6 +4671,7 @@
         "ON_DEMAND"
       ],
       "eu-west-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-3": [

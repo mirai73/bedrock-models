@@ -232,6 +232,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
+      "me-central-1": [],
       "us-east-1": [
         "GLOBAL",
         "US"
@@ -280,6 +281,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "us-east-1",
       "us-east-2",
       "us-west-1",
@@ -621,6 +623,9 @@
       "il-central-1": [
         "EU"
       ],
+      "me-central-1": [
+        "ON_DEMAND"
+      ],
       "us-east-1": [
         "ON_DEMAND",
         "US"
@@ -665,6 +670,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "us-east-1",
       "us-east-2",
       "us-west-1",
@@ -883,6 +889,7 @@
       "il-central-1": [
         "EU"
       ],
+      "me-central-1": [],
       "us-east-1": [
         "ON_DEMAND",
         "US"
@@ -919,6 +926,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "us-east-1",
       "us-east-2",
       "us-west-2"
@@ -1204,6 +1212,9 @@
       "il-central-1": [
         "EU"
       ],
+      "me-central-1": [
+        "ON_DEMAND"
+      ],
       "us-east-1": [
         "ON_DEMAND",
         "US"
@@ -1246,6 +1257,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "us-east-1",
       "us-east-2",
       "us-west-1",
@@ -2203,13 +2215,6 @@
           "ap-southeast-1",
           "ap-southeast-2"
         ]
-      },
-      "EU": {
-        "eu-central-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ]
       }
     },
     "inference_types": {
@@ -2229,10 +2234,6 @@
         "ON_DEMAND"
       ],
       "ca-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "EU",
         "ON_DEMAND"
       ],
       "eu-west-1": [
@@ -2263,7 +2264,6 @@
       "ap-southeast-1",
       "ap-southeast-2",
       "ca-central-1",
-      "eu-central-1",
       "eu-west-1",
       "eu-west-3",
       "us-east-1",
@@ -2511,6 +2511,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -2570,6 +2571,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "me-south-1",
       "mx-central-1",
       "sa-east-1",
@@ -2890,6 +2892,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -2949,6 +2952,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "me-south-1",
       "mx-central-1",
       "sa-east-1",
@@ -3194,6 +3198,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -3253,6 +3258,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "me-south-1",
       "mx-central-1",
       "sa-east-1",
@@ -3545,6 +3551,7 @@
       "il-central-1": [
         "EU"
       ],
+      "me-central-1": [],
       "us-east-1": [
         "GLOBAL",
         "US"
@@ -3589,6 +3596,7 @@
       "eu-west-1",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "us-east-1",
       "us-east-2",
       "us-west-1",
@@ -3840,6 +3848,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -3900,6 +3909,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "me-south-1",
       "mx-central-1",
       "sa-east-1",
@@ -4158,6 +4168,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -4217,6 +4228,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "me-south-1",
       "mx-central-1",
       "sa-east-1",
@@ -8341,6 +8353,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -8401,6 +8414,7 @@
       "eu-west-2",
       "eu-west-3",
       "il-central-1",
+      "me-central-1",
       "me-south-1",
       "mx-central-1",
       "sa-east-1",

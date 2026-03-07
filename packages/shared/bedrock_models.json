@@ -2227,7 +2227,13 @@
       "eu-west-1": [
         "ON_DEMAND"
       ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
       "eu-west-3": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
         "ON_DEMAND"
       ],
       "us-east-1": [
@@ -2253,7 +2259,9 @@
       "ap-southeast-2",
       "ca-central-1",
       "eu-west-1",
+      "eu-west-2",
       "eu-west-3",
+      "sa-east-1",
       "us-east-1",
       "us-west-2"
     ],

@@ -1036,6 +1036,160 @@ header {
     }
 }
 
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    border: 1.5px solid var(--input-border);
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.view-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    border: none;
+    background: var(--input-bg);
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.view-toggle-btn:first-child {
+    border-right: 1px solid var(--input-border);
+}
+
+.view-toggle-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.view-toggle-btn.active {
+    background: var(--bg-tertiary);
+    color: #0066cc;
+}
+
+[data-theme="dark"] .view-toggle-btn.active {
+    color: #5eb3ff;
+}
+
+/* Table View */
+.models-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+}
+
+.models-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.models-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.models-table th {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 12px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--border-primary);
+}
+
+.models-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-secondary);
+    vertical-align: middle;
+    color: var(--text-primary);
+}
+
+.models-table tbody tr:nth-child(even) {
+    background: var(--bg-tertiary);
+}
+
+.models-table tbody tr:hover {
+    background: var(--border-secondary);
+}
+
+.table-model-name {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.table-capabilities {
+    white-space: nowrap;
+}
+
+.table-inference {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+/* fix td display for inference column */
+.models-table td.table-inference {
+    display: flex;
+}
+
+.table-region-count {
+    color: #0066cc;
+    cursor: pointer;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.table-region-count:hover {
+    text-decoration: underline;
+}
+
+[data-theme="dark"] .table-region-count {
+    color: #5eb3ff;
+}
+
+.table-model-id {
+    white-space: nowrap;
+}
+
+.table-model-id code {
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.table-model-id .copy-btn {
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .models-table-wrapper {
+        margin: 0 -12px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .view-toggle-btn {
+        width: 38px;
+    }
+}
+
 /* Toast Notification */
 .toast {
     position: fixed;

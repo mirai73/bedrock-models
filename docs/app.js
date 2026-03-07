@@ -74,9 +74,13 @@ function toggleTheme() {
 let selectedRegion = '';
 let selectedType = '';
 
+// View mode state
+let currentView = localStorage.getItem('viewMode') || 'grid';
+
 // Load and initialize
 async function init() {
     initTheme();
+    initViewToggle();
     try {
         const response = await fetch('bedrock_models.json');
         const data = await response.json();
@@ -708,8 +712,89 @@ function formatModelName(modelId) {
     return formatted;
 }
 
+function initViewToggle() {
+    const toggleBtns = document.querySelectorAll('.view-toggle-btn');
+    // Set initial active state from saved preference
+    toggleBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.view === currentView);
+        btn.addEventListener('click', () => {
+            currentView = btn.dataset.view;
+            localStorage.setItem('viewMode', currentView);
+            toggleBtns.forEach(b => b.classList.toggle('active', b.dataset.view === currentView));
+            renderModels();
+        });
+    });
+}
+
+function renderTable() {
+    const tbody = document.getElementById('modelsTableBody');
+
+    if (filteredModels.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-secondary);">No models found matching your criteria.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = filteredModels.map(model => {
+        const provider = getModelProvider(model.id);
+        const badgeClass = getBadgeClass(model.id);
+        const inferenceTypes = getInferenceTypes(model);
+        const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
+        const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
+        const formattedName = formatModelName(model.id);
+        const modalityIcons = getModalityIcons(model);
+
+        const crisBadges = crisTypes.map(type => {
+            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+            const disabledClass = isDisabled ? 'badge-disabled' : '';
+            const clickHandler = isDisabled ? '' : `onclick="showRegionMap('${type}', '${model.id}', '${formattedName}')"`;
+            const interactiveClass = isDisabled ? '' : 'badge-interactive';
+            const titleAttr = isDisabled ? 'title="Not available in selected region"' : 'title="View Map"';
+            return `<span class="badge badge-inference ${interactiveClass} ${disabledClass}" ${clickHandler} ${titleAttr}>${CRIS_REGIONS[type]}</span>`;
+        }).join('');
+
+        const otherBadges = otherTypes.map(type => {
+            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+            const disabledClass = isDisabled ? 'badge-disabled' : '';
+            const titleAttr = isDisabled ? 'title="Not available in selected region"' : '';
+            return `<span class="badge badge-inference ${disabledClass}" ${titleAttr}>${type !== 'ON_DEMAND' ? type.replace('_', ' ') : 'In Region'}</span>`;
+        }).join('');
+
+        const statusClass = model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy';
+
+        return `
+            <tr>
+                <td class="table-model-name">${formattedName}</td>
+                <td><span class="badge ${badgeClass}">${provider}</span></td>
+                <td class="table-capabilities">${modalityIcons}</td>
+                <td class="table-inference">${crisBadges}${otherBadges}</td>
+                <td><span class="badge ${statusClass}">${model.model_lifecycle_status}</span></td>
+                <td><span class="table-region-count" onclick="showAllRegions('${model.id}', '${formattedName}')" title="View all regions">${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span></td>
+                <td class="table-model-id">
+                    <code>${model.id}</code>
+                    <button class="copy-btn" onclick="copyToClipboard('${model.id}')" title="Copy model ID">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </td>
+            </tr>`;
+    }).join('');
+}
+
 function renderModels() {
     const grid = document.getElementById('modelsGrid');
+    const tableWrapper = document.getElementById('modelsTable');
+
+    if (currentView === 'table') {
+        grid.style.display = 'none';
+        tableWrapper.style.display = 'block';
+        renderTable();
+        return;
+    }
+
+    grid.style.display = '';
+    tableWrapper.style.display = 'none';
 
     if (filteredModels.length === 0) {
         grid.innerHTML = '<p style="color: #666; grid-column: 1/-1; text-align: center; padding: 40px;">No models found matching your criteria.</p>';

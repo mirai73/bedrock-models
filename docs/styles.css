@@ -42,6 +42,13 @@
     display: none !important;
 }
 
+/* Mobile card elements hidden on desktop */
+.mobile-compact,
+.mobile-details,
+.mobile-expand-arrow {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .mobile-only {
         display: block !important;
@@ -49,6 +56,15 @@
 
     .desktop-only {
         display: none !important;
+    }
+
+    /* Show mobile card elements */
+    .mobile-compact {
+        display: flex !important;
+    }
+
+    .mobile-expand-arrow {
+        display: flex !important;
     }
 }
 
@@ -748,28 +764,99 @@ header {
 
     .filters {
         gap: 8px;
+        width: 100%;
     }
 
-    .custom-select {
-        min-width: 140px;
+    .filters .custom-select {
+        flex: 1;
+        min-width: 0;
     }
 
     .select-button {
         padding: 10px 12px;
     }
 
-    .models-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+    /* Force card view on mobile, hide view toggle */
+    .view-toggle {
+        display: none;
     }
 
+    .models-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    /* Compact card on mobile */
     .model-card {
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .model-card .mobile-compact {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         padding: 12px;
     }
 
-    .model-name {
+    .model-card .mobile-compact .model-name {
         font-size: 14px;
-        margin-bottom: 4px;
+        flex: 1;
+        margin: 0;
+        padding-right: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .model-card .mobile-compact .model-name::after {
+        display: none;
+    }
+
+    .model-card .mobile-compact .model-capabilities {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .model-card .mobile-expand-arrow {
+        flex-shrink: 0;
+        color: var(--text-tertiary);
+        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+    }
+
+    .model-card.expanded .mobile-expand-arrow {
+        transform: rotate(90deg);
+    }
+
+    .model-card .mobile-details {
+        display: none;
+        padding: 0 12px 12px;
+        border-top: 1px solid var(--border-secondary);
+    }
+
+    .model-card.expanded .mobile-details {
+        display: block;
+    }
+
+    .model-card .mobile-details .model-badges {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        gap: 6px;
+    }
+
+    .model-card .mobile-details .model-id {
+        margin-bottom: 10px;
+    }
+
+    /* Hide desktop card structure on mobile */
+    .model-card > .model-header,
+    .model-card > .model-capabilities,
+    .model-card > .model-badges,
+    .model-card > .model-id,
+    .model-card > .model-section {
+        display: none;
     }
 
     .model-header {
@@ -785,6 +872,11 @@ header {
     .model-badges {
         margin-bottom: 8px;
         gap: 6px;
+    }
+
+    .legend {
+        font-size: 11px;
+        gap: 8px;
     }
 }
 
@@ -1178,15 +1270,39 @@ header {
 }
 
 @media (max-width: 768px) {
+    /* Force card view on mobile - hide table entirely */
     .models-table-wrapper {
-        margin: 0 -12px;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
+        display: none !important;
+    }
+
+    .models-grid {
+        display: grid !important;
     }
 
     .view-toggle-btn {
         width: 38px;
+    }
+
+    /* Modal responsive */
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 16px;
+    }
+
+    #map {
+        height: 280px;
+    }
+
+    .modal-regions-list {
+        grid-template-columns: 1fr;
+    }
+
+    #modalTitle,
+    #regionsModalTitle {
+        font-size: 16px;
+        padding-right: 30px;
     }
 }
 

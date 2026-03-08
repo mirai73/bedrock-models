@@ -786,7 +786,10 @@ function renderModels() {
     const grid = document.getElementById('modelsGrid');
     const tableWrapper = document.getElementById('modelsTable');
 
-    if (currentView === 'table') {
+    // On mobile, always force card view
+    const isMobile = window.innerWidth <= 768;
+
+    if (currentView === 'table' && !isMobile) {
         grid.style.display = 'none';
         tableWrapper.style.display = 'block';
         renderTable();
@@ -812,58 +815,80 @@ function renderModels() {
         const modalityIcons = getModalityIcons(model);
         const streamingIcon = getStreamingIcon(model);
 
-        return `
-            <div class="model-card">
-                <div class="model-header">
-                    <div class="model-name">${formattedName}</div>
-                    <span class="badge ${badgeClass}">${provider}</span>
-                    <button class="copy-btn mobile-only" onclick="copyToClipboard('${model.id}')" title="Copy model ID">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-                
-                <div class="model-capabilities">
-                    ${modalityIcons}
-                </div>
-                
-                <div class="model-badges">
-                    ${crisTypes.map(type => {
+        const crisBadgesHtml = crisTypes.map(type => {
             const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
             const disabledClass = isDisabled ? 'badge-disabled' : '';
-            const clickHandler = isDisabled ? '' : `onclick="showRegionMap('${type}', '${model.id}', '${formattedName}')"`;
+            const clickHandler = isDisabled ? '' : `onclick="event.stopPropagation(); showRegionMap('${type}', '${model.id}', '${formattedName}')"`;
             const interactiveClass = isDisabled ? '' : 'badge-interactive';
             const titleAttr = isDisabled ? 'title="Not available in selected region"' : 'title="View Map"';
-
             return `<span class="badge badge-inference ${interactiveClass} ${disabledClass}" ${clickHandler} ${titleAttr}>${CRIS_REGIONS[type]}</span>`;
-        }).join('')}
-                    ${otherTypes.map(type => {
+        }).join('');
+
+        const otherBadgesHtml = otherTypes.map(type => {
             const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
             const disabledClass = isDisabled ? 'badge-disabled' : '';
             const titleAttr = isDisabled ? 'title="Not available in selected region"' : '';
             return `<span class="badge badge-inference ${disabledClass}" ${titleAttr}>${type !== 'ON_DEMAND' ? type.replace('_', ' ') : 'In Region'}</span>`;
-        }).join('')}
-                    <span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">
-                        ${model.model_lifecycle_status}
-                    </span>
+        }).join('');
+
+        const statusBadge = `<span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">${model.model_lifecycle_status}</span>`;
+
+        const copyBtnSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+
+        const chevronSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+
+        return `
+            <div class="model-card" onclick="toggleMobileCard(this, event)">
+                <!-- Mobile compact view -->
+                <div class="mobile-compact">
+                    <div class="model-name">${formattedName}</div>
+                    <div class="model-capabilities">${modalityIcons}</div>
+                    <span class="mobile-expand-arrow">${chevronSvg}</span>
                 </div>
-                
-                <div class="model-id desktop-only">
+                <!-- Mobile expanded details -->
+                <div class="mobile-details">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                        <span class="badge ${badgeClass}">${provider}</span>
+                        ${statusBadge}
+                    </div>
+                    <div class="model-badges">${crisBadgesHtml}${otherBadgesHtml}</div>
+                    <div class="model-id">
+                        <span>${model.id}</span>
+                        <button class="copy-btn" onclick="event.stopPropagation(); copyToClipboard('${model.id}')" title="Copy model ID">${copyBtnSvg}</button>
+                    </div>
+                    <div class="model-section region-count-section" onclick="event.stopPropagation(); showAllRegions('${model.id}', '${formattedName}')" title="View all regions">
+                        <div class="section-title">
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="display:inline;vertical-align:middle;margin-right:4px;">
+                                <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span>${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span>
+                            <span class="info-hint"> (tap to view)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop full view -->
+                <div class="model-header">
+                    <div class="model-name">${formattedName}</div>
+                    <span class="badge ${badgeClass}">${provider}</span>
+                </div>
+                <div class="model-capabilities">${modalityIcons}</div>
+                <div class="model-badges">
+                    ${crisBadgesHtml}${otherBadgesHtml}
+                    ${statusBadge}
+                </div>
+                <div class="model-id">
                     <span>${model.id}</span>
-                    <button class="copy-btn" onclick="copyToClipboard('${model.id}')" title="Copy model ID">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
+                    <button class="copy-btn" onclick="event.stopPropagation(); copyToClipboard('${model.id}')" title="Copy model ID">${copyBtnSvg}</button>
                 </div>
-                
-                
-                <div class="model-section region-count-section" onclick="showAllRegions('${model.id}', '${formattedName}')" title="View all regions">
+                <div class="model-section region-count-section" onclick="event.stopPropagation(); showAllRegions('${model.id}', '${formattedName}')" title="View all regions">
                     <div class="section-title">
-                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="display: inline; vertical-align: middle; margin-right: 4px;">
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="display:inline;vertical-align:middle;margin-right:4px;">
                             <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
                         </svg>
                         <span>${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span>
@@ -893,6 +918,23 @@ function getModalityIcons(model) {
 function getStreamingIcon(model) {
     return '';
 }
+
+function toggleMobileCard(card, event) {
+    // Only toggle on mobile
+    if (window.innerWidth > 768) return;
+    // Don't toggle if clicking interactive elements inside details
+    if (event.target.closest('.copy-btn, .badge-interactive, .region-count-section')) return;
+    card.classList.toggle('expanded');
+}
+
+// Re-render on resize to handle orientation changes
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        renderModels();
+    }, 250);
+});
 
 // Initialize on load
 init();

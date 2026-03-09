@@ -55,6 +55,22 @@
                 <input type="text" id="searchInput" placeholder="Search models...">
             </div>
 
+            <div class="view-toggle" id="viewToggle">
+                <button class="view-toggle-btn active" data-view="grid" title="Card view">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </button>
+                <button class="view-toggle-btn" data-view="table" title="Table view">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M1 3H15M1 8H15M1 13H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
             <div class="filters">
                 <div class="custom-select" id="regionFilterContainer">
                     <button class="select-button" id="regionButton">
@@ -103,6 +119,22 @@
         </div>
 
         <div id="modelsGrid" class="models-grid"></div>
+        <div id="modelsTable" class="models-table-wrapper" style="display:none;">
+            <table class="models-table">
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Provider</th>
+                        <th>Capabilities</th>
+                        <th>Inference</th>
+                        <th>Status</th>
+                        <th>Regions</th>
+                        <th>Model ID</th>
+                    </tr>
+                </thead>
+                <tbody id="modelsTableBody"></tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Map Modal -->

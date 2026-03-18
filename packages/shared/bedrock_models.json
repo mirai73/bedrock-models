@@ -112,7 +112,6 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
-        "me-central-1",
         "us-east-1",
         "us-east-2",
         "us-west-1",
@@ -233,9 +232,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [
-        "GLOBAL"
-      ],
+      "me-central-1": [],
       "us-east-1": [
         "GLOBAL",
         "US"
@@ -477,18 +474,6 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
-        ],
-        "me-central-1": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2",
-          "ap-southeast-3",
-          "ap-southeast-4",
-          "me-central-1"
         ]
       },
       "CA": {
@@ -639,7 +624,6 @@
         "EU"
       ],
       "me-central-1": [
-        "APAC",
         "ON_DEMAND"
       ],
       "us-east-1": [
@@ -784,8 +768,7 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
-        ],
-        "me-central-1": []
+        ]
       },
       "EU": {
         "eu-central-1": [
@@ -906,9 +889,7 @@
       "il-central-1": [
         "EU"
       ],
-      "me-central-1": [
-        "APAC"
-      ],
+      "me-central-1": [],
       "us-east-1": [
         "ON_DEMAND",
         "US"
@@ -1100,18 +1081,6 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
-        ],
-        "me-central-1": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2",
-          "ap-southeast-3",
-          "ap-southeast-4",
-          "me-central-1"
         ]
       },
       "EU": {
@@ -1244,7 +1213,6 @@
         "EU"
       ],
       "me-central-1": [
-        "APAC",
         "ON_DEMAND"
       ],
       "us-east-1": [
@@ -2423,7 +2391,6 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
-        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -2562,9 +2529,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [
-        "GLOBAL"
-      ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -2827,7 +2792,6 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
-        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -2951,9 +2915,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [
-        "GLOBAL"
-      ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -3137,7 +3099,6 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
-        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -3271,9 +3232,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [
-        "GLOBAL"
-      ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -3475,18 +3434,6 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
-        ],
-        "me-central-1": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2",
-          "ap-southeast-3",
-          "ap-southeast-4",
-          "me-central-1"
         ]
       },
       "EU": {
@@ -3639,9 +3586,7 @@
       "il-central-1": [
         "EU"
       ],
-      "me-central-1": [
-        "APAC"
-      ],
+      "me-central-1": [],
       "us-east-1": [
         "GLOBAL",
         "US"
@@ -3944,9 +3889,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [
-        "GLOBAL"
-      ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -4130,7 +4073,6 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
-        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -4277,9 +4219,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [
-        "GLOBAL"
-      ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -8349,7 +8289,6 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
-        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -8466,9 +8405,7 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [
-        "GLOBAL"
-      ],
+      "me-central-1": [],
       "me-south-1": [
         "GLOBAL"
       ],

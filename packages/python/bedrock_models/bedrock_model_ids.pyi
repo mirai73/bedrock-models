@@ -32,8 +32,6 @@ class Models:
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_6: Final[BedrockModel]
-    COHERE_COMMAND_R: Final[BedrockModel]
-    COHERE_COMMAND_R_PLUS: Final[BedrockModel]
     COHERE_EMBED: Final[BedrockModel]
     COHERE_EMBED_ENGLISH: Final[BedrockModel]
     COHERE_EMBED_MULTILINGUAL: Final[BedrockModel]
@@ -59,6 +57,7 @@ class Models:
     META_LLAMA4_SCOUT_17B_INSTRUCT: Final[BedrockModel]
     MINIMAX_MINIMAX_M2: Final[BedrockModel]
     MINIMAX_MINIMAX_M2_1: Final[BedrockModel]
+    MINIMAX_MINIMAX_M2_5: Final[BedrockModel]
     MISTRAL_DEVSTRAL_2_123B: Final[BedrockModel]
     MISTRAL_MAGISTRAL_SMALL_2509: Final[BedrockModel]
     MISTRAL_MINISTRAL_3_14B_INSTRUCT: Final[BedrockModel]
@@ -78,6 +77,7 @@ class Models:
     NVIDIA_NEMOTRON_NANO_12B: Final[BedrockModel]
     NVIDIA_NEMOTRON_NANO_3_30B: Final[BedrockModel]
     NVIDIA_NEMOTRON_NANO_9B: Final[BedrockModel]
+    NVIDIA_NEMOTRON_SUPER_3_120B: Final[BedrockModel]
     OPENAI_GPT_OSS_120B: Final[BedrockModel]
     OPENAI_GPT_OSS_20B: Final[BedrockModel]
     OPENAI_GPT_OSS_SAFEGUARD_120B: Final[BedrockModel]
@@ -112,9 +112,12 @@ class Models:
     WRITER_PALMYRA_X5: Final[BedrockModel]
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
+    ZAI_GLM_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-20250514-v1:0' has LEGACY status
+    COHERE_COMMAND_R: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-v1:0' has LEGACY status
+    COHERE_COMMAND_R_PLUS: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-plus-v1:0' has LEGACY status

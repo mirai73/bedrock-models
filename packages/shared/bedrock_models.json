@@ -112,6 +112,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "us-east-1",
         "us-east-2",
         "us-west-1",
@@ -232,7 +233,9 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "GLOBAL"
+      ],
       "us-east-1": [
         "GLOBAL",
         "US"
@@ -474,7 +477,8 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
-        ]
+        ],
+        "me-central-1": []
       },
       "CA": {
         "ca-central-1": [
@@ -624,6 +628,7 @@
         "EU"
       ],
       "me-central-1": [
+        "APAC",
         "ON_DEMAND"
       ],
       "us-east-1": [
@@ -768,6 +773,18 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
+        ],
+        "me-central-1": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-south-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-southeast-3",
+          "ap-southeast-4",
+          "me-central-1"
         ]
       },
       "EU": {
@@ -889,7 +906,9 @@
       "il-central-1": [
         "EU"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "APAC"
+      ],
       "us-east-1": [
         "ON_DEMAND",
         "US"
@@ -1081,6 +1100,18 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
+        ],
+        "me-central-1": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-south-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-southeast-3",
+          "ap-southeast-4",
+          "me-central-1"
         ]
       },
       "EU": {
@@ -1213,6 +1244,7 @@
         "EU"
       ],
       "me-central-1": [
+        "APAC",
         "ON_DEMAND"
       ],
       "us-east-1": [
@@ -2391,6 +2423,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -2529,7 +2562,9 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "GLOBAL"
+      ],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -2792,6 +2827,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -2915,7 +2951,9 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "GLOBAL"
+      ],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -3099,6 +3137,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -3223,7 +3262,8 @@
       ],
       "eu-west-2": [
         "EU",
-        "GLOBAL"
+        "GLOBAL",
+        "ON_DEMAND"
       ],
       "eu-west-3": [
         "EU",
@@ -3232,7 +3272,9 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "GLOBAL"
+      ],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -3434,6 +3476,18 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
+        ],
+        "me-central-1": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-south-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-southeast-3",
+          "ap-southeast-4",
+          "me-central-1"
         ]
       },
       "EU": {
@@ -3586,7 +3640,9 @@
       "il-central-1": [
         "EU"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "APAC"
+      ],
       "us-east-1": [
         "GLOBAL",
         "US"
@@ -3751,6 +3807,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -3889,7 +3946,9 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "GLOBAL"
+      ],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -4073,6 +4132,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -4219,7 +4279,9 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "GLOBAL"
+      ],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -4304,7 +4366,7 @@
     "inputModalities": [
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -4327,7 +4389,7 @@
     "inputModalities": [
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -5789,6 +5851,29 @@
     ],
     "responseStreamingSupported": true
   },
+  "minimax.minimax-m2.5": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
   "mistral.devstral-2-123b": {
     "customizationsSupported": [],
     "inference_types": {
@@ -6777,6 +6862,29 @@
       "sa-east-1",
       "us-east-1",
       "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "nvidia.nemotron-super-3-120b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
       "us-west-2"
     ],
     "responseStreamingSupported": true
@@ -8289,6 +8397,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -8405,7 +8514,9 @@
       "il-central-1": [
         "GLOBAL"
       ],
-      "me-central-1": [],
+      "me-central-1": [
+        "GLOBAL"
+      ],
       "me-south-1": [
         "GLOBAL"
       ],
@@ -8707,6 +8818,29 @@
       "sa-east-1",
       "us-east-1",
       "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "zai.glm-5": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
       "us-west-2"
     ],
     "responseStreamingSupported": true

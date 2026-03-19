@@ -83,6 +83,7 @@ export const Models = {
   META_LLAMA4_SCOUT_17B_INSTRUCT: new BedrockModel('meta.llama4-scout-17b-instruct-v1:0'),
   MINIMAX_MINIMAX_M2: new BedrockModel('minimax.minimax-m2'),
   MINIMAX_MINIMAX_M2_1: new BedrockModel('minimax.minimax-m2.1'),
+  MINIMAX_MINIMAX_M2_5: new BedrockModel('minimax.minimax-m2.5'),
   MISTRAL_DEVSTRAL_2_123B: new BedrockModel('mistral.devstral-2-123b'),
   MISTRAL_MAGISTRAL_SMALL_2509: new BedrockModel('mistral.magistral-small-2509'),
   MISTRAL_MINISTRAL_3_14B_INSTRUCT: new BedrockModel('mistral.ministral-3-14b-instruct'),
@@ -102,6 +103,7 @@ export const Models = {
   NVIDIA_NEMOTRON_NANO_12B: new BedrockModel('nvidia.nemotron-nano-12b-v2'),
   NVIDIA_NEMOTRON_NANO_3_30B: new BedrockModel('nvidia.nemotron-nano-3-30b'),
   NVIDIA_NEMOTRON_NANO_9B: new BedrockModel('nvidia.nemotron-nano-9b-v2'),
+  NVIDIA_NEMOTRON_SUPER_3_120B: new BedrockModel('nvidia.nemotron-super-3-120b'),
   OPENAI_GPT_OSS_120B: new BedrockModel('openai.gpt-oss-120b-1:0'),
   OPENAI_GPT_OSS_20B: new BedrockModel('openai.gpt-oss-20b-1:0'),
   OPENAI_GPT_OSS_SAFEGUARD_120B: new BedrockModel('openai.gpt-oss-safeguard-120b'),
@@ -136,4 +138,5 @@ export const Models = {
   WRITER_PALMYRA_X5: new BedrockModel('writer.palmyra-x5-v1:0'),
   ZAI_GLM_4_7: new BedrockModel('zai.glm-4.7'),
   ZAI_GLM_4_7_FLASH: new BedrockModel('zai.glm-4.7-flash'),
+  ZAI_GLM_5: new BedrockModel('zai.glm-5'),
 };

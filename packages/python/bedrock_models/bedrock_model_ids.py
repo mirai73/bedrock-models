@@ -135,6 +135,7 @@ class Models:
     TWELVELABS_MARENGO_EMBED_2_7 = BedrockModel("twelvelabs.marengo-embed-2-7-v1:0")
     TWELVELABS_MARENGO_EMBED_3_0 = BedrockModel("twelvelabs.marengo-embed-3-0-v1:0")
     TWELVELABS_PEGASUS_1_2 = BedrockModel("twelvelabs.pegasus-1-2-v1:0")
+    WRITER_PALMYRA_VISION_7B = BedrockModel("writer.palmyra-vision-7b")
     WRITER_PALMYRA_X4 = BedrockModel("writer.palmyra-x4-v1:0")
     WRITER_PALMYRA_X5 = BedrockModel("writer.palmyra-x5-v1:0")
     ZAI_GLM_4_7 = BedrockModel("zai.glm-4.7")

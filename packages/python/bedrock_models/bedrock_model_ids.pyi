@@ -108,6 +108,7 @@ class Models:
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]
     TWELVELABS_PEGASUS_1_2: Final[BedrockModel]
+    WRITER_PALMYRA_VISION_7B: Final[BedrockModel]
     WRITER_PALMYRA_X4: Final[BedrockModel]
     WRITER_PALMYRA_X5: Final[BedrockModel]
     ZAI_GLM_4_7: Final[BedrockModel]

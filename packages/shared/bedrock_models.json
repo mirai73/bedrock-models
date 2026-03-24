@@ -5865,7 +5865,40 @@
   "minimax.minimax-m2.5": {
     "customizationsSupported": [],
     "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
       "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
         "ON_DEMAND"
       ],
       "us-west-2": [
@@ -5880,7 +5913,18 @@
       "TEXT"
     ],
     "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
       "us-east-1",
+      "us-east-2",
       "us-west-2"
     ],
     "responseStreamingSupported": true
@@ -6880,7 +6924,40 @@
   "nvidia.nemotron-super-3-120b": {
     "customizationsSupported": [],
     "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
       "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
         "ON_DEMAND"
       ],
       "us-west-2": [
@@ -6895,7 +6972,18 @@
       "TEXT"
     ],
     "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
       "us-east-1",
+      "us-east-2",
       "us-west-2"
     ],
     "responseStreamingSupported": true
@@ -8599,6 +8687,34 @@
     ],
     "responseStreamingSupported": true
   },
+  "writer.palmyra-vision-7b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
   "writer.palmyra-x4-v1:0": {
     "customizationsSupported": [],
     "inferenceProfile": {
@@ -8836,7 +8952,31 @@
   "zai.glm-5": {
     "customizationsSupported": [],
     "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
       "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
         "ON_DEMAND"
       ],
       "us-west-2": [
@@ -8851,7 +8991,15 @@
       "TEXT"
     ],
     "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
       "us-east-1",
+      "us-east-2",
       "us-west-2"
     ],
     "responseStreamingSupported": true

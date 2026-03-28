@@ -14,7 +14,6 @@ class Models:
     AMAZON_NOVA_CANVAS: Final[BedrockModel]
     AMAZON_NOVA_LITE: Final[BedrockModel]
     AMAZON_NOVA_MICRO: Final[BedrockModel]
-    AMAZON_NOVA_PREMIER: Final[BedrockModel]
     AMAZON_NOVA_PRO: Final[BedrockModel]
     AMAZON_NOVA_REEL: Final[BedrockModel]
     AMAZON_NOVA_SONIC: Final[BedrockModel]
@@ -22,9 +21,7 @@ class Models:
     AMAZON_TITAN_EMBED_G1_TEXT_02: Final[BedrockModel]
     AMAZON_TITAN_EMBED_IMAGE: Final[BedrockModel]
     AMAZON_TITAN_EMBED_TEXT: Final[BedrockModel]
-    AMAZON_TITAN_IMAGE_GENERATOR: Final[BedrockModel]
     AMAZON_TITAN_TG1_LARGE: Final[BedrockModel]
-    ANTHROPIC_CLAUDE_3_5_HAIKU_20241022: Final[BedrockModel]
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101: Final[BedrockModel]
@@ -43,13 +40,8 @@ class Models:
     GOOGLE_GEMMA_3_27B_IT: Final[BedrockModel]
     GOOGLE_GEMMA_3_4B_IT: Final[BedrockModel]
     LUMA_RAY: Final[BedrockModel]
-    META_LLAMA3_1_405B_INSTRUCT: Final[BedrockModel]
     META_LLAMA3_1_70B_INSTRUCT: Final[BedrockModel]
     META_LLAMA3_1_8B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_2_11B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_2_1B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_2_3B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_2_90B_INSTRUCT: Final[BedrockModel]
     META_LLAMA3_3_70B_INSTRUCT: Final[BedrockModel]
     META_LLAMA3_70B_INSTRUCT: Final[BedrockModel]
     META_LLAMA3_8B_INSTRUCT: Final[BedrockModel]
@@ -114,6 +106,9 @@ class Models:
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
     ZAI_GLM_5: Final[BedrockModel]
+    AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
+    AMAZON_TITAN_IMAGE_GENERATOR: Final[BedrockModel]  # deprecated: Model 'amazon.titan-image-generator-v2:0' has LEGACY status
+    ANTHROPIC_CLAUDE_3_5_HAIKU_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-haiku-20241022-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status
@@ -122,3 +117,8 @@ class Models:
     ANTHROPIC_CLAUDE_OPUS_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-20250514-v1:0' has LEGACY status
     COHERE_COMMAND_R: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-v1:0' has LEGACY status
     COHERE_COMMAND_R_PLUS: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-plus-v1:0' has LEGACY status
+    META_LLAMA3_1_405B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-405b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_2_11B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-11b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_2_1B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-1b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_2_3B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-3b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_2_90B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-90b-instruct-v1:0' has LEGACY status

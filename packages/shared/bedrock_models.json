@@ -1000,7 +1000,7 @@
       "TEXT",
       "VIDEO"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -1634,7 +1634,7 @@
       "IMAGE",
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "IMAGE"
     ],
@@ -1697,7 +1697,7 @@
     "inputModalities": [
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -1733,11 +1733,6 @@
           "eu-west-1",
           "eu-west-3"
         ],
-        "eu-west-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
         "eu-west-3": [
           "eu-central-1",
           "eu-west-1",
@@ -1746,14 +1741,6 @@
       },
       "US": {
         "us-east-1": [
-          "us-east-1",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-west-2"
-        ],
-        "us-west-2": [
           "us-east-1",
           "us-west-2"
         ]
@@ -1782,20 +1769,10 @@
       "eu-central-2": [
         "ON_DEMAND"
       ],
-      "eu-west-1": [
-        "EU"
-      ],
       "eu-west-3": [
         "EU"
       ],
       "us-east-1": [
-        "ON_DEMAND",
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
         "ON_DEMAND",
         "US"
       ]
@@ -1816,11 +1793,8 @@
       "ap-southeast-2",
       "eu-central-1",
       "eu-central-2",
-      "eu-west-1",
       "eu-west-3",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
+      "us-east-1"
     ],
     "responseStreamingSupported": true
   },
@@ -1891,11 +1865,6 @@
           "us-east-1",
           "us-east-2",
           "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
         ]
       }
     },
@@ -1924,12 +1893,6 @@
       ],
       "us-east-1": [
         "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
       ]
     },
     "inputModalities": [
@@ -1948,9 +1911,7 @@
       "ap-south-2",
       "ap-southeast-1",
       "ap-southeast-2",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
+      "us-east-1"
     ],
     "responseStreamingSupported": true
   },
@@ -3148,6 +3109,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",
@@ -5168,7 +5130,7 @@
     "inputModalities": [
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -5306,7 +5268,7 @@
       "IMAGE",
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -5376,7 +5338,7 @@
     "inputModalities": [
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -5449,7 +5411,7 @@
     "inputModalities": [
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],
@@ -5497,7 +5459,7 @@
       "IMAGE",
       "TEXT"
     ],
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],

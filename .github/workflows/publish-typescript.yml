@@ -23,12 +23,9 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-
-      - name : Update npm 
-        run: npm install -g npm@latest
 
       - name: Install dependencies
         run: pnpm install
@@ -37,9 +34,8 @@ jobs:
         run: pnpm build
         
       - name: Publish to npm
-        run: |
-          cd packages/typescript
-          npm publish --access public
+        run: pnpm publish --no-git-checks --access public --provenance
+        working-directory: packages/typescript
       
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1

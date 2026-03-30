@@ -82,7 +82,7 @@ async function init() {
     initTheme();
     initViewToggle();
     try {
-        const response = await fetch('bedrock_models.json');
+        const response = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models.json');
         const data = await response.json();
 
         allModels = Object.entries(data).map(([id, info]) => ({

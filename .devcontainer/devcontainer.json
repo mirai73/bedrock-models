@@ -10,7 +10,10 @@
     },
     "ghcr.io/devcontainers-extra/features/poetry:2": {}
   },
-  "postCreateCommand": ["pnpm install", "cd packages/python && poetry install"],
+  "postCreateCommand": {
+      "pnpm": "cd packages/typescript && pnpm install", 
+      "poetry": "cd packages/python && poetry install"
+    },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -19,5 +22,12 @@
         "bradlc.vscode-tailwindcss"
       ]
     }
+  },
+  "mounts": [
+  {
+    "source": "${localEnv:HOME}/.ssh",
+    "target": "/home/vscode/.ssh",
+    "type": "bind"
   }
+]
 }

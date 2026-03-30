@@ -156,3 +156,6 @@ pnpm-debug.log*
 
 
 docs/bedrock_models.json
+
+
+.pnpm-store

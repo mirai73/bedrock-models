@@ -1728,11 +1728,6 @@
         ]
       },
       "EU": {
-        "eu-central-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
         "eu-west-3": [
           "eu-central-1",
           "eu-west-1",
@@ -1762,10 +1757,6 @@
       "ap-southeast-2": [
         "APAC"
       ],
-      "eu-central-1": [
-        "EU",
-        "ON_DEMAND"
-      ],
       "eu-central-2": [
         "ON_DEMAND"
       ],
@@ -1791,7 +1782,6 @@
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
-      "eu-central-1",
       "eu-central-2",
       "eu-west-3",
       "us-east-1"
@@ -2395,6 +2385,7 @@
         "eu-west-2",
         "eu-west-3",
         "il-central-1",
+        "me-central-1",
         "me-south-1",
         "mx-central-1",
         "sa-east-1",

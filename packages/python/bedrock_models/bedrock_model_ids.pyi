@@ -11,12 +11,9 @@ class Models:
     AMAZON_NOVA_2_LITE: Final[BedrockModel]
     AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS: Final[BedrockModel]
     AMAZON_NOVA_2_SONIC: Final[BedrockModel]
-    AMAZON_NOVA_CANVAS: Final[BedrockModel]
     AMAZON_NOVA_LITE: Final[BedrockModel]
     AMAZON_NOVA_MICRO: Final[BedrockModel]
     AMAZON_NOVA_PRO: Final[BedrockModel]
-    AMAZON_NOVA_REEL: Final[BedrockModel]
-    AMAZON_NOVA_SONIC: Final[BedrockModel]
     AMAZON_RERANK: Final[BedrockModel]
     AMAZON_TITAN_EMBED_G1_TEXT_02: Final[BedrockModel]
     AMAZON_TITAN_EMBED_IMAGE: Final[BedrockModel]
@@ -106,7 +103,10 @@ class Models:
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
     ZAI_GLM_5: Final[BedrockModel]
+    AMAZON_NOVA_CANVAS: Final[BedrockModel]  # deprecated: Model 'amazon.nova-canvas-v1:0' has LEGACY status
     AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
+    AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status
+    AMAZON_NOVA_SONIC: Final[BedrockModel]  # deprecated: Model 'amazon.nova-sonic-v1:0' has LEGACY status
     AMAZON_TITAN_IMAGE_GENERATOR: Final[BedrockModel]  # deprecated: Model 'amazon.titan-image-generator-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_HAIKU_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-haiku-20241022-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status

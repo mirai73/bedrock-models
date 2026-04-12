@@ -148,7 +148,7 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
     Returns:
         Dictionary mapping model IDs to their supported regions and inference types
     """
-    bedrock_regions = get_bedrock_regions()
+    bedrock_regions = [r for r in get_bedrock_regions() if r != "me-south-1"]
     print(f"Scanning {len(bedrock_regions)} Bedrock-enabled regions in parallel...")
     print(f"Regions: {', '.join(bedrock_regions)}\n")
     

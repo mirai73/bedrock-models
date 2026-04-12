@@ -8,9 +8,10 @@ Uses ThreadPoolExecutor for parallel processing to speed up scanning.
 import boto3
 import json
 from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 from typing import Dict, List, Set, Any
 import threading
+from tqdm import tqdm
 
 
 def get_bedrock_regions() -> List[str]:
@@ -30,7 +31,8 @@ def get_foundation_models_in_region(region: str) -> tuple[str, List[Dict]]:
         Tuple of (region, list of model dictionaries)
     """
     try:
-        bedrock = boto3.client('bedrock', region_name=region)
+        session = boto3.Session(region_name=region)
+        bedrock = session.client('bedrock')
         response = bedrock.list_foundation_models()
         return region, response.get('modelSummaries', [])
     except Exception as e:
@@ -56,7 +58,8 @@ def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[st
         }
     """
     try:
-        bedrock = boto3.client('bedrock', region_name=region)
+        session = boto3.Session(region_name=region)
+        bedrock = session.client('bedrock')
         response = bedrock.list_inference_profiles()
         
         # Structure: model_id -> {prefix -> [regions]}
@@ -112,9 +115,9 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, Li
     Returns:
         Tuple of (region, filtered_models, model_to_profiles, excluded_count)
     """
-    print(f"Scanning region: {region}")
+    tqdm.write(f"Scanning region: {region}")
     region_name, models = get_foundation_models_in_region(region)
-    print(f"  Found {len(models)} models in {region}")
+    tqdm.write(f"{region_name}  Found {len(models)} models in {region}")
     
     # Filter models immediately - only keep those with ON_DEMAND or INFERENCE_PROFILE
     filtered_models = []
@@ -129,14 +132,14 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, Li
             model_id = model.get('modelId', 'unknown')
 #            print(f"    ⓧ Excluding {model_id} (only PROVISIONED)")
     
-    print(f"  Kept {len(filtered_models)} models after filtering")
+    tqdm.write(f"{region_name}  Kept {len(filtered_models)} models after filtering")
     
     # Get all inference profiles in this region
     model_to_profiles = get_inference_profiles_in_region(region)
     
     if model_to_profiles:
         count = sum(len(profiles) for profiles in model_to_profiles.values())
-        print(f"  Found {count} profile definitions")
+        tqdm.write(f"  Found {count} profile definitions")
     
     return region, filtered_models, model_to_profiles, excluded_count
 
@@ -148,7 +151,8 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
     Returns:
         Dictionary mapping model IDs to their supported regions and inference types
     """
-    bedrock_regions = get_bedrock_regions()
+    bedrock_regions = [r for r in get_bedrock_regions() if r != 'me-south-1']
+    print("NOTE: excluding me-south-1 due to availability")
     print(f"Scanning {len(bedrock_regions)} Bedrock-enabled regions in parallel...")
     print(f"Regions: {', '.join(bedrock_regions)}\n")
     
@@ -171,8 +175,10 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
     with ThreadPoolExecutor(max_workers=10) as executor:
         future_to_region = {executor.submit(process_region, region): region for region in bedrock_regions}
         
-        for future in as_completed(future_to_region):
-            region = future_to_region[future]
+        try:
+            for future in tqdm(as_completed(future_to_region, timeout=120), total=len(bedrock_regions), desc="Scanning regions"):
+                region = future_to_region[future]
+            
             try:
                 region_name, models, model_to_profiles, excluded_count = future.result()
                 
@@ -248,6 +254,8 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
                 
             except Exception as e:
                 print(f"Error processing region {region}: {e}")
+        except TimeoutError:
+            tqdm.write("\nTimeout of 120 seconds reached. Proceeding with completed regions.")
     
     print(f"\nTotal excluded models across all regions: {total_excluded}")
     

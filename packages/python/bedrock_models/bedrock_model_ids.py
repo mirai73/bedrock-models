@@ -45,7 +45,6 @@ class Models:
     AMAZON_TITAN_EMBED_G1_TEXT_02 = BedrockModel("amazon.titan-embed-g1-text-02")
     AMAZON_TITAN_EMBED_IMAGE = BedrockModel("amazon.titan-embed-image-v1")
     AMAZON_TITAN_EMBED_TEXT = BedrockModel("amazon.titan-embed-text-v2:0")
-    AMAZON_TITAN_TG1_LARGE = BedrockModel("amazon.titan-tg1-large")
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001 = BedrockModel("anthropic.claude-haiku-4-5-20251001-v1:0")
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = BedrockModel("anthropic.claude-opus-4-1-20250805-v1:0")
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101 = BedrockModel("anthropic.claude-opus-4-5-20251101-v1:0")

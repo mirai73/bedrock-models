@@ -18,7 +18,6 @@ class Models:
     AMAZON_TITAN_EMBED_G1_TEXT_02: Final[BedrockModel]
     AMAZON_TITAN_EMBED_IMAGE: Final[BedrockModel]
     AMAZON_TITAN_EMBED_TEXT: Final[BedrockModel]
-    AMAZON_TITAN_TG1_LARGE: Final[BedrockModel]
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101: Final[BedrockModel]

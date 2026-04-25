@@ -1589,29 +1589,6 @@
     ],
     "responseStreamingSupported": false
   },
-  "amazon.titan-tg1-large": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "anthropic.claude-3-5-haiku-20241022-v1:0": {
     "customizationsSupported": [],
     "inferenceProfile": {

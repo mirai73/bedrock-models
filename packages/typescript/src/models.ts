@@ -41,7 +41,6 @@ export const Models = {
   AMAZON_TITAN_EMBED_IMAGE: new BedrockModel('amazon.titan-embed-image-v1'),
   AMAZON_TITAN_EMBED_TEXT: new BedrockModel('amazon.titan-embed-text-v2:0'),
   AMAZON_TITAN_IMAGE_GENERATOR: new BedrockModel('amazon.titan-image-generator-v2:0'),
-  AMAZON_TITAN_TG1_LARGE: new BedrockModel('amazon.titan-tg1-large'),
   ANTHROPIC_CLAUDE_3_5_HAIKU_20241022: new BedrockModel('anthropic.claude-3-5-haiku-20241022-v1:0'),
   ANTHROPIC_CLAUDE_3_5_SONNET_20240620: new BedrockModel('anthropic.claude-3-5-sonnet-20240620-v1:0'),
   ANTHROPIC_CLAUDE_3_5_SONNET_20241022: new BedrockModel('anthropic.claude-3-5-sonnet-20241022-v2:0'),

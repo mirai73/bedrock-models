@@ -1798,33 +1798,6 @@
     "customizationsSupported": [],
     "inferenceProfile": {
       "APAC": {
-        "ap-northeast-1": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2"
-        ],
-        "ap-northeast-2": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2"
-        ],
-        "ap-northeast-3": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2"
-        ],
         "ap-south-1": [
           "ap-northeast-1",
           "ap-northeast-2",
@@ -1833,150 +1806,28 @@
           "ap-south-2",
           "ap-southeast-1",
           "ap-southeast-2"
-        ],
-        "ap-south-2": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2"
-        ],
-        "ap-southeast-1": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2"
-        ],
-        "ap-southeast-2": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2"
-        ]
-      },
-      "EU": {
-        "eu-central-1": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-north-1": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-1": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-3": [
-          "eu-central-1",
-          "eu-north-1",
-          "eu-west-1",
-          "eu-west-3"
-        ]
-      },
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-west-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
         ]
       }
     },
     "inference_types": {
-      "ap-northeast-1": [
-        "APAC"
-      ],
-      "ap-northeast-2": [
-        "APAC"
-      ],
-      "ap-northeast-3": [
-        "APAC"
-      ],
       "ap-south-1": [
         "APAC"
       ],
-      "ap-south-2": [
-        "APAC"
-      ],
-      "ap-southeast-1": [
-        "APAC"
-      ],
-      "ap-southeast-2": [
-        "APAC"
-      ],
-      "eu-central-1": [
-        "EU"
-      ],
-      "eu-north-1": [
-        "EU"
-      ],
-      "eu-west-1": [
-        "EU"
-      ],
       "eu-west-2": [
         "ON_DEMAND"
-      ],
-      "eu-west-3": [
-        "EU"
-      ],
-      "us-east-1": [
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "US"
       ]
     },
     "inputModalities": [
       "IMAGE",
       "TEXT"
     ],
-    "model_lifecycle_status": "LEGACY",
+    "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
     ],
     "regions": [
-      "ap-northeast-1",
-      "ap-northeast-2",
-      "ap-northeast-3",
       "ap-south-1",
-      "ap-south-2",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-west-1",
-      "eu-west-2",
-      "eu-west-3",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
+      "eu-west-2"
     ],
     "responseStreamingSupported": true
   },

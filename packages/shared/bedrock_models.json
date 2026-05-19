@@ -538,11 +538,6 @@
           "us-east-2",
           "us-west-2"
         ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
         "us-west-1": [
           "us-east-1",
           "us-east-2",
@@ -625,9 +620,7 @@
         "ON_DEMAND",
         "US"
       ],
-      "us-east-2": [
-        "US"
-      ],
+      "us-east-2": [],
       "us-west-1": [
         "US"
       ],
@@ -1129,11 +1122,6 @@
           "us-east-2",
           "us-west-2"
         ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
         "us-west-1": [
           "us-east-1",
           "us-east-2",
@@ -1208,9 +1196,7 @@
         "ON_DEMAND",
         "US"
       ],
-      "us-east-2": [
-        "US"
-      ],
+      "us-east-2": [],
       "us-west-1": [
         "US"
       ],

@@ -6,8 +6,6 @@ class BedrockModel(str):
 
 class Models:
 
-    AI21_JAMBA_1_5_LARGE: Final[BedrockModel]
-    AI21_JAMBA_1_5_MINI: Final[BedrockModel]
     AMAZON_NOVA_2_LITE: Final[BedrockModel]
     AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS: Final[BedrockModel]
     AMAZON_NOVA_2_SONIC: Final[BedrockModel]
@@ -24,6 +22,7 @@ class Models:
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_6: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_7: Final[BedrockModel]
+    ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_6: Final[BedrockModel]
     COHERE_EMBED: Final[BedrockModel]
@@ -103,6 +102,8 @@ class Models:
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
     ZAI_GLM_5: Final[BedrockModel]
+    AI21_JAMBA_1_5_LARGE: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status
+    AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
     AMAZON_NOVA_CANVAS: Final[BedrockModel]  # deprecated: Model 'amazon.nova-canvas-v1:0' has LEGACY status
     AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
     AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status

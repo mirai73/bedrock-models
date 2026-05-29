@@ -33,8 +33,6 @@ class _DeprecatedModelDescriptor:
 class Models:
     """Static class containing Bedrock foundation model IDs as constants."""
 
-    AI21_JAMBA_1_5_LARGE = BedrockModel("ai21.jamba-1-5-large-v1:0")
-    AI21_JAMBA_1_5_MINI = BedrockModel("ai21.jamba-1-5-mini-v1:0")
     AMAZON_NOVA_2_LITE = BedrockModel("amazon.nova-2-lite-v1:0")
     AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS = BedrockModel("amazon.nova-2-multimodal-embeddings-v1:0")
     AMAZON_NOVA_2_SONIC = BedrockModel("amazon.nova-2-sonic-v1:0")
@@ -51,6 +49,7 @@ class Models:
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101 = BedrockModel("anthropic.claude-opus-4-5-20251101-v1:0")
     ANTHROPIC_CLAUDE_OPUS_4_6 = BedrockModel("anthropic.claude-opus-4-6-v1")
     ANTHROPIC_CLAUDE_OPUS_4_7 = BedrockModel("anthropic.claude-opus-4-7")
+    ANTHROPIC_CLAUDE_OPUS_4_8 = BedrockModel("anthropic.claude-opus-4-8")
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929 = BedrockModel("anthropic.claude-sonnet-4-5-20250929-v1:0")
     ANTHROPIC_CLAUDE_SONNET_4_6 = BedrockModel("anthropic.claude-sonnet-4-6")
     COHERE_EMBED = BedrockModel("cohere.embed-v4:0")
@@ -130,6 +129,8 @@ class Models:
     ZAI_GLM_4_7 = BedrockModel("zai.glm-4.7")
     ZAI_GLM_4_7_FLASH = BedrockModel("zai.glm-4.7-flash")
     ZAI_GLM_5 = BedrockModel("zai.glm-5")
+    AI21_JAMBA_1_5_LARGE = _DeprecatedModelDescriptor("ai21.jamba-1-5-large-v1:0", "Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    AI21_JAMBA_1_5_MINI = _DeprecatedModelDescriptor("ai21.jamba-1-5-mini-v1:0", "Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     AMAZON_NOVA_CANVAS = _DeprecatedModelDescriptor("amazon.nova-canvas-v1:0", "Model 'amazon.nova-canvas-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     AMAZON_NOVA_PREMIER = _DeprecatedModelDescriptor("amazon.nova-premier-v1:0", "Model 'amazon.nova-premier-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     AMAZON_NOVA_REEL = _DeprecatedModelDescriptor("amazon.nova-reel-v1:1", "Model 'amazon.nova-reel-v1:1' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

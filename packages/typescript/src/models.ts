@@ -53,6 +53,7 @@ export const Models = {
   ANTHROPIC_CLAUDE_OPUS_4_5_20251101: new BedrockModel('anthropic.claude-opus-4-5-20251101-v1:0'),
   ANTHROPIC_CLAUDE_OPUS_4_6: new BedrockModel('anthropic.claude-opus-4-6-v1'),
   ANTHROPIC_CLAUDE_OPUS_4_7: new BedrockModel('anthropic.claude-opus-4-7'),
+  ANTHROPIC_CLAUDE_OPUS_4_8: new BedrockModel('anthropic.claude-opus-4-8'),
   ANTHROPIC_CLAUDE_SONNET_4_20250514: new BedrockModel('anthropic.claude-sonnet-4-20250514-v1:0'),
   ANTHROPIC_CLAUDE_SONNET_4_5_20250929: new BedrockModel('anthropic.claude-sonnet-4-5-20250929-v1:0'),
   ANTHROPIC_CLAUDE_SONNET_4_6: new BedrockModel('anthropic.claude-sonnet-4-6'),

@@ -114,7 +114,6 @@ class Models:
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_OPUS_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-20250514-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     COHERE_COMMAND_R: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-v1:0' has LEGACY status
     COHERE_COMMAND_R_PLUS: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-plus-v1:0' has LEGACY status

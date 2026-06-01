@@ -2361,53 +2361,6 @@
     ],
     "responseStreamingSupported": true
   },
-  "anthropic.claude-opus-4-20250514-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-west-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "us-east-1": [
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "US"
-      ]
-    },
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
     "customizationsSupported": [],
     "inferenceProfile": {

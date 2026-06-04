@@ -120,7 +120,6 @@ class Models:
     STABILITY_STABLE_IMAGE_ULTRA = BedrockModel("stability.stable-image-ultra-v1:1")
     STABILITY_STABLE_OUTPAINT = BedrockModel("stability.stable-outpaint-v1:0")
     STABILITY_STABLE_STYLE_TRANSFER = BedrockModel("stability.stable-style-transfer-v1:0")
-    TWELVELABS_MARENGO_EMBED_2_7 = BedrockModel("twelvelabs.marengo-embed-2-7-v1:0")
     TWELVELABS_MARENGO_EMBED_3_0 = BedrockModel("twelvelabs.marengo-embed-3-0-v1:0")
     TWELVELABS_PEGASUS_1_2 = BedrockModel("twelvelabs.pegasus-1-2-v1:0")
     WRITER_PALMYRA_VISION_7B = BedrockModel("writer.palmyra-vision-7b")
@@ -149,3 +148,4 @@ class Models:
     META_LLAMA3_2_1B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-1b-instruct-v1:0", "Model 'meta.llama3-2-1b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     META_LLAMA3_2_3B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-3b-instruct-v1:0", "Model 'meta.llama3-2-3b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     META_LLAMA3_2_90B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-90b-instruct-v1:0", "Model 'meta.llama3-2-90b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    TWELVELABS_MARENGO_EMBED_2_7 = _DeprecatedModelDescriptor("twelvelabs.marengo-embed-2-7-v1:0", "Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

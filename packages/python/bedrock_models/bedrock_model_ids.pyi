@@ -93,7 +93,6 @@ class Models:
     STABILITY_STABLE_IMAGE_ULTRA: Final[BedrockModel]
     STABILITY_STABLE_OUTPAINT: Final[BedrockModel]
     STABILITY_STABLE_STYLE_TRANSFER: Final[BedrockModel]
-    TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]
     TWELVELABS_PEGASUS_1_2: Final[BedrockModel]
     WRITER_PALMYRA_VISION_7B: Final[BedrockModel]
@@ -122,3 +121,4 @@ class Models:
     META_LLAMA3_2_1B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-1b-instruct-v1:0' has LEGACY status
     META_LLAMA3_2_3B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-3b-instruct-v1:0' has LEGACY status
     META_LLAMA3_2_90B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-90b-instruct-v1:0' has LEGACY status
+    TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status

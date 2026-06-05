@@ -15,11 +15,10 @@ importers:
   packages/shared: {}
 
   packages/typescript:
-    dependencies:
+    devDependencies:
       '@bedrock-models/shared':
         specifier: workspace:*
         version: link:../shared
-    devDependencies:
       '@types/jest':
         specifier: ^29.5.0
         version: 29.5.14

@@ -36,6 +36,8 @@ jobs:
       - name: Publish to npm
         run: pnpm publish --no-git-checks --access public --provenance
         working-directory: packages/typescript
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1

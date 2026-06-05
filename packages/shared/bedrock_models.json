@@ -100,7 +100,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -188,9 +187,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -268,7 +264,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2006,11 +2001,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -2094,7 +2084,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2195,10 +2184,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "AU",
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -2288,7 +2273,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2441,7 +2425,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2526,9 +2509,6 @@
         "GLOBAL"
       ],
       "ap-southeast-5": [
-        "GLOBAL"
-      ],
-      "ap-southeast-6": [
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -2620,7 +2600,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2653,11 +2632,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -2741,7 +2715,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2836,10 +2809,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "AU",
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -2931,7 +2900,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3047,7 +3015,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3153,9 +3120,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -3245,7 +3209,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3361,7 +3324,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3462,9 +3424,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -3552,7 +3511,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3918,11 +3876,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -4006,7 +3959,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -4107,10 +4059,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "AU",
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -4200,7 +4148,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -4233,11 +4180,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -4321,7 +4263,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -4428,10 +4369,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "AU",
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -4523,7 +4460,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",

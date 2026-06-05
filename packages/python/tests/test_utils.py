@@ -182,3 +182,124 @@ def test_me_central_1_inference_profiles():
     cris_id = cris_model_id(model_id, region)
     assert cris_id.startswith("apac."), f"Expected APAC profile in {region}, got {cris_id}"
     assert model_id in cris_id
+
+
+def test_save_to_json_metadata(tmp_path):
+    """Test save_to_json updates bedrock_models_metadata.json correctly."""
+    import sys
+    import json
+    from pathlib import Path
+    from datetime import datetime, timezone
+    
+    # Add utils path to sys.path
+    utils_dir = str(Path(__file__).parent.parent / "utils")
+    if utils_dir not in sys.path:
+        sys.path.append(utils_dir)
+        
+    from generate_models_json import save_to_json
+    
+    models_file = tmp_path / "bedrock_models.json"
+    metadata_file = tmp_path / "bedrock_models_metadata.json"
+    
+    # 1. Initial run: save new models
+    initial_mapping = {
+        "model-a": {
+            "regions": ["us-east-1"],
+            "inference_types": {"us-east-1": ["ON_DEMAND"]},
+            "inputModalities": {"TEXT"},
+            "outputModalities": {"TEXT"},
+        },
+        "model-b": {
+            "regions": ["us-west-2"],
+            "inference_types": {"us-west-2": ["ON_DEMAND"]},
+            "inputModalities": {"TEXT"},
+            "outputModalities": {"TEXT"},
+        }
+    }
+    
+    current_date = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    save_to_json(initial_mapping, filename=str(models_file))
+    
+    # Check that both files exist
+    assert models_file.exists()
+    assert metadata_file.exists()
+    
+    with open(metadata_file, "r") as f:
+        meta_data = json.load(f)
+        
+    assert "model-a" in meta_data
+    assert meta_data["model-a"]["last_changed"] == current_date
+    assert "deleted" not in meta_data["model-a"]
+    
+    assert "model-b" in meta_data
+    assert meta_data["model-b"]["last_changed"] == current_date
+    assert "deleted" not in meta_data["model-b"]
+
+    # 2. Modify one model, leave other unchanged
+    # We will override the saved files with some historical metadata dates to test preservation
+    historical_meta = {
+        "model-a": {"last_changed": "2020-01-01"},
+        "model-b": {"last_changed": "2020-01-01"}
+    }
+    with open(metadata_file, "w") as f:
+        json.dump(historical_meta, f)
+        
+    # Run again with model-b modified and model-a unchanged
+    modified_mapping = {
+        "model-a": {
+            "regions": ["us-east-1"],
+            "inference_types": {"us-east-1": ["ON_DEMAND"]},
+            "inputModalities": {"TEXT"},
+            "outputModalities": {"TEXT"},
+        },
+        "model-b": {
+            "regions": ["us-west-2", "us-east-1"], # Changed regions list
+            "inference_types": {"us-west-2": ["ON_DEMAND"], "us-east-1": ["ON_DEMAND"]},
+            "inputModalities": {"TEXT"},
+            "outputModalities": {"TEXT"},
+        }
+    }
+    save_to_json(modified_mapping, filename=str(models_file))
+    
+    with open(metadata_file, "r") as f:
+        meta_data = json.load(f)
+        
+    # model-a unchanged -> retains historical date
+    assert meta_data["model-a"]["last_changed"] == "2020-01-01"
+    assert "deleted" not in meta_data["model-a"]
+    
+    # model-b changed -> updated to current date
+    assert meta_data["model-b"]["last_changed"] == current_date
+    assert "deleted" not in meta_data["model-b"]
+
+    # 3. Delete a model (model-b)
+    # Clear model-b from mapping
+    deleted_mapping = {
+        "model-a": {
+            "regions": ["us-east-1"],
+            "inference_types": {"us-east-1": ["ON_DEMAND"]},
+            "inputModalities": {"TEXT"},
+            "outputModalities": {"TEXT"},
+        }
+    }
+    save_to_json(deleted_mapping, filename=str(models_file))
+    
+    with open(metadata_file, "r") as f:
+        meta_data = json.load(f)
+        
+    # model-a unchanged
+    assert meta_data["model-a"]["last_changed"] == "2020-01-01"
+    
+    # model-b deleted -> retained in metadata and marked deleted
+    assert "model-b" in meta_data
+    assert meta_data["model-b"]["last_changed"] == current_date # it changed in step 2
+    assert meta_data["model-b"]["deleted"] == current_date
+    
+    # 4. Resurrect model-b
+    save_to_json(modified_mapping, filename=str(models_file))
+    with open(metadata_file, "r") as f:
+        meta_data = json.load(f)
+        
+    # model-b resurrected -> 'deleted' is removed, 'last_changed' updated to current_date
+    assert "deleted" not in meta_data["model-b"]
+    assert meta_data["model-b"]["last_changed"] == current_date

@@ -304,6 +304,9 @@ def print_summary(model_mapping: Dict[str, Any]):
 
 def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedrock_models.json'):
     """Save the model mapping to a JSON file with sorted keys and values for deterministic output."""
+    import os
+    from datetime import datetime, timezone
+
     # Sort regions and inference_types lists for deterministic output
     sorted_mapping = {}
     for model_id in sorted(model_mapping.keys()):
@@ -332,9 +335,72 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedro
             
         sorted_mapping[model_id] = entry
     
+    # Load old model definitions to compare
+    old_models = {}
+    if os.path.exists(filename):
+        try:
+            with open(filename, 'r') as f:
+                old_models = json.load(f)
+        except Exception as e:
+            print(f"Warning: Could not load existing models file: {e}")
+
+    # Load existing metadata
+    metadata_filename = os.path.join(os.path.dirname(filename), 'bedrock_models_metadata.json')
+    old_metadata = {}
+    if os.path.exists(metadata_filename):
+        try:
+            with open(metadata_filename, 'r') as f:
+                old_metadata = json.load(f)
+        except Exception as e:
+            print(f"Warning: Could not load existing metadata file: {e}")
+
+    current_date = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    new_metadata = {}
+
+    # 1. Process all active models in the new mapping
+    for model_id, entry in sorted_mapping.items():
+        old_entry = old_models.get(model_id)
+        existing_meta = old_metadata.get(model_id, {})
+        
+        # Check if the model is new OR its definition has changed
+        if old_entry is None or entry != old_entry:
+            new_metadata[model_id] = {
+                'last_changed': current_date
+            }
+        else:
+            # Definition hasn't changed. Keep previous last_changed, or fallback to current_date if missing.
+            last_changed = existing_meta.get('last_changed', current_date)
+            new_metadata[model_id] = {
+                'last_changed': last_changed
+            }
+
+    # 2. Process models that were in the old models OR old metadata but are not in the new mapping
+    all_past_model_ids = set(old_models.keys()) | set(old_metadata.keys())
+    deleted_model_ids = all_past_model_ids - set(sorted_mapping.keys())
+    
+    for model_id in sorted(deleted_model_ids):
+        existing_meta = old_metadata.get(model_id, {})
+        last_changed = existing_meta.get('last_changed', current_date)
+        deleted_date = existing_meta.get('deleted')
+        
+        # If it was already marked deleted, keep that date. Otherwise, set it to current_date.
+        if not deleted_date:
+            deleted_date = current_date
+            
+        new_metadata[model_id] = {
+            'last_changed': last_changed,
+            'deleted': deleted_date
+        }
+
+    # Write bedrock_models.json
     with open(filename, 'w') as f:
         json.dump(sorted_mapping, f, indent=2, sort_keys=True)
     print(f"\n\nResults saved to {filename}")
+
+    # Write bedrock_models_metadata.json
+    with open(metadata_filename, 'w') as f:
+        json.dump(new_metadata, f, indent=2, sort_keys=True)
+    print(f"Metadata saved to {metadata_filename}")
 
 
 def main():

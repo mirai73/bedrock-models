@@ -6,4 +6,5 @@ echo "Open http://localhost:8000 in your browser"
 echo "Press Ctrl+C to stop"
 echo ""
 ln -sf ../packages/shared/bedrock_models.json bedrock_models.json
+ln -sf ../packages/shared/bedrock_models_metadata.json bedrock_models_metadata.json
 python3 -m http.server 8000

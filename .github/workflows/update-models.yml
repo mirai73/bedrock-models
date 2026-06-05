@@ -62,7 +62,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet packages/shared/bedrock_models.json || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet packages/shared/bedrock_models.json packages/shared/bedrock_models_metadata.json || echo "changes=true" >> $GITHUB_OUTPUT
       
       - name: Bump version, commit and push
         if: steps.check_changes.outputs.changes == 'true'
@@ -87,9 +87,11 @@ jobs:
           
           # Add all changed files using root paths
           git add packages/shared/bedrock_models.json
+          git add packages/shared/bedrock_models_metadata.json
           git add packages/python/bedrock_models/
           git add packages/python/pyproject.toml
           git add packages/typescript/src/models.ts
+          git add packages/typescript/src/bedrock_models_metadata.json
           git add packages/typescript/package.json
           
           git commit -m "chore: update Bedrock model IDs to v$NEW_VERSION / ts-v$TS_VERSION"

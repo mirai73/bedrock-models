@@ -33,7 +33,8 @@ jobs:
       
       - name: Prepare site
         run: |
-          cp  packages/shared/bedrock_models.json docs/bedrock_models.json
+          cp packages/shared/bedrock_models.json docs/bedrock_models.json
+          cp packages/shared/bedrock_models_metadata.json docs/bedrock_models_metadata.json
           # Create .nojekyll to bypass Jekyll processing
           rm docs/serve.sh
           touch docs/.nojekyll

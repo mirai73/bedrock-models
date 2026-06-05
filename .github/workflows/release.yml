@@ -29,10 +29,12 @@ jobs:
           virtualenvs-create: true
           virtualenvs-in-project: true
       
-      - name: Copy shared JSON file
+      - name: Copy shared JSON and metadata files
         run: |
           rm -f packages/python/bedrock_models/bedrock_models.json
           cp packages/shared/bedrock_models.json packages/python/bedrock_models/bedrock_models.json
+          rm -f packages/python/bedrock_models/bedrock_models_metadata.json
+          cp packages/shared/bedrock_models_metadata.json packages/python/bedrock_models/bedrock_models_metadata.json
       
       - name: Install dependencies
         run: |

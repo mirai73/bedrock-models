@@ -6,7 +6,7 @@ authors = ["Massimiliano Angelino <massi.ang@gmail.com>"]
 license = "MIT-0"
 readme = "README.md"
 packages = [{include = "bedrock_models"}]
-include = ["bedrock_models/bedrock_models.json"]
+include = ["bedrock_models/bedrock_models.json", "bedrock_models/bedrock_models_metadata.json"]
 
 [tool.poetry.dependencies]
 python = "^3.10"

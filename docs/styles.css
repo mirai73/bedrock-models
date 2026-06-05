@@ -49,7 +49,7 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .mobile-only {
         display: block !important;
     }
@@ -656,6 +656,57 @@ header {
     color: #0066cc;
 }
 
+.model-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.model-meta-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.model-meta-value {
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.custom-date-picker-wrapper {
+    display: none;
+    padding: 10px 12px;
+    border-top: 1px solid var(--border-secondary);
+}
+
+.custom-date-picker-wrapper input[type="date"] {
+    width: 100%;
+    border: 1.5px solid var(--input-border);
+    border-radius: 8px;
+    padding: 8px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.custom-date-picker-wrapper input[type="date"]:focus {
+    border-color: #0066cc;
+}
+
+[data-theme="dark"] .custom-date-picker-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .model-section {
     margin-bottom: 12px;
 }
@@ -720,7 +771,7 @@ header {
     height: 14px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .container {
         padding: 16px 12px;
     }
@@ -772,13 +823,9 @@ header {
         min-width: 0;
     }
 
+
     .select-button {
         padding: 10px 12px;
-    }
-
-    /* Force card view on mobile, hide view toggle */
-    .view-toggle {
-        display: none;
     }
 
     .models-grid {
@@ -855,7 +902,8 @@ header {
     .model-card > .model-capabilities,
     .model-card > .model-badges,
     .model-card > .model-id,
-    .model-card > .model-section {
+    .model-card > .model-section,
+    .model-card > .model-meta-row {
         display: none;
     }
 
@@ -1110,7 +1158,7 @@ header {
     color: var(--text-secondary);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .legend-container {
         gap: 12px;
         padding: 8px 12px;
@@ -1255,6 +1303,13 @@ header {
     white-space: nowrap;
 }
 
+.table-last-modified {
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
 .table-model-id code {
     font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
     font-size: 11px;
@@ -1269,7 +1324,7 @@ header {
     vertical-align: middle;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* Force card view on mobile - hide table entirely */
     .models-table-wrapper {
         display: none !important;
@@ -1277,6 +1332,10 @@ header {
 
     .models-grid {
         display: grid !important;
+    }
+
+    .view-toggle {
+        display: none !important;
     }
 
     .view-toggle-btn {

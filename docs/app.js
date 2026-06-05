@@ -73,6 +73,8 @@ function toggleTheme() {
 // Custom dropdown state
 let selectedRegion = '';
 let selectedType = '';
+let selectedDateFilter = 'all';
+let selectedCustomDate = '';
 
 // View mode state
 let currentView = localStorage.getItem('viewMode') || 'grid';
@@ -82,13 +84,44 @@ async function init() {
     initTheme();
     initViewToggle();
     try {
-        const response = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models.json');
-        const data = await response.json();
+        let data;
+        let metadata = {};
 
-        allModels = Object.entries(data).map(([id, info]) => ({
-            id,
-            ...info
-        }));
+        try {
+            // First try relative paths (works locally with serve.sh and when deployed)
+            const response = await fetch('./bedrock_models.json');
+            data = await response.json();
+            
+            try {
+                const metaResponse = await fetch('./bedrock_models_metadata.json');
+                metadata = await metaResponse.json();
+            } catch (metaErr) {
+                console.warn('Could not load local metadata, falling back to github raw:', metaErr);
+                const metaResponse = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models_metadata.json');
+                metadata = await metaResponse.json();
+            }
+        } catch (err) {
+            console.warn('Could not load local models data, falling back to github raw:', err);
+            // Fallback to absolute URLs
+            const response = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models.json');
+            data = await response.json();
+            
+            try {
+                const metaResponse = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models_metadata.json');
+                metadata = await metaResponse.json();
+            } catch (metaErr) {
+                console.error('Could not load github raw metadata:', metaErr);
+            }
+        }
+
+        allModels = Object.entries(data).map(([id, info]) => {
+            const modelMeta = metadata[id] || {};
+            return {
+                id,
+                ...info,
+                lastChanged: modelMeta.last_changed || 'N/A'
+            };
+        });
 
         populateCrisRegions();
         populateRegionFilter();
@@ -99,6 +132,7 @@ async function init() {
 
         // Add event listeners
         document.getElementById('searchInput').addEventListener('input', filterModels);
+
 
         // Modal close listeners
         document.querySelectorAll('.close-modal').forEach(btn => {
@@ -572,6 +606,7 @@ function initCustomDropdowns() {
         e.stopPropagation();
         typeContainer.classList.toggle('open');
         regionContainer.classList.remove('open');
+        dateContainer.classList.remove('open');
     });
 
     typeOptions.addEventListener('click', (e) => {
@@ -590,10 +625,62 @@ function initCustomDropdowns() {
         }
     });
 
+    // Date dropdown
+    const dateContainer = document.getElementById('dateFilterContainer');
+    const dateButton = document.getElementById('dateButton');
+    const dateDropdown = document.getElementById('dateDropdown');
+    const dateOptions = document.getElementById('dateOptions');
+    const customDateInput = document.getElementById('customDateInput');
+
+    dateButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dateContainer.classList.toggle('open');
+        regionContainer.classList.remove('open');
+        typeContainer.classList.remove('open');
+    });
+
+    dateOptions.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dropdown-option')) {
+            const val = e.target.dataset.value;
+            
+            // Update selected state
+            dateOptions.querySelectorAll('.dropdown-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            e.target.classList.add('selected');
+
+            const pickerWrapper = dateDropdown.querySelector('.custom-date-picker-wrapper');
+
+            if (val === 'custom') {
+                pickerWrapper.style.display = 'block';
+                customDateInput.focus();
+            } else {
+                pickerWrapper.style.display = 'none';
+                selectedDateFilter = val;
+                selectedCustomDate = '';
+                dateButton.querySelector('.select-text').textContent = `Modified: ${e.target.textContent}`;
+                dateContainer.classList.remove('open');
+                filterModels();
+            }
+        }
+    });
+
+    customDateInput.addEventListener('change', () => {
+        const dateVal = customDateInput.value;
+        if (dateVal) {
+            selectedDateFilter = 'custom';
+            selectedCustomDate = dateVal;
+            dateButton.querySelector('.select-text').textContent = `Modified: ${dateVal}`;
+            dateContainer.classList.remove('open');
+            filterModels();
+        }
+    });
+
     // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
         regionContainer.classList.remove('open');
         typeContainer.classList.remove('open');
+        dateContainer.classList.remove('open');
     });
 
     // Prevent dropdown from closing when clicking inside
@@ -604,6 +691,20 @@ function initCustomDropdowns() {
     typeDropdown.addEventListener('click', (e) => {
         e.stopPropagation();
     });
+
+    dateDropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+}
+
+function getDaysAgoDateString(days) {
+    const d = new Date();
+    d.setDate(d.getDate() - days);
+    
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
 }
 
 function filterModels() {
@@ -626,7 +727,29 @@ function filterModels() {
             matchesType = hasInferenceType(model, 'ON_DEMAND', selectedRegion);
         }
 
-        return matchesSearch && matchesRegion && matchesType;
+        // Date filter (Modified After)
+        let matchesDate = true;
+        if (selectedDateFilter && selectedDateFilter !== 'all') {
+            let filterDateStr = '';
+            if (selectedDateFilter === 'custom') {
+                filterDateStr = selectedCustomDate;
+            } else {
+                const days = parseInt(selectedDateFilter, 10);
+                if (!isNaN(days)) {
+                    filterDateStr = getDaysAgoDateString(days);
+                }
+            }
+
+            if (filterDateStr) {
+                if (model.lastChanged && model.lastChanged !== 'N/A') {
+                    matchesDate = model.lastChanged >= filterDateStr;
+                } else {
+                    matchesDate = false;
+                }
+            }
+        }
+
+        return matchesSearch && matchesRegion && matchesType && matchesDate;
     });
 
     renderModels();
@@ -768,6 +891,7 @@ function renderTable() {
                 <td class="table-capabilities">${modalityIcons}</td>
                 <td class="table-inference">${crisBadges}${otherBadges}</td>
                 <td><span class="badge ${statusClass}">${model.model_lifecycle_status}</span></td>
+                <td class="table-last-modified">${model.lastChanged}</td>
                 <td><span class="table-region-count" onclick="showAllRegions('${model.id}', '${formattedName}')" title="View all regions">${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span></td>
                 <td class="table-model-id">
                     <code>${model.id}</code>
@@ -787,7 +911,7 @@ function renderModels() {
     const tableWrapper = document.getElementById('modelsTable');
 
     // On mobile, always force card view
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= 1024;
 
     if (currentView === 'table' && !isMobile) {
         grid.style.display = 'none';
@@ -870,6 +994,10 @@ function renderModels() {
                             <span class="info-hint"> (tap to view)</span>
                         </div>
                     </div>
+                    <div class="model-meta-row">
+                        <span class="model-meta-label">Last Modified</span>
+                        <span class="model-meta-value">${model.lastChanged}</span>
+                    </div>
                 </div>
 
                 <!-- Desktop full view -->
@@ -894,6 +1022,10 @@ function renderModels() {
                         <span>${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span>
                         <span class="info-hint"> (tap to view)</span>
                     </div>
+                </div>
+                <div class="model-meta-row">
+                    <span class="model-meta-label">Last Modified</span>
+                    <span class="model-meta-value">${model.lastChanged}</span>
                 </div>
             </div>
         `;
@@ -921,7 +1053,7 @@ function getStreamingIcon(model) {
 
 function toggleMobileCard(card, event) {
     // Only toggle on mobile
-    if (window.innerWidth > 768) return;
+    if (window.innerWidth > 1024) return;
     // Don't toggle if clicking interactive elements inside details
     if (event.target.closest('.copy-btn, .badge-interactive, .region-count-section')) return;
     card.classList.toggle('expanded');

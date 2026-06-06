@@ -6,7 +6,7 @@
     "last_changed": "2026-06-05"
   },
   "amazon.nova-2-lite-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "amazon.nova-2-multimodal-embeddings-v1:0": {
     "last_changed": "2026-06-05"
@@ -75,31 +75,31 @@
     "last_changed": "2026-06-05"
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
     "last_changed": "2026-06-05"
   },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "anthropic.claude-opus-4-6-v1": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "anthropic.claude-opus-4-7": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "anthropic.claude-opus-4-8": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "anthropic.claude-sonnet-4-20250514-v1:0": {
     "last_changed": "2026-06-05"
   },
   "anthropic.claude-sonnet-4-5-20250929-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "anthropic.claude-sonnet-4-6": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-06"
   },
   "cohere.command-r-plus-v1:0": {
     "last_changed": "2026-06-05"

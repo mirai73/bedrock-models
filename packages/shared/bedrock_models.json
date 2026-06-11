@@ -2097,7 +2097,37 @@
         "us-east-1",
         "us-west-1",
         "us-west-2"
-      ]
+      ],
+      "US": {
+        "ca-central-1": [
+          "ca-central-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "ca-west-1": [
+          "ca-west-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
     },
     "inference_types": {
       "af-south-1": [
@@ -2143,10 +2173,12 @@
         "GLOBAL"
       ],
       "ca-central-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "ca-west-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "eu-central-1": [
         "EU",
@@ -2190,14 +2222,17 @@
         "GLOBAL"
       ],
       "us-east-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-east-2": [],
       "us-west-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-west-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ]
     },
     "inputModalities": [
@@ -2384,11 +2419,6 @@
           "us-east-2",
           "us-west-2"
         ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
         "us-west-1": [
           "us-east-1",
           "us-east-2",
@@ -2503,8 +2533,7 @@
         "US"
       ],
       "us-east-2": [
-        "GLOBAL",
-        "US"
+        "GLOBAL"
       ],
       "us-west-1": [
         "GLOBAL",

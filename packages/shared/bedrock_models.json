@@ -625,6 +625,7 @@
         "US"
       ],
       "us-west-2": [
+        "ON_DEMAND",
         "US"
       ]
     },

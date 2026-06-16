@@ -620,7 +620,9 @@
         "ON_DEMAND",
         "US"
       ],
-      "us-east-2": [],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
       "us-west-1": [
         "US"
       ],

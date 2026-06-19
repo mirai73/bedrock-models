@@ -725,6 +725,8 @@ function filterModels() {
             matchesType = hasCRIS(model, selectedRegion);
         } else if (selectedType === 'on-demand') {
             matchesType = hasInferenceType(model, 'ON_DEMAND', selectedRegion);
+        } else if (selectedType === 'mantle') {
+            matchesType = model.mantle_supported_regions && model.mantle_supported_regions.length > 0 && (!selectedRegion || model.mantle_supported_regions.includes(selectedRegion));
         }
 
         // Date filter (Modified After)
@@ -883,6 +885,9 @@ function renderTable() {
         }).join('');
 
         const statusClass = model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy';
+        const apiBadgesHtml = model.mantle_apis && model.mantle_apis.length > 0
+            ? model.mantle_apis.map(api => `<span class="badge badge-api">${api}</span>`).join('')
+            : '—';
 
         return `
             <tr>
@@ -890,6 +895,7 @@ function renderTable() {
                 <td><span class="badge ${badgeClass}">${provider}</span></td>
                 <td class="table-capabilities">${modalityIcons}</td>
                 <td class="table-inference">${crisBadges}${otherBadges}</td>
+                <td class="table-apis">${apiBadgesHtml}</td>
                 <td><span class="badge ${statusClass}">${model.model_lifecycle_status}</span></td>
                 <td class="table-last-modified">${model.lastChanged}</td>
                 <td><span class="table-region-count" onclick="showAllRegions('${model.id}', '${formattedName}')" title="View all regions">${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span></td>
@@ -957,6 +963,13 @@ function renderModels() {
 
         const statusBadge = `<span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">${model.model_lifecycle_status}</span>`;
 
+        const apiBadgesHtml = model.mantle_apis && model.mantle_apis.length > 0
+            ? model.mantle_apis.map(api => `<span class="badge badge-api">${api}</span>`).join('')
+            : '';
+        const apiBadgesContainerHtml = apiBadgesHtml
+            ? `<div class="model-badges model-api-badges">${apiBadgesHtml}</div>`
+            : '';
+
         const copyBtnSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -967,7 +980,7 @@ function renderModels() {
         </svg>`;
 
         return `
-            <div class="model-card" onclick="toggleMobileCard(this, event)">
+            <div class="model-card ${model.model_lifecycle_status === 'LEGACY' ? 'legacy' : ''}" data-model-id="${model.id}" onclick="toggleMobileCard(this, event)">
                 <!-- Mobile compact view -->
                 <div class="mobile-compact">
                     <div class="model-name">${formattedName}</div>
@@ -981,6 +994,7 @@ function renderModels() {
                         ${statusBadge}
                     </div>
                     <div class="model-badges">${crisBadgesHtml}${otherBadgesHtml}</div>
+                    ${apiBadgesContainerHtml}
                     <div class="model-id">
                         <span>${model.id}</span>
                         <button class="copy-btn" onclick="event.stopPropagation(); copyToClipboard('${model.id}')" title="Copy model ID">${copyBtnSvg}</button>
@@ -1010,6 +1024,7 @@ function renderModels() {
                     ${crisBadgesHtml}${otherBadgesHtml}
                     ${statusBadge}
                 </div>
+                ${apiBadgesContainerHtml}
                 <div class="model-id">
                     <span>${model.id}</span>
                     <button class="copy-btn" onclick="event.stopPropagation(); copyToClipboard('${model.id}')" title="Copy model ID">${copyBtnSvg}</button>

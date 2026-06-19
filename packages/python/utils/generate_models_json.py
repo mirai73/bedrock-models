@@ -11,6 +11,9 @@ from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Set, Any
 import threading
+import urllib.request
+import urllib.error
+from aws_bedrock_token_generator import provide_token
 
 
 def get_bedrock_regions() -> List[str]:
@@ -102,15 +105,117 @@ def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[st
         return {}
 
 
-def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, List[str]]], int]:
+def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
     """
-    Process a single region: get models and inference profiles.
+    Query all models on the Bedrock Mantle endpoint in a specific region,
+    and probe their support for completions and responses endpoints using validation-only check.
+    
+    Returns:
+        Dict mapping model ID -> list of supported APIs: e.g., {'model_id': ['completions', 'responses']}
+    """
+    try:
+        token = provide_token(region=region)
+    except Exception as e:
+        print(f"  ⚠ Could not generate Mantle token for {region}: {e}")
+        return {}
+        
+    url_models = f"https://bedrock-mantle.{region}.api.aws/v1/models"
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json"
+    }
+    
+    req = urllib.request.Request(url_models, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            data = json.loads(response.read().decode())
+            model_ids = [m['id'] for m in data.get('data', [])]
+    except Exception:
+        # If the endpoint doesn't exist or isn't reachable (e.g. host name unresolved), return empty dict
+        return {}
+        
+    def probe_model(model_id):
+        supported_apis = []
+        
+        # 1. Probe completions API
+        if not model_id.startswith('anthropic.'):
+            url_comp = f"https://bedrock-mantle.{region}.api.aws/v1/chat/completions"
+            payload_comp = {
+                "model": model_id,
+                "messages": [{"role": "user", "content": "hi"}],
+                "max_tokens": -1
+            }
+            req_comp = urllib.request.Request(url_comp, data=json.dumps(payload_comp).encode(), headers=headers, method='POST')
+            try:
+                with urllib.request.urlopen(req_comp, timeout=5) as r:
+                    pass
+            except urllib.error.HTTPError as e:
+                body = e.read().decode()
+                if 'max_tokens' in body or 'access_denied' in body:
+                    supported_apis.append('completions')
+            except Exception:
+                pass
+            
+        # 2. Probe responses API
+        if not model_id.startswith('anthropic.'):
+            url_resp = f"https://bedrock-mantle.{region}.api.aws/v1/responses"
+            payload_resp = {
+                "model": model_id,
+                "input": "hi",
+                "max_output_tokens": -1,
+                "store": False
+            }
+            req_resp = urllib.request.Request(url_resp, data=json.dumps(payload_resp).encode(), headers=headers, method='POST')
+            try:
+                with urllib.request.urlopen(req_resp, timeout=5) as r:
+                    pass
+            except urllib.error.HTTPError as e:
+                body = e.read().decode()
+                if 'max_output_tokens' in body or 'access_denied' in body:
+                    supported_apis.append('responses')
+            except Exception:
+                pass
+            
+        # 3. Probe messages API
+        url_msg = f"https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages"
+        payload_msg = {
+            "model": model_id,
+            "messages": [{"role": "user", "content": "hi"}],
+            "max_tokens": -1
+        }
+        req_msg = urllib.request.Request(url_msg, data=json.dumps(payload_msg).encode(), headers=headers, method='POST')
+        try:
+            with urllib.request.urlopen(req_msg, timeout=5) as r:
+                pass
+        except urllib.error.HTTPError as e:
+            body = e.read().decode()
+            if 'max_tokens' in body or 'access_denied' in body:
+                supported_apis.append('messages')
+        except Exception:
+            pass
+            
+        return model_id, sorted(supported_apis) if supported_apis else None
+
+    model_apis = {}
+    with ThreadPoolExecutor(max_workers=10) as inner_executor:
+        futures = [inner_executor.submit(probe_model, m) for m in model_ids]
+        for f in as_completed(futures):
+            res = f.result()
+            if res and res[1]:
+                model_apis[res[0]] = res[1]
+                
+    return model_apis
+
+
+def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, List[str]]], int, Dict[str, List[str]]]:
+    """
+    Process a single region: get models, inference profiles, and Mantle models.
     
     Args:
         region: AWS region name
         
     Returns:
-        Tuple of (region, filtered_models, model_to_profiles, excluded_count)
+        Tuple of (region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis)
     """
     print(f"Scanning region: {region}")
     region_name, models = get_foundation_models_in_region(region)
@@ -137,8 +242,13 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, Li
     if model_to_profiles:
         count = sum(len(profiles) for profiles in model_to_profiles.values())
         print(f"  Found {count} profile definitions")
+        
+    # Get all Bedrock Mantle models and their supported APIs
+    print(f"  Probing Bedrock Mantle models in {region}...")
+    mantle_model_apis = get_mantle_models_in_region(region)
+    print(f"  Found {len(mantle_model_apis)} Mantle-supported models in {region}")
     
-    return region, filtered_models, model_to_profiles, excluded_count
+    return region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis
 
 
 def scan_all_regions_parallel() -> Dict[str, Any]:
@@ -161,7 +271,9 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
         'inputModalities': set(),
         'outputModalities': set(),
         'responseStreamingSupported': None,
-        'customizationsSupported': set()
+        'customizationsSupported': set(),
+        'mantle_supported_regions': [],
+        'mantle_apis': []
     })
     
     total_excluded = 0
@@ -174,7 +286,7 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
         for future in as_completed(future_to_region):
             region = future_to_region[future]
             try:
-                region_name, models, model_to_profiles, excluded_count = future.result()
+                region_name, models, model_to_profiles, excluded_count, mantle_model_apis = future.result()
                 
                 with lock:
                     total_excluded += excluded_count
@@ -245,6 +357,37 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
 
                         # Store inference types for this region
                         model_mapping[model_id]['inference_types'][region] = inference_types
+                        
+                    # Merge mantle models and their supported APIs
+                    for m, apis in mantle_model_apis.items():
+                        # Handle Mantle-only models by initializing with defaults
+                        if m not in model_mapping:
+                            model_mapping[m]['model_lifecycle_status'] = 'ACTIVE'
+                            model_mapping[m]['inputModalities'] = {'TEXT'}
+                            # Special handling: if model name hints multimodal, add IMAGE/VIDEO
+                            if any(kw in m.lower() for kw in ['-vl', '-vision', 'canvas', 'multimodal']):
+                                model_mapping[m]['inputModalities'].update(['IMAGE', 'VIDEO'])
+                            model_mapping[m]['outputModalities'] = {'TEXT'}
+                            model_mapping[m]['responseStreamingSupported'] = True
+                            
+                        # Add region to standard regions
+                        if region not in model_mapping[m]['regions']:
+                            model_mapping[m]['regions'].append(region)
+                            
+                        # Ensure it has ON_DEMAND in inference_types for this region
+                        if region not in model_mapping[m]['inference_types']:
+                            model_mapping[m]['inference_types'][region] = ['ON_DEMAND']
+                        elif 'ON_DEMAND' not in model_mapping[m]['inference_types'][region]:
+                            model_mapping[m]['inference_types'][region].append('ON_DEMAND')
+                            
+                        # Add region to mantle_supported_regions
+                        if region not in model_mapping[m]['mantle_supported_regions']:
+                            model_mapping[m]['mantle_supported_regions'].append(region)
+                            
+                        # Merge/set mantle_apis
+                        for api in apis:
+                            if api not in model_mapping[m]['mantle_apis']:
+                                model_mapping[m]['mantle_apis'].append(api)
                 
             except Exception as e:
                 print(f"Error processing region {region}: {e}")
@@ -295,6 +438,11 @@ def print_summary(model_mapping: Dict[str, Any]):
                     print(f"    {prefix}:")
                     for src, covered in content.items():
                         print(f"      From {src}: {covered}")
+                        
+        # Print Mantle info if any
+        if data.get('mantle_supported_regions'):
+            print(f"  Mantle Supported Regions: {', '.join(sorted(data['mantle_supported_regions']))}")
+            print(f"  Mantle Supported APIs: {', '.join(sorted(data['mantle_apis']))}")
         
         print(f"  Inference types by region:")
         for region in sorted(regions):
@@ -332,6 +480,11 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedro
                     entry['inferenceProfile'][prefix] = {
                         src: sorted(tgts) for src, tgts in sorted(content.items())
                     }
+                    
+        # Add mantle fields if supported
+        if data.get('mantle_supported_regions'):
+            entry['mantle_supported_regions'] = sorted(data['mantle_supported_regions'])
+            entry['mantle_apis'] = sorted(data['mantle_apis'])
             
         sorted_mapping[model_id] = entry
     

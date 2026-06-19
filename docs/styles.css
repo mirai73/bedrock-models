@@ -574,6 +574,11 @@ header {
     color: #2e7d32;
 }
 
+.badge-api {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
 [data-theme="dark"] .badge-anthropic {
     background: #3d1f66;
     color: #d4b3ff;
@@ -627,6 +632,11 @@ header {
 [data-theme="dark"] .badge-active {
     background: #1b5e20;
     color: #a5d6a7;
+}
+
+[data-theme="dark"] .badge-api {
+    background: #4a1466;
+    color: #ce93d8;
 }
 
 .model-id {

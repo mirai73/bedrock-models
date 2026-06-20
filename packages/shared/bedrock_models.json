@@ -16,7 +16,8 @@
     "regions": [
       "us-east-1"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "ai21.jamba-1-5-mini-v1:0": {
     "customizationsSupported": [],
@@ -35,7 +36,8 @@
     "regions": [
       "us-east-1"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.nova-2-lite-v1:0": {
     "customizationsSupported": [],
@@ -100,7 +102,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -188,9 +189,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -268,7 +266,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -285,7 +282,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.nova-2-multimodal-embeddings-v1:0": {
     "customizationsSupported": [],
@@ -307,7 +305,8 @@
     "regions": [
       "us-east-1"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.nova-2-sonic-v1:0": {
     "customizationsSupported": [],
@@ -339,7 +338,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.nova-canvas-v1:0": {
     "customizationsSupported": [
@@ -370,7 +370,8 @@
       "eu-west-1",
       "us-east-1"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.nova-lite-v1:0": {
     "customizationsSupported": [],
@@ -538,6 +539,11 @@
           "us-east-2",
           "us-west-2"
         ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
         "us-west-1": [
           "us-east-1",
           "us-east-2",
@@ -621,7 +627,8 @@
         "US"
       ],
       "us-east-2": [
-        "ON_DEMAND"
+        "ON_DEMAND",
+        "US"
       ],
       "us-west-1": [
         "US"
@@ -666,7 +673,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.nova-micro-v1:0": {
     "customizationsSupported": [],
@@ -919,7 +927,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.nova-premier-v1:0": {
     "customizationsSupported": [],
@@ -967,7 +976,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.nova-pro-v1:0": {
     "customizationsSupported": [],
@@ -1125,6 +1135,11 @@
           "us-east-2",
           "us-west-2"
         ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
         "us-west-1": [
           "us-east-1",
           "us-east-2",
@@ -1199,7 +1214,9 @@
         "ON_DEMAND",
         "US"
       ],
-      "us-east-2": [],
+      "us-east-2": [
+        "US"
+      ],
       "us-west-1": [
         "US"
       ],
@@ -1240,7 +1257,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.nova-reel-v1:0": {
     "customizationsSupported": [],
@@ -1268,7 +1286,8 @@
       "eu-west-1",
       "us-east-1"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.nova-reel-v1:1": {
     "customizationsSupported": [],
@@ -1288,7 +1307,8 @@
     "regions": [
       "us-east-1"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.nova-sonic-v1:0": {
     "customizationsSupported": [],
@@ -1316,7 +1336,8 @@
       "eu-north-1",
       "us-east-1"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "amazon.rerank-v1:0": {
     "customizationsSupported": [],
@@ -1347,7 +1368,8 @@
       "eu-central-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.titan-embed-g1-text-02": {
     "customizationsSupported": [],
@@ -1370,7 +1392,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.titan-embed-image-v1": {
     "customizationsSupported": [],
@@ -1426,7 +1449,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.titan-embed-text-v1": {
     "customizationsSupported": [],
@@ -1457,7 +1481,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.titan-embed-text-v2:0": {
     "customizationsSupported": [],
@@ -1548,7 +1573,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "amazon.titan-image-generator-v2:0": {
     "customizationsSupported": [
@@ -1576,48 +1602,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
-  },
-  "anthropic.claude-3-5-haiku-20241022-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "us-east-1": [
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {
     "customizationsSupported": [],
@@ -1671,7 +1657,8 @@
       "ap-southeast-1",
       "ap-southeast-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-3-5-sonnet-20241022-v2:0": {
     "customizationsSupported": [],
@@ -1777,7 +1764,8 @@
       "ap-southeast-1",
       "ap-southeast-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-3-7-sonnet-20250219-v1:0": {
     "customizationsSupported": [],
@@ -1814,7 +1802,8 @@
       "ap-south-1",
       "eu-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-3-haiku-20240307-v1:0": {
     "customizationsSupported": [],
@@ -1907,7 +1896,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
     "customizationsSupported": [],
@@ -1996,7 +1986,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-fable-5": {
     "customizationsSupported": [],
@@ -2092,7 +2083,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2108,6 +2098,7 @@
         "mx-central-1",
         "sa-east-1",
         "us-east-1",
+        "us-east-2",
         "us-west-1",
         "us-west-2"
       ],
@@ -2125,6 +2116,11 @@
           "us-west-2"
         ],
         "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
           "us-east-1",
           "us-east-2",
           "us-west-2"
@@ -2179,9 +2175,6 @@
         "GLOBAL"
       ],
       "ap-southeast-5": [
-        "GLOBAL"
-      ],
-      "ap-southeast-6": [
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -2240,7 +2233,10 @@
         "GLOBAL",
         "US"
       ],
-      "us-east-2": [],
+      "us-east-2": [
+        "GLOBAL",
+        "US"
+      ],
       "us-west-1": [
         "GLOBAL",
         "US"
@@ -2271,7 +2267,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2291,6 +2286,57 @@
       "us-west-1",
       "us-west-2"
     ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "anthropic.claude-haiku-4-5": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "messages"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-1",
+      "us-east-1",
+      "us-west-2"
+    ],
     "responseStreamingSupported": true
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
@@ -2304,11 +2350,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -2392,7 +2433,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2430,6 +2470,11 @@
           "us-west-2"
         ],
         "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
           "us-east-1",
           "us-east-2",
           "us-west-2"
@@ -2488,10 +2533,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "AU",
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -2548,7 +2589,8 @@
         "US"
       ],
       "us-east-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-west-1": [
         "GLOBAL",
@@ -2580,7 +2622,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2600,7 +2641,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
     "customizationsSupported": [],
@@ -2647,7 +2689,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
     "customizationsSupported": [],
@@ -2733,7 +2776,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2818,9 +2860,6 @@
         "GLOBAL"
       ],
       "ap-southeast-5": [
-        "GLOBAL"
-      ],
-      "ap-southeast-6": [
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -2912,7 +2951,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2932,7 +2970,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-opus-4-6-v1": {
     "customizationsSupported": [],
@@ -2945,11 +2984,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -3033,7 +3067,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3126,10 +3159,6 @@
         "GLOBAL"
       ],
       "ap-southeast-5": [
-        "GLOBAL"
-      ],
-      "ap-southeast-6": [
-        "AU",
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -3223,7 +3252,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3243,7 +3271,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-opus-4-7": {
     "customizationsSupported": [],
@@ -3339,7 +3368,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3355,6 +3383,7 @@
         "mx-central-1",
         "sa-east-1",
         "us-east-1",
+        "us-east-2",
         "us-west-1",
         "us-west-2"
       ],
@@ -3447,9 +3476,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -3510,6 +3536,7 @@
         "US"
       ],
       "us-east-2": [
+        "GLOBAL",
         "US"
       ],
       "us-west-1": [
@@ -3552,7 +3579,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3572,7 +3598,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-opus-4-8": {
     "customizationsSupported": [],
@@ -3668,7 +3695,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3684,6 +3710,7 @@
         "mx-central-1",
         "sa-east-1",
         "us-east-1",
+        "us-east-2",
         "us-west-1",
         "us-west-2"
       ],
@@ -3711,6 +3738,11 @@
           "us-west-2"
         ],
         "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
           "us-east-1",
           "us-east-2",
           "us-west-2"
@@ -3769,9 +3801,6 @@
         "ON_DEMAND"
       ],
       "ap-southeast-5": [
-        "GLOBAL"
-      ],
-      "ap-southeast-6": [
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -3833,7 +3862,10 @@
         "ON_DEMAND",
         "US"
       ],
-      "us-east-2": [],
+      "us-east-2": [
+        "GLOBAL",
+        "US"
+      ],
       "us-west-1": [
         "GLOBAL",
         "US"
@@ -3874,7 +3906,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3894,7 +3925,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-sonnet-4-20250514-v1:0": {
     "customizationsSupported": [],
@@ -4227,7 +4259,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-sonnet-4-5-20250929-v1:0": {
     "customizationsSupported": [],
@@ -4240,11 +4273,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -4328,7 +4356,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -4429,10 +4456,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "AU",
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -4522,7 +4545,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -4542,7 +4564,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "anthropic.claude-sonnet-4-6": {
     "customizationsSupported": [],
@@ -4555,11 +4578,6 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
-        ],
-        "ap-southeast-6": [
-          "ap-southeast-2",
-          "ap-southeast-4",
-          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -4643,7 +4661,6 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
-        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -4750,10 +4767,6 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
-      "ap-southeast-6": [
-        "AU",
-        "GLOBAL"
-      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -4845,7 +4858,6 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
-      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -4865,7 +4877,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "cohere.command-r-plus-v1:0": {
     "customizationsSupported": [],
@@ -4888,7 +4901,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "cohere.command-r-v1:0": {
     "customizationsSupported": [],
@@ -4911,7 +4925,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "cohere.embed-english-v3": {
     "customizationsSupported": [],
@@ -4974,7 +4989,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "cohere.embed-multilingual-v3": {
     "customizationsSupported": [],
@@ -5037,7 +5053,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "cohere.embed-v4:0": {
     "customizationsSupported": [],
@@ -5278,7 +5295,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "cohere.rerank-v3-5:0": {
     "customizationsSupported": [],
@@ -5313,7 +5331,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "deepseek.r1-v1:0": {
     "customizationsSupported": [],
@@ -5359,7 +5378,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "deepseek.v3-v1:0": {
     "customizationsSupported": [],
@@ -5403,6 +5423,87 @@
       "ap-southeast-3",
       "eu-north-1",
       "eu-west-2",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "deepseek.v3.1": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
       "us-east-2",
       "us-west-2"
     ],
@@ -5486,7 +5587,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "google.gemma-3-12b-it": {
     "customizationsSupported": [],
@@ -5582,7 +5684,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "google.gemma-3-27b-it": {
     "customizationsSupported": [],
@@ -5678,7 +5781,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "google.gemma-3-4b-it": {
     "customizationsSupported": [],
@@ -5774,6 +5878,130 @@
       "us-east-2",
       "us-west-2"
     ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "google.gemma-4-26b-a4b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "google.gemma-4-31b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "google.gemma-4-e2b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "responseStreamingSupported": true
   },
   "luma.ray-v2:0": {
@@ -5793,7 +6021,8 @@
     "regions": [
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "meta.llama3-1-405b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -5825,7 +6054,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-1-70b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -5872,7 +6102,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-1-8b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -5919,7 +6150,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-2-11b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -5964,7 +6196,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-2-1b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6037,7 +6270,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-2-3b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6110,7 +6344,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-2-90b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6155,7 +6390,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-3-70b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6202,7 +6438,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-70b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6237,7 +6474,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama3-8b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6272,7 +6510,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama4-maverick-17b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6329,7 +6568,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "meta.llama4-scout-17b-instruct-v1:0": {
     "customizationsSupported": [],
@@ -6386,7 +6626,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "minimax.minimax-m2": {
     "customizationsSupported": [],
@@ -6481,7 +6722,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "minimax.minimax-m2.1": {
     "customizationsSupported": [],
@@ -6576,7 +6818,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "minimax.minimax-m2.5": {
     "customizationsSupported": [],
@@ -6671,7 +6914,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.devstral-2-123b": {
     "customizationsSupported": [],
@@ -6766,7 +7010,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.magistral-small-2509": {
     "customizationsSupported": [],
@@ -6862,7 +7107,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.ministral-3-14b-instruct": {
     "customizationsSupported": [],
@@ -6958,7 +7204,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.ministral-3-3b-instruct": {
     "customizationsSupported": [],
@@ -7054,7 +7301,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.ministral-3-8b-instruct": {
     "customizationsSupported": [],
@@ -7150,7 +7398,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.mistral-7b-instruct-v0:2": {
     "customizationsSupported": [],
@@ -7201,7 +7450,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.mistral-large-2402-v1:0": {
     "customizationsSupported": [],
@@ -7252,7 +7502,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.mistral-large-2407-v1:0": {
     "customizationsSupported": [],
@@ -7271,7 +7522,8 @@
     "regions": [
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.mistral-large-3-675b-instruct": {
     "customizationsSupported": [],
@@ -7352,7 +7604,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.mistral-small-2402-v1:0": {
     "customizationsSupported": [],
@@ -7371,7 +7624,8 @@
     "regions": [
       "us-east-1"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.mixtral-8x7b-instruct-v0:1": {
     "customizationsSupported": [],
@@ -7422,7 +7676,8 @@
       "us-east-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.pixtral-large-2502-v1:0": {
     "customizationsSupported": [],
@@ -7511,7 +7766,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.voxtral-mini-3b-2507": {
     "customizationsSupported": [],
@@ -7607,7 +7863,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "mistral.voxtral-small-24b-2507": {
     "customizationsSupported": [],
@@ -7703,7 +7960,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "moonshot.kimi-k2-thinking": {
     "customizationsSupported": [],
@@ -7741,6 +7999,87 @@
       "ap-northeast-1",
       "ap-south-1",
       "ap-southeast-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "moonshotai.kimi-k2-thinking": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
@@ -7827,7 +8166,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "nvidia.nemotron-nano-12b-v2": {
     "customizationsSupported": [],
@@ -7923,7 +8263,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "nvidia.nemotron-nano-3-30b": {
     "customizationsSupported": [],
@@ -8018,7 +8359,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "nvidia.nemotron-nano-9b-v2": {
     "customizationsSupported": [],
@@ -8113,7 +8455,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "nvidia.nemotron-super-3-120b": {
     "customizationsSupported": [],
@@ -8169,6 +8512,237 @@
     ],
     "mantle_apis": [
       "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "openai.gpt-5.4": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "openai.gpt-5.4-2026-03-05": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "openai.gpt-5.5": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "openai.gpt-5.5-2026-04-23": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "openai.gpt-oss-120b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -8275,6 +8849,103 @@
       "us-east-2",
       "us-west-2"
     ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "openai.gpt-oss-20b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "responseStreamingSupported": true
   },
   "openai.gpt-oss-20b-1:0": {
@@ -8342,7 +9013,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "openai.gpt-oss-safeguard-120b": {
     "customizationsSupported": [],
@@ -8437,9 +9109,106 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "openai.gpt-oss-safeguard-20b": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "qwen.qwen3-235b-a22b-2507": {
     "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
@@ -8587,190 +9356,10 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
-  "qwen.qwen3-32b-v1:0": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
-  "qwen.qwen3-coder-30b-a3b-v1:0": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
-  "qwen.qwen3-coder-480b-a35b-v1:0": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "eu-north-1",
-      "eu-west-2",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
-  "qwen.qwen3-coder-next": {
+  "qwen.qwen3-32b": {
     "customizationsSupported": [],
     "inference_types": {
       "ap-northeast-1": [
@@ -8865,6 +9454,461 @@
     ],
     "responseStreamingSupported": true
   },
+  "qwen.qwen3-32b-v1:0": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "qwen.qwen3-coder-30b-a3b-instruct": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "qwen.qwen3-coder-30b-a3b-v1:0": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "qwen.qwen3-coder-480b-a35b-instruct": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "qwen.qwen3-coder-480b-a35b-v1:0": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-north-1",
+      "eu-west-2",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "qwen.qwen3-coder-next": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
   "qwen.qwen3-next-80b-a3b": {
     "customizationsSupported": [],
     "inference_types": {
@@ -8910,6 +9954,102 @@
       "ap-northeast-1",
       "ap-south-1",
       "ap-southeast-2",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "qwen.qwen3-next-80b-a3b-instruct": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -8974,6 +10114,104 @@
       "us-east-2",
       "us-west-2"
     ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "qwen.qwen3-vl-235b-a22b-instruct": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT",
+      "VIDEO"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "responseStreamingSupported": true
   },
   "stability.sd3-5-large-v1:0": {
@@ -8994,7 +10232,8 @@
     "regions": [
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-conservative-upscale-v1:0": {
     "customizationsSupported": [],
@@ -9041,7 +10280,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-creative-upscale-v1:0": {
     "customizationsSupported": [],
@@ -9088,7 +10328,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-fast-upscale-v1:0": {
     "customizationsSupported": [],
@@ -9135,7 +10376,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-control-sketch-v1:0": {
     "customizationsSupported": [],
@@ -9182,7 +10424,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-control-structure-v1:0": {
     "customizationsSupported": [],
@@ -9229,7 +10472,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-core-v1:1": {
     "customizationsSupported": [],
@@ -9248,7 +10492,8 @@
     "regions": [
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-erase-object-v1:0": {
     "customizationsSupported": [],
@@ -9295,7 +10540,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-inpaint-v1:0": {
     "customizationsSupported": [],
@@ -9342,7 +10588,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-remove-background-v1:0": {
     "customizationsSupported": [],
@@ -9389,7 +10636,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-search-recolor-v1:0": {
     "customizationsSupported": [],
@@ -9436,7 +10684,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-search-replace-v1:0": {
     "customizationsSupported": [],
@@ -9483,7 +10732,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-style-guide-v1:0": {
     "customizationsSupported": [],
@@ -9530,7 +10780,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-image-ultra-v1:1": {
     "customizationsSupported": [],
@@ -9549,7 +10800,8 @@
     "regions": [
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-outpaint-v1:0": {
     "customizationsSupported": [],
@@ -9596,7 +10848,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "stability.stable-style-transfer-v1:0": {
     "customizationsSupported": [],
@@ -9643,7 +10896,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "twelvelabs.marengo-embed-2-7-v1:0": {
     "customizationsSupported": [],
@@ -9706,7 +10960,8 @@
       "eu-west-1",
       "us-east-1"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "twelvelabs.marengo-embed-3-0-v1:0": {
     "customizationsSupported": [],
@@ -9756,7 +11011,8 @@
       "eu-west-1",
       "us-east-1"
     ],
-    "responseStreamingSupported": false
+    "responseStreamingSupported": false,
+    "runtime_supported": true
   },
   "twelvelabs.pegasus-1-2-v1:0": {
     "customizationsSupported": [],
@@ -10045,7 +11301,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "writer.palmyra-vision-7b": {
     "customizationsSupported": [],
@@ -10098,7 +11355,8 @@
     },
     "inputModalities": [
       "IMAGE",
-      "TEXT"
+      "TEXT",
+      "VIDEO"
     ],
     "mantle_apis": [
       "completions"
@@ -10141,7 +11399,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "writer.palmyra-x4-v1:0": {
     "customizationsSupported": [],
@@ -10197,7 +11456,8 @@
       "us-west-1",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "writer.palmyra-x5-v1:0": {
     "customizationsSupported": [],
@@ -10251,6 +11511,138 @@
       "us-east-1",
       "us-east-2",
       "us-west-1",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "xai.grok-4.3": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "zai.glm-4.6": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "eu-central-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "eu-south-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-1": [
+        "ON_DEMAND"
+      ],
+      "eu-west-2": [
+        "ON_DEMAND"
+      ],
+      "sa-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "completions"
+    ],
+    "mantle_supported_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
       "us-west-2"
     ],
     "responseStreamingSupported": true
@@ -10333,7 +11725,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "zai.glm-4.7-flash": {
     "customizationsSupported": [],
@@ -10428,7 +11821,8 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   },
   "zai.glm-5": {
     "customizationsSupported": [],
@@ -10508,6 +11902,7 @@
       "us-east-2",
       "us-west-2"
     ],
-    "responseStreamingSupported": true
+    "responseStreamingSupported": true,
+    "runtime_supported": true
   }
 }

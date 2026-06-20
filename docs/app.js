@@ -885,7 +885,7 @@ function renderTable() {
         }).join('');
 
         const statusClass = model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy';
-        const apis = ['converse', 'invoke'];
+        const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
         const mantleApis = model.mantle_apis || [];
         const apiBadgesHtml = [
             ...apis.map(api => `<span class="badge badge-api-runtime">${api}</span>`),
@@ -966,7 +966,7 @@ function renderModels() {
 
         const statusBadge = `<span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">${model.model_lifecycle_status}</span>`;
 
-        const apis = ['converse', 'invoke'];
+        const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
         const mantleApis = model.mantle_apis || [];
         const apiBadgesHtml = [
             ...apis.map(api => `<span class="badge badge-api-runtime">${api}</span>`),

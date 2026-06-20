@@ -1,359 +1,420 @@
 {
   "ai21.jamba-1-5-large-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "ai21.jamba-1-5-mini-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-2-lite-v1:0": {
-    "last_changed": "2026-06-06"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-2-multimodal-embeddings-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-2-sonic-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-canvas-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-lite-v1:0": {
-    "last_changed": "2026-06-16"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-micro-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-premier-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-pro-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-reel-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-reel-v1:1": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.nova-sonic-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.rerank-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.titan-embed-g1-text-02": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.titan-embed-image-v1": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.titan-embed-text-v1": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.titan-embed-text-v2:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "amazon.titan-image-generator-v2:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-3-5-haiku-20241022-v1:0": {
+    "deleted": "2026-06-20",
     "last_changed": "2026-06-05"
   },
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-3-5-sonnet-20241022-v2:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-3-7-sonnet-20250219-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-3-haiku-20240307-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-fable-5": {
-    "last_changed": "2026-06-12"
+    "last_changed": "2026-06-20"
+  },
+  "anthropic.claude-haiku-4-5": {
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
-    "last_changed": "2026-06-11"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
-    "last_changed": "2026-06-06"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-opus-4-6-v1": {
-    "last_changed": "2026-06-06"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-opus-4-7": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-opus-4-8": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-sonnet-4-20250514-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-sonnet-4-5-20250929-v1:0": {
-    "last_changed": "2026-06-06"
+    "last_changed": "2026-06-20"
   },
   "anthropic.claude-sonnet-4-6": {
-    "last_changed": "2026-06-06"
+    "last_changed": "2026-06-20"
   },
   "cohere.command-r-plus-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "cohere.command-r-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "cohere.embed-english-v3": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "cohere.embed-multilingual-v3": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "cohere.embed-v4:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "cohere.rerank-v3-5:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "deepseek.r1-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "deepseek.v3-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "deepseek.v3.1": {
+    "last_changed": "2026-06-20"
   },
   "deepseek.v3.2": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "google.gemma-3-12b-it": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "google.gemma-3-27b-it": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "google.gemma-3-4b-it": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
+  },
+  "google.gemma-4-26b-a4b": {
+    "last_changed": "2026-06-20"
+  },
+  "google.gemma-4-31b": {
+    "last_changed": "2026-06-20"
+  },
+  "google.gemma-4-e2b": {
+    "last_changed": "2026-06-20"
   },
   "luma.ray-v2:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-1-405b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-1-70b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-1-8b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-2-11b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-2-1b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-2-3b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-2-90b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-3-70b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-70b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama3-8b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama4-maverick-17b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "meta.llama4-scout-17b-instruct-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "minimax.minimax-m2": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "minimax.minimax-m2.1": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "minimax.minimax-m2.5": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.devstral-2-123b": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.magistral-small-2509": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.ministral-3-14b-instruct": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.ministral-3-3b-instruct": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.ministral-3-8b-instruct": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.mistral-7b-instruct-v0:2": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "mistral.mistral-large-2402-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "mistral.mistral-large-2407-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "mistral.mistral-large-3-675b-instruct": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.mistral-small-2402-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "mistral.mixtral-8x7b-instruct-v0:1": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "mistral.pixtral-large-2502-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "mistral.voxtral-mini-3b-2507": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "mistral.voxtral-small-24b-2507": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "moonshot.kimi-k2-thinking": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "moonshotai.kimi-k2-thinking": {
+    "last_changed": "2026-06-20"
   },
   "moonshotai.kimi-k2.5": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "nvidia.nemotron-nano-12b-v2": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "nvidia.nemotron-nano-3-30b": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "nvidia.nemotron-nano-9b-v2": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "nvidia.nemotron-super-3-120b": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
+  },
+  "openai.gpt-5.4": {
+    "last_changed": "2026-06-20"
+  },
+  "openai.gpt-5.4-2026-03-05": {
+    "last_changed": "2026-06-20"
+  },
+  "openai.gpt-5.5": {
+    "last_changed": "2026-06-20"
+  },
+  "openai.gpt-5.5-2026-04-23": {
+    "last_changed": "2026-06-20"
+  },
+  "openai.gpt-oss-120b": {
+    "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-120b-1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "openai.gpt-oss-20b": {
+    "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-20b-1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-safeguard-120b": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-safeguard-20b": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
+  },
+  "qwen.qwen3-235b-a22b-2507": {
+    "last_changed": "2026-06-20"
   },
   "qwen.qwen3-235b-a22b-2507-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "qwen.qwen3-32b": {
+    "last_changed": "2026-06-20"
   },
   "qwen.qwen3-32b-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "qwen.qwen3-coder-30b-a3b-instruct": {
+    "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-30b-a3b-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "qwen.qwen3-coder-480b-a35b-instruct": {
+    "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-480b-a35b-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-next": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "qwen.qwen3-next-80b-a3b": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "qwen.qwen3-next-80b-a3b-instruct": {
+    "last_changed": "2026-06-20"
   },
   "qwen.qwen3-vl-235b-a22b": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "qwen.qwen3-vl-235b-a22b-instruct": {
+    "last_changed": "2026-06-20"
   },
   "stability.sd3-5-large-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-conservative-upscale-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-creative-upscale-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-fast-upscale-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-control-sketch-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-control-structure-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-core-v1:1": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-erase-object-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-inpaint-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-remove-background-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-search-recolor-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-search-replace-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-style-guide-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-image-ultra-v1:1": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-outpaint-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "stability.stable-style-transfer-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "twelvelabs.marengo-embed-2-7-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "twelvelabs.marengo-embed-3-0-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "twelvelabs.pegasus-1-2-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "writer.palmyra-vision-7b": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "writer.palmyra-x4-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
   },
   "writer.palmyra-x5-v1:0": {
-    "last_changed": "2026-06-05"
+    "last_changed": "2026-06-20"
+  },
+  "xai.grok-4.3": {
+    "last_changed": "2026-06-20"
+  },
+  "zai.glm-4.6": {
+    "last_changed": "2026-06-20"
   },
   "zai.glm-4.7": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "zai.glm-4.7-flash": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   },
   "zai.glm-5": {
-    "last_changed": "2026-06-19"
+    "last_changed": "2026-06-20"
   }
 }

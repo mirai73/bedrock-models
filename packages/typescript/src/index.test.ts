@@ -1,7 +1,7 @@
 import { Models, isModelAvailable, getAvailableRegions, crisModelId, globalModelId, getInferenceProfiles, getInferenceTypes, hasGlobalProfile } from './index';
 
 describe('Bedrock Models Library', () => {
-  const TEST_MODEL = Models.ANTHROPIC_CLAUDE_3_5_HAIKU_20241022;
+  const TEST_MODEL = Models.META_LLAMA3_3_70B_INSTRUCT;
 
   test('isModelAvailable should return true for available regions', () => {
     // Sonnet 3.5 is definitely in us-east-1

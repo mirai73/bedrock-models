@@ -274,7 +274,8 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
         'responseStreamingSupported': None,
         'customizationsSupported': set(),
         'mantle_supported_regions': [],
-        'mantle_apis': []
+        'mantle_apis': [],
+        'runtime_supported': False
     })
     
     total_excluded = 0
@@ -298,6 +299,7 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
                             continue
                         
                         model_lifecycle_status = model.get('modelLifecycle', {}).get('status', 'ACTIVE')
+                        model_mapping[model_id]['runtime_supported'] = True
                         
                         # Add region
                         if region not in model_mapping[model_id]['regions']:
@@ -471,6 +473,10 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedro
             'customizationsSupported': sorted(list(data.get('customizationsSupported', set())))
         }
         
+        # Add runtime support if applicable
+        if data.get('runtime_supported'):
+            entry['runtime_supported'] = True
+
         # Add inferenceProfile if it exists and is not empty
         if data.get('inferenceProfile'):
             entry['inferenceProfile'] = {}

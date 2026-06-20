@@ -1,4 +1,4 @@
-import { Models, isModelAvailable, getAvailableRegions, crisModelId, globalModelId, getInferenceProfiles, getInferenceTypes, hasGlobalProfile } from './index';
+import { Models, MantleModels, RuntimeModels, isModelAvailable, getAvailableRegions, crisModelId, globalModelId, getInferenceProfiles, getInferenceTypes, hasGlobalProfile } from './index';
 
 describe('Bedrock Models Library', () => {
   const TEST_MODEL = Models.META_LLAMA3_3_70B_INSTRUCT;
@@ -67,5 +67,16 @@ describe('Bedrock Models Library', () => {
      // A model that we know does NOT support global profiles in a specific region
      const modelWithNoGlobal = Models.AI21_JAMBA_1_5_LARGE;
      expect(() => globalModelId(modelWithNoGlobal, 'us-east-1')).toThrow('does not support global');
+  });
+
+  test('MantleModels and RuntimeModels should be separate and filter correctly', () => {
+    expect(MantleModels.GOOGLE_GEMMA_3_12B_IT).toBeDefined();
+    expect(typeof MantleModels.GOOGLE_GEMMA_3_12B_IT.toString()).toBe('string');
+
+    expect(RuntimeModels.AMAZON_NOVA_2_LITE).toBeDefined();
+    expect(typeof RuntimeModels.AMAZON_NOVA_2_LITE.toString()).toBe('string');
+
+    expect(RuntimeModels.AI21_JAMBA_1_5_LARGE).toBeDefined();
+    expect((MantleModels as any).AI21_JAMBA_1_5_LARGE).toBeUndefined();
   });
 });

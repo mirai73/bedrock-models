@@ -1,4 +1,4 @@
-from .bedrock_model_ids import Models
+from .bedrock_model_ids import Models, MantleModels, RuntimeModels
 from .utils import (
     is_model_available,
     get_available_regions,
@@ -11,6 +11,8 @@ from .utils import (
 
 __all__ = [
     "Models",
+    "MantleModels",
+    "RuntimeModels",
     "is_model_available",
     "get_available_regions",
     "has_global_profile",

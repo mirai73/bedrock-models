@@ -5452,8 +5452,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -5543,8 +5542,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -5640,8 +5638,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -5737,8 +5734,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -6445,8 +6441,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -6541,8 +6536,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -6637,8 +6631,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -6733,8 +6726,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -6830,8 +6822,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -6927,8 +6918,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7024,8 +7014,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7121,8 +7110,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7330,8 +7318,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7580,8 +7567,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7677,8 +7663,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7808,8 +7793,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7899,8 +7883,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -7995,8 +7978,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -8091,8 +8073,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -8187,8 +8168,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -8417,8 +8397,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -8513,8 +8492,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -8845,8 +8823,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -10124,8 +10101,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -10323,8 +10299,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -10413,8 +10388,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
@@ -10500,8 +10474,7 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
-      "messages"
+      "completions"
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",

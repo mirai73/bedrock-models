@@ -885,9 +885,12 @@ function renderTable() {
         }).join('');
 
         const statusClass = model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy';
-        const apiBadgesHtml = model.mantle_apis && model.mantle_apis.length > 0
-            ? model.mantle_apis.map(api => `<span class="badge badge-api">${api}</span>`).join('')
-            : '—';
+        const apis = ['converse', 'invoke'];
+        const mantleApis = model.mantle_apis || [];
+        const apiBadgesHtml = [
+            ...apis.map(api => `<span class="badge badge-api-runtime">${api}</span>`),
+            ...mantleApis.map(api => `<span class="badge badge-api">${api}</span>`)
+        ].join('');
 
         return `
             <tr>
@@ -963,12 +966,13 @@ function renderModels() {
 
         const statusBadge = `<span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">${model.model_lifecycle_status}</span>`;
 
-        const apiBadgesHtml = model.mantle_apis && model.mantle_apis.length > 0
-            ? model.mantle_apis.map(api => `<span class="badge badge-api">${api}</span>`).join('')
-            : '';
-        const apiBadgesContainerHtml = apiBadgesHtml
-            ? `<div class="model-badges model-api-badges">${apiBadgesHtml}</div>`
-            : '';
+        const apis = ['converse', 'invoke'];
+        const mantleApis = model.mantle_apis || [];
+        const apiBadgesHtml = [
+            ...apis.map(api => `<span class="badge badge-api-runtime">${api}</span>`),
+            ...mantleApis.map(api => `<span class="badge badge-api">${api}</span>`)
+        ].join('');
+        const apiBadgesContainerHtml = `<div class="model-badges model-api-badges">${apiBadgesHtml}</div>`;
 
         const copyBtnSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

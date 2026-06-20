@@ -177,22 +177,23 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 pass
             
         # 3. Probe messages API
-        url_msg = f"https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages"
-        payload_msg = {
-            "model": model_id,
-            "messages": [{"role": "user", "content": "hi"}],
-            "max_tokens": -1
-        }
-        req_msg = urllib.request.Request(url_msg, data=json.dumps(payload_msg).encode(), headers=headers, method='POST')
-        try:
-            with urllib.request.urlopen(req_msg, timeout=5) as r:
+        if model_id.startswith('anthropic.'):
+            url_msg = f"https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages"
+            payload_msg = {
+                "model": model_id,
+                "messages": [{"role": "user", "content": "hi"}],
+                "max_tokens": -1
+            }
+            req_msg = urllib.request.Request(url_msg, data=json.dumps(payload_msg).encode(), headers=headers, method='POST')
+            try:
+                with urllib.request.urlopen(req_msg, timeout=5) as r:
+                    pass
+            except urllib.error.HTTPError as e:
+                body = e.read().decode()
+                if 'max_tokens' in body or 'access_denied' in body:
+                    supported_apis.append('messages')
+            except Exception:
                 pass
-        except urllib.error.HTTPError as e:
-            body = e.read().decode()
-            if 'max_tokens' in body or 'access_denied' in body:
-                supported_apis.append('messages')
-        except Exception:
-            pass
             
         return model_id, sorted(supported_apis) if supported_apis else None
 

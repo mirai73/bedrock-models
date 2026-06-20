@@ -75,6 +75,7 @@ let selectedRegion = '';
 let selectedType = '';
 let selectedDateFilter = 'all';
 let selectedCustomDate = '';
+let selectedApiFilter = 'all';
 
 // View mode state
 let currentView = localStorage.getItem('viewMode') || 'grid';
@@ -558,10 +559,31 @@ function initCustomDropdowns() {
     const regionOptions = document.getElementById('regionOptions');
     const regionSearch = document.getElementById('regionSearch');
 
+    // Type dropdown
+    const typeContainer = document.getElementById('typeFilterContainer');
+    const typeButton = document.getElementById('typeButton');
+    const typeDropdown = document.getElementById('typeDropdown');
+    const typeOptions = document.getElementById('typeOptions');
+
+    // Date dropdown
+    const dateContainer = document.getElementById('dateFilterContainer');
+    const dateButton = document.getElementById('dateButton');
+    const dateDropdown = document.getElementById('dateDropdown');
+    const dateOptions = document.getElementById('dateOptions');
+    const customDateInput = document.getElementById('customDateInput');
+
+    // API dropdown
+    const apiContainer = document.getElementById('apiFilterContainer');
+    const apiButton = document.getElementById('apiButton');
+    const apiDropdown = document.getElementById('apiDropdown');
+    const apiOptions = document.getElementById('apiOptions');
+
     regionButton.addEventListener('click', (e) => {
         e.stopPropagation();
         regionContainer.classList.toggle('open');
-        document.getElementById('typeFilterContainer').classList.remove('open');
+        typeContainer.classList.remove('open');
+        dateContainer.classList.remove('open');
+        apiContainer.classList.remove('open');
         if (regionContainer.classList.contains('open')) {
             regionSearch.focus();
         }
@@ -596,17 +618,12 @@ function initCustomDropdowns() {
         }
     });
 
-    // Type dropdown
-    const typeContainer = document.getElementById('typeFilterContainer');
-    const typeButton = document.getElementById('typeButton');
-    const typeDropdown = document.getElementById('typeDropdown');
-    const typeOptions = document.getElementById('typeOptions');
-
     typeButton.addEventListener('click', (e) => {
         e.stopPropagation();
         typeContainer.classList.toggle('open');
         regionContainer.classList.remove('open');
         dateContainer.classList.remove('open');
+        apiContainer.classList.remove('open');
     });
 
     typeOptions.addEventListener('click', (e) => {
@@ -625,18 +642,12 @@ function initCustomDropdowns() {
         }
     });
 
-    // Date dropdown
-    const dateContainer = document.getElementById('dateFilterContainer');
-    const dateButton = document.getElementById('dateButton');
-    const dateDropdown = document.getElementById('dateDropdown');
-    const dateOptions = document.getElementById('dateOptions');
-    const customDateInput = document.getElementById('customDateInput');
-
     dateButton.addEventListener('click', (e) => {
         e.stopPropagation();
         dateContainer.classList.toggle('open');
         regionContainer.classList.remove('open');
         typeContainer.classList.remove('open');
+        apiContainer.classList.remove('open');
     });
 
     dateOptions.addEventListener('click', (e) => {
@@ -676,11 +687,36 @@ function initCustomDropdowns() {
         }
     });
 
+    apiButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        apiContainer.classList.toggle('open');
+        regionContainer.classList.remove('open');
+        typeContainer.classList.remove('open');
+        dateContainer.classList.remove('open');
+    });
+
+    apiOptions.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dropdown-option')) {
+            selectedApiFilter = e.target.dataset.value;
+            apiButton.querySelector('.select-text').textContent = e.target.textContent;
+
+            // Update selected state
+            apiOptions.querySelectorAll('.dropdown-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            e.target.classList.add('selected');
+
+            apiContainer.classList.remove('open');
+            filterModels();
+        }
+    });
+
     // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
         regionContainer.classList.remove('open');
         typeContainer.classList.remove('open');
         dateContainer.classList.remove('open');
+        apiContainer.classList.remove('open');
     });
 
     // Prevent dropdown from closing when clicking inside
@@ -693,6 +729,10 @@ function initCustomDropdowns() {
     });
 
     dateDropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    apiDropdown.addEventListener('click', (e) => {
         e.stopPropagation();
     });
 }
@@ -751,7 +791,15 @@ function filterModels() {
             }
         }
 
-        return matchesSearch && matchesRegion && matchesType && matchesDate;
+        // API filter
+        let matchesApi = true;
+        if (selectedApiFilter === 'runtime') {
+            matchesApi = !!model.runtime_supported;
+        } else if (selectedApiFilter === 'mantle') {
+            matchesApi = model.mantle_apis && model.mantle_apis.length > 0;
+        }
+
+        return matchesSearch && matchesRegion && matchesType && matchesDate && matchesApi;
     });
 
     renderModels();

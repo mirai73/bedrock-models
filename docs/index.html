@@ -112,6 +112,23 @@
                     </div>
                 </div>
 
+                <div class="custom-select" id="apiFilterContainer">
+                    <button class="select-button" id="apiButton">
+                        <span class="select-text">All APIs</span>
+                        <svg class="chevron-icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="select-dropdown" id="apiDropdown">
+                        <div class="dropdown-options" id="apiOptions">
+                            <div class="dropdown-option selected" data-value="all">All APIs</div>
+                            <div class="dropdown-option" data-value="runtime">Runtime API</div>
+                            <div class="dropdown-option" data-value="mantle">Mantle API</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="custom-select" id="dateFilterContainer">
                     <button class="select-button" id="dateButton">
                         <span class="select-text">Modified: All</span>

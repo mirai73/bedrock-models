@@ -26,6 +26,7 @@ class Models:
     ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_6: Final[BedrockModel]
+    ANTHROPIC_CLAUDE_SONNET_5: Final[BedrockModel]
     COHERE_EMBED: Final[BedrockModel]
     COHERE_EMBED_ENGLISH: Final[BedrockModel]
     COHERE_EMBED_MULTILINGUAL: Final[BedrockModel]
@@ -108,7 +109,6 @@ class Models:
     AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
     AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status
     AMAZON_NOVA_SONIC: Final[BedrockModel]  # deprecated: Model 'amazon.nova-sonic-v1:0' has LEGACY status
-    AMAZON_TITAN_IMAGE_GENERATOR: Final[BedrockModel]  # deprecated: Model 'amazon.titan-image-generator-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
@@ -148,6 +148,7 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_6: Final[BedrockModel]
+    ANTHROPIC_CLAUDE_SONNET_5: Final[BedrockModel]
     COHERE_EMBED: Final[BedrockModel]
     COHERE_EMBED_ENGLISH: Final[BedrockModel]
     COHERE_EMBED_MULTILINGUAL: Final[BedrockModel]
@@ -230,7 +231,6 @@ class RuntimeModels:
     AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
     AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status
     AMAZON_NOVA_SONIC: Final[BedrockModel]  # deprecated: Model 'amazon.nova-sonic-v1:0' has LEGACY status
-    AMAZON_TITAN_IMAGE_GENERATOR: Final[BedrockModel]  # deprecated: Model 'amazon.titan-image-generator-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status

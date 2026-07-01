@@ -1581,35 +1581,6 @@
     "responseStreamingSupported": false,
     "runtime_supported": true
   },
-  "amazon.titan-image-generator-v2:0": {
-    "customizationsSupported": [
-      "FINE_TUNING"
-    ],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND",
-        "PROVISIONED"
-      ],
-      "us-west-2": [
-        "ON_DEMAND",
-        "PROVISIONED"
-      ]
-    },
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "IMAGE"
-    ],
-    "regions": [
-      "us-east-1",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": false,
-    "runtime_supported": true
-  },
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {
     "customizationsSupported": [],
     "inferenceProfile": {
@@ -4797,6 +4768,223 @@
       ],
       "eu-west-3": [
         "EU",
+        "GLOBAL"
+      ],
+      "il-central-1": [
+        "GLOBAL"
+      ],
+      "mx-central-1": [
+        "GLOBAL"
+      ],
+      "sa-east-1": [
+        "GLOBAL"
+      ],
+      "us-east-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-east-2": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-2": [
+        "GLOBAL",
+        "US"
+      ]
+    },
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "mx-central-1",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true,
+    "runtime_supported": true
+  },
+  "anthropic.claude-sonnet-5": {
+    "customizationsSupported": [],
+    "inferenceProfile": {
+      "GLOBAL": [
+        "af-south-1",
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-6",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "US": {
+        "ca-central-1": [
+          "ca-central-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "ca-west-1": [
+          "ca-west-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
+    },
+    "inference_types": {
+      "af-south-1": [
+        "GLOBAL"
+      ],
+      "ap-east-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-1": [
+        "GLOBAL"
+      ],
+      "ap-northeast-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-3": [
+        "GLOBAL"
+      ],
+      "ap-south-1": [
+        "GLOBAL"
+      ],
+      "ap-south-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
+      ],
+      "ap-southeast-4": [
+        "GLOBAL"
+      ],
+      "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
+      "ap-southeast-7": [
+        "GLOBAL"
+      ],
+      "ca-central-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "ca-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "eu-central-1": [
+        "GLOBAL"
+      ],
+      "eu-central-2": [
+        "GLOBAL"
+      ],
+      "eu-north-1": [
+        "GLOBAL"
+      ],
+      "eu-south-1": [
+        "GLOBAL"
+      ],
+      "eu-south-2": [
+        "GLOBAL"
+      ],
+      "eu-west-1": [
+        "GLOBAL"
+      ],
+      "eu-west-2": [
+        "GLOBAL"
+      ],
+      "eu-west-3": [
         "GLOBAL"
       ],
       "il-central-1": [

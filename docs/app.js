@@ -123,6 +123,23 @@ async function init() {
             };
         });
 
+        // Update the global last updated date
+        const dates = Object.values(metadata)
+            .map(m => m.last_changed)
+            .filter(d => d && d !== 'N/A');
+        if (dates.length > 0) {
+            const latestDate = dates.reduce((max, d) => d > max ? d : max, dates[0]);
+            const lastUpdatedEl = document.getElementById('lastUpdatedDate');
+            if (lastUpdatedEl) {
+                lastUpdatedEl.textContent = latestDate;
+            }
+        } else {
+            const lastUpdatedEl = document.getElementById('lastUpdatedDate');
+            if (lastUpdatedEl) {
+                lastUpdatedEl.textContent = 'N/A';
+            }
+        }
+
         populateCrisRegions();
         populateRegionFilter();
         initCustomDropdowns();

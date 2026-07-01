@@ -88,30 +88,29 @@ async function init() {
         let data;
         let metadata = {};
 
+        const timestamp = Date.now();
         try {
-            // First try relative paths (works locally with serve.sh and when deployed)
-            const response = await fetch('./bedrock_models.json?v=0.1.95');
+            // Pull directly from GitHub raw to get real-time updates without redeploying the site
+            const response = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models.json?t=${timestamp}`);
             data = await response.json();
             
             try {
-                const metaResponse = await fetch('./bedrock_models_metadata.json?v=0.1.95');
-                metadata = await metaResponse.json();
-            } catch (metaErr) {
-                console.warn('Could not load local metadata, falling back to github raw:', metaErr);
-                const metaResponse = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models_metadata.json?v=0.1.95');
-                metadata = await metaResponse.json();
-            }
-        } catch (err) {
-            console.warn('Could not load local models data, falling back to github raw:', err);
-            // Fallback to absolute URLs
-            const response = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models.json?v=0.1.95');
-            data = await response.json();
-            
-            try {
-                const metaResponse = await fetch('https://raw.githubusercontent.com/mirai73/bedrock-models/refs/heads/main/packages/shared/bedrock_models_metadata.json?v=0.1.95');
+                const metaResponse = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models_metadata.json?t=${timestamp}`);
                 metadata = await metaResponse.json();
             } catch (metaErr) {
                 console.error('Could not load github raw metadata:', metaErr);
+            }
+        } catch (err) {
+            console.warn('Could not load from GitHub raw, falling back to local files:', err);
+            // Fallback to local files for local offline development
+            const response = await fetch(`./bedrock_models.json?t=${timestamp}`);
+            data = await response.json();
+            
+            try {
+                const metaResponse = await fetch(`./bedrock_models_metadata.json?t=${timestamp}`);
+                metadata = await metaResponse.json();
+            } catch (metaErr) {
+                console.error('Could not load local metadata:', metaErr);
             }
         }
 

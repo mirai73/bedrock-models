@@ -139,6 +139,7 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
         
         # 1. Probe completions API
         if not model_id.startswith('anthropic.'):
+            comp_success = False
             url_comp = f"https://bedrock-mantle.{region}.api.aws/v1/chat/completions"
             payload_comp = {
                 "model": model_id,
@@ -153,11 +154,27 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 body = e.read().decode()
                 if 'max_tokens' in body or 'access_denied' in body:
                     supported_apis.append('completions')
+                    comp_success = True
             except Exception:
                 pass
+                
+            # Fallback to /openai/v1/chat/completions
+            if not comp_success:
+                url_comp_openai = f"https://bedrock-mantle.{region}.api.aws/openai/v1/chat/completions"
+                req_comp_openai = urllib.request.Request(url_comp_openai, data=json.dumps(payload_comp).encode(), headers=headers, method='POST')
+                try:
+                    with urllib.request.urlopen(req_comp_openai, timeout=5) as r:
+                        pass
+                except urllib.error.HTTPError as e:
+                    body = e.read().decode()
+                    if 'max_tokens' in body or 'access_denied' in body:
+                        supported_apis.append('completions')
+                except Exception:
+                    pass
             
         # 2. Probe responses API
         if not model_id.startswith('anthropic.'):
+            resp_success = False
             url_resp = f"https://bedrock-mantle.{region}.api.aws/v1/responses"
             payload_resp = {
                 "model": model_id,
@@ -173,8 +190,23 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 body = e.read().decode()
                 if 'max_output_tokens' in body or 'access_denied' in body:
                     supported_apis.append('responses')
+                    resp_success = True
             except Exception:
                 pass
+                
+            # Fallback to /openai/v1/responses
+            if not resp_success:
+                url_resp_openai = f"https://bedrock-mantle.{region}.api.aws/openai/v1/responses"
+                req_resp_openai = urllib.request.Request(url_resp_openai, data=json.dumps(payload_resp).encode(), headers=headers, method='POST')
+                try:
+                    with urllib.request.urlopen(req_resp_openai, timeout=5) as r:
+                        pass
+                except urllib.error.HTTPError as e:
+                    body = e.read().decode()
+                    if 'max_output_tokens' in body or 'access_denied' in body:
+                        supported_apis.append('responses')
+                except Exception:
+                    pass
             
         # 3. Probe messages API
         if model_id.startswith('anthropic.'):

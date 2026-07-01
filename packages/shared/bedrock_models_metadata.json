@@ -6,7 +6,7 @@
     "last_changed": "2026-06-20"
   },
   "amazon.nova-2-lite-v1:0": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "amazon.nova-2-multimodal-embeddings-v1:0": {
     "last_changed": "2026-06-20"
@@ -77,38 +77,37 @@
     "last_changed": "2026-06-20"
   },
   "anthropic.claude-fable-5": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-haiku-4-5": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
     "last_changed": "2026-06-20"
   },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-opus-4-6-v1": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-opus-4-7": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-opus-4-8": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-4-20250514-v1:0": {
     "last_changed": "2026-06-20"
   },
   "anthropic.claude-sonnet-4-5-20250929-v1:0": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-4-6": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-5": {
     "last_changed": "2026-07-01"
@@ -138,32 +137,28 @@
     "last_changed": "2026-06-20"
   },
   "deepseek.v3.1": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "deepseek.v3.2": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "google.gemma-3-12b-it": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "google.gemma-3-27b-it": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "google.gemma-3-4b-it": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "google.gemma-4-26b-a4b": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "google.gemma-4-31b": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "google.gemma-4-e2b": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "luma.ray-v2:0": {
     "last_changed": "2026-06-20"
@@ -205,28 +200,28 @@
     "last_changed": "2026-06-20"
   },
   "minimax.minimax-m2": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "minimax.minimax-m2.1": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "minimax.minimax-m2.5": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.devstral-2-123b": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.magistral-small-2509": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.ministral-3-14b-instruct": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.ministral-3-3b-instruct": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.ministral-3-8b-instruct": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.mistral-7b-instruct-v0:2": {
     "last_changed": "2026-06-20"
@@ -238,7 +233,7 @@
     "last_changed": "2026-06-20"
   },
   "mistral.mistral-large-3-675b-instruct": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.mistral-small-2402-v1:0": {
     "last_changed": "2026-06-20"
@@ -250,113 +245,100 @@
     "last_changed": "2026-06-20"
   },
   "mistral.voxtral-mini-3b-2507": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "mistral.voxtral-small-24b-2507": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "moonshot.kimi-k2-thinking": {
     "last_changed": "2026-06-20"
   },
   "moonshotai.kimi-k2-thinking": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "moonshotai.kimi-k2.5": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "nvidia.nemotron-nano-12b-v2": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "nvidia.nemotron-nano-3-30b": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "nvidia.nemotron-nano-9b-v2": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "nvidia.nemotron-super-3-120b": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-5.4": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-5.4-2026-03-05": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-5.5": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-5.5-2026-04-23": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-oss-120b": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-oss-120b-1:0": {
     "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-20b": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-oss-20b-1:0": {
     "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-safeguard-120b": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "openai.gpt-oss-safeguard-20b": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "qwen.qwen3-235b-a22b-2507": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "qwen.qwen3-235b-a22b-2507-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-32b": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "qwen.qwen3-32b-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-30b-a3b-instruct": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "qwen.qwen3-coder-30b-a3b-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-480b-a35b-instruct": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "qwen.qwen3-coder-480b-a35b-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-next": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "qwen.qwen3-next-80b-a3b": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-next-80b-a3b-instruct": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "qwen.qwen3-vl-235b-a22b": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-vl-235b-a22b-instruct": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "stability.sd3-5-large-v1:0": {
     "last_changed": "2026-06-20"
@@ -416,7 +398,7 @@
     "last_changed": "2026-06-20"
   },
   "writer.palmyra-vision-7b": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "writer.palmyra-x4-v1:0": {
     "last_changed": "2026-06-20"
@@ -425,20 +407,18 @@
     "last_changed": "2026-06-20"
   },
   "xai.grok-4.3": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "zai.glm-4.6": {
-    "deleted": "2026-06-21",
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-01"
   },
   "zai.glm-4.7": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "zai.glm-4.7-flash": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   },
   "zai.glm-5": {
-    "last_changed": "2026-06-21"
+    "last_changed": "2026-07-01"
   }
 }

@@ -1,5 +1,15 @@
-let allModels = [];
-let filteredModels = [];
+import { h, render } from 'https://esm.sh/preact@10.19.3';
+import { useState, useEffect, useMemo, useRef } from 'https://esm.sh/preact@10.19.3/hooks';
+import htm from 'https://esm.sh/htm@3.1.1';
+
+const html = htm.bind(h);
+
+const closeIcon = html`
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style=${{ display: 'block' }}>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+`;
 
 // CRIS regions mapping
 const CRIS_REGIONS = {
@@ -33,7 +43,7 @@ const REGION_LOCATIONS = {
     'me-central-1': { lat: 25.27, lng: 55.30, name: 'UAE' },
     'af-south-1': { lat: -33.92, lng: 18.42, name: 'Cape Town' },
     'ap-east-1': { lat: 22.31, lng: 114.16, name: 'Hong Kong' },
-    'ap-east-2': { lat: 22.31, lng: 114.16, name: 'Hong Kong' }, // Often maps to Hong Kong
+    'ap-east-2': { lat: 22.31, lng: 114.16, name: 'Hong Kong' },
     'ap-northeast-1': { lat: 35.68, lng: 139.76, name: 'Tokyo' },
     'ap-northeast-2': { lat: 37.56, lng: 126.97, name: 'Seoul' },
     'ap-northeast-3': { lat: 34.69, lng: 135.50, name: 'Osaka' },
@@ -47,781 +57,7 @@ const REGION_LOCATIONS = {
     'ap-southeast-7': { lat: 13.75, lng: 100.50, name: 'Thailand' }
 };
 
-// CRIS Profile underlying regions (dynamically populated)
-let CRIS_PROFILE_REGIONS = {};
-
-let map = null;
-let mapMarkers = [];
-
-// Theme management
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', toggleTheme);
-}
-
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-}
-
-// Custom dropdown state
-let selectedRegion = '';
-let selectedType = '';
-let selectedDateFilter = 'all';
-let selectedCustomDate = '';
-let selectedApiFilter = 'all';
-
-// View mode state
-let currentView = localStorage.getItem('viewMode') || 'grid';
-
-// Load and initialize
-async function init() {
-    initTheme();
-    initViewToggle();
-    try {
-        let data;
-        let metadata = {};
-
-        const timestamp = Date.now();
-        try {
-            // Pull directly from GitHub raw to get real-time updates without redeploying the site
-            const response = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models.json?t=${timestamp}`);
-            data = await response.json();
-            
-            try {
-                const metaResponse = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models_metadata.json?t=${timestamp}`);
-                metadata = await metaResponse.json();
-            } catch (metaErr) {
-                console.error('Could not load github raw metadata:', metaErr);
-            }
-        } catch (err) {
-            console.warn('Could not load from GitHub raw, falling back to local files:', err);
-            // Fallback to local files for local offline development
-            const response = await fetch(`./bedrock_models.json?t=${timestamp}`);
-            data = await response.json();
-            
-            try {
-                const metaResponse = await fetch(`./bedrock_models_metadata.json?t=${timestamp}`);
-                metadata = await metaResponse.json();
-            } catch (metaErr) {
-                console.error('Could not load local metadata:', metaErr);
-            }
-        }
-
-        allModels = Object.entries(data).map(([id, info]) => {
-            const modelMeta = metadata[id] || {};
-            return {
-                id,
-                ...info,
-                lastChanged: modelMeta.last_changed || 'N/A'
-            };
-        });
-
-        // Update the global last updated date
-        const dates = Object.values(metadata)
-            .map(m => m.last_changed)
-            .filter(d => d && d !== 'N/A');
-        if (dates.length > 0) {
-            const latestDate = dates.reduce((max, d) => d > max ? d : max, dates[0]);
-            const lastUpdatedEl = document.getElementById('lastUpdatedDate');
-            if (lastUpdatedEl) {
-                lastUpdatedEl.textContent = latestDate;
-            }
-        } else {
-            const lastUpdatedEl = document.getElementById('lastUpdatedDate');
-            if (lastUpdatedEl) {
-                lastUpdatedEl.textContent = 'N/A';
-            }
-        }
-
-        populateCrisRegions();
-        populateRegionFilter();
-        initCustomDropdowns();
-        filteredModels = [...allModels];
-        renderModels();
-        updateResultsCount();
-
-        // Add event listeners
-        document.getElementById('searchInput').addEventListener('input', filterModels);
-
-
-        // Modal close listeners
-        document.querySelectorAll('.close-modal').forEach(btn => {
-            btn.addEventListener('click', () => {
-                closeMapModal();
-                closeRegionsModal();
-            });
-        });
-
-        document.getElementById('mapModal').addEventListener('click', (e) => {
-            if (e.target.id === 'mapModal') closeMapModal();
-        });
-
-        document.getElementById('regionsModal').addEventListener('click', (e) => {
-            if (e.target.id === 'regionsModal') closeRegionsModal();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeMapModal();
-                closeRegionsModal();
-            }
-        });
-
-    } catch (error) {
-        console.error('Error loading models:', error);
-        document.getElementById('modelsGrid').innerHTML =
-            '<p style="color: #c62828;">Error loading models data. Please try again.</p>';
-    }
-}
-
-function initMap() {
-    if (map) return;
-
-    // Initialize map centered on world
-    map = L.map('map', { maxZoom: 5 }).setView([20, 0], 2);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-}
-
-
-// CRIS Profile underlying regions (dynamically populated)
-// Structure: 
-// For GLOBAL: ["region1", "region2"]
-// For others: { "source_region1": ["target1", "target2"], ... }
-
-function showRegionMap(crisType, modelId, modelName) {
-    const modal = document.getElementById('mapModal');
-    const title = document.getElementById('modalTitle');
-
-    title.textContent = `${modelName} - ${CRIS_REGIONS[crisType]} Regions`;
-    modal.classList.add('show');
-    modal.style.display = 'flex'; // Ensure display is flex for centering
-
-    // Need to wait for modal to be visible before sizing map
-    setTimeout(() => {
-        initMap();
-        map.invalidateSize();
-
-        // Clear existing markers
-        mapMarkers.forEach(marker => map.removeLayer(marker));
-        mapMarkers = [];
-
-        let profileData = CRIS_PROFILE_REGIONS[crisType];
-
-        if (!profileData) {
-            map.setView([20, 0], 2);
-            return;
-        }
-
-        // Filter profileData based on model availability logic from hasInferenceType
-        const model = allModels.find(m => m.id === modelId);
-        if (model) {
-            if (Array.isArray(profileData)) {
-                // Global: Filter the array of regions
-                profileData = profileData.filter(region => hasInferenceType(model, crisType, region));
-            } else {
-                // Regional: Filter the keys (sources) of the object
-                const filteredData = {};
-                Object.keys(profileData).forEach(source => {
-                    if (hasInferenceType(model, crisType, source)) {
-                        filteredData[source] = profileData[source];
-                    }
-                });
-                profileData = filteredData;
-            }
-        }
-
-
-        const isGlobal = Array.isArray(profileData);
-        const bounds = L.latLngBounds();
-
-        // Helper to add marker
-        const addMarker = (regionCode, color, isSource = false, sourceFor = null) => {
-            const location = REGION_LOCATIONS[regionCode];
-            if (!location) return null;
-
-            const marker = L.circleMarker([location.lat, location.lng], {
-                radius: 8,
-                fillColor: color,
-                color: '#fff',
-                weight: 2,
-                opacity: 1,
-                fillOpacity: 0.8
-            }).addTo(map);
-
-            let popupContent = `<b>${location.name}</b><br>${regionCode}`;
-            if (isSource && !isGlobal) {
-                popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to see coverage</span>`;
-            }
-            marker.bindPopup(popupContent);
-
-            // Add tooltip for hover
-            marker.bindTooltip(`<b>${location.name}</b><br>${regionCode}`, {
-                permanent: false,
-                direction: 'top'
-            });
-
-            // Interaction for non-global source regions
-            if (isSource && !isGlobal && sourceFor) {
-                marker.on('click', () => {
-                    // Reset all markers to default state first
-                    updateMapState(profileData, regionCode);
-                });
-            }
-
-            mapMarkers.push(marker);
-            bounds.extend([location.lat, location.lng]);
-            return marker;
-        };
-
-        // Render Initial State
-        if (isGlobal) {
-            // GLOBAL: Just show all regions as Blue
-            profileData.forEach(region => addMarker(region, '#2196F3'));
-        } else {
-            // Regional: Check for selected region filter
-            let initialSource = null;
-            if (selectedRegion && profileData[selectedRegion]) {
-                initialSource = selectedRegion;
-            }
-
-            updateMapState(profileData, initialSource);
-        }
-
-        if (mapMarkers.length > 0) {
-            map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
-        } else {
-            map.setView([20, 0], 2);
-        }
-    }, 100);
-}
-
-function updateMapState(profileData, activeSource) {
-    // Clear existing markers to redraw (simplest approach for state change)
-    mapMarkers.forEach(marker => map.removeLayer(marker));
-    mapMarkers = [];
-    const bounds = L.latLngBounds();
-
-    const sources = Object.keys(profileData);
-
-    // 1. Draw all sources first (z-index lower ideally, but map order matters)
-    sources.forEach(source => {
-        const isSelected = source === activeSource;
-        const color = isSelected ? '#2196F3' : '#9E9E9E'; // Blue if selected, Grey otherwise
-
-        const location = REGION_LOCATIONS[source];
-        if (!location) return;
-
-        const marker = L.circleMarker([location.lat, location.lng], {
-            radius: isSelected ? 10 : 8,
-            fillColor: color,
-            color: '#fff',
-            weight: 2,
-            opacity: 1,
-            fillOpacity: 0.8
-        }).addTo(map);
-
-        let popupContent = `<b>${location.name}</b><br>${source} (Source)`;
-        if (!isSelected) {
-            popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to show coverage</span>`;
-        }
-        marker.bindPopup(popupContent);
-
-        marker.bindTooltip(`<b>${location.name}</b><br>${source}`, {
-            permanent: false,
-            direction: 'top'
-        });
-
-        marker.on('click', () => {
-            updateMapState(profileData, source);
-        });
-
-        mapMarkers.push(marker);
-        bounds.extend([location.lat, location.lng]);
-    });
-
-    // 2. If a source is active, draw its targets
-    if (activeSource && profileData[activeSource]) {
-        const targets = profileData[activeSource];
-        targets.forEach(target => {
-            if (target === activeSource) return; // Already drawn as source
-
-            const location = REGION_LOCATIONS[target];
-            if (!location) return;
-
-            const marker = L.circleMarker([location.lat, location.lng], {
-                radius: 6,
-                fillColor: '#2196F3', // Blue for targets
-                color: '#fff',
-                weight: 1,
-                opacity: 0.8,
-                fillOpacity: 0.6
-            }).addTo(map);
-
-            // Check if this target is also a valid source
-            const isAlsoSource = !!profileData[target];
-
-            let popupContent = `<b>${location.name}</b><br>${target} (Target)`;
-            if (isAlsoSource) {
-                popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to switch view</span>`;
-            }
-            marker.bindPopup(popupContent);
-
-            marker.bindTooltip(`<b>${location.name}</b><br>${target}`, {
-                permanent: false,
-                direction: 'top'
-            });
-
-            if (isAlsoSource) {
-                marker.on('click', () => {
-                    updateMapState(profileData, target);
-                });
-            }
-
-            mapMarkers.push(marker);
-            bounds.extend([location.lat, location.lng]);
-        });
-
-        // Draw lines from source to targets? Optional but cool. 
-        // Keeping it simple for now as per plan: just highlight markers.
-    }
-
-    if (mapMarkers.length > 0) {
-        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
-    }
-}
-
-function closeMapModal() {
-    const modal = document.getElementById('mapModal');
-    modal.classList.remove('show');
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
-}
-
-function showAllRegions(modelId, modelName) {
-    const model = allModels.find(m => m.id === modelId);
-    if (!model) return;
-
-    const modal = document.getElementById('regionsModal');
-    const title = document.getElementById('regionsModalTitle');
-    const container = document.getElementById('regionsListContainer');
-
-    title.textContent = modelName;
-
-    // Detect which types are present for this model across all its regions
-    const modelTypes = new Set();
-    model.regions.forEach(r => {
-        const types = model.inference_types[r] || [];
-        types.forEach(t => modelTypes.add(t));
-    });
-
-    const hasGlobal = modelTypes.has('GLOBAL');
-    const hasCris = Array.from(modelTypes).some(t => CRIS_REGIONS[t] && t !== 'GLOBAL');
-    const hasOnDemand = modelTypes.has('ON_DEMAND');
-
-    // Add legend under the title
-    let legend = document.getElementById('modalLegend');
-    if (!legend) {
-        legend = document.createElement('div');
-        legend.id = 'modalLegend';
-        legend.className = 'legend-container modal-legend';
-        title.after(legend);
-    }
-
-    let legendHtml = '';
-    if (hasGlobal) legendHtml += `
-        <div class="legend-item">
-            <span class="inference-icon-small type-g">G</span>
-            <span>Global CRIS</span>
-        </div>`;
-    if (hasCris) legendHtml += `
-        <div class="legend-item">
-            <span class="inference-icon-small type-c">C</span>
-            <span>Region CRIS</span>
-        </div>`;
-    if (hasOnDemand) legendHtml += `
-        <div class="legend-item">
-            <span class="inference-icon-small type-r" title="In Region">R</span>
-            <span>In Region</span>
-        </div>`;
-
-    legend.innerHTML = legendHtml;
-    legend.style.display = legendHtml ? 'flex' : 'none';
-
-    container.innerHTML = model.regions.map(region => {
-        const types = model.inference_types[region] || [];
-        const isGlobal = types.includes('GLOBAL');
-        const isCris = types.some(t => CRIS_REGIONS[t] && t !== 'GLOBAL');
-        const isOnDemand = types.includes('ON_DEMAND');
-
-        return `
-            <div class="modal-region-item">
-                <div class="region-info">
-                    <span class="region-code">${region}</span>
-                    <span class="region-name">${REGION_LOCATIONS[region]?.name || ''}</span>
-                </div>
-                <div class="inference-icons-container">
-                    ${isGlobal ? '<span class="inference-icon-small type-g" title="Global CRIS">G</span>' : ''}
-                    ${isCris ? '<span class="inference-icon-small type-c" title="Region CRIS">C</span>' : ''}
-                    ${isOnDemand ? '<span class="inference-icon-small type-r" title="In Region">R</span>' : ''}
-                </div>
-            </div>
-        `;
-    }).join('');
-
-    modal.classList.add('show');
-    modal.style.display = 'flex';
-}
-
-function closeRegionsModal() {
-    const modal = document.getElementById('regionsModal');
-    modal.classList.remove('show');
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
-}
-
-function populateCrisRegions() {
-    const regionSets = {};
-
-    allModels.forEach(model => {
-        if (model.inferenceProfile) {
-            Object.entries(model.inferenceProfile).forEach(([profile, data]) => {
-                if (Array.isArray(data)) {
-                    // GLOBAL: List of regions
-                    if (!regionSets[profile]) {
-                        regionSets[profile] = new Set(); // Use Set for unique list
-                    }
-                    // For GLOBAL, we just store the list of regions
-                    data.forEach(r => regionSets[profile].add(r));
-                } else {
-                    // Regional: Dict of Source -> Targets
-                    // We need to merge this structure.
-                    // If multiple models have "US" profile, we merge their source maps.
-                    if (!regionSets[profile]) {
-                        regionSets[profile] = {}; // Object for source maps
-                    }
-
-                    Object.entries(data).forEach(([source, targets]) => {
-                        if (!regionSets[profile][source]) {
-                            regionSets[profile][source] = new Set();
-                        }
-                        targets.forEach(t => regionSets[profile][source].add(t));
-                    });
-                }
-            });
-        }
-    });
-
-    // Convert Sets to Arrays for final structure
-    CRIS_PROFILE_REGIONS = {};
-    Object.entries(regionSets).forEach(([profile, data]) => {
-        if (data instanceof Set) {
-            // Global
-            CRIS_PROFILE_REGIONS[profile] = Array.from(data).sort();
-        } else {
-            // Regional
-            CRIS_PROFILE_REGIONS[profile] = {};
-            Object.entries(data).forEach(([source, targetSet]) => {
-                CRIS_PROFILE_REGIONS[profile][source] = Array.from(targetSet).sort();
-            });
-        }
-    });
-
-    console.log('Populated CRIS Regions:', CRIS_PROFILE_REGIONS);
-}
-
-function populateRegionFilter() {
-    const regions = new Set();
-    allModels.forEach(model => {
-        model.regions.forEach(region => regions.add(region));
-    });
-
-    const regionOptions = document.getElementById('regionOptions');
-    const sortedRegions = Array.from(regions).sort();
-
-    // Add "All Regions" option
-    const allOption = document.createElement('div');
-    allOption.className = 'dropdown-option selected';
-    allOption.dataset.value = '';
-    allOption.textContent = 'All Regions';
-    regionOptions.appendChild(allOption);
-
-    // Add region options
-    sortedRegions.forEach(region => {
-        const option = document.createElement('div');
-        option.className = 'dropdown-option';
-        option.dataset.value = region;
-        option.textContent = region;
-        regionOptions.appendChild(option);
-    });
-}
-
-function initCustomDropdowns() {
-    // Region dropdown
-    const regionContainer = document.getElementById('regionFilterContainer');
-    const regionButton = document.getElementById('regionButton');
-    const regionDropdown = document.getElementById('regionDropdown');
-    const regionOptions = document.getElementById('regionOptions');
-    const regionSearch = document.getElementById('regionSearch');
-
-    // Type dropdown
-    const typeContainer = document.getElementById('typeFilterContainer');
-    const typeButton = document.getElementById('typeButton');
-    const typeDropdown = document.getElementById('typeDropdown');
-    const typeOptions = document.getElementById('typeOptions');
-
-    // Date dropdown
-    const dateContainer = document.getElementById('dateFilterContainer');
-    const dateButton = document.getElementById('dateButton');
-    const dateDropdown = document.getElementById('dateDropdown');
-    const dateOptions = document.getElementById('dateOptions');
-    const customDateInput = document.getElementById('customDateInput');
-
-    // API dropdown
-    const apiContainer = document.getElementById('apiFilterContainer');
-    const apiButton = document.getElementById('apiButton');
-    const apiDropdown = document.getElementById('apiDropdown');
-    const apiOptions = document.getElementById('apiOptions');
-
-    regionButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        regionContainer.classList.toggle('open');
-        typeContainer.classList.remove('open');
-        dateContainer.classList.remove('open');
-        apiContainer.classList.remove('open');
-        if (regionContainer.classList.contains('open')) {
-            regionSearch.focus();
-        }
-    });
-
-    regionSearch.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const options = regionOptions.querySelectorAll('.dropdown-option');
-        options.forEach(option => {
-            const text = option.textContent.toLowerCase();
-            option.style.display = text.includes(searchTerm) ? 'block' : 'none';
-        });
-    });
-
-    regionOptions.addEventListener('click', (e) => {
-        if (e.target.classList.contains('dropdown-option')) {
-            selectedRegion = e.target.dataset.value;
-            regionButton.querySelector('.select-text').textContent = e.target.textContent;
-
-            // Update selected state
-            regionOptions.querySelectorAll('.dropdown-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            e.target.classList.add('selected');
-
-            regionContainer.classList.remove('open');
-            regionSearch.value = '';
-            regionOptions.querySelectorAll('.dropdown-option').forEach(opt => {
-                opt.style.display = 'block';
-            });
-            filterModels();
-        }
-    });
-
-    typeButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        typeContainer.classList.toggle('open');
-        regionContainer.classList.remove('open');
-        dateContainer.classList.remove('open');
-        apiContainer.classList.remove('open');
-    });
-
-    typeOptions.addEventListener('click', (e) => {
-        if (e.target.classList.contains('dropdown-option')) {
-            selectedType = e.target.dataset.value;
-            typeButton.querySelector('.select-text').textContent = e.target.textContent;
-
-            // Update selected state
-            typeOptions.querySelectorAll('.dropdown-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            e.target.classList.add('selected');
-
-            typeContainer.classList.remove('open');
-            filterModels();
-        }
-    });
-
-    dateButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        dateContainer.classList.toggle('open');
-        regionContainer.classList.remove('open');
-        typeContainer.classList.remove('open');
-        apiContainer.classList.remove('open');
-    });
-
-    dateOptions.addEventListener('click', (e) => {
-        if (e.target.classList.contains('dropdown-option')) {
-            const val = e.target.dataset.value;
-            
-            // Update selected state
-            dateOptions.querySelectorAll('.dropdown-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            e.target.classList.add('selected');
-
-            const pickerWrapper = dateDropdown.querySelector('.custom-date-picker-wrapper');
-
-            if (val === 'custom') {
-                pickerWrapper.style.display = 'block';
-                customDateInput.focus();
-            } else {
-                pickerWrapper.style.display = 'none';
-                selectedDateFilter = val;
-                selectedCustomDate = '';
-                dateButton.querySelector('.select-text').textContent = `Modified: ${e.target.textContent}`;
-                dateContainer.classList.remove('open');
-                filterModels();
-            }
-        }
-    });
-
-    customDateInput.addEventListener('change', () => {
-        const dateVal = customDateInput.value;
-        if (dateVal) {
-            selectedDateFilter = 'custom';
-            selectedCustomDate = dateVal;
-            dateButton.querySelector('.select-text').textContent = `Modified: ${dateVal}`;
-            dateContainer.classList.remove('open');
-            filterModels();
-        }
-    });
-
-    apiButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        apiContainer.classList.toggle('open');
-        regionContainer.classList.remove('open');
-        typeContainer.classList.remove('open');
-        dateContainer.classList.remove('open');
-    });
-
-    apiOptions.addEventListener('click', (e) => {
-        if (e.target.classList.contains('dropdown-option')) {
-            selectedApiFilter = e.target.dataset.value;
-            apiButton.querySelector('.select-text').textContent = e.target.textContent;
-
-            // Update selected state
-            apiOptions.querySelectorAll('.dropdown-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            e.target.classList.add('selected');
-
-            apiContainer.classList.remove('open');
-            filterModels();
-        }
-    });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', () => {
-        regionContainer.classList.remove('open');
-        typeContainer.classList.remove('open');
-        dateContainer.classList.remove('open');
-        apiContainer.classList.remove('open');
-    });
-
-    // Prevent dropdown from closing when clicking inside
-    regionDropdown.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-
-    typeDropdown.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-
-    dateDropdown.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-
-    apiDropdown.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-}
-
-function getDaysAgoDateString(days) {
-    const d = new Date();
-    d.setDate(d.getDate() - days);
-    
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-}
-
-function filterModels() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-
-    filteredModels = allModels.filter(model => {
-        // Search filter
-        const matchesSearch = model.id.toLowerCase().includes(searchTerm);
-
-        // Region filter
-        const matchesRegion = !selectedRegion || model.regions.includes(selectedRegion);
-
-        // Type filter
-        let matchesType = true;
-        if (selectedType === 'global-cris') {
-            matchesType = hasInferenceType(model, 'GLOBAL', selectedRegion);
-        } else if (selectedType === 'cris') {
-            matchesType = hasCRIS(model, selectedRegion);
-        } else if (selectedType === 'on-demand') {
-            matchesType = hasInferenceType(model, 'ON_DEMAND', selectedRegion);
-        } else if (selectedType === 'mantle') {
-            matchesType = model.mantle_supported_regions && model.mantle_supported_regions.length > 0 && (!selectedRegion || model.mantle_supported_regions.includes(selectedRegion));
-        }
-
-        // Date filter (Modified After)
-        let matchesDate = true;
-        if (selectedDateFilter && selectedDateFilter !== 'all') {
-            let filterDateStr = '';
-            if (selectedDateFilter === 'custom') {
-                filterDateStr = selectedCustomDate;
-            } else {
-                const days = parseInt(selectedDateFilter, 10);
-                if (!isNaN(days)) {
-                    filterDateStr = getDaysAgoDateString(days);
-                }
-            }
-
-            if (filterDateStr) {
-                if (model.lastChanged && model.lastChanged !== 'N/A') {
-                    matchesDate = model.lastChanged >= filterDateStr;
-                } else {
-                    matchesDate = false;
-                }
-            }
-        }
-
-        // API filter
-        let matchesApi = true;
-        if (selectedApiFilter === 'runtime') {
-            matchesApi = !!model.runtime_supported;
-        } else if (selectedApiFilter === 'mantle') {
-            matchesApi = model.mantle_apis && model.mantle_apis.length > 0;
-        }
-
-        return matchesSearch && matchesRegion && matchesType && matchesDate && matchesApi;
-    });
-
-    renderModels();
-    updateResultsCount();
-}
-
+// Global helper functions
 function hasInferenceType(model, type, region) {
     if (region) {
         return model.inference_types[region]?.includes(type);
@@ -867,239 +103,499 @@ function getInferenceTypes(model) {
     return Array.from(types);
 }
 
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 2000);
-}
-
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showToast(`Copied: ${text}`);
-    });
-}
-
 function formatModelName(modelId) {
-    // Get the part after the provider (e.g., "nova-2-sonic-v1:0" from "amazon.nova-2-sonic-v1:0")
     const modelPart = modelId.split('.').slice(1).join('.') || modelId;
-
-    // Remove the version suffix (everything after the last hyphen followed by 'v')
-    // e.g., "nova-2-sonic-v1:0" -> "nova-2-sonic"
     const withoutVersion = modelPart.replace(/-v(\d+.*)$/, ' v$1');
-
-    // Replace hyphens with spaces and convert to uppercase
     let formatted = withoutVersion.replace(/-/g, ' ').toUpperCase();
-
-    // Replace space between a digit and a single digit (not followed by more digits or B) with a period
-    // e.g., "LLAMA3 3" -> "LLAMA3.3", "LLAMA3 2 1B" -> "LLAMA3.2 1B"
-    // but "LLAMA3 8B" stays "LLAMA3 8B", "GEMMA 3 27B" stays "GEMMA 3 27B"
     formatted = formatted.replace(/(\d)\s+(\d)(?!\d|B)/g, '$1.$2');
-
     return formatted;
 }
 
-function initViewToggle() {
-    const toggleBtns = document.querySelectorAll('.view-toggle-btn');
-    // Set initial active state from saved preference
-    toggleBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.view === currentView);
-        btn.addEventListener('click', () => {
-            currentView = btn.dataset.view;
-            localStorage.setItem('viewMode', currentView);
-            toggleBtns.forEach(b => b.classList.toggle('active', b.dataset.view === currentView));
-            renderModels();
-        });
-    });
+function getDaysAgoDateString(days) {
+    const d = new Date();
+    d.setDate(d.getDate() - days);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
 }
 
-function renderTable() {
-    const tbody = document.getElementById('modelsTableBody');
+// Subcomponents
+function renderModalityIcons(model) {
+    const modalityMap = { TEXT: 'T', IMAGE: 'I', VIDEO: 'V', AUDIO: 'A' };
+    const input = (model.inputModalities || []).map(m => modalityMap[m] || m.charAt(0)).join('');
+    const output = (model.outputModalities || []).map(m => modalityMap[m] || m.charAt(0)).join('');
+    const streaming = model.responseStreamingSupported;
+    const streamClass = streaming ? 'streaming' : '';
+    const streamTitle = streaming ? 'Streaming supported' : 'Streaming not supported';
 
-    if (filteredModels.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-secondary);">No models found matching your criteria.</td></tr>';
-        return;
-    }
-
-    tbody.innerHTML = filteredModels.map(model => {
-        const provider = getModelProvider(model.id);
-        const badgeClass = getBadgeClass(model.id);
-        const inferenceTypes = getInferenceTypes(model);
-        const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
-        const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
-        const formattedName = formatModelName(model.id);
-        const modalityIcons = getModalityIcons(model);
-
-        const crisBadges = crisTypes.map(type => {
-            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
-            const disabledClass = isDisabled ? 'badge-disabled' : '';
-            const clickHandler = isDisabled ? '' : `onclick="showRegionMap('${type}', '${model.id}', '${formattedName}')"`;
-            const interactiveClass = isDisabled ? '' : 'badge-interactive';
-            const titleAttr = isDisabled ? 'title="Not available in selected region"' : 'title="View Map"';
-            return `<span class="badge badge-inference ${interactiveClass} ${disabledClass}" ${clickHandler} ${titleAttr}>${CRIS_REGIONS[type]}</span>`;
-        }).join('');
-
-        const otherBadges = otherTypes.map(type => {
-            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
-            const disabledClass = isDisabled ? 'badge-disabled' : '';
-            const titleAttr = isDisabled ? 'title="Not available in selected region"' : '';
-            return `<span class="badge badge-inference ${disabledClass}" ${titleAttr}>${type !== 'ON_DEMAND' ? type.replace('_', ' ') : 'In Region'}</span>`;
-        }).join('');
-
-        const statusClass = model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy';
-        const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
-        const mantleApis = model.mantle_apis || [];
-        const apiBadgesHtml = [
-            ...apis.map(api => `<span class="badge badge-api-runtime">${api}</span>`),
-            ...mantleApis.map(api => `<span class="badge badge-api">${api}</span>`)
-        ].join('');
-
-        return `
-            <tr>
-                <td class="table-model-name">${formattedName}</td>
-                <td><span class="badge ${badgeClass}">${provider}</span></td>
-                <td class="table-capabilities">${modalityIcons}</td>
-                <td class="table-inference">${crisBadges}${otherBadges}</td>
-                <td class="table-apis">${apiBadgesHtml}</td>
-                <td><span class="badge ${statusClass}">${model.model_lifecycle_status}</span></td>
-                <td class="table-last-modified">${model.lastChanged}</td>
-                <td><span class="table-region-count" onclick="showAllRegions('${model.id}', '${formattedName}')" title="View all regions">${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span></td>
-                <td class="table-model-id">
-                    <code>${model.id}</code>
-                    <button class="copy-btn" onclick="copyToClipboard('${model.id}')" title="Copy model ID">
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </td>
-            </tr>`;
-    }).join('');
+    return html`
+        <span class="icon-badge" title=${`Input: ${(model.inputModalities || []).join(', ')}`}>${input}</span>
+        <span class="icon-arrow">→</span>
+        <span class="icon-badge ${streamClass}" title=${`Output: ${(model.outputModalities || []).join(', ')} (${streamTitle})`}>${output}</span>
+    `;
 }
 
-function renderModels() {
-    const grid = document.getElementById('modelsGrid');
-    const tableWrapper = document.getElementById('modelsTable');
+function CustomSelect({ label, value, options, onSelect, isOpen, onToggle, showSearch, searchValue, onSearchChange, placeholder }) {
+    const handleButtonClick = (e) => {
+        e.stopPropagation();
+        onToggle();
+    };
 
-    // On mobile, always force card view
-    const isMobile = window.innerWidth <= 1024;
+    const selectedOption = options.find(opt => opt.value === value);
+    const displayedLabel = selectedOption ? selectedOption.label : label;
 
-    if (currentView === 'table' && !isMobile) {
-        grid.style.display = 'none';
-        tableWrapper.style.display = 'block';
-        renderTable();
-        return;
-    }
+    const filteredOptions = useMemo(() => {
+        if (!showSearch || !searchValue) return options;
+        const query = searchValue.toLowerCase();
+        return options.filter(opt => opt.label.toLowerCase().includes(query));
+    }, [options, showSearch, searchValue]);
 
-    grid.style.display = '';
-    tableWrapper.style.display = 'none';
-
-    if (filteredModels.length === 0) {
-        grid.innerHTML = '<p style="color: #666; grid-column: 1/-1; text-align: center; padding: 40px;">No models found matching your criteria.</p>';
-        return;
-    }
-
-    grid.innerHTML = filteredModels.map(model => {
-        const provider = getModelProvider(model.id);
-        const badgeClass = getBadgeClass(model.id);
-        const inferenceTypes = getInferenceTypes(model);
-        const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
-        const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
-        const formattedName = formatModelName(model.id);
-        
-        const modalityIcons = getModalityIcons(model);
-        const streamingIcon = getStreamingIcon(model);
-
-        const crisBadgesHtml = crisTypes.map(type => {
-            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
-            const disabledClass = isDisabled ? 'badge-disabled' : '';
-            const clickHandler = isDisabled ? '' : `onclick="event.stopPropagation(); showRegionMap('${type}', '${model.id}', '${formattedName}')"`;
-            const interactiveClass = isDisabled ? '' : 'badge-interactive';
-            const titleAttr = isDisabled ? 'title="Not available in selected region"' : 'title="View Map"';
-            return `<span class="badge badge-inference ${interactiveClass} ${disabledClass}" ${clickHandler} ${titleAttr}>${CRIS_REGIONS[type]}</span>`;
-        }).join('');
-
-        const otherBadgesHtml = otherTypes.map(type => {
-            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
-            const disabledClass = isDisabled ? 'badge-disabled' : '';
-            const titleAttr = isDisabled ? 'title="Not available in selected region"' : '';
-            return `<span class="badge badge-inference ${disabledClass}" ${titleAttr}>${type !== 'ON_DEMAND' ? type.replace('_', ' ') : 'In Region'}</span>`;
-        }).join('');
-
-        const statusBadge = `<span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">${model.model_lifecycle_status}</span>`;
-
-        const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
-        const mantleApis = model.mantle_apis || [];
-        const apiBadgesHtml = [
-            ...apis.map(api => `<span class="badge badge-api-runtime">${api}</span>`),
-            ...mantleApis.map(api => `<span class="badge badge-api">${api}</span>`)
-        ].join('');
-        const apiBadgesContainerHtml = `<div class="model-badges model-api-badges">${apiBadgesHtml}</div>`;
-
-        const copyBtnSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>`;
-
-        const chevronSvg = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>`;
-
-        return `
-            <div class="model-card ${model.model_lifecycle_status === 'LEGACY' ? 'legacy' : ''}" data-model-id="${model.id}" onclick="toggleMobileCard(this, event)">
-                <!-- Mobile compact view -->
-                <div class="mobile-compact">
-                    <div class="model-name">${formattedName}</div>
-                    <div class="model-capabilities">${modalityIcons}</div>
-                    <span class="mobile-expand-arrow">${chevronSvg}</span>
-                </div>
-                <!-- Mobile expanded details -->
-                <div class="mobile-details">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                        <span class="badge ${badgeClass}">${provider}</span>
-                        ${statusBadge}
+    return html`
+        <div class="custom-select ${isOpen ? 'open' : ''}">
+            <button class="select-button" onClick=${handleButtonClick}>
+                <span class="select-text">${displayedLabel}</span>
+                <svg class="chevron-icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="select-dropdown" onClick=${e => e.stopPropagation()}>
+                ${showSearch && html`
+                    <div class="dropdown-search">
+                        <input type="text" placeholder=${placeholder || 'Search...'} value=${searchValue} onInput=${onSearchChange} />
                     </div>
-                    <div class="model-badges">${crisBadgesHtml}${otherBadgesHtml}</div>
-                    ${apiBadgesContainerHtml}
-                    <div class="model-id">
-                        <span>${model.id}</span>
-                        <button class="copy-btn" onclick="event.stopPropagation(); copyToClipboard('${model.id}')" title="Copy model ID">${copyBtnSvg}</button>
-                    </div>
-                    <div class="model-section region-count-section" onclick="event.stopPropagation(); showAllRegions('${model.id}', '${formattedName}')" title="View all regions">
-                        <div class="section-title">
-                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="display:inline;vertical-align:middle;margin-right:4px;">
-                                <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                            <span>${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span>
-                            <span class="info-hint"> (tap to view)</span>
+                `}
+                <div class="dropdown-options">
+                    ${filteredOptions.map(opt => html`
+                        <div class="dropdown-option ${value === opt.value ? 'selected' : ''}" onClick=${() => onSelect(opt.value)}>
+                            ${opt.label}
                         </div>
-                    </div>
-                    <div class="model-meta-row">
-                        <span class="model-meta-label">Last Modified</span>
-                        <span class="model-meta-value">${model.lastChanged}</span>
-                    </div>
+                    `)}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function DateSelect({ value, customDate, onSelect, onCustomDateChange, isOpen, onToggle }) {
+    const handleButtonClick = (e) => {
+        e.stopPropagation();
+        onToggle();
+    };
+
+    let displayLabel = 'Modified: All';
+    if (value === '1') displayLabel = 'Modified: 1 Day';
+    else if (value === '7') displayLabel = 'Modified: 7 Days';
+    else if (value === '30') displayLabel = 'Modified: 30 Days';
+    else if (value === 'custom') displayLabel = `Modified: ${customDate || 'Custom...'}`;
+
+    return html`
+        <div class="custom-select ${isOpen ? 'open' : ''}">
+            <button class="select-button" onClick=${handleButtonClick}>
+                <span class="select-text">${displayLabel}</span>
+                <svg class="chevron-icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="select-dropdown" onClick=${e => e.stopPropagation()}>
+                <div class="dropdown-options">
+                    <div class="dropdown-option ${value === 'all' ? 'selected' : ''}" onClick=${() => onSelect('all')}>All</div>
+                    <div class="dropdown-option ${value === '1' ? 'selected' : ''}" onClick=${() => onSelect('1')}>1 Day</div>
+                    <div class="dropdown-option ${value === '7' ? 'selected' : ''}" onClick=${() => onSelect('7')}>7 Days</div>
+                    <div class="dropdown-option ${value === '30' ? 'selected' : ''}" onClick=${() => onSelect('30')}>30 Days</div>
+                    <div class="dropdown-option ${value === 'custom' ? 'selected' : ''}" onClick=${() => onSelect('custom')}>Custom...</div>
+                </div>
+                <div class="custom-date-picker-wrapper" style=${{ display: value === 'custom' ? 'block' : 'none', padding: '10px', borderTop: '1px solid var(--border-secondary)' }}>
+                    <input type="date" class="date-input" value=${customDate} onChange=${e => onCustomDateChange(e.target.value)} />
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function MapModal({ activeMap, onClose, models, selectedRegion, crisProfileRegions }) {
+    const mapRef = useRef(null);
+    const mapInstanceRef = useRef(null);
+    const mapMarkersRef = useRef([]);
+
+    const { modelId, modelName, crisType } = activeMap || {};
+
+    useEffect(() => {
+        if (!activeMap) {
+            if (mapInstanceRef.current) {
+                mapInstanceRef.current.remove();
+                mapInstanceRef.current = null;
+            }
+            return;
+        }
+
+        if (!mapInstanceRef.current && mapRef.current) {
+            mapInstanceRef.current = L.map(mapRef.current, { maxZoom: 5 }).setView([20, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapInstanceRef.current);
+        }
+
+        const mapInstance = mapInstanceRef.current;
+        if (!mapInstance) return;
+
+        mapInstance.invalidateSize();
+
+        mapMarkersRef.current.forEach(m => mapInstance.removeLayer(m));
+        mapMarkersRef.current = [];
+
+        let profileData = crisProfileRegions[crisType];
+        if (!profileData) {
+            mapInstance.setView([20, 0], 2);
+            return;
+        }
+
+        const model = models.find(m => m.id === modelId);
+        if (model) {
+            if (Array.isArray(profileData)) {
+                profileData = profileData.filter(region => hasInferenceType(model, crisType, region));
+            } else {
+                const filteredData = {};
+                Object.keys(profileData).forEach(source => {
+                    if (hasInferenceType(model, crisType, source)) {
+                        filteredData[source] = profileData[source];
+                    }
+                });
+                profileData = filteredData;
+            }
+        }
+
+        const isGlobal = Array.isArray(profileData);
+        const bounds = L.latLngBounds();
+
+        const addMarker = (regionCode, color, isSource = false) => {
+            const location = REGION_LOCATIONS[regionCode];
+            if (!location) return null;
+
+            const marker = L.circleMarker([location.lat, location.lng], {
+                radius: isSource ? 10 : 8,
+                fillColor: color,
+                color: '#fff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(mapInstance);
+
+            let popupContent = `<b>${location.name}</b><br>${regionCode}`;
+            if (isSource && !isGlobal) {
+                popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to see coverage</span>`;
+            }
+            marker.bindPopup(popupContent);
+
+            marker.bindTooltip(`<b>${location.name}</b><br>${regionCode}`, {
+                permanent: false,
+                direction: 'top'
+            });
+
+            if (isSource && !isGlobal) {
+                marker.on('click', () => {
+                    drawMapState(regionCode);
+                });
+            }
+
+            mapMarkersRef.current.push(marker);
+            bounds.extend([location.lat, location.lng]);
+            return marker;
+        };
+
+        const drawMapState = (activeSource) => {
+            mapMarkersRef.current.forEach(m => mapInstance.removeLayer(m));
+            mapMarkersRef.current = [];
+            const localBounds = L.latLngBounds();
+
+            const sources = Object.keys(profileData);
+            sources.forEach(source => {
+                const isSelected = source === activeSource;
+                const color = isSelected ? '#2196F3' : '#9E9E9E';
+
+                const location = REGION_LOCATIONS[source];
+                if (!location) return;
+
+                const marker = L.circleMarker([location.lat, location.lng], {
+                    radius: isSelected ? 10 : 8,
+                    fillColor: color,
+                    color: '#fff',
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(mapInstance);
+
+                let popupContent = `<b>${location.name}</b><br>${source} (Source)`;
+                if (!isSelected) {
+                    popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to show coverage</span>`;
+                }
+                marker.bindPopup(popupContent);
+                marker.bindTooltip(`<b>${location.name}</b><br>${source}`, { permanent: false, direction: 'top' });
+
+                marker.on('click', () => {
+                    drawMapState(source);
+                });
+
+                mapMarkersRef.current.push(marker);
+                localBounds.extend([location.lat, location.lng]);
+            });
+
+            if (activeSource && profileData[activeSource]) {
+                const targets = profileData[activeSource];
+                targets.forEach(target => {
+                    if (target === activeSource) return;
+
+                    const location = REGION_LOCATIONS[target];
+                    if (!location) return;
+
+                    const marker = L.circleMarker([location.lat, location.lng], {
+                        radius: 6,
+                        fillColor: '#2196F3',
+                        color: '#fff',
+                        weight: 1,
+                        opacity: 0.8,
+                        fillOpacity: 0.6
+                    }).addTo(mapInstance);
+
+                    const isAlsoSource = !!profileData[target];
+                    let popupContent = `<b>${location.name}</b><br>${target} (Target)`;
+                    if (isAlsoSource) {
+                        popupContent += `<br><span style="font-size:0.8em; color: #666;">Click to switch view</span>`;
+                    }
+                    marker.bindPopup(popupContent);
+                    marker.bindTooltip(`<b>${location.name}</b><br>${target}`, { permanent: false, direction: 'top' });
+
+                    if (isAlsoSource) {
+                        marker.on('click', () => {
+                            drawMapState(target);
+                        });
+                    }
+
+                    mapMarkersRef.current.push(marker);
+                    localBounds.extend([location.lat, location.lng]);
+                });
+            }
+
+            if (mapMarkersRef.current.length > 0) {
+                mapInstance.fitBounds(localBounds, { padding: [50, 50], maxZoom: 5 });
+            }
+        };
+
+        if (isGlobal) {
+            profileData.forEach(region => addMarker(region, '#2196F3'));
+            if (mapMarkersRef.current.length > 0) {
+                mapInstance.fitBounds(bounds, { padding: [50, 50], maxZoom: 5 });
+            }
+        } else {
+            let initialSource = null;
+            if (selectedRegion && profileData[selectedRegion]) {
+                initialSource = selectedRegion;
+            }
+            drawMapState(initialSource);
+        }
+
+    }, [activeMap, models, selectedRegion, crisProfileRegions]);
+
+    useEffect(() => {
+        if (!activeMap) return;
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [activeMap]);
+
+    if (!activeMap) return null;
+
+    return html`
+        <div id="mapModal" class="modal show" style=${{ display: 'flex' }} onClick=${(e) => e.target.id === 'mapModal' && onClose()}>
+            <div class="modal-content">
+                <span class="close-modal" onClick=${onClose} style=${{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px' }}>${closeIcon}</span>
+                <h2>${modelName} - ${CRIS_REGIONS[crisType]} Regions</h2>
+                <p class="modal-subtitle">Click on a source region to see the regions included in the profile</p>
+                <div ref=${mapRef} id="map"></div>
+            </div>
+        </div>
+    `;
+}
+
+function RegionsModal({ activeRegions, onClose, models }) {
+    const { modelId, modelName } = activeRegions || {};
+    
+    useEffect(() => {
+        if (!activeRegions) return;
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [activeRegions]);
+
+    if (!activeRegions) return null;
+
+    const model = models.find(m => m.id === modelId);
+    if (!model) return null;
+
+    const modelTypes = new Set();
+    model.regions.forEach(r => {
+        const types = model.inference_types[r] || [];
+        types.forEach(t => modelTypes.add(t));
+    });
+
+    const hasGlobal = modelTypes.has('GLOBAL');
+    const hasCris = Array.from(modelTypes).some(t => CRIS_REGIONS[t] && t !== 'GLOBAL');
+    const hasOnDemand = modelTypes.has('ON_DEMAND');
+
+    return html`
+        <div id="regionsModal" class="modal show" style=${{ display: 'flex' }} onClick=${(e) => e.target.id === 'regionsModal' && onClose()}>
+            <div class="modal-content">
+                <span class="close-modal" onClick=${onClose} style=${{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px' }}>${closeIcon}</span>
+                <h2>${modelName}</h2>
+                
+                <div class="legend-container modal-legend" style=${{ display: 'flex' }}>
+                    ${hasGlobal && html`
+                        <div class="legend-item">
+                            <span class="inference-icon-small type-g">G</span>
+                            <span>Global CRIS</span>
+                        </div>
+                    `}
+                    ${hasCris && html`
+                        <div class="legend-item">
+                            <span class="inference-icon-small type-c">C</span>
+                            <span>Region CRIS</span>
+                        </div>
+                    `}
+                    ${hasOnDemand && html`
+                        <div class="legend-item">
+                            <span class="inference-icon-small type-r" title="In Region">R</span>
+                            <span>In Region</span>
+                        </div>
+                    `}
                 </div>
 
-                <!-- Desktop full view -->
-                <div class="model-header">
-                    <div class="model-name">${formattedName}</div>
-                    <span class="badge ${badgeClass}">${provider}</span>
+                <div class="modal-regions-list">
+                    ${model.regions.map(region => {
+                        const types = model.inference_types[region] || [];
+                        const isGlobal = types.includes('GLOBAL');
+                        const isCris = types.some(t => CRIS_REGIONS[t] && t !== 'GLOBAL');
+                        const isOnDemand = types.includes('ON_DEMAND');
+
+                        return html`
+                            <div class="modal-region-item">
+                                <div class="region-info">
+                                    <span class="region-code">${region}</span>
+                                    <span class="region-name">${REGION_LOCATIONS[region]?.name || ''}</span>
+                                </div>
+                                <div class="inference-icons-container">
+                                    ${isGlobal && html`<span class="inference-icon-small type-g" title="Global CRIS">G</span>`}
+                                    ${isCris && html`<span class="inference-icon-small type-c" title="Region CRIS">C</span>`}
+                                    ${isOnDemand && html`<span class="inference-icon-small type-r" title="In Region">R</span>`}
+                                </div>
+                            </div>
+                        `;
+                    })}
                 </div>
+            </div>
+        </div>
+    `;
+}
+
+function ModelCard({ model, selectedRegion, onShowMap, onShowRegions, onCopy }) {
+    const [expanded, setExpanded] = useState(false);
+
+    const provider = getModelProvider(model.id);
+    const badgeClass = getBadgeClass(model.id);
+    const inferenceTypes = getInferenceTypes(model);
+    const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
+    const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
+    const formattedName = formatModelName(model.id);
+
+    const handleCardClick = (e) => {
+        if (window.innerWidth > 1024) return;
+        if (e.target.closest('.copy-btn, .badge-interactive, .region-count-section')) return;
+        setExpanded(!expanded);
+    };
+
+    const crisBadgesHtml = crisTypes.map(type => {
+        const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+        return html`
+            <span 
+                class="badge badge-inference ${isDisabled ? 'badge-disabled' : 'badge-interactive'}" 
+                title=${isDisabled ? 'Not available in selected region' : 'View Map'}
+                onClick=${(e) => {
+                    if (isDisabled) return;
+                    e.stopPropagation();
+                    onShowMap(type, model.id, formattedName);
+                }}
+            >
+                ${CRIS_REGIONS[type]}
+            </span>
+        `;
+    });
+
+    const otherBadgesHtml = otherTypes.map(type => {
+        const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+        return html`
+            <span class="badge badge-inference ${isDisabled ? 'badge-disabled' : ''}" title=${isDisabled ? 'Not available in selected region' : ''}>
+                ${type !== 'ON_DEMAND' ? type.replace('_', ' ') : 'In Region'}
+            </span>
+        `;
+    });
+
+    const statusBadge = html`
+        <span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">
+            ${model.model_lifecycle_status}
+        </span>
+    `;
+
+    const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
+    const mantleApis = model.mantle_apis || [];
+    const apiBadgesHtml = [
+        ...apis.map(api => html`<span class="badge badge-api-runtime">${api}</span>`),
+        ...mantleApis.map(api => html`<span class="badge badge-api">${api}</span>`)
+    ];
+
+    const copyBtn = html`
+        <button class="copy-btn" onClick=${(e) => { e.stopPropagation(); onCopy(model.id); }} title="Copy model ID">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    `;
+
+    const chevronSvg = html`
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    `;
+
+    const modalityIcons = renderModalityIcons(model);
+
+    return html`
+        <div class="model-card ${model.model_lifecycle_status === 'LEGACY' ? 'legacy' : ''} ${expanded ? 'expanded' : ''}" onClick=${handleCardClick}>
+            <!-- Mobile compact view -->
+            <div class="mobile-compact">
+                <div class="model-name">${formattedName}</div>
                 <div class="model-capabilities">${modalityIcons}</div>
-                <div class="model-badges">
-                    ${crisBadgesHtml}${otherBadgesHtml}
+                <span class="mobile-expand-arrow">${chevronSvg}</span>
+            </div>
+            
+            <!-- Mobile expanded details -->
+            <div class="mobile-details">
+                <div style=${{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <span class="badge ${badgeClass}">${provider}</span>
                     ${statusBadge}
                 </div>
-                ${apiBadgesContainerHtml}
+                <div class="model-badges">${crisBadgesHtml}${otherBadgesHtml}</div>
+                <div class="model-badges model-api-badges">${apiBadgesHtml}</div>
                 <div class="model-id">
                     <span>${model.id}</span>
-                    <button class="copy-btn" onclick="event.stopPropagation(); copyToClipboard('${model.id}')" title="Copy model ID">${copyBtnSvg}</button>
+                    ${copyBtn}
                 </div>
-                <div class="model-section region-count-section" onclick="event.stopPropagation(); showAllRegions('${model.id}', '${formattedName}')" title="View all regions">
+                <div class="model-section region-count-section" onClick=${(e) => { e.stopPropagation(); onShowRegions(model.id, formattedName); }} title="View all regions">
                     <div class="section-title">
-                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="display:inline;vertical-align:middle;margin-right:4px;">
+                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style=${{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }}>
                             <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
                         </svg>
                         <span>${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span>
@@ -1111,45 +607,559 @@ function renderModels() {
                     <span class="model-meta-value">${model.lastChanged}</span>
                 </div>
             </div>
+
+            <!-- Desktop view -->
+            <div class="model-header">
+                <div class="model-name">${formattedName}</div>
+                <span class="badge ${badgeClass}">${provider}</span>
+            </div>
+            <div class="model-capabilities">${modalityIcons}</div>
+            <div class="model-badges">
+                ${crisBadgesHtml}${otherBadgesHtml}
+                ${statusBadge}
+            </div>
+            <div class="model-badges model-api-badges">${apiBadgesHtml}</div>
+            <div class="model-id">
+                <span>${model.id}</span>
+                ${copyBtn}
+            </div>
+            <div class="model-section region-count-section" onClick=${(e) => { e.stopPropagation(); onShowRegions(model.id, formattedName); }} title="View all regions">
+                <div class="section-title">
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style=${{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }}>
+                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}</span>
+                    <span class="info-hint"> (tap to view)</span>
+                </div>
+            </div>
+            <div class="model-meta-row">
+                <span class="model-meta-label">Last Modified</span>
+                <span class="model-meta-value">${model.lastChanged}</span>
+            </div>
+        </div>
+    `;
+}
+
+function ModelTable({ models, selectedRegion, onShowMap, onShowRegions, onCopy }) {
+    if (models.length === 0) {
+        return html`
+            <div class="models-table-wrapper">
+                <table class="models-table">
+                    <thead>
+                        <tr>
+                            <th>Model Name</th>
+                            <th>Provider</th>
+                            <th>Capabilities</th>
+                            <th>Inference</th>
+                            <th>APIs</th>
+                            <th>Status</th>
+                            <th>Last Modified</th>
+                            <th>Regions</th>
+                            <th>Model ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="9" style=${{ textAlign: 'center', padding: '40px', color: 'var(--text-secondary)' }}>
+                                No models found matching your criteria.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         `;
-    }).join('');
+    }
+
+    return html`
+        <div class="models-table-wrapper">
+            <table class="models-table">
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Provider</th>
+                        <th>Capabilities</th>
+                        <th>Inference</th>
+                        <th>APIs</th>
+                        <th>Status</th>
+                        <th>Last Modified</th>
+                        <th>Regions</th>
+                        <th>Model ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${models.map(model => {
+                        const provider = getModelProvider(model.id);
+                        const badgeClass = getBadgeClass(model.id);
+                        const inferenceTypes = getInferenceTypes(model);
+                        const crisTypes = inferenceTypes.filter(type => CRIS_REGIONS[type]);
+                        const otherTypes = inferenceTypes.filter(type => !CRIS_REGIONS[type]);
+                        const formattedName = formatModelName(model.id);
+                        const modalityIcons = renderModalityIcons(model);
+
+                        const statusClass = model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy';
+                        const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
+                        const mantleApis = model.mantle_apis || [];
+                        const apiBadgesHtml = [
+                            ...apis.map(api => html`<span class="badge badge-api-runtime">${api}</span>`),
+                            ...mantleApis.map(api => html`<span class="badge badge-api">${api}</span>`)
+                        ];
+
+                        return html`
+                            <tr>
+                                <td class="table-model-name">${formattedName}</td>
+                                <td><span class="badge ${badgeClass}">${provider}</span></td>
+                                <td class="table-capabilities">${modalityIcons}</td>
+                                <td>
+                                    <div class="table-inference">
+                                        ${crisTypes.map(type => {
+                                            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+                                            return html`
+                                                <span 
+                                                    class="badge badge-inference ${isDisabled ? 'badge-disabled' : 'badge-interactive'}" 
+                                                    title=${isDisabled ? 'Not available in selected region' : 'View Map'}
+                                                    onClick=${() => {
+                                                        if (isDisabled) return;
+                                                        onShowMap(type, model.id, formattedName);
+                                                    }}
+                                                >
+                                                    ${CRIS_REGIONS[type]}
+                                                </span>
+                                            `;
+                                        })}
+                                        ${otherTypes.map(type => {
+                                            const isDisabled = selectedRegion && !hasInferenceType(model, type, selectedRegion);
+                                            return html`
+                                                <span class="badge badge-inference ${isDisabled ? 'badge-disabled' : ''}" title=${isDisabled ? 'Not available in selected region' : ''}>
+                                                    ${type !== 'ON_DEMAND' ? type.replace('_', ' ') : 'In Region'}
+                                                </span>
+                                            `;
+                                        })}
+                                    </div>
+                                </td>
+                                <td class="table-apis">${apiBadgesHtml}</td>
+                                <td><span class="badge ${statusClass}">${model.model_lifecycle_status}</span></td>
+                                <td class="table-last-modified">${model.lastChanged}</td>
+                                <td>
+                                    <span class="table-region-count" onClick=${() => onShowRegions(model.id, formattedName)} title="View all regions">
+                                        ${model.regions.length} region${model.regions.length !== 1 ? 's' : ''}
+                                    </span>
+                                </td>
+                                <td class="table-model-id">
+                                    <code>${model.id}</code>
+                                    <button class="copy-btn" onClick=${() => onCopy(model.id)} title="Copy model ID">
+                                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                            <path d="M10.5 2H3.5C2.67157 2 2 2.67157 2 3.5V10.5C2 11.3284 2.67157 12 3.5 12H10.5C11.3284 12 12 11.3284 12 10.5V3.5C12 2.67157 11.3284 2 10.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 5.5V12.5C14 13.3284 13.3284 14 12.5 14H5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    })}
+                </tbody>
+            </table>
+        </div>
+    `;
 }
 
-function updateResultsCount() {
-    const count = document.getElementById('resultsCount');
-    count.textContent = `Showing ${filteredModels.length} of ${allModels.length} models`;
+function App() {
+    const [models, setModels] = useState([]);
+    const [metadata, setMetadata] = useState({});
+    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+    const [viewMode, setViewMode] = useState(() => localStorage.getItem('viewMode') || 'grid');
+    const [toastMessage, setToastMessage] = useState(null);
+
+    // Filter states
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedRegion, setSelectedRegion] = useState('');
+    const [selectedType, setSelectedType] = useState('');
+    const [selectedDateFilter, setSelectedDateFilter] = useState('all');
+    const [selectedCustomDate, setSelectedCustomDate] = useState('');
+    const [selectedApiFilter, setSelectedApiFilter] = useState('all');
+
+    // UI state
+    const [openDropdown, setOpenDropdown] = useState(null);
+    const [regionQuery, setRegionQuery] = useState('');
+    const [activeMapModal, setActiveMapModal] = useState(null);
+    const [activeRegionsModal, setActiveRegionsModal] = useState(null);
+    const [errorMsg, setErrorMsg] = useState(null);
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+    }, [theme]);
+
+    useEffect(() => {
+        async function loadData() {
+            const timestamp = Date.now();
+            let rawData, rawMetadata = {};
+            try {
+                const response = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models.json?t=${timestamp}`);
+                rawData = await response.json();
+                
+                try {
+                    const metaResponse = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models_metadata.json?t=${timestamp}`);
+                    rawMetadata = await metaResponse.json();
+                } catch (metaErr) {
+                    console.error('Could not load github raw metadata:', metaErr);
+                }
+            } catch (err) {
+                console.warn('Could not load from GitHub raw, falling back to local files:', err);
+                try {
+                    const response = await fetch(`./bedrock_models.json?t=${timestamp}`);
+                    rawData = await response.json();
+                    
+                    try {
+                        const metaResponse = await fetch(`./bedrock_models_metadata.json?t=${timestamp}`);
+                        rawMetadata = await metaResponse.json();
+                    } catch (metaErr) {
+                        console.error('Could not load local metadata:', metaErr);
+                    }
+                } catch (localErr) {
+                    console.error('Error loading local fallback data:', localErr);
+                    setErrorMsg('Error loading models data. Please try again.');
+                    return;
+                }
+            }
+
+            const parsedModels = Object.entries(rawData).map(([id, info]) => {
+                const modelMeta = rawMetadata[id] || {};
+                return {
+                    id,
+                    ...info,
+                    lastChanged: modelMeta.last_changed || 'N/A'
+                };
+            });
+
+            setModels(parsedModels);
+            setMetadata(rawMetadata);
+        }
+
+        loadData();
+    }, []);
+
+    useEffect(() => {
+        const handleOutsideClick = () => {
+            setOpenDropdown(null);
+        };
+        document.addEventListener('click', handleOutsideClick);
+        return () => document.removeEventListener('click', handleOutsideClick);
+    }, []);
+
+    const handleViewModeChange = (mode) => {
+        setViewMode(mode);
+        localStorage.setItem('viewMode', mode);
+    };
+
+    const handleThemeToggle = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
+
+    const crisProfileRegions = useMemo(() => {
+        const regionSets = {};
+        models.forEach(model => {
+            if (model.inferenceProfile) {
+                Object.entries(model.inferenceProfile).forEach(([profile, data]) => {
+                    if (Array.isArray(data)) {
+                        if (!regionSets[profile]) regionSets[profile] = new Set();
+                        data.forEach(r => regionSets[profile].add(r));
+                    } else {
+                        if (!regionSets[profile]) regionSets[profile] = {};
+                        Object.entries(data).forEach(([source, targets]) => {
+                            if (!regionSets[profile][source]) regionSets[profile][source] = new Set();
+                            targets.forEach(t => regionSets[profile][source].add(t));
+                        });
+                    }
+                });
+            }
+        });
+
+        const result = {};
+        Object.entries(regionSets).forEach(([profile, data]) => {
+            if (data instanceof Set) {
+                result[profile] = Array.from(data).sort();
+            } else {
+                result[profile] = {};
+                Object.entries(data).forEach(([source, targetSet]) => {
+                    result[profile][source] = Array.from(targetSet).sort();
+                });
+            }
+        });
+        return result;
+    }, [models]);
+
+    const sortedRegions = useMemo(() => {
+        const regions = new Set();
+        models.forEach(model => {
+            model.regions.forEach(r => regions.add(r));
+        });
+        return Array.from(regions).sort();
+    }, [models]);
+
+    const globalLastUpdated = useMemo(() => {
+        const dates = Object.values(metadata)
+            .map(m => m.last_changed)
+            .filter(d => d && d !== 'N/A');
+        return dates.length > 0 ? dates.reduce((max, d) => d > max ? d : max, dates[0]) : 'N/A';
+    }, [metadata]);
+
+    const filteredModels = useMemo(() => {
+        const query = searchTerm.toLowerCase();
+        return models.filter(model => {
+            const matchesSearch = model.id.toLowerCase().includes(query);
+            const matchesRegion = !selectedRegion || model.regions.includes(selectedRegion);
+
+            let matchesType = true;
+            if (selectedType === 'global-cris') {
+                matchesType = hasInferenceType(model, 'GLOBAL', selectedRegion);
+            } else if (selectedType === 'cris') {
+                matchesType = hasCRIS(model, selectedRegion);
+            } else if (selectedType === 'on-demand') {
+                matchesType = hasInferenceType(model, 'ON_DEMAND', selectedRegion);
+            } else if (selectedType === 'mantle') {
+                matchesType = model.mantle_supported_regions && model.mantle_supported_regions.length > 0 && (!selectedRegion || model.mantle_supported_regions.includes(selectedRegion));
+            }
+
+            let matchesDate = true;
+            if (selectedDateFilter && selectedDateFilter !== 'all') {
+                let filterDateStr = '';
+                if (selectedDateFilter === 'custom') {
+                    filterDateStr = selectedCustomDate;
+                } else {
+                    const days = parseInt(selectedDateFilter, 10);
+                    if (!isNaN(days)) {
+                        filterDateStr = getDaysAgoDateString(days);
+                    }
+                }
+                if (filterDateStr) {
+                    matchesDate = model.lastChanged && model.lastChanged !== 'N/A' && model.lastChanged >= filterDateStr;
+                }
+            }
+
+            let matchesApi = true;
+            if (selectedApiFilter === 'runtime') {
+                matchesApi = !!model.runtime_supported;
+            } else if (selectedApiFilter === 'mantle') {
+                matchesApi = model.mantle_apis && model.mantle_apis.length > 0;
+            }
+
+            return matchesSearch && matchesRegion && matchesType && matchesDate && matchesApi;
+        });
+    }, [models, searchTerm, selectedRegion, selectedType, selectedDateFilter, selectedCustomDate, selectedApiFilter]);
+
+    const handleCopy = (text) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setToastMessage(`Copied: ${text}`);
+            setTimeout(() => {
+                setToastMessage(null);
+            }, 2000);
+        });
+    };
+
+    const handleToggleDropdown = (name) => {
+        setOpenDropdown(openDropdown === name ? null : name);
+    };
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 1024);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isTableView = viewMode === 'table' && !isMobile;
+
+    if (errorMsg) {
+        return html`
+            <div class="container">
+                <header>
+                    <h1 class="main-title">Amazon Bedrock Models</h1>
+                </header>
+                <p style=${{ color: '#c62828', textAlign: 'center', padding: '40px' }}>${errorMsg}</p>
+            </div>
+        `;
+    }
+
+    return html`
+        <div class="container">
+            <header>
+                <div class="header-top">
+                    <h1 class="main-title">Amazon Bedrock Models</h1>
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" onClick=${handleThemeToggle}>
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" style=${{ display: theme === 'dark' ? 'block' : 'none' }}>
+                            <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.5 4.5L14 6M6 14L4.5 15.5M15.5 15.5L14 14M6 6L4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" style=${{ display: theme === 'light' ? 'block' : 'none' }}>
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <p class="subtitle">
+                    Explore the available foundation models in Amazon Bedrock. Click on the CRIS badges to see the regions included in the profile.
+                    <span class="last-updated-wrapper" style=${{ display: 'block', marginTop: '6px', fontSize: '0.85em', opacity: 0.75 }}>
+                        Last updated: <span id="lastUpdatedDate">${globalLastUpdated}</span>
+                    </span>
+                </p>
+            </header>
+
+            <div class="legend">
+                <span class="legend-title">Capabilities:</span>
+                <span class="legend-item"><span class="icon-badge">T</span> Text</span>
+                <span class="legend-item"><span class="icon-badge">I</span> Image</span>
+                <span class="legend-item"><span class="icon-badge">V</span> Video</span>
+                <span class="legend-item"><span class="icon-badge">A</span> Audio</span>
+                <span class="legend-item"><span class="icon-badge streaming">Orange</span> = Streaming</span>
+            </div>
+
+            <div class="controls">
+                <div class="search-box">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M7 12C9.76142 12 12 9.76142 12 7C12 4.23858 9.76142 2 7 2C4.23858 2 2 4.23858 2 7C2 9.76142 4.23858 12 7 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M14 14L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search models..." value=${searchTerm} onInput=${e => setSearchTerm(e.target.value)} />
+                </div>
+
+                <div class="view-toggle" id="viewToggle">
+                    <button class="view-toggle-btn ${viewMode === 'grid' ? 'active' : ''}" onClick=${() => handleViewModeChange('grid')} title="Card view">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                            <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                            <rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                            <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                    <button class="view-toggle-btn ${viewMode === 'table' ? 'active' : ''}" onClick=${() => handleViewModeChange('table')} title="Table view">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M1 3H15M1 8H15M1 13H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <${CustomSelect}
+                        label="All Regions"
+                        value=${selectedRegion}
+                        isOpen=${openDropdown === 'region'}
+                        onToggle=${() => handleToggleDropdown('region')}
+                        onSelect=${val => { setSelectedRegion(val); setOpenDropdown(null); setRegionQuery(''); }}
+                        showSearch=${true}
+                        searchValue=${regionQuery}
+                        onSearchChange=${e => setRegionQuery(e.target.value)}
+                        placeholder="Search regions..."
+                        options=${[
+                            { value: '', label: 'All Regions' },
+                            ...sortedRegions.map(r => ({ value: r, label: r }))
+                        ]}
+                    />
+
+                    <${CustomSelect}
+                        label="All Types"
+                        value=${selectedType}
+                        isOpen=${openDropdown === 'type'}
+                        onToggle=${() => handleToggleDropdown('type')}
+                        onSelect=${val => { setSelectedType(val); setOpenDropdown(null); }}
+                        options=${[
+                            { value: '', label: 'All Types' },
+                            { value: 'global-cris', label: 'Global CRIS' },
+                            { value: 'cris', label: 'CRIS (Any)' },
+                            { value: 'on-demand', label: 'In Region' },
+                            { value: 'mantle', label: 'Mantle Supported' }
+                        ]}
+                    />
+
+                    <${CustomSelect}
+                        label="All APIs"
+                        value=${selectedApiFilter}
+                        isOpen=${openDropdown === 'api'}
+                        onToggle=${() => handleToggleDropdown('api')}
+                        onSelect=${val => { setSelectedApiFilter(val); setOpenDropdown(null); }}
+                        options=${[
+                            { value: 'all', label: 'All APIs' },
+                            { value: 'runtime', label: 'Runtime API' },
+                            { value: 'mantle', label: 'Mantle API' }
+                        ]}
+                    />
+
+                    <${DateSelect}
+                        value=${selectedDateFilter}
+                        customDate=${selectedCustomDate}
+                        isOpen=${openDropdown === 'date'}
+                        onToggle=${() => handleToggleDropdown('date')}
+                        onSelect=${val => {
+                            if (val !== 'custom') {
+                                setSelectedDateFilter(val);
+                                setSelectedCustomDate('');
+                                setOpenDropdown(null);
+                            } else {
+                                setSelectedDateFilter('custom');
+                            }
+                        }}
+                        onCustomDateChange=${val => {
+                            setSelectedCustomDate(val);
+                            setSelectedDateFilter('custom');
+                            setOpenDropdown(null);
+                        }}
+                    />
+                </div>
+            </div>
+
+            <div class="results-info">
+                <span id="resultsCount">Showing ${filteredModels.length} of ${models.length} models</span>
+            </div>
+
+            ${isTableView ? html`
+                <${ModelTable}
+                    models=${filteredModels}
+                    selectedRegion=${selectedRegion}
+                    onShowMap=${(crisType, modelId, modelName) => setActiveMapModal({ crisType, modelId, modelName })}
+                    onShowRegions=${(modelId, modelName) => setActiveRegionsModal({ modelId, modelName })}
+                    onCopy=${handleCopy}
+                />
+            ` : html`
+                <div id="modelsGrid" class="models-grid">
+                    ${filteredModels.length === 0 ? html`
+                        <p style=${{ color: '#666', gridColumn: '1/-1', textAlign: 'center', padding: '40px' }}>
+                            No models found matching your criteria.
+                        </p>
+                    ` : filteredModels.map(model => html`
+                        <${ModelCard}
+                            key=${model.id}
+                            model=${model}
+                            selectedRegion=${selectedRegion}
+                            onShowMap=${(crisType, modelId, modelName) => setActiveMapModal({ crisType, modelId, modelName })}
+                            onShowRegions=${(modelId, modelName) => setActiveRegionsModal({ modelId, modelName })}
+                            onCopy=${handleCopy}
+                        />
+                    `)}
+                </div>
+            `}
+
+            <!-- Map Modal -->
+            <${MapModal}
+                activeMap=${activeMapModal}
+                onClose=${() => setActiveMapModal(null)}
+                models=${models}
+                selectedRegion=${selectedRegion}
+                crisProfileRegions=${crisProfileRegions}
+            />
+
+            <!-- Regions List Modal -->
+            <${RegionsModal}
+                activeRegions=${activeRegionsModal}
+                onClose=${() => setActiveRegionsModal(null)}
+                models=${models}
+            />
+
+            <!-- Toast Notification -->
+            <div id="toast" class="toast ${toastMessage ? 'show' : ''}">${toastMessage}</div>
+        </div>
+    `;
 }
 
-function getModalityIcons(model) {
-    const modalityMap = { TEXT: 'T', IMAGE: 'I', VIDEO: 'V', AUDIO: 'A' };
-    const input = (model.inputModalities || []).map(m => modalityMap[m] || m.charAt(0)).join('');
-    const output = (model.outputModalities || []).map(m => modalityMap[m] || m.charAt(0)).join('');
-    const streaming = model.responseStreamingSupported;
-    const streamClass = streaming ? 'streaming' : '';
-    const streamTitle = streaming ? 'Streaming supported' : 'Streaming not supported';
-    return `<span class="icon-badge" title="Input: ${(model.inputModalities || []).join(', ')}">${input}</span><span class="icon-arrow">→</span><span class="icon-badge ${streamClass}" title="Output: ${(model.outputModalities || []).join(', ')} (${streamTitle})">${output}</span>`;
-}
-
-function getStreamingIcon(model) {
-    return '';
-}
-
-function toggleMobileCard(card, event) {
-    // Only toggle on mobile
-    if (window.innerWidth > 1024) return;
-    // Don't toggle if clicking interactive elements inside details
-    if (event.target.closest('.copy-btn, .badge-interactive, .region-count-section')) return;
-    card.classList.toggle('expanded');
-}
-
-// Re-render on resize to handle orientation changes
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        renderModels();
-    }, 250);
-});
-
-// Initialize on load
-init();
+// Mount the App
+render(html`<${App} />`, document.getElementById('app'));

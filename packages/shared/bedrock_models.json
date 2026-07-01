@@ -102,6 +102,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -189,6 +190,9 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -266,6 +270,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2054,6 +2059,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2148,6 +2154,9 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -2202,7 +2211,6 @@
       ],
       "us-east-1": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -2222,12 +2230,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "messages"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -2245,6 +2247,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2267,56 +2270,6 @@
     "responseStreamingSupported": true,
     "runtime_supported": true
   },
-  "anthropic.claude-haiku-4-5": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "messages"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-1",
-      "us-east-1",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-1",
-      "us-east-1",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
     "customizationsSupported": [],
     "inferenceProfile": {
@@ -2328,6 +2281,11 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
+        ],
+        "ap-southeast-6": [
+          "ap-southeast-2",
+          "ap-southeast-4",
+          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -2411,6 +2369,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2511,6 +2470,10 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
+      "ap-southeast-6": [
+        "AU",
+        "GLOBAL"
+      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -2600,6 +2563,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2754,6 +2718,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -2838,6 +2803,9 @@
         "GLOBAL"
       ],
       "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -2929,6 +2897,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -2962,6 +2931,11 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
+        ],
+        "ap-southeast-6": [
+          "ap-southeast-2",
+          "ap-southeast-4",
+          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -3045,6 +3019,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3139,6 +3114,10 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
+      "ap-southeast-6": [
+        "AU",
+        "GLOBAL"
+      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -3230,6 +3209,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3346,6 +3326,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3420,8 +3401,7 @@
       ],
       "ap-northeast-1": [
         "GLOBAL",
-        "JP",
-        "ON_DEMAND"
+        "JP"
       ],
       "ap-northeast-2": [
         "GLOBAL"
@@ -3448,10 +3428,12 @@
       ],
       "ap-southeast-4": [
         "AU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -3475,8 +3457,7 @@
       ],
       "eu-north-1": [
         "EU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "eu-south-1": [
         "EU",
@@ -3488,8 +3469,7 @@
       ],
       "eu-west-1": [
         "EU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "eu-west-2": [
         "EU",
@@ -3510,7 +3490,6 @@
       ],
       "us-east-1": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -3530,16 +3509,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "messages"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-1",
-      "us-east-1"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -3557,6 +3526,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -3673,6 +3643,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -3747,8 +3718,7 @@
       ],
       "ap-northeast-1": [
         "GLOBAL",
-        "JP",
-        "ON_DEMAND"
+        "JP"
       ],
       "ap-northeast-2": [
         "GLOBAL"
@@ -3775,10 +3745,12 @@
       ],
       "ap-southeast-4": [
         "AU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -3802,8 +3774,7 @@
       ],
       "eu-north-1": [
         "EU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "eu-south-1": [
         "EU",
@@ -3815,8 +3786,7 @@
       ],
       "eu-west-1": [
         "EU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "eu-west-2": [
         "EU",
@@ -3837,7 +3807,6 @@
       ],
       "us-east-1": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -3857,16 +3826,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "messages"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-1",
-      "us-east-1"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -3884,6 +3843,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -4251,6 +4211,11 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
+        ],
+        "ap-southeast-6": [
+          "ap-southeast-2",
+          "ap-southeast-4",
+          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -4334,6 +4299,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -4434,6 +4400,10 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
+      "ap-southeast-6": [
+        "AU",
+        "GLOBAL"
+      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -4523,6 +4493,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -4556,6 +4527,11 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
+        ],
+        "ap-southeast-6": [
+          "ap-southeast-2",
+          "ap-southeast-4",
+          "ap-southeast-6"
         ]
       },
       "EU": {
@@ -4639,6 +4615,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -4743,6 +4720,10 @@
         "GLOBAL"
       ],
       "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
+        "AU",
         "GLOBAL"
       ],
       "ap-southeast-7": [
@@ -4836,6 +4817,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -4874,6 +4856,7 @@
         "ap-southeast-3",
         "ap-southeast-4",
         "ap-southeast-5",
+        "ap-southeast-6",
         "ap-southeast-7",
         "ca-central-1",
         "ca-west-1",
@@ -4966,6 +4949,9 @@
       "ap-southeast-5": [
         "GLOBAL"
       ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
       "ap-southeast-7": [
         "GLOBAL"
       ],
@@ -5012,7 +4998,6 @@
       ],
       "us-east-1": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -5032,12 +5017,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "messages"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -5055,6 +5034,7 @@
       "ap-southeast-3",
       "ap-southeast-4",
       "ap-southeast-5",
+      "ap-southeast-6",
       "ap-southeast-7",
       "ca-central-1",
       "ca-west-1",
@@ -5626,86 +5606,6 @@
     "responseStreamingSupported": true,
     "runtime_supported": true
   },
-  "deepseek.v3.1": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "deepseek.v3.2": {
     "customizationsSupported": [],
     "inference_types": {
@@ -5715,16 +5615,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-north-1": [
@@ -5749,23 +5643,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -5773,10 +5650,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-north-1",
       "eu-west-2",
       "sa-east-1",
@@ -5796,22 +5671,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -5840,26 +5700,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -5867,12 +5707,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5893,22 +5728,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -5937,26 +5757,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -5964,12 +5764,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -5990,22 +5785,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -6034,26 +5814,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -6061,12 +5821,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -6077,129 +5832,6 @@
     ],
     "responseStreamingSupported": true,
     "runtime_supported": true
-  },
-  "google.gemma-4-26b-a4b": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "eu-central-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "eu-central-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
-  "google.gemma-4-31b": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "eu-central-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "eu-central-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
-  "google.gemma-4-e2b": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "eu-central-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "eu-central-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
   },
   "luma.ray-v2:0": {
     "customizationsSupported": [],
@@ -6835,22 +6467,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -6878,26 +6495,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -6905,12 +6502,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -6931,16 +6523,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -6974,26 +6560,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7001,10 +6567,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7027,16 +6591,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7070,26 +6628,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7097,10 +6635,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7123,16 +6659,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7166,26 +6696,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7193,10 +6703,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7219,22 +6727,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -7263,26 +6756,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7290,12 +6763,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -7316,22 +6784,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -7360,26 +6813,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7387,12 +6820,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -7413,22 +6841,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -7457,26 +6870,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7484,12 +6877,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -7510,22 +6898,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -7554,26 +6927,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7581,12 +6934,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -7731,22 +7079,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
         "ON_DEMAND"
       ],
       "sa-east-1": [
@@ -7766,23 +7099,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -7790,12 +7106,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
@@ -7975,22 +7286,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -8019,26 +7315,6 @@
       "SPEECH",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -8046,12 +7322,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -8072,22 +7343,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -8116,26 +7372,6 @@
       "SPEECH",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -8143,12 +7379,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -8204,86 +7435,6 @@
     "responseStreamingSupported": true,
     "runtime_supported": true
   },
-  "moonshotai.kimi-k2-thinking": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "moonshotai.kimi-k2.5": {
     "customizationsSupported": [],
     "inference_types": {
@@ -8293,16 +7444,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-north-1": [
@@ -8328,23 +7473,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -8352,10 +7480,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-north-1",
       "eu-west-2",
       "sa-east-1",
@@ -8375,22 +7501,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -8419,26 +7530,6 @@
       "IMAGE",
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -8446,12 +7537,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -8472,22 +7558,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -8515,26 +7586,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -8542,12 +7593,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -8568,22 +7614,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -8611,26 +7642,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -8638,12 +7649,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -8664,16 +7670,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8707,26 +7707,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -8734,10 +7714,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8750,206 +7728,6 @@
     ],
     "responseStreamingSupported": true,
     "runtime_supported": true
-  },
-  "openai.gpt-5.4": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1"
-    ],
-    "responseStreamingSupported": true
-  },
-  "openai.gpt-5.4-2026-03-05": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1"
-    ],
-    "responseStreamingSupported": true
-  },
-  "openai.gpt-5.5": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1"
-    ],
-    "responseStreamingSupported": true
-  },
-  "openai.gpt-5.5-2026-04-23": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1"
-    ],
-    "responseStreamingSupported": true
-  },
-  "openai.gpt-oss-120b": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
   },
   "openai.gpt-oss-120b-1:0": {
     "customizationsSupported": [],
@@ -9018,102 +7796,6 @@
     ],
     "responseStreamingSupported": true,
     "runtime_supported": true
-  },
-  "openai.gpt-oss-20b": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
   },
   "openai.gpt-oss-20b-1:0": {
     "customizationsSupported": [],
@@ -9192,22 +7874,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -9235,26 +7902,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -9262,12 +7909,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -9288,22 +7930,7 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
         "ON_DEMAND"
       ],
       "eu-south-1": [
@@ -9331,26 +7958,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -9358,12 +7965,7 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
       "eu-south-1",
       "eu-west-1",
       "eu-west-2",
@@ -9374,101 +7976,6 @@
     ],
     "responseStreamingSupported": true,
     "runtime_supported": true
-  },
-  "qwen.qwen3-235b-a22b-2507": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
   },
   "qwen.qwen3-235b-a22b-2507-v1:0": {
     "customizationsSupported": [],
@@ -9525,101 +8032,6 @@
     ],
     "responseStreamingSupported": true,
     "runtime_supported": true
-  },
-  "qwen.qwen3-32b": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
   },
   "qwen.qwen3-32b-v1:0": {
     "customizationsSupported": [],
@@ -9689,101 +8101,6 @@
     "responseStreamingSupported": true,
     "runtime_supported": true
   },
-  "qwen.qwen3-coder-30b-a3b-instruct": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "qwen.qwen3-coder-30b-a3b-v1:0": {
     "customizationsSupported": [],
     "inference_types": {
@@ -9852,86 +8169,6 @@
     "responseStreamingSupported": true,
     "runtime_supported": true
   },
-  "qwen.qwen3-coder-480b-a35b-instruct": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "qwen.qwen3-coder-480b-a35b-v1:0": {
     "customizationsSupported": [],
     "inference_types": {
@@ -9983,95 +8220,27 @@
   "qwen.qwen3-coder-next": {
     "customizationsSupported": [],
     "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
         "ON_DEMAND"
       ],
       "eu-west-2": [
         "ON_DEMAND"
       ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
       "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
         "ON_DEMAND"
       ]
     },
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
     ],
     "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
       "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
+      "us-east-1"
     ],
     "responseStreamingSupported": true,
     "runtime_supported": true
@@ -10132,101 +8301,6 @@
     "responseStreamingSupported": true,
     "runtime_supported": true
   },
-  "qwen.qwen3-next-80b-a3b-instruct": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "qwen.qwen3-vl-235b-a22b": {
     "customizationsSupported": [],
     "inference_types": {
@@ -10283,103 +8357,6 @@
     ],
     "responseStreamingSupported": true,
     "runtime_supported": true
-  },
-  "qwen.qwen3-vl-235b-a22b-instruct": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "IMAGE",
-      "TEXT",
-      "VIDEO"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
   },
   "stability.sd3-5-large-v1:0": {
     "customizationsSupported": [],
@@ -11474,42 +9451,6 @@
   "writer.palmyra-vision-7b": {
     "customizationsSupported": [],
     "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
       "us-east-1": [
         "ON_DEMAND"
       ],
@@ -11522,46 +9463,13 @@
     },
     "inputModalities": [
       "IMAGE",
-      "TEXT",
-      "VIDEO"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
+      "TEXT"
     ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
     ],
     "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
       "us-east-1",
       "us-east-2",
       "us-west-2"
@@ -11683,137 +9591,6 @@
     "responseStreamingSupported": true,
     "runtime_supported": true
   },
-  "xai.grok-4.3": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions",
-      "responses"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
-  "zai.glm-4.6": {
-    "customizationsSupported": [],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-south-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-north-1": [
-        "ON_DEMAND"
-      ],
-      "eu-south-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true
-  },
   "zai.glm-4.7": {
     "customizationsSupported": [],
     "inference_types": {
@@ -11823,16 +9600,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-north-1": [
@@ -11857,23 +9628,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -11881,10 +9635,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-north-1",
       "eu-west-2",
       "sa-east-1",
@@ -11904,16 +9656,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -11947,26 +9693,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-central-1",
-      "eu-north-1",
-      "eu-south-1",
-      "eu-west-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -11974,10 +9700,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12000,16 +9724,10 @@
       "ap-south-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
       "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
-      "ap-southeast-4": [
         "ON_DEMAND"
       ],
       "eu-north-1": [
@@ -12034,23 +9752,6 @@
     "inputModalities": [
       "TEXT"
     ],
-    "mantle_apis": [
-      "completions"
-    ],
-    "mantle_supported_regions": [
-      "ap-northeast-1",
-      "ap-south-1",
-      "ap-southeast-1",
-      "ap-southeast-2",
-      "ap-southeast-3",
-      "ap-southeast-4",
-      "eu-north-1",
-      "eu-west-2",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
       "TEXT"
@@ -12058,10 +9759,8 @@
     "regions": [
       "ap-northeast-1",
       "ap-south-1",
-      "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
-      "ap-southeast-4",
       "eu-north-1",
       "eu-west-2",
       "sa-east-1",

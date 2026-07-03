@@ -8801,9 +8801,6 @@
       "us-east-1": [
         "ON_DEMAND"
       ],
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
       "us-west-2": [
         "ON_DEMAND"
       ]
@@ -8817,7 +8814,6 @@
     ],
     "mantle_supported_regions": [
       "us-east-1",
-      "us-east-2",
       "us-west-2"
     ],
     "model_lifecycle_status": "ACTIVE",
@@ -8826,7 +8822,6 @@
     ],
     "regions": [
       "us-east-1",
-      "us-east-2",
       "us-west-2"
     ],
     "responseStreamingSupported": true

@@ -159,18 +159,12 @@ class Models:
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-20250514-v1:0", "Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R = _DeprecatedModelDescriptor("cohere.command-r-v1:0", "Model 'cohere.command-r-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R_PLUS = _DeprecatedModelDescriptor("cohere.command-r-plus-v1:0", "Model 'cohere.command-r-plus-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_1_405B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-1-405b-instruct-v1:0", "Model 'meta.llama3-1-405b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_11B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-11b-instruct-v1:0", "Model 'meta.llama3-2-11b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_1B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-1b-instruct-v1:0", "Model 'meta.llama3-2-1b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_3B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-3b-instruct-v1:0", "Model 'meta.llama3-2-3b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_90B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-90b-instruct-v1:0", "Model 'meta.llama3-2-90b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     TWELVELABS_MARENGO_EMBED_2_7 = _DeprecatedModelDescriptor("twelvelabs.marengo-embed-2-7-v1:0", "Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
 
 
 class MantleModels:
     """Static class containing Bedrock foundation model IDs as constants for MantleModels."""
 
-    ANTHROPIC_CLAUDE_FABLE_5 = BedrockModel("anthropic.claude-fable-5")
     ANTHROPIC_CLAUDE_HAIKU_4_5 = BedrockModel("anthropic.claude-haiku-4-5")
     ANTHROPIC_CLAUDE_OPUS_4_7 = BedrockModel("anthropic.claude-opus-4-7")
     ANTHROPIC_CLAUDE_OPUS_4_8 = BedrockModel("anthropic.claude-opus-4-8")
@@ -336,9 +330,4 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-20250514-v1:0", "Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R = _DeprecatedModelDescriptor("cohere.command-r-v1:0", "Model 'cohere.command-r-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R_PLUS = _DeprecatedModelDescriptor("cohere.command-r-plus-v1:0", "Model 'cohere.command-r-plus-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_1_405B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-1-405b-instruct-v1:0", "Model 'meta.llama3-1-405b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_11B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-11b-instruct-v1:0", "Model 'meta.llama3-2-11b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_1B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-1b-instruct-v1:0", "Model 'meta.llama3-2-1b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_3B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-3b-instruct-v1:0", "Model 'meta.llama3-2-3b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
-    META_LLAMA3_2_90B_INSTRUCT = _DeprecatedModelDescriptor("meta.llama3-2-90b-instruct-v1:0", "Model 'meta.llama3-2-90b-instruct-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     TWELVELABS_MARENGO_EMBED_2_7 = _DeprecatedModelDescriptor("twelvelabs.marengo-embed-2-7-v1:0", "Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

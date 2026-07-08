@@ -2123,7 +2123,6 @@
       ],
       "us-east-1": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -2142,12 +2141,6 @@
     "inputModalities": [
       "IMAGE",
       "TEXT"
-    ],
-    "mantle_apis": [
-      "messages"
-    ],
-    "mantle_supported_regions": [
-      "us-east-1"
     ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
@@ -4842,6 +4835,74 @@
   "anthropic.claude-sonnet-5": {
     "customizationsSupported": [],
     "inferenceProfile": {
+      "EU": {
+        "eu-central-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-central-2": [
+          "eu-central-1",
+          "eu-central-2",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-north-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-south-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-south-2": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-west-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-west-2": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-2",
+          "eu-west-3"
+        ],
+        "eu-west-3": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ]
+      },
       "GLOBAL": [
         "af-south-1",
         "ap-east-2",
@@ -4963,27 +5024,35 @@
         "US"
       ],
       "eu-central-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-central-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-north-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-south-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-south-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-3": [
+        "EU",
         "GLOBAL"
       ],
       "il-central-1": [
@@ -6212,39 +6281,6 @@
     "responseStreamingSupported": false,
     "runtime_supported": true
   },
-  "meta.llama3-1-405b-instruct-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "US": {
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true,
-    "runtime_supported": true
-  },
   "meta.llama3-1-70b-instruct-v1:0": {
     "customizationsSupported": [],
     "inferenceProfile": {
@@ -6330,246 +6366,6 @@
       "TEXT"
     ],
     "model_lifecycle_status": "ACTIVE",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true,
-    "runtime_supported": true
-  },
-  "meta.llama3-2-11b-instruct-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-west-2": [
-          "us-east-1",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "us-east-1": [
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "US"
-      ]
-    },
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true,
-    "runtime_supported": true
-  },
-  "meta.llama3-2-1b-instruct-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "EU": {
-        "eu-central-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-3": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ]
-      },
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-west-2": [
-          "us-east-1",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "eu-central-1": [
-        "EU"
-      ],
-      "eu-west-1": [
-        "EU"
-      ],
-      "eu-west-3": [
-        "EU"
-      ],
-      "us-east-1": [
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "US"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "eu-central-1",
-      "eu-west-1",
-      "eu-west-3",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true,
-    "runtime_supported": true
-  },
-  "meta.llama3-2-3b-instruct-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "EU": {
-        "eu-central-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ],
-        "eu-west-3": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ]
-      },
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-west-2": [
-          "us-east-1",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "eu-central-1": [
-        "EU"
-      ],
-      "eu-west-1": [
-        "EU"
-      ],
-      "eu-west-3": [
-        "EU"
-      ],
-      "us-east-1": [
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "US"
-      ]
-    },
-    "inputModalities": [
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
-    "outputModalities": [
-      "TEXT"
-    ],
-    "regions": [
-      "eu-central-1",
-      "eu-west-1",
-      "eu-west-3",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
-    ],
-    "responseStreamingSupported": true,
-    "runtime_supported": true
-  },
-  "meta.llama3-2-90b-instruct-v1:0": {
-    "customizationsSupported": [],
-    "inferenceProfile": {
-      "US": {
-        "us-east-1": [
-          "us-east-1",
-          "us-west-2"
-        ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
-        "us-west-2": [
-          "us-east-1",
-          "us-west-2"
-        ]
-      }
-    },
-    "inference_types": {
-      "us-east-1": [
-        "US"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "US"
-      ]
-    },
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "model_lifecycle_status": "LEGACY",
     "outputModalities": [
       "TEXT"
     ],

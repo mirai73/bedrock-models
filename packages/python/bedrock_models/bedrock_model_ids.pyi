@@ -132,16 +132,10 @@ class Models:
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     COHERE_COMMAND_R: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-v1:0' has LEGACY status
     COHERE_COMMAND_R_PLUS: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-plus-v1:0' has LEGACY status
-    META_LLAMA3_1_405B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-405b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_11B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-11b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_1B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-1b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_3B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-3b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_90B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-90b-instruct-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
 
 class MantleModels:
 
-    ANTHROPIC_CLAUDE_FABLE_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_HAIKU_4_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_7: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]
@@ -305,9 +299,4 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     COHERE_COMMAND_R: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-v1:0' has LEGACY status
     COHERE_COMMAND_R_PLUS: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-plus-v1:0' has LEGACY status
-    META_LLAMA3_1_405B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-405b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_11B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-11b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_1B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-1b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_3B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-3b-instruct-v1:0' has LEGACY status
-    META_LLAMA3_2_90B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-2-90b-instruct-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status

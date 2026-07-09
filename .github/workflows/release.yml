@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -56,8 +58,26 @@ jobs:
         with:
           packages-dir: packages/python/dist/
       
+      - name: Install kiro-cli
+        run: |
+          curl -fsSL https://cli.kiro.dev/install | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      
+      - name: Generate AI release notes
+        id: ai_notes
+        env:
+          KIRO_AUTH_TOKEN: ${{ secrets.KIRO_AUTH_TOKEN }}
+        run: |
+          NOTES="$(scripts/gen_release_notes.sh)"
+          {
+            echo "notes<<RELEASE_NOTES_EOF"
+            echo "$NOTES"
+            echo "RELEASE_NOTES_EOF"
+          } >> "$GITHUB_OUTPUT"
+      
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: packages/python/dist/*
+          body: ${{ steps.ai_notes.outputs.notes }}
           generate_release_notes: true

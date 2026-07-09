@@ -7,13 +7,80 @@ Uses ThreadPoolExecutor for parallel processing to speed up scanning.
 
 import boto3
 import json
+import logging
+import socket
+import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Set, Any
 import threading
 import urllib.request
 import urllib.error
+from botocore.config import Config
+from botocore.exceptions import ReadTimeoutError, ConnectTimeoutError
 from aws_bedrock_token_generator import provide_token
+
+
+logger = logging.getLogger(__name__)
+
+# Disable boto3's built-in retries so retry_on_timeout is the single, uniform
+# retry layer (exponential backoff) across every API call.
+BEDROCK_CLIENT_CONFIG = Config(retries={'max_attempts': 1})
+
+# Exception types that represent a timeout worth retrying.
+_TIMEOUT_EXCEPTIONS = (socket.timeout, TimeoutError, ReadTimeoutError, ConnectTimeoutError)
+
+
+def _is_timeout(exc: Exception) -> bool:
+    """Return True if the exception represents a retryable timeout."""
+    if isinstance(exc, _TIMEOUT_EXCEPTIONS):
+        return True
+    # urllib wraps socket timeouts inside URLError. HTTPError is a URLError
+    # subclass but is NOT a timeout (the Mantle probes rely on it as a signal),
+    # so it must never be treated as retryable.
+    if isinstance(exc, urllib.error.URLError) and not isinstance(exc, urllib.error.HTTPError):
+        if isinstance(getattr(exc, 'reason', None), (socket.timeout, TimeoutError)):
+            return True
+    return False
+
+
+def make_bedrock_client(region: str):
+    """Create a Bedrock client with internal retries disabled."""
+    return boto3.client('bedrock', region_name=region, config=BEDROCK_CLIENT_CONFIG)
+
+
+def retry_on_timeout(func, *args, max_retries: int = 3, base_delay: float = 1.0,
+                     description: str = '', **kwargs):
+    """
+    Call ``func(*args, **kwargs)``, retrying on timeout up to ``max_retries``
+    times with exponential backoff (``base_delay * 2**attempt``).
+
+    Only timeout errors are retried; all other exceptions (including urllib
+    ``HTTPError``) propagate immediately. Every timeout is logged: each retry as
+    a warning and the final, exhausted timeout as an error.
+    """
+    label = description or getattr(func, '__name__', 'API call')
+    last_exc = None
+    for attempt in range(max_retries + 1):
+        try:
+            return func(*args, **kwargs)
+        except Exception as exc:
+            if not _is_timeout(exc):
+                raise
+            last_exc = exc
+            if attempt < max_retries:
+                delay = base_delay * (2 ** attempt)
+                logger.warning(
+                    "Timeout on %s (attempt %d/%d): %s; retrying in %.1fs",
+                    label, attempt + 1, max_retries + 1, exc, delay,
+                )
+                time.sleep(delay)
+            else:
+                logger.error(
+                    "Timeout on %s after %d attempts, giving up: %s",
+                    label, max_retries + 1, exc,
+                )
+    raise last_exc
 
 
 def get_bedrock_regions() -> List[str]:
@@ -33,8 +100,11 @@ def get_foundation_models_in_region(region: str) -> tuple[str, List[Dict]]:
         Tuple of (region, list of model dictionaries)
     """
     try:
-        bedrock = boto3.client('bedrock', region_name=region)
-        response = bedrock.list_foundation_models()
+        bedrock = make_bedrock_client(region)
+        response = retry_on_timeout(
+            bedrock.list_foundation_models,
+            description=f"list_foundation_models in {region}",
+        )
         return region, response.get('modelSummaries', [])
     except Exception as e:
         print(f"Error accessing region {region}: {e}")
@@ -59,8 +129,11 @@ def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[st
         }
     """
     try:
-        bedrock = boto3.client('bedrock', region_name=region)
-        response = bedrock.list_inference_profiles()
+        bedrock = make_bedrock_client(region)
+        response = retry_on_timeout(
+            bedrock.list_inference_profiles,
+            description=f"list_inference_profiles in {region}",
+        )
         
         # Structure: model_id -> {prefix -> [regions]}
         model_profiles = defaultdict(lambda: defaultdict(list))
@@ -76,7 +149,11 @@ def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[st
                 
                 # Fetch detailed profile info to get covered regions
                 try:
-                    details = bedrock.get_inference_profile(inferenceProfileIdentifier=profile_id)
+                    details = retry_on_timeout(
+                        bedrock.get_inference_profile,
+                        inferenceProfileIdentifier=profile_id,
+                        description=f"get_inference_profile {profile_id} in {region}",
+                    )
                     covered_regions = set()
                     
                     for model in details.get('models', []):
@@ -127,7 +204,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
     
     req = urllib.request.Request(url_models, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=10) as response:
+        with retry_on_timeout(
+            urllib.request.urlopen, req, timeout=10,
+            description=f"Mantle list models in {region}",
+        ) as response:
             data = json.loads(response.read().decode())
             model_ids = [m['id'] for m in data.get('data', [])]
     except Exception:
@@ -148,7 +228,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
             }
             req_comp = urllib.request.Request(url_comp, data=json.dumps(payload_comp).encode(), headers=headers, method='POST')
             try:
-                with urllib.request.urlopen(req_comp, timeout=5) as r:
+                with retry_on_timeout(
+                    urllib.request.urlopen, req_comp, timeout=5,
+                    description=f"Mantle completions probe {model_id} in {region}",
+                ) as r:
                     pass
             except urllib.error.HTTPError as e:
                 body = e.read().decode()
@@ -163,7 +246,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 url_comp_openai = f"https://bedrock-mantle.{region}.api.aws/openai/v1/chat/completions"
                 req_comp_openai = urllib.request.Request(url_comp_openai, data=json.dumps(payload_comp).encode(), headers=headers, method='POST')
                 try:
-                    with urllib.request.urlopen(req_comp_openai, timeout=5) as r:
+                    with retry_on_timeout(
+                        urllib.request.urlopen, req_comp_openai, timeout=5,
+                        description=f"Mantle completions(openai) probe {model_id} in {region}",
+                    ) as r:
                         pass
                 except urllib.error.HTTPError as e:
                     body = e.read().decode()
@@ -184,7 +270,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
             }
             req_resp = urllib.request.Request(url_resp, data=json.dumps(payload_resp).encode(), headers=headers, method='POST')
             try:
-                with urllib.request.urlopen(req_resp, timeout=5) as r:
+                with retry_on_timeout(
+                    urllib.request.urlopen, req_resp, timeout=5,
+                    description=f"Mantle responses probe {model_id} in {region}",
+                ) as r:
                     pass
             except urllib.error.HTTPError as e:
                 body = e.read().decode()
@@ -199,7 +288,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 url_resp_openai = f"https://bedrock-mantle.{region}.api.aws/openai/v1/responses"
                 req_resp_openai = urllib.request.Request(url_resp_openai, data=json.dumps(payload_resp).encode(), headers=headers, method='POST')
                 try:
-                    with urllib.request.urlopen(req_resp_openai, timeout=5) as r:
+                    with retry_on_timeout(
+                        urllib.request.urlopen, req_resp_openai, timeout=5,
+                        description=f"Mantle responses(openai) probe {model_id} in {region}",
+                    ) as r:
                         pass
                 except urllib.error.HTTPError as e:
                     body = e.read().decode()
@@ -218,7 +310,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
             }
             req_msg = urllib.request.Request(url_msg, data=json.dumps(payload_msg).encode(), headers=headers, method='POST')
             try:
-                with urllib.request.urlopen(req_msg, timeout=5) as r:
+                with retry_on_timeout(
+                    urllib.request.urlopen, req_msg, timeout=5,
+                    description=f"Mantle messages probe {model_id} in {region}",
+                ) as r:
                     pass
             except urllib.error.HTTPError as e:
                 body = e.read().decode()
@@ -597,6 +692,10 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedro
 
 def main():
     """Main function to scan regions and generate model mapping."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s %(levelname)s %(message)s',
+    )
     print("AWS Bedrock Foundation Model Scanner (Parallel)")
     print("="*80 + "\n")
     

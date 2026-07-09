@@ -2192,6 +2192,9 @@
   "anthropic.claude-haiku-4-5": {
     "customizationsSupported": [],
     "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -2215,6 +2218,7 @@
       "messages"
     ],
     "mantle_supported_regions": [
+      "ap-northeast-1",
       "ap-southeast-4",
       "eu-north-1",
       "eu-west-1",
@@ -2226,6 +2230,7 @@
       "TEXT"
     ],
     "regions": [
+      "ap-northeast-1",
       "ap-southeast-4",
       "eu-north-1",
       "eu-west-1",

@@ -66,7 +66,7 @@ jobs:
       - name: Generate AI release notes
         id: ai_notes
         env:
-          KIRO_AUTH_TOKEN: ${{ secrets.KIRO_AUTH_TOKEN }}
+          KIRO_API_KEY: ${{ secrets.KIRO_AUTH_TOKEN }}
         run: |
           NOTES="$(scripts/gen_release_notes.sh)"
           {

@@ -47,7 +47,6 @@ class Models:
     ANTHROPIC_CLAUDE_FABLE_5 = BedrockModel("anthropic.claude-fable-5")
     ANTHROPIC_CLAUDE_HAIKU_4_5 = BedrockModel("anthropic.claude-haiku-4-5")
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001 = BedrockModel("anthropic.claude-haiku-4-5-20251001-v1:0")
-    ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = BedrockModel("anthropic.claude-opus-4-1-20250805-v1:0")
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101 = BedrockModel("anthropic.claude-opus-4-5-20251101-v1:0")
     ANTHROPIC_CLAUDE_OPUS_4_6 = BedrockModel("anthropic.claude-opus-4-6-v1")
     ANTHROPIC_CLAUDE_OPUS_4_7 = BedrockModel("anthropic.claude-opus-4-7")
@@ -156,6 +155,7 @@ class Models:
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20241022-v2:0", "Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_HAIKU_20240307 = _DeprecatedModelDescriptor("anthropic.claude-3-haiku-20240307-v1:0", "Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_SONNET_20240229 = _DeprecatedModelDescriptor("anthropic.claude-3-sonnet-20240229-v1:0", "Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = _DeprecatedModelDescriptor("anthropic.claude-opus-4-1-20250805-v1:0", "Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-20250514-v1:0", "Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R = _DeprecatedModelDescriptor("cohere.command-r-v1:0", "Model 'cohere.command-r-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R_PLUS = _DeprecatedModelDescriptor("cohere.command-r-plus-v1:0", "Model 'cohere.command-r-plus-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
@@ -165,6 +165,7 @@ class Models:
 class MantleModels:
     """Static class containing Bedrock foundation model IDs as constants for MantleModels."""
 
+    ANTHROPIC_CLAUDE_FABLE_5 = BedrockModel("anthropic.claude-fable-5")
     ANTHROPIC_CLAUDE_HAIKU_4_5 = BedrockModel("anthropic.claude-haiku-4-5")
     ANTHROPIC_CLAUDE_OPUS_4_7 = BedrockModel("anthropic.claude-opus-4-7")
     ANTHROPIC_CLAUDE_OPUS_4_8 = BedrockModel("anthropic.claude-opus-4-8")
@@ -233,7 +234,6 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219 = BedrockModel("anthropic.claude-3-7-sonnet-20250219-v1:0")
     ANTHROPIC_CLAUDE_FABLE_5 = BedrockModel("anthropic.claude-fable-5")
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001 = BedrockModel("anthropic.claude-haiku-4-5-20251001-v1:0")
-    ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = BedrockModel("anthropic.claude-opus-4-1-20250805-v1:0")
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101 = BedrockModel("anthropic.claude-opus-4-5-20251101-v1:0")
     ANTHROPIC_CLAUDE_OPUS_4_6 = BedrockModel("anthropic.claude-opus-4-6-v1")
     ANTHROPIC_CLAUDE_OPUS_4_7 = BedrockModel("anthropic.claude-opus-4-7")
@@ -327,6 +327,7 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022 = _DeprecatedModelDescriptor("anthropic.claude-3-5-sonnet-20241022-v2:0", "Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_HAIKU_20240307 = _DeprecatedModelDescriptor("anthropic.claude-3-haiku-20240307-v1:0", "Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_3_SONNET_20240229 = _DeprecatedModelDescriptor("anthropic.claude-3-sonnet-20240229-v1:0", "Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = _DeprecatedModelDescriptor("anthropic.claude-opus-4-1-20250805-v1:0", "Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-20250514-v1:0", "Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R = _DeprecatedModelDescriptor("cohere.command-r-v1:0", "Model 'cohere.command-r-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     COHERE_COMMAND_R_PLUS = _DeprecatedModelDescriptor("cohere.command-r-plus-v1:0", "Model 'cohere.command-r-plus-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

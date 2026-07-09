@@ -160,6 +160,7 @@ export const Models = {
  * Model IDs for MantleModels.
  */
 export const MantleModels = {
+  ANTHROPIC_CLAUDE_FABLE_5: new BedrockModel('anthropic.claude-fable-5'),
   ANTHROPIC_CLAUDE_HAIKU_4_5: new BedrockModel('anthropic.claude-haiku-4-5'),
   ANTHROPIC_CLAUDE_OPUS_4_7: new BedrockModel('anthropic.claude-opus-4-7'),
   ANTHROPIC_CLAUDE_OPUS_4_8: new BedrockModel('anthropic.claude-opus-4-8'),

@@ -77,16 +77,16 @@
     "last_changed": "2026-06-20"
   },
   "anthropic.claude-fable-5": {
-    "last_changed": "2026-07-08"
+    "last_changed": "2026-07-09"
   },
   "anthropic.claude-haiku-4-5": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-07-09"
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
     "last_changed": "2026-07-01"
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-07-09"
   },
   "anthropic.claude-opus-4-5-20251101-v1:0": {
     "last_changed": "2026-07-01"
@@ -110,7 +110,7 @@
     "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-5": {
-    "last_changed": "2026-07-08"
+    "last_changed": "2026-07-09"
   },
   "cohere.command-r-plus-v1:0": {
     "last_changed": "2026-06-20"

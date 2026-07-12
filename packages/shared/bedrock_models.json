@@ -8581,7 +8581,6 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
       "responses"
     ],
     "mantle_supported_regions": [
@@ -8617,7 +8616,6 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
       "responses"
     ],
     "mantle_supported_regions": [
@@ -8650,7 +8648,6 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
       "responses"
     ],
     "mantle_supported_regions": [
@@ -8681,7 +8678,6 @@
       "TEXT"
     ],
     "mantle_apis": [
-      "completions",
       "responses"
     ],
     "mantle_supported_regions": [

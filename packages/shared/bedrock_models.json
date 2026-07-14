@@ -5074,7 +5074,6 @@
       ],
       "us-east-1": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -5098,8 +5097,7 @@
       "messages"
     ],
     "mantle_supported_regions": [
-      "eu-west-1",
-      "us-east-1"
+      "eu-west-1"
     ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [
@@ -8691,6 +8689,106 @@
     "regions": [
       "us-east-1",
       "us-east-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "openai.gpt-5.6-luna": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "openai.gpt-5.6-sol": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2"
+    ],
+    "responseStreamingSupported": true
+  },
+  "openai.gpt-5.6-terra": {
+    "customizationsSupported": [],
+    "inference_types": {
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-2": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "inputModalities": [
+      "TEXT"
+    ],
+    "mantle_apis": [
+      "responses"
+    ],
+    "mantle_supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "model_lifecycle_status": "ACTIVE",
+    "outputModalities": [
+      "TEXT"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
     ],
     "responseStreamingSupported": true
   },

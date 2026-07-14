@@ -110,7 +110,7 @@
     "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-5": {
-    "last_changed": "2026-07-09"
+    "last_changed": "2026-07-14"
   },
   "cohere.command-r-plus-v1:0": {
     "last_changed": "2026-06-20"
@@ -287,6 +287,15 @@
   },
   "openai.gpt-5.5-2026-04-23": {
     "last_changed": "2026-07-12"
+  },
+  "openai.gpt-5.6-luna": {
+    "last_changed": "2026-07-14"
+  },
+  "openai.gpt-5.6-sol": {
+    "last_changed": "2026-07-14"
+  },
+  "openai.gpt-5.6-terra": {
+    "last_changed": "2026-07-14"
   },
   "openai.gpt-oss-120b": {
     "last_changed": "2026-07-01"

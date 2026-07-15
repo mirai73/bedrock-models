@@ -4842,6 +4842,16 @@
   "anthropic.claude-sonnet-5": {
     "customizationsSupported": [],
     "inferenceProfile": {
+      "AU": {
+        "ap-southeast-2": [
+          "ap-southeast-2",
+          "ap-southeast-4"
+        ],
+        "ap-southeast-4": [
+          "ap-southeast-2",
+          "ap-southeast-4"
+        ]
+      },
       "EU": {
         "eu-central-1": [
           "eu-central-1",
@@ -5005,13 +5015,16 @@
         "GLOBAL"
       ],
       "ap-southeast-2": [
+        "AU",
         "GLOBAL"
       ],
       "ap-southeast-3": [
         "GLOBAL"
       ],
       "ap-southeast-4": [
-        "GLOBAL"
+        "AU",
+        "GLOBAL",
+        "ON_DEMAND"
       ],
       "ap-southeast-5": [
         "GLOBAL"
@@ -5040,7 +5053,8 @@
       ],
       "eu-north-1": [
         "EU",
-        "GLOBAL"
+        "GLOBAL",
+        "ON_DEMAND"
       ],
       "eu-south-1": [
         "EU",
@@ -5097,6 +5111,8 @@
       "messages"
     ],
     "mantle_supported_regions": [
+      "ap-southeast-4",
+      "eu-north-1",
       "eu-west-1"
     ],
     "model_lifecycle_status": "ACTIVE",

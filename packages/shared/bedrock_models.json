@@ -2195,9 +2195,6 @@
       "ap-northeast-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-4": [
-        "ON_DEMAND"
-      ],
       "eu-north-1": [
         "ON_DEMAND"
       ],
@@ -2219,7 +2216,6 @@
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
-      "ap-southeast-4",
       "eu-north-1",
       "eu-west-1",
       "us-east-1",
@@ -2231,7 +2227,6 @@
     ],
     "regions": [
       "ap-northeast-1",
-      "ap-southeast-4",
       "eu-north-1",
       "eu-west-1",
       "us-east-1",
@@ -3730,8 +3725,7 @@
       ],
       "ap-southeast-4": [
         "AU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "ap-southeast-5": [
         "GLOBAL"
@@ -3820,7 +3814,6 @@
     ],
     "mantle_supported_regions": [
       "ap-northeast-1",
-      "ap-southeast-4",
       "eu-north-1",
       "eu-west-1",
       "us-east-1"
@@ -5088,6 +5081,7 @@
       ],
       "us-east-1": [
         "GLOBAL",
+        "ON_DEMAND",
         "US"
       ],
       "us-east-2": [
@@ -5113,7 +5107,8 @@
     "mantle_supported_regions": [
       "ap-southeast-4",
       "eu-north-1",
-      "eu-west-1"
+      "eu-west-1",
+      "us-east-1"
     ],
     "model_lifecycle_status": "ACTIVE",
     "outputModalities": [

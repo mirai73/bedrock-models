@@ -25,9 +25,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          # registry-url intentionally omitted: setting it causes setup-node to
-          # inject a NODE_AUTH_TOKEN-based .npmrc which conflicts with OIDC auth.
+          registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
+
+      - name: Upgrade npm to support OIDC trusted publishing (requires >=11.5.1)
+        run: npm install -g npm@latest
 
       - name: Install dependencies
         run: pnpm install
@@ -36,11 +38,15 @@ jobs:
         run: pnpm build
 
       - name: Publish to npm
-        # Use npm directly (not pnpm) — pnpm does not forward the OIDC
-        # environment to npm, so trusted publishing token exchange fails.
+        # NODE_AUTH_TOKEN is blanked so setup-node's injected .npmrc token does
+        # not take precedence. npm >=11.5.1 detects the OIDC environment via
+        # ACTIONS_ID_TOKEN_REQUEST_URL / ACTIONS_ID_TOKEN_REQUEST_TOKEN and
+        # exchanges it for a short-lived publish token automatically.
         # Provenance is generated automatically when publishing via OIDC.
         run: npm publish --access public
         working-directory: packages/typescript
+        env:
+          NODE_AUTH_TOKEN: ""
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1

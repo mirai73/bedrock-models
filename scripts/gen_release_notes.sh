@@ -12,7 +12,7 @@
 #
 set -euo pipefail
 
-MODEL_CLASS_FILE="packages/python/bedrock_models/bedrock_model_ids.py"
+MODEL_CLASS_FILE="packages/shared/bedrock_models.json"
 
 # Determine the previous tag to diff against.
 PREV_TAG="$(git describe --tags --abbrev=0 "HEAD^" 2>/dev/null || true)"
@@ -23,16 +23,22 @@ else
   RANGE="$(git rev-list --max-parents=0 HEAD | tail -n1)..HEAD"
 fi
 
-# Build context: commit subjects for the whole release + diff of the model class only.
+# Build context: commit subjects for the whole release + structured model diff.
 CONTEXT_FILE="$(mktemp)"
-trap 'rm -f "$CONTEXT_FILE"' EXIT
+OLD_JSON="$(mktemp -t bedrock_models_old).json"
+trap 'rm -f "$CONTEXT_FILE" "$OLD_JSON"' EXIT
+
+# Extract the version of the model file at the start of the range.
+RANGE_START="${RANGE%..*}"
+git show "${RANGE_START}:${MODEL_CLASS_FILE}" > "$OLD_JSON"
+
 {
   echo "## Commits in $RANGE"
   git log --pretty=format:"- %s (%an)" "$RANGE"
   echo
   echo
-  echo "## Model class diff ($MODEL_CLASS_FILE)"
-  git diff "$RANGE" -- "$MODEL_CLASS_FILE" | head -c 60000
+  echo "## Model changes ($MODEL_CLASS_FILE)"
+  python3 scripts/diff_models.py "$OLD_JSON" "$MODEL_CLASS_FILE"
 } > "$CONTEXT_FILE"
 
 PROMPT="You are writing GitHub release notes for the 'bedrock-models' project.

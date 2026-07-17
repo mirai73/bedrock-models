@@ -25,7 +25,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+          # registry-url intentionally omitted: setting it causes setup-node to
+          # inject a NODE_AUTH_TOKEN-based .npmrc which conflicts with OIDC auth.
           cache: 'pnpm'
 
       - name: Install dependencies

@@ -12,14 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write
+      id-token: write  # Required for OIDC trusted publishing
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: pnpm/action-setup@v3
         with:
           version: 8
-          
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -29,16 +30,17 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        
+
       - name: Build packages
         run: pnpm build
-        
+
       - name: Publish to npm
-        run: pnpm publish --no-git-checks --access public --provenance
+        # No NODE_AUTH_TOKEN needed — OIDC trusted publishing handles auth.
+        # Provenance is generated automatically when publishing via OIDC;
+        # --provenance flag is not required (and should not be passed).
+        run: pnpm publish --no-git-checks --access public
         working-directory: packages/typescript
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:

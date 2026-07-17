@@ -36,10 +36,10 @@ jobs:
         run: pnpm build
 
       - name: Publish to npm
-        # No NODE_AUTH_TOKEN needed — OIDC trusted publishing handles auth.
-        # Provenance is generated automatically when publishing via OIDC;
-        # --provenance flag is not required (and should not be passed).
-        run: pnpm publish --no-git-checks --access public
+        # Use npm directly (not pnpm) — pnpm does not forward the OIDC
+        # environment to npm, so trusted publishing token exchange fails.
+        # Provenance is generated automatically when publishing via OIDC.
+        run: npm publish --access public
         working-directory: packages/typescript
 
       - name: Create GitHub Release

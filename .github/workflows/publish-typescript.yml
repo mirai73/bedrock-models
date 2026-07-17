@@ -11,7 +11,7 @@ jobs:
     name: Build and publish TypeScript library to npm
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: read   # no release creation needed here; release.yml owns that
       id-token: write  # Required for OIDC trusted publishing
 
     steps:
@@ -48,7 +48,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ""
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
+

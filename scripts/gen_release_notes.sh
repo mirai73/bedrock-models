@@ -25,6 +25,7 @@ fi
 
 # Build context: commit subjects for the whole release + structured model diff.
 CONTEXT_FILE="$(mktemp)"
+echo Here
 OLD_JOLD_JSON="$(mktemp -t bedrock_models_old.XXXX --suffix=.json)"
 trap 'rm -f "$CONTEXT_FILE" "$OLD_JSON"' EXIT
 

@@ -3760,8 +3760,7 @@
       ],
       "eu-north-1": [
         "EU",
-        "GLOBAL",
-        "ON_DEMAND"
+        "GLOBAL"
       ],
       "eu-south-1": [
         "EU",
@@ -3821,7 +3820,6 @@
     "mantle_supported_regions": [
       "ap-northeast-1",
       "ap-southeast-4",
-      "eu-north-1",
       "eu-west-1",
       "us-east-1"
     ],

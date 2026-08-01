@@ -17,7 +17,7 @@ import threading
 import urllib.request
 import urllib.error
 from botocore.config import Config
-from botocore.exceptions import ReadTimeoutError, ConnectTimeoutError
+from botocore.exceptions import ReadTimeoutError, ConnectTimeoutError, ClientError
 from aws_bedrock_token_generator import provide_token
 
 
@@ -31,10 +31,14 @@ BEDROCK_CLIENT_CONFIG = Config(retries={'max_attempts': 1})
 _TIMEOUT_EXCEPTIONS = (socket.timeout, TimeoutError, ReadTimeoutError, ConnectTimeoutError)
 
 
-def _is_timeout(exc: Exception) -> bool:
-    """Return True if the exception represents a retryable timeout."""
+def _is_retryable(exc: Exception) -> bool:
+    """Return True if the exception represents a retryable timeout or throttling error."""
     if isinstance(exc, _TIMEOUT_EXCEPTIONS):
         return True
+    if isinstance(exc, ClientError):
+        error_code = exc.response.get('Error', {}).get('Code', '')
+        if error_code in ('ThrottlingException', 'RequestLimitExceeded', 'ProvisionedThroughputExceededException'):
+            return True
     # urllib wraps socket timeouts inside URLError. HTTPError is a URLError
     # subclass but is NOT a timeout (the Mantle probes rely on it as a signal),
     # so it must never be treated as retryable.
@@ -52,12 +56,11 @@ def make_bedrock_client(region: str):
 def retry_on_timeout(func, *args, max_retries: int = 3, base_delay: float = 1.0,
                      description: str = '', **kwargs):
     """
-    Call ``func(*args, **kwargs)``, retrying on timeout up to ``max_retries``
+    Call ``func(*args, **kwargs)``, retrying on timeout or throttling up to ``max_retries``
     times with exponential backoff (``base_delay * 2**attempt``).
 
-    Only timeout errors are retried; all other exceptions (including urllib
-    ``HTTPError``) propagate immediately. Every timeout is logged: each retry as
-    a warning and the final, exhausted timeout as an error.
+    Only timeout and throttling errors are retried; all other exceptions propagate immediately.
+    Every retryable error is logged: each retry as a warning and the final, exhausted attempt as an error.
     """
     label = description or getattr(func, '__name__', 'API call')
     last_exc = None
@@ -65,19 +68,19 @@ def retry_on_timeout(func, *args, max_retries: int = 3, base_delay: float = 1.0,
         try:
             return func(*args, **kwargs)
         except Exception as exc:
-            if not _is_timeout(exc):
+            if not _is_retryable(exc):
                 raise
             last_exc = exc
             if attempt < max_retries:
                 delay = base_delay * (2 ** attempt)
                 logger.warning(
-                    "Timeout on %s (attempt %d/%d): %s; retrying in %.1fs",
+                    "Retryable error on %s (attempt %d/%d): %s; retrying in %.1fs",
                     label, attempt + 1, max_retries + 1, exc, delay,
                 )
                 time.sleep(delay)
             else:
                 logger.error(
-                    "Timeout on %s after %d attempts, giving up: %s",
+                    "Error on %s after %d attempts, giving up: %s",
                     label, max_retries + 1, exc,
                 )
     raise last_exc

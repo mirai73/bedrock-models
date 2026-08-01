@@ -1,6 +1,7 @@
 import { h, render } from 'https://esm.sh/preact@10.19.3';
 import { useState, useEffect, useMemo, useRef } from 'https://esm.sh/preact@10.19.3/hooks';
 import htm from 'https://esm.sh/htm@3.1.1';
+import { marked } from 'https://esm.sh/marked@11.1.1';
 
 const html = htm.bind(h);
 
@@ -762,6 +763,320 @@ function ModelTable({ models, selectedRegion, onShowMap, onShowRegions, onCopy }
     `;
 }
 
+// Helper to get the last 30 days
+function getLast30Days() {
+    const dates = [];
+    const today = new Date();
+    for (let i = 29; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(today.getDate() - i);
+        d.setHours(0, 0, 0, 0);
+        dates.push(d);
+    }
+    return dates;
+}
+
+// Helper to format date string to YYYY-MM-DD in local time
+function formatDateToYYYYMMDD(d) {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+// Helper to format date to a readable string
+function formatReadableDate(dateStr) {
+    if (!dateStr) return '';
+    const date = new Date(dateStr + 'T00:00:00');
+    return date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+// Helper to get calendar title based on the range of days
+function getCalendarTitle(days) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    if (days.length === 0) return '';
+    const start = days[0];
+    const end = days[days.length - 1];
+    
+    if (start.getFullYear() !== end.getFullYear()) {
+        return `${months[start.getMonth()]} ${start.getFullYear()} - ${months[end.getMonth()]} ${end.getFullYear()}`;
+    } else if (start.getMonth() !== end.getMonth()) {
+        return `${months[start.getMonth()]} - ${months[end.getMonth()]} ${start.getFullYear()}`;
+    } else {
+        return `${months[start.getMonth()]} ${start.getFullYear()}`;
+    }
+}
+
+function RecentReleasesSection() {
+    const [releases, setReleases] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [isCollapsed, setIsCollapsed] = useState(() => {
+        return localStorage.getItem('releasesCollapsed') === 'true';
+    });
+
+    const days = useMemo(() => getLast30Days(), []);
+    const todayStr = useMemo(() => formatDateToYYYYMMDD(new Date()), []);
+
+    const gridCells = useMemo(() => {
+        if (days.length === 0) return [];
+        const firstDayOfWeek = days[0].getDay(); // 0: Sunday, 6: Saturday
+        const cells = [];
+        
+        // Pad the beginning
+        for (let i = 0; i < firstDayOfWeek; i++) {
+            cells.push({ type: 'empty' });
+        }
+        
+        // Fill days
+        days.forEach(d => {
+            cells.push({
+                type: 'day',
+                date: d,
+                dateStr: formatDateToYYYYMMDD(d),
+                dayNum: d.getDate()
+            });
+        });
+        
+        // Pad the end to complete the week
+        const remainder = cells.length % 7;
+        if (remainder > 0) {
+            for (let i = 0; i < 7 - remainder; i++) {
+                cells.push({ type: 'empty' });
+            }
+        }
+        
+        return cells;
+    }, [days]);
+
+    const loadReleases = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const cacheKey = 'github_releases_cache_v2';
+            const cacheTimeKey = 'github_releases_cache_time_v2';
+            const oneHour = 60 * 60 * 1000;
+            const now = Date.now();
+            
+            const cachedData = localStorage.getItem(cacheKey);
+            const cachedTime = localStorage.getItem(cacheTimeKey);
+            
+            let processedReleases = null;
+            
+            if (cachedData && cachedTime && (now - parseInt(cachedTime, 10) < oneHour)) {
+                try {
+                    processedReleases = JSON.parse(cachedData);
+                } catch (e) {
+                    console.error('Error parsing cached releases', e);
+                }
+            }
+            
+            if (!processedReleases) {
+                const response = await fetch('https://api.github.com/repos/mirai73/bedrock-models/releases?per_page=50');
+                if (!response.ok) {
+                    throw new Error(`GitHub API returned status ${response.status}`);
+                }
+                const releasesList = await response.json();
+                
+                processedReleases = {};
+                releasesList.forEach(release => {
+                    const dateStr = release.published_at.substring(0, 10);
+                    if (!processedReleases[dateStr]) {
+                        processedReleases[dateStr] = [];
+                    }
+                    
+                    let cleanedBody = release.body || '';
+                    cleanedBody = cleanedBody.replace(/(?:\x1b|\\x1b|\\u001b|\^\[)\[[0-9;]*[a-zA-Z]/g, '');
+                    cleanedBody = cleanedBody.replace(/^Here\s*\n+/, '');
+                    cleanedBody = cleanedBody.trim();
+                    
+                    processedReleases[dateStr].push({
+                        tag: release.tag_name,
+                        name: release.name || release.tag_name,
+                        body: cleanedBody,
+                        html_url: release.html_url
+                    });
+                });
+                
+                localStorage.setItem(cacheKey, JSON.stringify(processedReleases));
+                localStorage.setItem(cacheTimeKey, now.toString());
+            }
+            
+            setReleases(processedReleases);
+            
+            let defaultDate = todayStr;
+            for (let i = days.length - 1; i >= 0; i--) {
+                const dStr = formatDateToYYYYMMDD(days[i]);
+                if (processedReleases[dStr] && processedReleases[dStr].length > 0) {
+                    defaultDate = dStr;
+                    break;
+                }
+            }
+            setSelectedDate(defaultDate);
+        } catch (err) {
+            console.error('Failed to load release notes live:', err);
+            setError('Failed to fetch release notes from GitHub API. You may be offline or rate-limited.');
+            
+            const cachedData = localStorage.getItem('github_releases_cache_v2');
+            if (cachedData) {
+                try {
+                    const fallbackReleases = JSON.parse(cachedData);
+                    setReleases(fallbackReleases);
+                    let defaultDate = todayStr;
+                    for (let i = days.length - 1; i >= 0; i--) {
+                        const dStr = formatDateToYYYYMMDD(days[i]);
+                        if (fallbackReleases[dStr] && fallbackReleases[dStr].length > 0) {
+                            defaultDate = dStr;
+                            break;
+                        }
+                    }
+                    setSelectedDate(defaultDate);
+                    setError(null);
+                } catch (e) {
+                    console.error('Error parsing expired cache', e);
+                }
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        loadReleases();
+    }, []);
+
+    const toggleCollapse = () => {
+        const nextState = !isCollapsed;
+        setIsCollapsed(nextState);
+        localStorage.setItem('releasesCollapsed', nextState.toString());
+    };
+
+    const renderNotesHTML = () => {
+        if (!selectedDate) return '<div class="no-notes">Select a date in the calendar to see release notes.</div>';
+        const dayReleases = releases[selectedDate];
+        if (!dayReleases || dayReleases.length === 0) {
+            return `<div class="no-notes">No releases published on this date.</div>`;
+        }
+        
+        return dayReleases.map(r => {
+            let parsedBody = '';
+            try {
+                parsedBody = marked.parse(r.body || '*No release notes content.*');
+            } catch (err) {
+                console.error('Error parsing markdown:', err);
+                parsedBody = r.body || '';
+            }
+            
+            return `
+                <div class="release-note-item">
+                    <div class="release-tag-header">
+                        <span class="release-tag-badge">${r.tag}</span>
+                        <a href="${r.html_url}" target="_blank" rel="noopener noreferrer" class="release-github-link">
+                            View on GitHub
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline; margin-left:3px; vertical-align:middle;">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="release-markdown-content">${parsedBody}</div>
+                </div>
+            `;
+        }).join('<hr class="release-separator" />');
+    };
+
+    return html`
+        <div class="releases-card ${isCollapsed ? 'collapsed' : ''}">
+            <div class="releases-header" onClick=${toggleCollapse}>
+                <div class="releases-header-left">
+                    <svg class="calendar-header-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <h2>Recent Releases & Changelog</h2>
+                </div>
+                <div class="releases-header-right">
+                    <span class="releases-header-subtitle">Last 30 Days</span>
+                    <svg class="collapse-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="releases-content-wrapper">
+                <div class="releases-content">
+                    ${loading ? html`
+                        <div class="releases-loading">
+                            <div class="releases-spinner"></div>
+                            <span>Loading release notes from GitHub...</span>
+                        </div>
+                    ` : error ? html`
+                        <div class="releases-error">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span>${error}</span>
+                            <button class="releases-retry-btn" onClick=${loadReleases}>Retry</button>
+                        </div>
+                    ` : html`
+                        <div class="releases-layout">
+                            <div class="calendar-container">
+                                <div class="calendar-month-title">${getCalendarTitle(days)}</div>
+                                <div class="calendar-weekdays">
+                                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                                </div>
+                                <div class="calendar-grid">
+                                    ${gridCells.map((cell, idx) => {
+                                        if (cell.type === 'empty') {
+                                            return html`<div class="calendar-cell empty" key=${`empty-${idx}`}></div>`;
+                                        }
+                                        
+                                        const hasRelease = releases[cell.dateStr] && releases[cell.dateStr].length > 0;
+                                        const isSelected = selectedDate === cell.dateStr;
+                                        const isToday = cell.dateStr === todayStr;
+                                        
+                                        let cellClass = 'calendar-cell';
+                                        if (hasRelease) cellClass += ' has-release';
+                                        if (isSelected) cellClass += ' selected';
+                                        if (isToday) cellClass += ' today';
+                                        
+                                        return html`
+                                            <button 
+                                                class=${cellClass} 
+                                                key=${cell.dateStr}
+                                                onClick=${() => setSelectedDate(cell.dateStr)}
+                                                title=${hasRelease ? `${releases[cell.dateStr].length} release(s) on ${cell.dateStr}` : `No releases on ${cell.dateStr}`}
+                                            >
+                                                <span class="day-number">${cell.dayNum}</span>
+                                                ${hasRelease && html`<span class="release-indicator-dot"></span>`}
+                                            </button>
+                                        `;
+                                    })}
+                                </div>
+                            </div>
+                            
+                            <div class="notes-container">
+                                <div class="notes-header">
+                                    <h3>Release Notes</h3>
+                                    <span class="notes-date">${formatReadableDate(selectedDate)}</span>
+                                </div>
+                                <div class="notes-body" dangerouslySetInnerHTML=${{ __html: renderNotesHTML() }}>
+                                </div>
+                            </div>
+                        </div>
+                    `}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 function App() {
     const [models, setModels] = useState([]);
     const [metadata, setMetadata] = useState({});
@@ -1005,6 +1320,8 @@ function App() {
                     </span>
                 </p>
             </header>
+
+            <${RecentReleasesSection} />
 
             <div class="legend">
                 <span class="legend-title">Capabilities:</span>

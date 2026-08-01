@@ -48,14 +48,32 @@ git show "${RANGE_START}:${MODEL_CLASS_FILE}" > "$OLD_JSON"
 } > "$CONTEXT_FILE"
 
 PROMPT="You are writing GitHub release notes for the 'bedrock-models' project.
-Read the commit list and the diff of the generated model-ID class below, then
-produce a concise, human-readable TL;DR aimed at library users.
+Read the commit list and the diff of the generated model-ID class below, then produce a concise, human-readable TL;DR and structured changelog aimed at library users.
 
-Format (markdown, no surrounding code fences, no preamble):
-- One-sentence headline of the release.
-- A '## TL;DR' section with 3-6 bullets covering the most impactful changes,
-  especially newly added, removed, or deprecated Bedrock models.
-- Optionally group notable items under 'Added', 'Changed', 'Fixed' if relevant.
+CRITICAL RULES:
+1. DO NOT include markdown code fences (e.g. \`\`\`markdown or \`\`\`) surrounding the entire response.
+2. DO NOT include any preamble or introductory text (e.g. \"Here are the release notes:\").
+3. DO NOT include any postamble or signature block.
+4. Output raw markdown immediately starting with the Headline block.
+
+EXACT OUTPUT FORMAT:
+[One-sentence headline summarizing the main focus of this release, e.g. \"Adds support for Amazon Nova 2 models and updates region metadata.\"]
+
+## TL;DR
+- [3 to 6 bullet points detailing the most impactful changes, focusing on newly added, removed, or deprecated Bedrock models, or new library features.]
+
+[Include the following sections ONLY if they contain one or more items. Do not output empty headers or placeholders:]
+### Added
+- [Bullet points of added models, regions, or features]
+
+### Changed
+- [Bullet points of modified metadata, updates, or deprecated models]
+
+### Removed
+- [Bullet points of removed/deleted models]
+
+### Fixed
+- [Bullet points of metadata corrections or bug fixes]
 
 --- CONTEXT ---
 $(cat "$CONTEXT_FILE")"

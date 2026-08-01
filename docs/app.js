@@ -821,15 +821,23 @@ function RecentReleasesSection() {
 
     const gridCells = useMemo(() => {
         if (days.length === 0) return [];
-        const firstDayOfWeek = days[0].getDay(); // 0: Sunday, 6: Saturday
         const cells = [];
         
-        // Pad the beginning
-        for (let i = 0; i < firstDayOfWeek; i++) {
-            cells.push({ type: 'empty' });
+        // Pad the beginning with actual dates from the start week
+        const startDay = new Date(days[0]);
+        const startDayOfWeek = startDay.getDay(); // 0: Sunday, 6: Saturday
+        for (let i = startDayOfWeek; i > 0; i--) {
+            const d = new Date(startDay);
+            d.setDate(startDay.getDate() - i);
+            cells.push({
+                type: 'empty',
+                date: d,
+                dateStr: formatDateToYYYYMMDD(d),
+                dayNum: d.getDate()
+            });
         }
         
-        // Fill days
+        // Fill actual days
         days.forEach(d => {
             cells.push({
                 type: 'day',
@@ -840,11 +848,17 @@ function RecentReleasesSection() {
         });
         
         // Pad the end to complete the week
-        const remainder = cells.length % 7;
-        if (remainder > 0) {
-            for (let i = 0; i < 7 - remainder; i++) {
-                cells.push({ type: 'empty' });
-            }
+        const lastDay = new Date(days[days.length - 1]);
+        const lastDayOfWeek = lastDay.getDay(); // 0: Sunday, 6: Saturday
+        for (let i = 1; i < 7 - lastDayOfWeek; i++) {
+            const d = new Date(lastDay);
+            d.setDate(lastDay.getDate() + i);
+            cells.push({
+                type: 'empty',
+                date: d,
+                dateStr: formatDateToYYYYMMDD(d),
+                dayNum: d.getDate()
+            });
         }
         
         return cells;
@@ -1034,7 +1048,14 @@ function RecentReleasesSection() {
                                 <div class="calendar-grid">
                                     ${gridCells.map((cell, idx) => {
                                         if (cell.type === 'empty') {
-                                            return html`<div class="calendar-cell empty" key=${`empty-${idx}`}></div>`;
+                                            return html`
+                                                <button 
+                                                    class="calendar-cell empty" 
+                                                    key=${cell.dateStr} 
+                                                    disabled 
+                                                    style=${{ visibility: 'hidden', pointerEvents: 'none' }}
+                                                ></button>
+                                            `;
                                         }
                                         
                                         const hasRelease = releases[cell.dateStr] && releases[cell.dateStr].length > 0;

@@ -1587,7 +1587,7 @@ header {
 
 .calendar-weekdays {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     text-align: center;
     font-size: 11px;
     font-weight: 600;
@@ -1598,11 +1598,14 @@ header {
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 6px;
+    width: 100%;
 }
 
 .calendar-cell {
+    width: 100%;
+    min-width: 0;
     aspect-ratio: 1;
     display: flex;
     flex-direction: column;

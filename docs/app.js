@@ -131,9 +131,11 @@ function renderModalityIcons(model) {
     const streamTitle = streaming ? 'Streaming supported' : 'Streaming not supported';
 
     return html`
-        <span class="icon-badge" title=${`Input: ${(model.inputModalities || []).join(', ')}`}>${input}</span>
-        <span class="icon-arrow">→</span>
-        <span class="icon-badge ${streamClass}" title=${`Output: ${(model.outputModalities || []).join(', ')} (${streamTitle})`}>${output}</span>
+        <div class="compact-capability-row" title=${`Input: ${(model.inputModalities || []).join(', ')} → Output: ${(model.outputModalities || []).join(', ')}`}>
+            <span class="icon-badge compact-icon" title=${`Input: ${(model.inputModalities || []).join(', ')}`}>${input || '—'}</span>
+            <span class="icon-arrow">→</span>
+            <span class="icon-badge compact-icon ${streamClass}" title=${`Output: ${(model.outputModalities || []).join(', ')} (${streamTitle})`}>${output || '—'}</span>
+        </div>
     `;
 }
 
@@ -544,7 +546,7 @@ function ModelCard({ model, selectedRegion, onShowMap, onShowRegions, onCopy }) 
     });
 
     const statusBadge = html`
-        <span class="badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}">
+        <span class="badge compact-status-badge ${model.model_lifecycle_status === 'ACTIVE' ? 'badge-active' : 'badge-legacy'}" title=${model.model_lifecycle_status}>
             ${model.model_lifecycle_status}
         </span>
     `;
@@ -552,8 +554,8 @@ function ModelCard({ model, selectedRegion, onShowMap, onShowRegions, onCopy }) 
     const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
     const mantleApis = model.mantle_apis || [];
     const apiBadgesHtml = [
-        ...apis.map(api => html`<span class="badge badge-api-runtime">${api}</span>`),
-        ...mantleApis.map(api => html`<span class="badge badge-api">${api}</span>`)
+        ...apis.map(api => html`<span class="badge badge-api-runtime api-pill" title=${api}>${api.charAt(0).toUpperCase()}</span>`),
+        ...mantleApis.map(api => html`<span class="badge badge-api api-pill" title=${api}>${api.charAt(0).toUpperCase()}</span>`)
     ];
 
     const copyBtn = html`
@@ -578,7 +580,11 @@ function ModelCard({ model, selectedRegion, onShowMap, onShowRegions, onCopy }) 
             <!-- Mobile compact view -->
             <div class="mobile-compact">
                 <div class="model-name">${formattedName}</div>
-                <div class="model-capabilities">${modalityIcons}</div>
+                <div class="model-capabilities">
+                    <div class="capability-group">${modalityIcons}</div>
+                    <div class="capability-center"><div class="interface-pill-row">${apiBadgesHtml}</div></div>
+                    <div class="capability-right">${statusBadge}</div>
+                </div>
                 <span class="mobile-expand-arrow">${chevronSvg}</span>
             </div>
             
@@ -611,15 +617,17 @@ function ModelCard({ model, selectedRegion, onShowMap, onShowRegions, onCopy }) 
 
             <!-- Desktop view -->
             <div class="model-header">
-                <div class="model-name">${formattedName}</div>
                 <span class="badge ${badgeClass}">${provider}</span>
+                <div class="model-name">${formattedName}</div>
             </div>
-            <div class="model-capabilities">${modalityIcons}</div>
+            <div class="model-capabilities">
+                <div class="capability-group">${modalityIcons}</div>
+                <div class="capability-center"><div class="interface-pill-row">${apiBadgesHtml}</div></div>
+                <div class="capability-right">${statusBadge}</div>
+            </div>
             <div class="model-badges">
                 ${crisBadgesHtml}${otherBadgesHtml}
-                ${statusBadge}
             </div>
-            <div class="model-badges model-api-badges">${apiBadgesHtml}</div>
             <div class="model-id">
                 <span>${model.id}</span>
                 ${copyBtn}
@@ -701,15 +709,19 @@ function ModelTable({ models, selectedRegion, onShowMap, onShowRegions, onCopy }
                         const apis = model.runtime_supported ? ['converse', 'invoke'] : [];
                         const mantleApis = model.mantle_apis || [];
                         const apiBadgesHtml = [
-                            ...apis.map(api => html`<span class="badge badge-api-runtime">${api}</span>`),
-                            ...mantleApis.map(api => html`<span class="badge badge-api">${api}</span>`)
+                            ...apis.map(api => html`<span class="badge badge-api-runtime api-pill" title=${api}>${api.charAt(0).toUpperCase()}</span>`),
+                            ...mantleApis.map(api => html`<span class="badge badge-api api-pill" title=${api}>${api.charAt(0).toUpperCase()}</span>`)
                         ];
 
                         return html`
                             <tr>
                                 <td class="table-model-name">${formattedName}</td>
                                 <td><span class="badge ${badgeClass}">${provider}</span></td>
-                                <td class="table-capabilities">${modalityIcons}</td>
+                                <td class="table-capabilities">
+                                    <div class="capability-group">${modalityIcons}</div>
+                                    <div class="capability-center"><div class="interface-pill-row">${apiBadgesHtml}</div></div>
+                                    <div class="capability-right">${statusBadge}</div>
+                                </td>
                                 <td>
                                     <div class="table-inference">
                                         ${crisTypes.map(type => {
@@ -738,7 +750,7 @@ function ModelTable({ models, selectedRegion, onShowMap, onShowRegions, onCopy }
                                     </div>
                                 </td>
                                 <td class="table-apis">${apiBadgesHtml}</td>
-                                <td><span class="badge ${statusClass}">${model.model_lifecycle_status}</span></td>
+                                <td><span class="badge compact-status-badge ${statusClass}" title=${model.model_lifecycle_status}>${model.model_lifecycle_status}</span></td>
                                 <td class="table-last-modified">${model.lastChanged}</td>
                                 <td>
                                     <span class="table-region-count" onClick=${() => onShowRegions(model.id, formattedName)} title="View all regions">
@@ -1108,6 +1120,7 @@ function App() {
     // Filter states
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedRegion, setSelectedRegion] = useState('');
+    const [selectedProvider, setSelectedProvider] = useState('');
     const [selectedType, setSelectedType] = useState('');
     const [selectedDateFilter, setSelectedDateFilter] = useState('all');
     const [selectedCustomDate, setSelectedCustomDate] = useState('');
@@ -1192,6 +1205,11 @@ function App() {
         localStorage.setItem('theme', newTheme);
     };
 
+    const handleStyleChange = (style) => {
+        setUiStyle(style);
+        localStorage.setItem('uiStyle', style);
+    };
+
     const crisProfileRegions = useMemo(() => {
         const regionSets = {};
         models.forEach(model => {
@@ -1233,6 +1251,12 @@ function App() {
         return Array.from(regions).sort();
     }, [models]);
 
+    const sortedProviders = useMemo(() => {
+        const providers = new Set();
+        models.forEach(model => providers.add(getModelProvider(model.id)));
+        return Array.from(providers).sort();
+    }, [models]);
+
     const globalLastUpdated = useMemo(() => {
         const dates = Object.values(metadata)
             .map(m => m.last_changed)
@@ -1245,6 +1269,7 @@ function App() {
         return models.filter(model => {
             const matchesSearch = model.id.toLowerCase().includes(query);
             const matchesRegion = !selectedRegion || model.regions.includes(selectedRegion);
+            const matchesProvider = !selectedProvider || getModelProvider(model.id) === selectedProvider;
 
             let matchesType = true;
             if (selectedType === 'global-cris') {
@@ -1280,9 +1305,9 @@ function App() {
                 matchesApi = model.mantle_apis && model.mantle_apis.length > 0;
             }
 
-            return matchesSearch && matchesRegion && matchesType && matchesDate && matchesApi;
+            return matchesSearch && matchesRegion && matchesProvider && matchesType && matchesDate && matchesApi;
         });
-    }, [models, searchTerm, selectedRegion, selectedType, selectedDateFilter, selectedCustomDate, selectedApiFilter]);
+    }, [models, searchTerm, selectedRegion, selectedProvider, selectedType, selectedDateFilter, selectedCustomDate, selectedApiFilter]);
 
     const handleCopy = (text) => {
         navigator.clipboard.writeText(text).then(() => {
@@ -1299,11 +1324,27 @@ function App() {
 
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 1024);
-        };
+        const handleResize = () => setIsMobile(window.innerWidth <= 1024);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        const header = document.querySelector('header');
+        const updateHeaderHeight = () => {
+            if (header) document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+        };
+        const onScroll = () => {
+            header?.classList.toggle('header-compact', window.scrollY > 30);
+            updateHeaderHeight();
+        };
+        updateHeaderHeight();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', updateHeaderHeight);
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', updateHeaderHeight);
+        };
     }, []);
 
     const isTableView = viewMode === 'table' && !isMobile;
@@ -1324,22 +1365,19 @@ function App() {
             <header>
                 <div class="header-top">
                     <h1 class="main-title">Amazon Bedrock Models</h1>
-                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" onClick=${handleThemeToggle}>
-                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" style=${{ display: theme === 'dark' ? 'block' : 'none' }}>
-                            <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5" />
-                            <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.5 4.5L14 6M6 14L4.5 15.5M15.5 15.5L14 14M6 6L4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                        </svg>
-                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" style=${{ display: theme === 'light' ? 'block' : 'none' }}>
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
+                    <div class="header-right">
+                        <span class="last-updated-inline">Updated: ${globalLastUpdated}</span>
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" onClick=${handleThemeToggle}>
+                            <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" style=${{ display: theme === 'dark' ? 'block' : 'none' }}>
+                                <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.5 4.5L14 6M6 14L4.5 15.5M15.5 15.5L14 14M6 6L4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" style=${{ display: theme === 'light' ? 'block' : 'none' }}>
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <p class="subtitle">
-                    Explore the available foundation models in Amazon Bedrock. Click on the CRIS badges to see the regions included in the profile.
-                    <span class="last-updated-wrapper" style=${{ display: 'block', marginTop: '6px', fontSize: '0.85em', opacity: 0.75 }}>
-                        Last updated: <span id="lastUpdatedDate">${globalLastUpdated}</span>
-                    </span>
-                </p>
             </header>
 
             <${RecentReleasesSection} />
@@ -1379,6 +1417,18 @@ function App() {
                 </div>
 
                 <div class="filters">
+                    <${CustomSelect}
+                        label="All Providers"
+                        value=${selectedProvider}
+                        isOpen=${openDropdown === 'provider'}
+                        onToggle=${() => handleToggleDropdown('provider')}
+                        onSelect=${val => { setSelectedProvider(val); setOpenDropdown(null); }}
+                        options=${[
+                            { value: '', label: 'All Providers' },
+                            ...sortedProviders.map(p => ({ value: p, label: p }))
+                        ]}
+                    />
+
                     <${CustomSelect}
                         label="All Regions"
                         value=${selectedRegion}

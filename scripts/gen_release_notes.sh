@@ -25,8 +25,13 @@ fi
 
 # Build context: commit subjects for the whole release + structured model diff.
 CONTEXT_FILE="$(mktemp)"
-echo Here
-OLD_JSON="$(mktemp -t bedrock_models_old.XXXX --suffix=.json)"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  OLD_JSON="$(mktemp -t bedrock_models_old)"
+else
+  OLD_JSON="$(mktemp -t bedrock_models_old.XXXX --suffix=.json)"
+fi
+
 trap 'rm -f "$CONTEXT_FILE" "$OLD_JSON"' EXIT
 
 # Extract the version of the model file at the start of the range.
@@ -57,4 +62,5 @@ $(cat "$CONTEXT_FILE")"
 
 # Headless / non-interactive kiro-cli run.
 # Confirm exact flags for your installed version with: kiro-cli chat --help
-kiro-cli chat --no-interactive --trust-all-tools "$PROMPT"
+# Pipe to sed to strip ANSI escape codes so that they do not get uploaded to GitHub Releases.
+kiro-cli chat --no-interactive --trust-all-tools "$PROMPT" | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'

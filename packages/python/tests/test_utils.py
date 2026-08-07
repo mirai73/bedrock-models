@@ -303,3 +303,145 @@ def test_save_to_json_metadata(tmp_path):
     # model-b resurrected -> 'deleted' is removed, 'last_changed' updated to current_date
     assert "deleted" not in meta_data["model-b"]
     assert meta_data["model-b"]["last_changed"] == current_date
+
+
+def test_merge_failed_regions_from_previous():
+    """Test preserving previous state when a region API fails during scanning."""
+    import sys
+    from pathlib import Path
+    
+    utils_dir = str(Path(__file__).parent.parent / "utils")
+    if utils_dir not in sys.path:
+        sys.path.append(utils_dir)
+        
+    from generate_models_json import merge_failed_regions_from_previous
+    
+    old_models = {
+        "model-a": {
+            "regions": ["ap-southeast-4", "us-east-1"],
+            "inference_types": {
+                "ap-southeast-4": ["AU", "GLOBAL", "ON_DEMAND"],
+                "us-east-1": ["ON_DEMAND"]
+            },
+            "mantle_supported_regions": ["ap-southeast-4"],
+            "mantle_apis": ["completions"],
+            "model_lifecycle_status": "ACTIVE",
+            "inputModalities": ["TEXT"],
+            "outputModalities": ["TEXT"],
+            "responseStreamingSupported": True,
+            "customizationsSupported": []
+        },
+        "model-b-regional-only": {
+            "regions": ["ap-southeast-4"],
+            "inference_types": {
+                "ap-southeast-4": ["ON_DEMAND"]
+            },
+            "model_lifecycle_status": "ACTIVE",
+            "inputModalities": ["TEXT"],
+            "outputModalities": ["TEXT"],
+            "responseStreamingSupported": True,
+            "customizationsSupported": []
+        }
+    }
+
+    # Simulate a degraded scan result where ap-southeast-4 suffered throttling:
+    # model-a lost ON_DEMAND and mantle entry for ap-southeast-4, and model-b-regional-only was completely missed.
+    current_sorted_mapping = {
+        "model-a": {
+            "regions": ["ap-southeast-4", "us-east-1"],
+            "inference_types": {
+                "ap-southeast-4": ["AU", "GLOBAL"],  # Missing ON_DEMAND
+                "us-east-1": ["ON_DEMAND"]
+            },
+            # Missing mantle_supported_regions
+            "model_lifecycle_status": "ACTIVE",
+            "inputModalities": ["TEXT"],
+            "outputModalities": ["TEXT"],
+            "responseStreamingSupported": True,
+            "customizationsSupported": []
+        }
+    }
+
+    failed_regions = {"ap-southeast-4"}
+
+    merge_failed_regions_from_previous(current_sorted_mapping, failed_regions, old_models)
+
+    # Verify model-a restored ON_DEMAND in ap-southeast-4
+    assert "ON_DEMAND" in current_sorted_mapping["model-a"]["inference_types"]["ap-southeast-4"]
+    assert current_sorted_mapping["model-a"]["inference_types"]["ap-southeast-4"] == ["AU", "GLOBAL", "ON_DEMAND"]
+
+    # Verify mantle_supported_regions restored for model-a
+    assert "mantle_supported_regions" in current_sorted_mapping["model-a"]
+    assert "ap-southeast-4" in current_sorted_mapping["model-a"]["mantle_supported_regions"]
+    assert "completions" in current_sorted_mapping["model-a"]["mantle_apis"]
+
+    # Verify model-b-regional-only was fully restored
+    assert "model-b-regional-only" in current_sorted_mapping
+    assert current_sorted_mapping["model-b-regional-only"]["regions"] == ["ap-southeast-4"]
+
+
+def test_save_to_json_with_failed_regions(tmp_path):
+    """Test save_to_json integrates merge_failed_regions_from_previous and avoids false last_changed updates."""
+    import sys
+    import json
+    from pathlib import Path
+    
+    utils_dir = str(Path(__file__).parent.parent / "utils")
+    if utils_dir not in sys.path:
+        sys.path.append(utils_dir)
+        
+    from generate_models_json import save_to_json
+
+    models_file = tmp_path / "bedrock_models.json"
+    metadata_file = tmp_path / "bedrock_models_metadata.json"
+
+    # Seed initial models and metadata with an old timestamp
+    initial_models = {
+        "model-a": {
+            "regions": ["ap-southeast-4"],
+            "inference_types": {"ap-southeast-4": ["AU", "GLOBAL", "ON_DEMAND"]},
+            "mantle_supported_regions": ["ap-southeast-4"],
+            "mantle_apis": ["completions"],
+            "model_lifecycle_status": "ACTIVE",
+            "inputModalities": ["TEXT"],
+            "outputModalities": ["TEXT"],
+            "responseStreamingSupported": True,
+            "customizationsSupported": []
+        }
+    }
+    initial_metadata = {
+        "model-a": {"last_changed": "2025-01-01"}
+    }
+
+    with open(models_file, "w") as f:
+        json.dump(initial_models, f)
+    with open(metadata_file, "w") as f:
+        json.dump(initial_metadata, f)
+
+    # Flaky run mapping where ap-southeast-4 call failed / throttled
+    flaky_scan_mapping = {
+        "model-a": {
+            "regions": ["ap-southeast-4"],
+            "inference_types": {"ap-southeast-4": ["AU", "GLOBAL"]}, # missing ON_DEMAND
+            "model_lifecycle_status": "ACTIVE",
+            "inputModalities": ["TEXT"],
+            "outputModalities": ["TEXT"],
+            "responseStreamingSupported": True,
+            "customizationsSupported": []
+        }
+    }
+
+    # Pass ap-southeast-4 as a failed region
+    save_to_json(flaky_scan_mapping, filename=str(models_file), failed_regions={"ap-southeast-4"})
+
+    # Verify models file preserved the state
+    with open(models_file, "r") as f:
+        saved_models = json.load(f)
+    assert saved_models["model-a"]["inference_types"]["ap-southeast-4"] == ["AU", "GLOBAL", "ON_DEMAND"]
+    assert "ap-southeast-4" in saved_models["model-a"]["mantle_supported_regions"]
+
+    # Verify metadata last_changed was NOT bumped (remains 2025-01-01)
+    with open(metadata_file, "r") as f:
+        saved_metadata = json.load(f)
+    assert saved_metadata["model-a"]["last_changed"] == "2025-01-01"
+

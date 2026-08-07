@@ -140,6 +140,9 @@ Thumbs.db
 .aws/
 credentials
 config
+
+# Local-only infrastructure scaffold
+/infra/
  
 # Node.js
 node_modules/

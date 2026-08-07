@@ -92,7 +92,7 @@ def get_bedrock_regions() -> List[str]:
     return session.get_available_regions('bedrock')
 
 
-def get_foundation_models_in_region(region: str) -> tuple[str, List[Dict]]:
+def get_foundation_models_in_region(region: str) -> tuple[str, List[Dict] | None]:
     """
     Get all foundation models available in a specific region.
     
@@ -100,7 +100,7 @@ def get_foundation_models_in_region(region: str) -> tuple[str, List[Dict]]:
         region: AWS region name
         
     Returns:
-        Tuple of (region, list of model dictionaries)
+        Tuple of (region, list of model dictionaries or None on failure)
     """
     try:
         bedrock = make_bedrock_client(region)
@@ -111,10 +111,10 @@ def get_foundation_models_in_region(region: str) -> tuple[str, List[Dict]]:
         return region, response.get('modelSummaries', [])
     except Exception as e:
         print(f"Error accessing region {region}: {e}")
-        return region, []
+        return region, None
 
 
-def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[str]]]:
+def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[str]]] | None:
     """
     Get all inference profiles available in a specific region and their covered regions.
     Maps model IDs to a dictionary of profile prefixes and their covered regions.
@@ -123,13 +123,7 @@ def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[st
         region: AWS region name
         
     Returns:
-        Dictionary mapping model IDs to profile info:
-        {
-            "model.id": {
-                "US": ["us-east-1", "us-west-2"],
-                "EU": ["eu-central-1"]
-            }
-        }
+        Dictionary mapping model IDs to profile info or None on failure
     """
     try:
         bedrock = make_bedrock_client(region)
@@ -182,7 +176,7 @@ def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[st
         return {k: dict(v) for k, v in model_profiles.items()}
     except Exception as e:
         print(f"  Error listing inference profiles in {region}: {e}")
-        return {}
+        return None
 
 
 def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
@@ -213,7 +207,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
         ) as response:
             data = json.loads(response.read().decode())
             model_ids = [m['id'] for m in data.get('data', [])]
-    except Exception:
+    except Exception as exc:
+        if _is_retryable(exc):
+            print(f"  ⚠ Mantle endpoint error/timeout in {region}: {exc}")
+            return None
         # If the endpoint doesn't exist or isn't reachable (e.g. host name unresolved), return empty dict
         return {}
         
@@ -338,7 +335,7 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
     return model_apis
 
 
-def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, List[str]]], int, Dict[str, List[str]]]:
+def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, List[str]]], int, Dict[str, List[str]], bool]:
     """
     Process a single region: get models, inference profiles, and Mantle models.
     
@@ -346,11 +343,18 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, Li
         region: AWS region name
         
     Returns:
-        Tuple of (region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis)
+        Tuple of (region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis, failed)
     """
     print(f"Scanning region: {region}")
+    failed = False
+    
     region_name, models = get_foundation_models_in_region(region)
-    print(f"  Found {len(models)} models in {region}")
+    if models is None:
+        print(f"  ⚠ Failed to fetch foundation models in {region}")
+        models = []
+        failed = True
+    else:
+        print(f"  Found {len(models)} models in {region}")
     
     # Filter models immediately - only keep those with ON_DEMAND or INFERENCE_PROFILE
     filtered_models = []
@@ -369,25 +373,37 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, Li
     
     # Get all inference profiles in this region
     model_to_profiles = get_inference_profiles_in_region(region)
-    
-    if model_to_profiles:
+    if model_to_profiles is None:
+        print(f"  ⚠ Failed to fetch inference profiles in {region}")
+        model_to_profiles = {}
+        failed = True
+    elif model_to_profiles:
         count = sum(len(profiles) for profiles in model_to_profiles.values())
         print(f"  Found {count} profile definitions")
         
     # Get all Bedrock Mantle models and their supported APIs
     print(f"  Probing Bedrock Mantle models in {region}...")
     mantle_model_apis = get_mantle_models_in_region(region)
-    print(f"  Found {len(mantle_model_apis)} Mantle-supported models in {region}")
+    if mantle_model_apis is None:
+        print(f"  ⚠ Failed to probe Mantle models in {region}")
+        mantle_model_apis = {}
+        failed = True
+    else:
+        print(f"  Found {len(mantle_model_apis)} Mantle-supported models in {region}")
+        
+    if not failed and len(filtered_models) == 0 and len(model_to_profiles) == 0 and len(mantle_model_apis) == 0:
+        print(f"  ⚠ Region {region} returned 0 models across all APIs; marking as failed.")
+        failed = True
     
-    return region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis
+    return region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis, failed
 
 
-def scan_all_regions_parallel() -> Dict[str, Any]:
+def scan_all_regions_parallel() -> tuple[Dict[str, Any], Set[str]]:
     """
     Scan all AWS regions in parallel and build a mapping of model IDs to regions and inference types.
     
     Returns:
-        Dictionary mapping model IDs to their supported regions and inference types
+        Tuple of (model_mapping dictionary, set of failed_regions)
     """
     bedrock_regions = [r for r in get_bedrock_regions() if r not in  ["me-south-1", "me-central-1"]]
     print(f"Scanning {len(bedrock_regions)} Bedrock-enabled regions in parallel...")
@@ -408,6 +424,7 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
         'runtime_supported': False
     })
     
+    failed_regions = set()
     total_excluded = 0
     lock = threading.Lock()
     
@@ -418,9 +435,12 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
         for future in as_completed(future_to_region):
             region = future_to_region[future]
             try:
-                region_name, models, model_to_profiles, excluded_count, mantle_model_apis = future.result()
+                region_name, models, model_to_profiles, excluded_count, mantle_model_apis, failed = future.result()
                 
                 with lock:
+                    if failed:
+                        failed_regions.add(region)
+                        
                     total_excluded += excluded_count
                     
                     for model in models:
@@ -524,10 +544,13 @@ def scan_all_regions_parallel() -> Dict[str, Any]:
                 
             except Exception as e:
                 print(f"Error processing region {region}: {e}")
+                failed_regions.add(region)
     
     print(f"\nTotal excluded models across all regions: {total_excluded}")
+    if failed_regions:
+        print(f"Failed regions detected during scan: {', '.join(sorted(failed_regions))}")
     
-    return dict(model_mapping)
+    return dict(model_mapping), failed_regions
 
 
 def print_summary(model_mapping: Dict[str, Any]):
@@ -583,7 +606,108 @@ def print_summary(model_mapping: Dict[str, Any]):
             print(f"    {region}: {', '.join(inference_types)}")
 
 
-def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedrock_models.json'):
+def merge_failed_regions_from_previous(
+    sorted_mapping: Dict[str, Any],
+    failed_regions: Set[str],
+    old_models: Dict[str, Any],
+) -> None:
+    """
+    If any region failed during scanning (e.g. due to API throttling or timeouts),
+    preserve the previous known-good state for that region from old_models instead of
+    assuming models/features in that region were removed.
+    """
+    if not failed_regions or not old_models:
+        return
+
+    print(f"Preserving previous state for failed regions: {', '.join(sorted(failed_regions))}")
+
+    for region in sorted(failed_regions):
+        for model_id, old_entry in old_models.items():
+            old_regions = old_entry.get('regions', [])
+            old_inf_types = old_entry.get('inference_types', {})
+            old_mantle_regions = old_entry.get('mantle_supported_regions', [])
+            old_inf_profile = old_entry.get('inferenceProfile', {})
+
+            was_in_regions = region in old_regions
+            was_in_inf_types = region in old_inf_types
+            was_in_mantle = region in old_mantle_regions
+
+            has_profile_src = False
+            for prefix, content in old_inf_profile.items():
+                if prefix != 'GLOBAL' and isinstance(content, dict) and region in content:
+                    has_profile_src = True
+                    break
+
+            if not (was_in_regions or was_in_inf_types or was_in_mantle or has_profile_src):
+                continue
+
+            if model_id not in sorted_mapping:
+                print(f"  Restoring model {model_id} from old state because region {region} failed")
+                import copy
+                sorted_mapping[model_id] = copy.deepcopy(old_entry)
+                continue
+
+            entry = sorted_mapping[model_id]
+
+            if was_in_regions and region not in entry['regions']:
+                print(f"  Restoring region {region} for model {model_id}")
+                entry['regions'].append(region)
+                entry['regions'].sort()
+
+            if was_in_inf_types:
+                if region not in entry['inference_types']:
+                    print(f"  Restoring inference_types for region {region} on model {model_id}")
+                    entry['inference_types'][region] = sorted(old_inf_types[region])
+                else:
+                    current_types = set(entry['inference_types'][region])
+                    missing_types = set(old_inf_types[region]) - current_types
+                    if missing_types:
+                        print(f"  Restoring missing inference_types {sorted(list(missing_types))} for region {region} on model {model_id}")
+                        current_types.update(missing_types)
+                        entry['inference_types'][region] = sorted(list(current_types))
+
+            if was_in_mantle:
+                if 'mantle_supported_regions' not in entry:
+                    entry['mantle_supported_regions'] = []
+                if region not in entry['mantle_supported_regions']:
+                    print(f"  Restoring mantle_supported_regions {region} for model {model_id}")
+                    entry['mantle_supported_regions'].append(region)
+                    entry['mantle_supported_regions'].sort()
+
+                old_mantle_apis = old_entry.get('mantle_apis', [])
+                if old_mantle_apis:
+                    if 'mantle_apis' not in entry:
+                        entry['mantle_apis'] = sorted(old_mantle_apis)
+                    else:
+                        current_apis = set(entry['mantle_apis'])
+                        missing_apis = set(old_mantle_apis) - current_apis
+                        if missing_apis:
+                            current_apis.update(missing_apis)
+                            entry['mantle_apis'] = sorted(list(current_apis))
+
+            if has_profile_src:
+                if 'inferenceProfile' not in entry:
+                    entry['inferenceProfile'] = {}
+                for prefix, content in old_inf_profile.items():
+                    if prefix != 'GLOBAL' and isinstance(content, dict) and region in content:
+                        if prefix not in entry['inferenceProfile']:
+                            entry['inferenceProfile'][prefix] = {}
+                        if region not in entry['inferenceProfile'][prefix]:
+                            print(f"  Restoring inferenceProfile {prefix} for source region {region} on model {model_id}")
+                            entry['inferenceProfile'][prefix][region] = sorted(content[region])
+
+            if 'GLOBAL' in old_inf_profile and isinstance(old_inf_profile['GLOBAL'], list):
+                if region in old_inf_profile['GLOBAL']:
+                    if 'inferenceProfile' not in entry:
+                        entry['inferenceProfile'] = {}
+                    if 'GLOBAL' not in entry['inferenceProfile']:
+                        entry['inferenceProfile']['GLOBAL'] = [region]
+                    elif region not in entry['inferenceProfile']['GLOBAL']:
+                        entry['inferenceProfile']['GLOBAL'].append(region)
+                        entry['inferenceProfile']['GLOBAL'].sort()
+
+
+def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedrock_models.json', failed_regions: Set[str] | None = None):
     """Save the model mapping to a JSON file with sorted keys and values for deterministic output."""
     import os
     from datetime import datetime, timezone
@@ -633,6 +757,10 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedro
                 old_models = json.load(f)
         except Exception as e:
             print(f"Warning: Could not load existing models file: {e}")
+
+    # Preserve previous state for failed regions
+    if failed_regions and old_models:
+        merge_failed_regions_from_previous(sorted_mapping, failed_regions, old_models)
 
     # Load existing metadata
     metadata_filename = os.path.join(os.path.dirname(filename), 'bedrock_models_metadata.json')
@@ -703,13 +831,13 @@ def main():
     print("="*80 + "\n")
     
     # Scan all regions
-    model_mapping = scan_all_regions_parallel()
+    model_mapping, failed_regions = scan_all_regions_parallel()
     
     # Print summary
     print_summary(model_mapping)
     
     # Save to JSON file
-    save_to_json(model_mapping)
+    save_to_json(model_mapping, failed_regions=failed_regions)
 
 
 if __name__ == '__main__':

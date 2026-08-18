@@ -8962,6 +8962,16 @@
         "us-west-1",
         "us-west-2"
       ],
+      "IN": {
+        "ap-south-1": [
+          "ap-south-1",
+          "ap-south-2"
+        ],
+        "ap-south-2": [
+          "ap-south-1",
+          "ap-south-2"
+        ]
+      },
       "US": {
         "ca-central-1": [
           "ca-central-1",
@@ -9012,10 +9022,12 @@
         "GLOBAL"
       ],
       "ap-south-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "IN"
       ],
       "ap-south-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "IN"
       ],
       "ap-southeast-1": [
         "GLOBAL"
@@ -9384,6 +9396,16 @@
         "us-west-1",
         "us-west-2"
       ],
+      "IN": {
+        "ap-south-1": [
+          "ap-south-1",
+          "ap-south-2"
+        ],
+        "ap-south-2": [
+          "ap-south-1",
+          "ap-south-2"
+        ]
+      },
       "US": {
         "ca-central-1": [
           "ca-central-1",
@@ -9434,10 +9456,12 @@
         "GLOBAL"
       ],
       "ap-south-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "IN"
       ],
       "ap-south-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "IN"
       ],
       "ap-southeast-1": [
         "GLOBAL"

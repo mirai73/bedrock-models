@@ -116,9 +116,11 @@
     "last_changed": "2026-07-16"
   },
   "cohere.command-r-plus-v1:0": {
+    "deleted": "2026-08-20",
     "last_changed": "2026-06-20"
   },
   "cohere.command-r-v1:0": {
+    "deleted": "2026-08-20",
     "last_changed": "2026-06-20"
   },
   "cohere.embed-english-v3": {
@@ -425,6 +427,9 @@
   },
   "xai.grok-4.3": {
     "last_changed": "2026-07-01"
+  },
+  "xai.grok-4.6": {
+    "last_changed": "2026-08-20"
   },
   "zai.glm-4.6": {
     "last_changed": "2026-07-01"

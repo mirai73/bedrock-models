@@ -121,6 +121,7 @@ class Models:
     WRITER_PALMYRA_X4: Final[BedrockModel]
     WRITER_PALMYRA_X5: Final[BedrockModel]
     XAI_GROK_4_3: Final[BedrockModel]
+    XAI_GROK_4_6: Final[BedrockModel]
     ZAI_GLM_4_6: Final[BedrockModel]
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
@@ -134,8 +135,6 @@ class Models:
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
-    COHERE_COMMAND_R: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-v1:0' has LEGACY status
-    COHERE_COMMAND_R_PLUS: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-plus-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
 
 class MantleModels:
@@ -191,6 +190,7 @@ class MantleModels:
     QWEN_QWEN3_VL_235B_A22B_INSTRUCT: Final[BedrockModel]
     WRITER_PALMYRA_VISION_7B: Final[BedrockModel]
     XAI_GROK_4_3: Final[BedrockModel]
+    XAI_GROK_4_6: Final[BedrockModel]
     ZAI_GLM_4_6: Final[BedrockModel]
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
@@ -298,6 +298,7 @@ class RuntimeModels:
     WRITER_PALMYRA_VISION_7B: Final[BedrockModel]
     WRITER_PALMYRA_X4: Final[BedrockModel]
     WRITER_PALMYRA_X5: Final[BedrockModel]
+    XAI_GROK_4_6: Final[BedrockModel]
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
     ZAI_GLM_5: Final[BedrockModel]
@@ -310,6 +311,4 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
-    COHERE_COMMAND_R: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-v1:0' has LEGACY status
-    COHERE_COMMAND_R_PLUS: Final[BedrockModel]  # deprecated: Model 'cohere.command-r-plus-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status

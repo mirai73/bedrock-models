@@ -32,17 +32,19 @@ _TIMEOUT_EXCEPTIONS = (socket.timeout, TimeoutError, ReadTimeoutError, ConnectTi
 
 
 def _is_retryable(exc: Exception) -> bool:
-    """Return True if the exception represents a retryable timeout or throttling error."""
+    """Return True if the exception represents a retryable timeout, throttling error, or server error."""
     if isinstance(exc, _TIMEOUT_EXCEPTIONS):
         return True
     if isinstance(exc, ClientError):
         error_code = exc.response.get('Error', {}).get('Code', '')
         if error_code in ('ThrottlingException', 'RequestLimitExceeded', 'ProvisionedThroughputExceededException'):
             return True
-    # urllib wraps socket timeouts inside URLError. HTTPError is a URLError
-    # subclass but is NOT a timeout (the Mantle probes rely on it as a signal),
-    # so it must never be treated as retryable.
-    if isinstance(exc, urllib.error.URLError) and not isinstance(exc, urllib.error.HTTPError):
+    if isinstance(exc, urllib.error.HTTPError):
+        if exc.code in (429, 500, 502, 503, 504):
+            return True
+        return False
+    # urllib wraps socket timeouts inside URLError.
+    if isinstance(exc, urllib.error.URLError):
         if isinstance(getattr(exc, 'reason', None), (socket.timeout, TimeoutError)):
             return True
     return False
@@ -179,19 +181,19 @@ def get_inference_profiles_in_region(region: str) -> Dict[str, Dict[str, List[st
         return None
 
 
-def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
+def get_mantle_models_in_region(region: str) -> tuple[Dict[str, List[str]] | None, set[str]]:
     """
     Query all models on the Bedrock Mantle endpoint in a specific region,
     and probe their support for completions and responses endpoints using validation-only check.
     
     Returns:
-        Dict mapping model ID -> list of supported APIs: e.g., {'model_id': ['completions', 'responses']}
+        Tuple of (model_apis dictionary or None on failure, set of failed_model_ids)
     """
     try:
         token = provide_token(region=region)
     except Exception as e:
         print(f"  ⚠ Could not generate Mantle token for {region}: {e}")
-        return {}
+        return {}, set()
         
     url_models = f"https://bedrock-mantle.{region}.api.aws/v1/models"
     headers = {
@@ -210,12 +212,13 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
     except Exception as exc:
         if _is_retryable(exc):
             print(f"  ⚠ Mantle endpoint error/timeout in {region}: {exc}")
-            return None
+            return None, set()
         # If the endpoint doesn't exist or isn't reachable (e.g. host name unresolved), return empty dict
-        return {}
+        return {}, set()
         
     def probe_model(model_id):
         supported_apis = []
+        probe_failed = False
         
         # 1. Probe completions API
         if not model_id.startswith('anthropic.'):
@@ -238,8 +241,12 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 if 'max_tokens' in body or 'access_denied' in body:
                     supported_apis.append('completions')
                     comp_success = True
-            except Exception:
-                pass
+                else:
+                    logger.warning("Mantle completions probe for %s in %s returned unexpected HTTP %d: %s", model_id, region, e.code, body[:200])
+                    probe_failed = True
+            except Exception as e:
+                logger.warning("Mantle completions probe failed for %s in %s: %s", model_id, region, e)
+                probe_failed = True
                 
             # Fallback to /openai/v1/chat/completions
             if not comp_success:
@@ -255,8 +262,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                     body = e.read().decode()
                     if 'max_tokens' in body or 'access_denied' in body:
                         supported_apis.append('completions')
-                except Exception:
-                    pass
+                    else:
+                        logger.warning("Mantle completions(openai) probe for %s in %s returned unexpected HTTP %d: %s", model_id, region, e.code, body[:200])
+                except Exception as e:
+                    logger.warning("Mantle completions(openai) probe failed for %s in %s: %s", model_id, region, e)
             
         # 2. Probe responses API
         if not model_id.startswith('anthropic.'):
@@ -280,8 +289,12 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 if 'max_output_tokens' in body or 'access_denied' in body:
                     supported_apis.append('responses')
                     resp_success = True
-            except Exception:
-                pass
+                else:
+                    logger.warning("Mantle responses probe for %s in %s returned unexpected HTTP %d: %s", model_id, region, e.code, body[:200])
+                    probe_failed = True
+            except Exception as e:
+                logger.warning("Mantle responses probe failed for %s in %s: %s", model_id, region, e)
+                probe_failed = True
                 
             # Fallback to /openai/v1/responses
             if not resp_success:
@@ -297,8 +310,10 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                     body = e.read().decode()
                     if 'max_output_tokens' in body or 'access_denied' in body:
                         supported_apis.append('responses')
-                except Exception:
-                    pass
+                    else:
+                        logger.warning("Mantle responses(openai) probe for %s in %s returned unexpected HTTP %d: %s", model_id, region, e.code, body[:200])
+                except Exception as e:
+                    logger.warning("Mantle responses(openai) probe failed for %s in %s: %s", model_id, region, e)
             
         # 3. Probe messages API
         if model_id.startswith('anthropic.'):
@@ -319,23 +334,32 @@ def get_mantle_models_in_region(region: str) -> Dict[str, List[str]]:
                 body = e.read().decode()
                 if 'max_tokens' in body or 'access_denied' in body:
                     supported_apis.append('messages')
-            except Exception:
-                pass
+                else:
+                    logger.warning("Mantle messages probe for %s in %s returned unexpected HTTP %d: %s", model_id, region, e.code, body[:200])
+                    probe_failed = True
+            except Exception as e:
+                logger.warning("Mantle messages probe failed for %s in %s: %s", model_id, region, e)
+                probe_failed = True
             
-        return model_id, sorted(supported_apis) if supported_apis else None
+        return model_id, sorted(supported_apis) if supported_apis else None, probe_failed
 
     model_apis = {}
+    failed_model_ids = set()
     with ThreadPoolExecutor(max_workers=10) as inner_executor:
         futures = [inner_executor.submit(probe_model, m) for m in model_ids]
         for f in as_completed(futures):
             res = f.result()
-            if res and res[1]:
-                model_apis[res[0]] = res[1]
+            if res:
+                m_id, apis, failed = res
+                if apis:
+                    model_apis[m_id] = apis
+                if failed:
+                    failed_model_ids.add(m_id)
                 
-    return model_apis
+    return model_apis, failed_model_ids
 
 
-def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, List[str]]], int, Dict[str, List[str]], bool]:
+def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, List[str]]], int, Dict[str, List[str]], bool, set[str]]:
     """
     Process a single region: get models, inference profiles, and Mantle models.
     
@@ -343,7 +367,7 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, Li
         region: AWS region name
         
     Returns:
-        Tuple of (region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis, failed)
+        Tuple of (region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis, failed, failed_probe_models)
     """
     print(f"Scanning region: {region}")
     failed = False
@@ -383,27 +407,30 @@ def process_region(region: str) -> tuple[str, List[Dict], Dict[str, Dict[str, Li
         
     # Get all Bedrock Mantle models and their supported APIs
     print(f"  Probing Bedrock Mantle models in {region}...")
-    mantle_model_apis = get_mantle_models_in_region(region)
+    mantle_model_apis, failed_probe_models = get_mantle_models_in_region(region)
     if mantle_model_apis is None:
         print(f"  ⚠ Failed to probe Mantle models in {region}")
         mantle_model_apis = {}
+        failed_probe_models = set()
         failed = True
     else:
         print(f"  Found {len(mantle_model_apis)} Mantle-supported models in {region}")
+        if failed_probe_models:
+            print(f"  ⚠ {len(failed_probe_models)} model probe(s) encountered failures in {region}")
         
     if not failed and len(filtered_models) == 0 and len(model_to_profiles) == 0 and len(mantle_model_apis) == 0:
         print(f"  ⚠ Region {region} returned 0 models across all APIs; marking as failed.")
         failed = True
     
-    return region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis, failed
+    return region, filtered_models, model_to_profiles, excluded_count, mantle_model_apis, failed, failed_probe_models
 
 
-def scan_all_regions_parallel() -> tuple[Dict[str, Any], Set[str]]:
+def scan_all_regions_parallel() -> tuple[Dict[str, Any], Set[str], Set[tuple[str, str]]]:
     """
     Scan all AWS regions in parallel and build a mapping of model IDs to regions and inference types.
     
     Returns:
-        Tuple of (model_mapping dictionary, set of failed_regions)
+        Tuple of (model_mapping dictionary, set of failed_regions, set of failed_model_regions)
     """
     bedrock_regions = [r for r in get_bedrock_regions() if r not in  ["me-south-1", "me-central-1"]]
     print(f"Scanning {len(bedrock_regions)} Bedrock-enabled regions in parallel...")
@@ -425,6 +452,7 @@ def scan_all_regions_parallel() -> tuple[Dict[str, Any], Set[str]]:
     })
     
     failed_regions = set()
+    failed_model_regions = set()
     total_excluded = 0
     lock = threading.Lock()
     
@@ -435,11 +463,13 @@ def scan_all_regions_parallel() -> tuple[Dict[str, Any], Set[str]]:
         for future in as_completed(future_to_region):
             region = future_to_region[future]
             try:
-                region_name, models, model_to_profiles, excluded_count, mantle_model_apis, failed = future.result()
+                region_name, models, model_to_profiles, excluded_count, mantle_model_apis, failed, failed_probe_models = future.result()
                 
                 with lock:
                     if failed:
                         failed_regions.add(region)
+                    for m_id in failed_probe_models:
+                        failed_model_regions.add((m_id, region))
                         
                     total_excluded += excluded_count
                     
@@ -549,8 +579,10 @@ def scan_all_regions_parallel() -> tuple[Dict[str, Any], Set[str]]:
     print(f"\nTotal excluded models across all regions: {total_excluded}")
     if failed_regions:
         print(f"Failed regions detected during scan: {', '.join(sorted(failed_regions))}")
+    if failed_model_regions:
+        print(f"Failed model probes detected: {len(failed_model_regions)} (model, region) pairs")
     
-    return dict(model_mapping), failed_regions
+    return dict(model_mapping), failed_regions, failed_model_regions
 
 
 def print_summary(model_mapping: Dict[str, Any]):
@@ -608,19 +640,25 @@ def print_summary(model_mapping: Dict[str, Any]):
 
 def merge_failed_regions_from_previous(
     sorted_mapping: Dict[str, Any],
-    failed_regions: Set[str],
+    failed_regions: Set[str] | None,
     old_models: Dict[str, Any],
+    failed_model_regions: Set[tuple[str, str]] | None = None,
 ) -> None:
     """
-    If any region failed during scanning (e.g. due to API throttling or timeouts),
-    preserve the previous known-good state for that region from old_models instead of
+    If any region or specific model probe failed during scanning (e.g. due to API throttling or timeouts),
+    preserve the previous known-good state for that region/model from old_models instead of
     assuming models/features in that region were removed.
     """
-    if not failed_regions or not old_models:
+    if not old_models:
         return
 
-    print(f"Preserving previous state for failed regions: {', '.join(sorted(failed_regions))}")
+    failed_regions = failed_regions or set()
+    failed_model_regions = failed_model_regions or set()
 
+    if failed_regions:
+        print(f"Preserving previous state for failed regions: {', '.join(sorted(failed_regions))}")
+
+    # 1. Process entire failed regions
     for region in sorted(failed_regions):
         for model_id, old_entry in old_models.items():
             old_regions = old_entry.get('regions', [])
@@ -706,10 +744,47 @@ def merge_failed_regions_from_previous(
                         entry['inferenceProfile']['GLOBAL'].append(region)
                         entry['inferenceProfile']['GLOBAL'].sort()
 
+    # 2. Process specific (model, region) probe failures
+    for model_id, region in sorted(failed_model_regions):
+        if model_id in old_models:
+            old_entry = old_models[model_id]
+            old_inf_types = old_entry.get('inference_types', {}).get(region, [])
+            old_mantle_regions = old_entry.get('mantle_supported_regions', [])
 
-def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedrock_models.json', failed_regions: Set[str] | None = None):
+            if model_id in sorted_mapping:
+                entry = sorted_mapping[model_id]
+                # Restore missing ON_DEMAND / inference types for this region
+                if old_inf_types:
+                    if region not in entry['inference_types']:
+                        entry['inference_types'][region] = sorted(old_inf_types)
+                        print(f"  Restoring inference_types for model {model_id} in region {region} due to probe failure")
+                    else:
+                        current_types = set(entry['inference_types'][region])
+                        missing_types = set(old_inf_types) - current_types
+                        if missing_types:
+                            print(f"  Restoring missing inference_types {sorted(list(missing_types))} for model {model_id} in region {region} due to probe failure")
+                            current_types.update(missing_types)
+                            entry['inference_types'][region] = sorted(list(current_types))
+
+                # Restore mantle_supported_regions for this region
+                if region in old_mantle_regions:
+                    if 'mantle_supported_regions' not in entry:
+                        entry['mantle_supported_regions'] = []
+                    if region not in entry['mantle_supported_regions']:
+                        print(f"  Restoring mantle_supported_regions {region} for model {model_id} due to probe failure")
+                        entry['mantle_supported_regions'].append(region)
+                        entry['mantle_supported_regions'].sort()
+
+
+def save_to_json(
+    model_mapping: Dict[str, Any],
+    filename: str = '../shared/bedrock_models.json',
+    failed_regions: Set[str] | None = None,
+    failed_model_regions: Set[tuple[str, str]] | None = None,
+):
     """Save the model mapping to a JSON file with sorted keys and values for deterministic output."""
     import os
+    import json
     from datetime import datetime, timezone
 
     # Sort regions and inference_types lists for deterministic output
@@ -758,9 +833,9 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedro
         except Exception as e:
             print(f"Warning: Could not load existing models file: {e}")
 
-    # Preserve previous state for failed regions
-    if failed_regions and old_models:
-        merge_failed_regions_from_previous(sorted_mapping, failed_regions, old_models)
+    # Preserve previous state for failed regions or failed model probes
+    if (failed_regions or failed_model_regions) and old_models:
+        merge_failed_regions_from_previous(sorted_mapping, failed_regions, old_models, failed_model_regions)
 
     # Load existing metadata
     metadata_filename = os.path.join(os.path.dirname(filename), 'bedrock_models_metadata.json')
@@ -812,32 +887,31 @@ def save_to_json(model_mapping: Dict[str, Any], filename: str = '../shared/bedro
 
     # Write bedrock_models.json
     with open(filename, 'w') as f:
-        json.dump(sorted_mapping, f, indent=2, sort_keys=True)
-    print(f"\n\nResults saved to {filename}")
+        json.dump(sorted_mapping, f, indent=2)
+    print(f"\nSaved model definitions to {filename}")
 
     # Write bedrock_models_metadata.json
     with open(metadata_filename, 'w') as f:
-        json.dump(new_metadata, f, indent=2, sort_keys=True)
-    print(f"Metadata saved to {metadata_filename}")
+        json.dump(new_metadata, f, indent=2)
+    print(f"Saved metadata definitions to {metadata_filename}")
 
 
 def main():
-    """Main function to scan regions and generate model mapping."""
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s %(levelname)s %(message)s',
-    )
-    print("AWS Bedrock Foundation Model Scanner (Parallel)")
+    """Main execution function."""
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+    
+    print("="*80)
+    print("AWS Bedrock Model Scanner")
     print("="*80 + "\n")
     
     # Scan all regions
-    model_mapping, failed_regions = scan_all_regions_parallel()
+    model_mapping, failed_regions, failed_model_regions = scan_all_regions_parallel()
     
     # Print summary
     print_summary(model_mapping)
     
     # Save to JSON file
-    save_to_json(model_mapping, failed_regions=failed_regions)
+    save_to_json(model_mapping, failed_regions=failed_regions, failed_model_regions=failed_model_regions)
 
 
 if __name__ == '__main__':

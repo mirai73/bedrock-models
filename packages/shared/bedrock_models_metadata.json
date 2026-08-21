@@ -53,14 +53,6 @@
   "amazon.titan-embed-text-v2:0": {
     "last_changed": "2026-06-20"
   },
-  "amazon.titan-image-generator-v2:0": {
-    "deleted": "2026-07-01",
-    "last_changed": "2026-06-20"
-  },
-  "anthropic.claude-3-5-haiku-20241022-v1:0": {
-    "deleted": "2026-06-20",
-    "last_changed": "2026-06-05"
-  },
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {
     "last_changed": "2026-07-31"
   },
@@ -115,14 +107,6 @@
   "anthropic.claude-sonnet-5": {
     "last_changed": "2026-07-16"
   },
-  "cohere.command-r-plus-v1:0": {
-    "deleted": "2026-08-20",
-    "last_changed": "2026-06-20"
-  },
-  "cohere.command-r-v1:0": {
-    "deleted": "2026-08-20",
-    "last_changed": "2026-06-20"
-  },
   "cohere.embed-english-v3": {
     "last_changed": "2026-06-20"
   },
@@ -168,30 +152,10 @@
   "luma.ray-v2:0": {
     "last_changed": "2026-06-20"
   },
-  "meta.llama3-1-405b-instruct-v1:0": {
-    "deleted": "2026-07-08",
-    "last_changed": "2026-06-20"
-  },
   "meta.llama3-1-70b-instruct-v1:0": {
     "last_changed": "2026-06-20"
   },
   "meta.llama3-1-8b-instruct-v1:0": {
-    "last_changed": "2026-06-20"
-  },
-  "meta.llama3-2-11b-instruct-v1:0": {
-    "deleted": "2026-07-08",
-    "last_changed": "2026-06-20"
-  },
-  "meta.llama3-2-1b-instruct-v1:0": {
-    "deleted": "2026-07-08",
-    "last_changed": "2026-06-20"
-  },
-  "meta.llama3-2-3b-instruct-v1:0": {
-    "deleted": "2026-07-08",
-    "last_changed": "2026-06-20"
-  },
-  "meta.llama3-2-90b-instruct-v1:0": {
-    "deleted": "2026-07-08",
     "last_changed": "2026-06-20"
   },
   "meta.llama3-3-70b-instruct-v1:0": {
@@ -442,5 +406,41 @@
   },
   "zai.glm-5": {
     "last_changed": "2026-07-01"
+  },
+  "amazon.titan-image-generator-v2:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-07-01"
+  },
+  "anthropic.claude-3-5-haiku-20241022-v1:0": {
+    "last_changed": "2026-06-05",
+    "deleted": "2026-06-20"
+  },
+  "cohere.command-r-plus-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-08-20"
+  },
+  "cohere.command-r-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-08-20"
+  },
+  "meta.llama3-1-405b-instruct-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-07-08"
+  },
+  "meta.llama3-2-11b-instruct-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-07-08"
+  },
+  "meta.llama3-2-1b-instruct-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-07-08"
+  },
+  "meta.llama3-2-3b-instruct-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-07-08"
+  },
+  "meta.llama3-2-90b-instruct-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-07-08"
   }
 }

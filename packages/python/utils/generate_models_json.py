@@ -8,7 +8,9 @@ Uses ThreadPoolExecutor for parallel processing to speed up scanning.
 import boto3
 import json
 import logging
+import http.client
 import socket
+import ssl
 import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -27,13 +29,24 @@ logger = logging.getLogger(__name__)
 # retry layer (exponential backoff) across every API call.
 BEDROCK_CLIENT_CONFIG = Config(retries={'max_attempts': 1})
 
-# Exception types that represent a timeout worth retrying.
-_TIMEOUT_EXCEPTIONS = (socket.timeout, TimeoutError, ReadTimeoutError, ConnectTimeoutError)
+# Exception types that represent a timeout or connection drop worth retrying.
+_RETRYABLE_EXCEPTIONS = (
+    socket.timeout,
+    TimeoutError,
+    ReadTimeoutError,
+    ConnectTimeoutError,
+    ConnectionError,  # Covers ConnectionResetError, ConnectionRefusedError, ConnectionAbortedError, BrokenPipeError
+    http.client.RemoteDisconnected,
+    http.client.IncompleteRead,
+    http.client.ResponseNotReady,
+    http.client.HTTPException,
+    ssl.SSLError,
+)
 
 
 def _is_retryable(exc: Exception) -> bool:
-    """Return True if the exception represents a retryable timeout, throttling error, or server error."""
-    if isinstance(exc, _TIMEOUT_EXCEPTIONS):
+    """Return True if the exception represents a retryable timeout, dropped connection, throttling error, or server error."""
+    if isinstance(exc, _RETRYABLE_EXCEPTIONS):
         return True
     if isinstance(exc, ClientError):
         error_code = exc.response.get('Error', {}).get('Code', '')
@@ -43,10 +56,17 @@ def _is_retryable(exc: Exception) -> bool:
         if exc.code in (429, 500, 502, 503, 504):
             return True
         return False
-    # urllib wraps socket timeouts inside URLError.
+    # urllib wraps socket errors, timeouts, and connection drops inside URLError.
     if isinstance(exc, urllib.error.URLError):
-        if isinstance(getattr(exc, 'reason', None), (socket.timeout, TimeoutError)):
+        reason = getattr(exc, 'reason', None)
+        if isinstance(reason, _RETRYABLE_EXCEPTIONS):
             return True
+        if isinstance(reason, (OSError, socket.error)):
+            return True
+        if isinstance(reason, str) and any(kw in reason.lower() for kw in ('timeout', 'timed out', 'connection reset', 'closed connection', 'remote disconnected', 'broken pipe')):
+            return True
+    if isinstance(exc, (OSError, socket.error)):
+        return True
     return False
 
 
@@ -748,32 +768,58 @@ def merge_failed_regions_from_previous(
     for model_id, region in sorted(failed_model_regions):
         if model_id in old_models:
             old_entry = old_models[model_id]
+            old_regions = old_entry.get('regions', [])
             old_inf_types = old_entry.get('inference_types', {}).get(region, [])
             old_mantle_regions = old_entry.get('mantle_supported_regions', [])
 
-            if model_id in sorted_mapping:
-                entry = sorted_mapping[model_id]
-                # Restore missing ON_DEMAND / inference types for this region
-                if old_inf_types:
-                    if region not in entry['inference_types']:
-                        entry['inference_types'][region] = sorted(old_inf_types)
-                        print(f"  Restoring inference_types for model {model_id} in region {region} due to probe failure")
-                    else:
-                        current_types = set(entry['inference_types'][region])
-                        missing_types = set(old_inf_types) - current_types
-                        if missing_types:
-                            print(f"  Restoring missing inference_types {sorted(list(missing_types))} for model {model_id} in region {region} due to probe failure")
-                            current_types.update(missing_types)
-                            entry['inference_types'][region] = sorted(list(current_types))
+            was_in_regions = region in old_regions
 
-                # Restore mantle_supported_regions for this region
-                if region in old_mantle_regions:
-                    if 'mantle_supported_regions' not in entry:
-                        entry['mantle_supported_regions'] = []
-                    if region not in entry['mantle_supported_regions']:
-                        print(f"  Restoring mantle_supported_regions {region} for model {model_id} due to probe failure")
-                        entry['mantle_supported_regions'].append(region)
-                        entry['mantle_supported_regions'].sort()
+            if model_id not in sorted_mapping:
+                print(f"  Restoring model {model_id} from old state due to probe failure in region {region}")
+                import copy
+                sorted_mapping[model_id] = copy.deepcopy(old_entry)
+                continue
+
+            entry = sorted_mapping[model_id]
+
+            # Restore region in regions list
+            if was_in_regions and region not in entry['regions']:
+                print(f"  Restoring region {region} for model {model_id} due to probe failure")
+                entry['regions'].append(region)
+                entry['regions'].sort()
+
+            # Restore missing ON_DEMAND / inference types for this region
+            if old_inf_types:
+                if region not in entry['inference_types']:
+                    entry['inference_types'][region] = sorted(old_inf_types)
+                    print(f"  Restoring inference_types for model {model_id} in region {region} due to probe failure")
+                else:
+                    current_types = set(entry['inference_types'][region])
+                    missing_types = set(old_inf_types) - current_types
+                    if missing_types:
+                        print(f"  Restoring missing inference_types {sorted(list(missing_types))} for model {model_id} in region {region} due to probe failure")
+                        current_types.update(missing_types)
+                        entry['inference_types'][region] = sorted(list(current_types))
+
+            # Restore mantle_supported_regions for this region
+            if region in old_mantle_regions:
+                if 'mantle_supported_regions' not in entry:
+                    entry['mantle_supported_regions'] = []
+                if region not in entry['mantle_supported_regions']:
+                    print(f"  Restoring mantle_supported_regions {region} for model {model_id} due to probe failure")
+                    entry['mantle_supported_regions'].append(region)
+                    entry['mantle_supported_regions'].sort()
+
+            old_mantle_apis = old_entry.get('mantle_apis', [])
+            if old_mantle_apis:
+                if 'mantle_apis' not in entry:
+                    entry['mantle_apis'] = sorted(old_mantle_apis)
+                else:
+                    current_apis = set(entry['mantle_apis'])
+                    missing_apis = set(old_mantle_apis) - current_apis
+                    if missing_apis:
+                        current_apis.update(missing_apis)
+                        entry['mantle_apis'] = sorted(list(current_apis))
 
 
 def save_to_json(

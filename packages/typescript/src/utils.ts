@@ -41,7 +41,7 @@ export function getInferenceProfiles(modelId: string | String, region: string): 
   const model = data[id];
   if (!model) return [];
   const inferenceTypes = model.inference_types[region] || [];
-  const profilePrefixes = ['US', 'EU', 'CA', 'JP', 'AU', 'APAC', 'AP', 'GLOBAL'];
+  const profilePrefixes = ['US', 'EU', 'CA', 'JP', 'AU', 'IN', 'APAC', 'AP', 'GLOBAL'];
   return inferenceTypes.filter(t => profilePrefixes.includes(t));
 }
 

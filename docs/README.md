@@ -12,7 +12,7 @@ A sleek, searchable static website for exploring Amazon Bedrock foundation model
 - **Filter by Region**: View models available in specific AWS regions
 - **Filter by Type**: 
   - Global CRIS models
-  - Any CRIS models (US, EU, APAC, JP, AU, CA)
+  - Any CRIS models (US, EU, APAC, JP, AU, CA, IN)
   - On-Demand models
   - Provisioned models
 - **Model Information**: View regions, inference types, and lifecycle status

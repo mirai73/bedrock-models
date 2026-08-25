@@ -49,7 +49,9 @@ describe('Bedrock Models Library', () => {
   test('getInferenceProfiles should return correct prefixes', () => {
     const profiles = getInferenceProfiles(TEST_MODEL, 'us-east-1');
     expect(profiles).toContain('US');
-    // Sonnet 3.5 doesn't have GLOBAL in us-east-1 in the current data
+
+    const inProfiles = getInferenceProfiles('openai.gpt-5.6-luna', 'ap-south-1');
+    expect(inProfiles).toContain('IN');
   });
 
   test('hasGlobalProfile should work correctly', () => {

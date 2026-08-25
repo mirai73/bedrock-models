@@ -20,7 +20,8 @@ const CRIS_REGIONS = {
     'APAC': 'APAC CRIS',
     'JP': 'Japan CRIS',
     'AU': 'Australia CRIS',
-    'CA': 'Canada CRIS'
+    'CA': 'Canada CRIS',
+    'IN': 'India CRIS'
 };
 
 // Region locations (lat, lng)
@@ -1141,30 +1142,55 @@ function App() {
         async function loadData() {
             const timestamp = Date.now();
             let rawData, rawMetadata = {};
-            try {
-                const response = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models.json?t=${timestamp}`);
+
+            const isLocal = window.location.hostname === 'localhost' ||
+                            window.location.hostname === '127.0.0.1' ||
+                            window.location.hostname === '';
+
+            const loadLocal = async () => {
+                const response = await fetch(`./bedrock_models.json?t=${timestamp}`);
+                if (!response.ok) throw new Error(`Local fetch failed: ${response.status}`);
                 rawData = await response.json();
-                
+                try {
+                    const metaResponse = await fetch(`./bedrock_models_metadata.json?t=${timestamp}`);
+                    if (metaResponse.ok) {
+                        rawMetadata = await metaResponse.json();
+                    }
+                } catch (metaErr) {
+                    console.error('Could not load local metadata:', metaErr);
+                }
+            };
+
+            const loadRemote = async () => {
+                const response = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models.json?t=${timestamp}`);
+                if (!response.ok) throw new Error(`Remote fetch failed: ${response.status}`);
+                rawData = await response.json();
                 try {
                     const metaResponse = await fetch(`https://raw.githubusercontent.com/mirai73/bedrock-models/main/packages/shared/bedrock_models_metadata.json?t=${timestamp}`);
-                    rawMetadata = await metaResponse.json();
+                    if (metaResponse.ok) {
+                        rawMetadata = await metaResponse.json();
+                    }
                 } catch (metaErr) {
                     console.error('Could not load github raw metadata:', metaErr);
                 }
+            };
+
+            try {
+                if (isLocal) {
+                    await loadLocal();
+                } else {
+                    await loadRemote();
+                }
             } catch (err) {
-                console.warn('Could not load from GitHub raw, falling back to local files:', err);
+                console.warn('Primary data load failed, trying fallback:', err);
                 try {
-                    const response = await fetch(`./bedrock_models.json?t=${timestamp}`);
-                    rawData = await response.json();
-                    
-                    try {
-                        const metaResponse = await fetch(`./bedrock_models_metadata.json?t=${timestamp}`);
-                        rawMetadata = await metaResponse.json();
-                    } catch (metaErr) {
-                        console.error('Could not load local metadata:', metaErr);
+                    if (isLocal) {
+                        await loadRemote();
+                    } else {
+                        await loadLocal();
                     }
-                } catch (localErr) {
-                    console.error('Error loading local fallback data:', localErr);
+                } catch (fallbackErr) {
+                    console.error('Fallback data load also failed:', fallbackErr);
                     setErrorMsg('Error loading models data. Please try again.');
                     return;
                 }

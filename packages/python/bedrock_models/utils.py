@@ -129,7 +129,7 @@ def get_inference_profiles(model_id: str, region: str) -> list[str]:
         inference_types = model_data[model_id].get("inference_types", {}).get(region, [])
         
         # Filter to only profile prefixes (not ON_DEMAND or PROVISIONED)
-        profile_prefixes = {"US", "EU", "CA", "JP", "AU", "APAC", "AP", "GLOBAL"}
+        profile_prefixes = {"US", "EU", "CA", "JP", "AU", "IN", "APAC", "AP", "GLOBAL"}
         return [t for t in inference_types if t in profile_prefixes]
     except Exception:
         return []

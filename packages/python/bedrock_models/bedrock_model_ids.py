@@ -170,6 +170,7 @@ class MantleModels:
 
     ANTHROPIC_CLAUDE_FABLE_5 = BedrockModel("anthropic.claude-fable-5")
     ANTHROPIC_CLAUDE_HAIKU_4_5 = BedrockModel("anthropic.claude-haiku-4-5")
+    ANTHROPIC_CLAUDE_OPUS_4_6 = BedrockModel("anthropic.claude-opus-4-6-v1")
     ANTHROPIC_CLAUDE_OPUS_4_7 = BedrockModel("anthropic.claude-opus-4-7")
     ANTHROPIC_CLAUDE_OPUS_4_8 = BedrockModel("anthropic.claude-opus-4-8")
     ANTHROPIC_CLAUDE_OPUS_5 = BedrockModel("anthropic.claude-opus-5")

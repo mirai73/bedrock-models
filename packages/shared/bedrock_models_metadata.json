@@ -83,8 +83,11 @@
   "anthropic.claude-opus-4-5-20251101-v1:0": {
     "last_changed": "2026-07-01"
   },
+  "anthropic.claude-opus-4-6": {
+    "last_changed": "2026-08-29"
+  },
   "anthropic.claude-opus-4-6-v1": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-08-29"
   },
   "anthropic.claude-opus-4-7": {
     "last_changed": "2026-08-21"

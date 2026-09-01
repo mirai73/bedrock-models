@@ -2812,36 +2812,6 @@
       }
     }
   },
-  "anthropic.claude-opus-4-6": {
-    "regions": [
-      "us-east-2",
-      "us-west-2"
-    ],
-    "inference_types": {
-      "us-east-2": [
-        "ON_DEMAND"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "ACTIVE",
-    "inputModalities": [
-      "TEXT"
-    ],
-    "outputModalities": [
-      "TEXT"
-    ],
-    "responseStreamingSupported": true,
-    "customizationsSupported": [],
-    "mantle_supported_regions": [
-      "us-east-2",
-      "us-west-2"
-    ],
-    "mantle_apis": [
-      "messages"
-    ]
-  },
   "anthropic.claude-opus-4-6-v1": {
     "regions": [
       "af-south-1",
@@ -2978,7 +2948,6 @@
       ],
       "us-east-2": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ],
       "us-west-1": [
@@ -2987,7 +2956,6 @@
       ],
       "us-west-2": [
         "GLOBAL",
-        "ON_DEMAND",
         "US"
       ]
     },
@@ -3154,14 +3122,7 @@
           "us-west-2"
         ]
       }
-    },
-    "mantle_supported_regions": [
-      "us-east-2",
-      "us-west-2"
-    ],
-    "mantle_apis": [
-      "messages"
-    ]
+    }
   },
   "anthropic.claude-opus-4-7": {
     "regions": [

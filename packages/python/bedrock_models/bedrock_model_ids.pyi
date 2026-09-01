@@ -143,7 +143,6 @@ class MantleModels:
     ANTHROPIC_CLAUDE_FABLE_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_FERN_TRN2_1024K: Final[BedrockModel]
     ANTHROPIC_CLAUDE_HAIKU_4_5: Final[BedrockModel]
-    ANTHROPIC_CLAUDE_OPUS_4_6: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_7: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_5: Final[BedrockModel]

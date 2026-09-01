@@ -167,7 +167,6 @@ export const MantleModels = {
   ANTHROPIC_CLAUDE_FABLE_5: new BedrockModel('anthropic.claude-fable-5'),
   ANTHROPIC_CLAUDE_FERN_TRN2_1024K: new BedrockModel('anthropic.claude-fern-trn2-1024k'),
   ANTHROPIC_CLAUDE_HAIKU_4_5: new BedrockModel('anthropic.claude-haiku-4-5'),
-  ANTHROPIC_CLAUDE_OPUS_4_6: new BedrockModel('anthropic.claude-opus-4-6-v1'),
   ANTHROPIC_CLAUDE_OPUS_4_7: new BedrockModel('anthropic.claude-opus-4-7'),
   ANTHROPIC_CLAUDE_OPUS_4_8: new BedrockModel('anthropic.claude-opus-4-8'),
   ANTHROPIC_CLAUDE_OPUS_5: new BedrockModel('anthropic.claude-opus-5'),

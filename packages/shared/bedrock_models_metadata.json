@@ -86,11 +86,8 @@
   "anthropic.claude-opus-4-5-20251101-v1:0": {
     "last_changed": "2026-07-01"
   },
-  "anthropic.claude-opus-4-6": {
-    "last_changed": "2026-08-30"
-  },
   "anthropic.claude-opus-4-6-v1": {
-    "last_changed": "2026-08-30"
+    "last_changed": "2026-09-01"
   },
   "anthropic.claude-opus-4-7": {
     "last_changed": "2026-08-21"
@@ -420,6 +417,10 @@
   "anthropic.claude-3-5-haiku-20241022-v1:0": {
     "last_changed": "2026-06-05",
     "deleted": "2026-06-20"
+  },
+  "anthropic.claude-opus-4-6": {
+    "last_changed": "2026-08-30",
+    "deleted": "2026-09-01"
   },
   "cohere.command-r-plus-v1:0": {
     "last_changed": "2026-06-20",

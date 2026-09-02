@@ -71,6 +71,9 @@
   "anthropic.claude-fable-5": {
     "last_changed": "2026-07-09"
   },
+  "anthropic.claude-fable-5-1": {
+    "last_changed": "2026-09-02"
+  },
   "anthropic.claude-fern-trn2-1024k": {
     "last_changed": "2026-08-30"
   },

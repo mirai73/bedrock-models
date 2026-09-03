@@ -2299,31 +2299,6 @@
       }
     }
   },
-  "anthropic.claude-fern-trn2-1024k": {
-    "regions": [
-      "us-east-2"
-    ],
-    "inference_types": {
-      "us-east-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "ACTIVE",
-    "inputModalities": [
-      "TEXT"
-    ],
-    "outputModalities": [
-      "TEXT"
-    ],
-    "responseStreamingSupported": true,
-    "customizationsSupported": [],
-    "mantle_supported_regions": [
-      "us-east-2"
-    ],
-    "mantle_apis": [
-      "messages"
-    ]
-  },
   "anthropic.claude-haiku-4-5": {
     "regions": [
       "ap-northeast-1",

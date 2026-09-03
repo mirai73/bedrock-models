@@ -74,9 +74,6 @@
   "anthropic.claude-fable-5-1": {
     "last_changed": "2026-09-02"
   },
-  "anthropic.claude-fern-trn2-1024k": {
-    "last_changed": "2026-08-30"
-  },
   "anthropic.claude-haiku-4-5": {
     "last_changed": "2026-08-14"
   },
@@ -420,6 +417,10 @@
   "anthropic.claude-3-5-haiku-20241022-v1:0": {
     "last_changed": "2026-06-05",
     "deleted": "2026-06-20"
+  },
+  "anthropic.claude-fern-trn2-1024k": {
+    "last_changed": "2026-08-30",
+    "deleted": "2026-09-03"
   },
   "anthropic.claude-opus-4-6": {
     "last_changed": "2026-08-30",

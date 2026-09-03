@@ -22,7 +22,6 @@ class Models:
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]
     ANTHROPIC_CLAUDE_FABLE_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_FABLE_5_1: Final[BedrockModel]
-    ANTHROPIC_CLAUDE_FERN_TRN2_1024K: Final[BedrockModel]
     ANTHROPIC_CLAUDE_HAIKU_4_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_HAIKU_4_5_20251001: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_5_20251101: Final[BedrockModel]
@@ -142,7 +141,6 @@ class Models:
 class MantleModels:
 
     ANTHROPIC_CLAUDE_FABLE_5: Final[BedrockModel]
-    ANTHROPIC_CLAUDE_FERN_TRN2_1024K: Final[BedrockModel]
     ANTHROPIC_CLAUDE_HAIKU_4_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_7: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]

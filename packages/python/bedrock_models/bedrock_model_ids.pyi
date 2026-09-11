@@ -19,6 +19,7 @@ class Models:
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[BedrockModel]
+    ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]
     ANTHROPIC_CLAUDE_FABLE_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_FABLE_5_1: Final[BedrockModel]
@@ -134,7 +135,6 @@ class Models:
     AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
     AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status
     AMAZON_NOVA_SONIC: Final[BedrockModel]  # deprecated: Model 'amazon.nova-sonic-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
@@ -214,6 +214,7 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]
     ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]
     ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[BedrockModel]
+    ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]
     ANTHROPIC_CLAUDE_FABLE_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_FABLE_5_1: Final[BedrockModel]
@@ -313,7 +314,6 @@ class RuntimeModels:
     AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
     AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status
     AMAZON_NOVA_SONIC: Final[BedrockModel]  # deprecated: Model 'amazon.nova-sonic-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status

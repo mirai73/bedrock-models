@@ -1718,26 +1718,15 @@
   },
   "anthropic.claude-3-haiku-20240307-v1:0": {
     "regions": [
-      "ap-northeast-1",
       "ap-northeast-2",
       "ap-south-1",
       "ap-southeast-1",
-      "ap-southeast-2",
       "ca-central-1",
-      "eu-central-1",
       "eu-central-2",
-      "eu-west-1",
-      "eu-west-2",
       "eu-west-3",
-      "sa-east-1",
-      "us-east-1",
-      "us-east-2",
-      "us-west-2"
+      "sa-east-1"
     ],
     "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
       "ap-northeast-2": [
         "ON_DEMAND"
       ],
@@ -1747,42 +1736,20 @@
       "ap-southeast-1": [
         "ON_DEMAND"
       ],
-      "ap-southeast-2": [
-        "ON_DEMAND"
-      ],
       "ca-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-central-1": [
-        "EU",
         "ON_DEMAND"
       ],
       "eu-central-2": [
         "ON_DEMAND"
       ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
+      "sa-east-1": [
         "ON_DEMAND"
       ],
       "eu-west-3": [
         "ON_DEMAND"
-      ],
-      "sa-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-2": [
-        "US"
-      ],
-      "us-west-2": [
-        "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "LEGACY",
+    "model_lifecycle_status": "ACTIVE",
     "inputModalities": [
       "IMAGE",
       "TEXT"
@@ -1792,23 +1759,7 @@
     ],
     "responseStreamingSupported": true,
     "customizationsSupported": [],
-    "runtime_supported": true,
-    "inferenceProfile": {
-      "EU": {
-        "eu-central-1": [
-          "eu-central-1",
-          "eu-west-1",
-          "eu-west-3"
-        ]
-      },
-      "US": {
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ]
-      }
-    }
+    "runtime_supported": true
   },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
     "regions": [

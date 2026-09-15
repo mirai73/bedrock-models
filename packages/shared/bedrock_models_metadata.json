@@ -23,9 +23,6 @@
   "amazon.nova-micro-v1:0": {
     "last_changed": "2026-06-20"
   },
-  "amazon.nova-premier-v1:0": {
-    "last_changed": "2026-06-20"
-  },
   "amazon.nova-pro-v1:0": {
     "last_changed": "2026-06-20"
   },
@@ -33,9 +30,6 @@
     "last_changed": "2026-06-20"
   },
   "amazon.nova-reel-v1:1": {
-    "last_changed": "2026-06-20"
-  },
-  "amazon.nova-sonic-v1:0": {
     "last_changed": "2026-06-20"
   },
   "amazon.rerank-v1:0": {
@@ -412,6 +406,14 @@
   },
   "zai.glm-5": {
     "last_changed": "2026-07-01"
+  },
+  "amazon.nova-premier-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-09-15"
+  },
+  "amazon.nova-sonic-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-09-15"
   },
   "amazon.titan-image-generator-v2:0": {
     "last_changed": "2026-06-20",

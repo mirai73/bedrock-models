@@ -132,9 +132,7 @@ class Models:
     AI21_JAMBA_1_5_LARGE: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
     AMAZON_NOVA_CANVAS: Final[BedrockModel]  # deprecated: Model 'amazon.nova-canvas-v1:0' has LEGACY status
-    AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
     AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status
-    AMAZON_NOVA_SONIC: Final[BedrockModel]  # deprecated: Model 'amazon.nova-sonic-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
@@ -311,9 +309,7 @@ class RuntimeModels:
     AI21_JAMBA_1_5_LARGE: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
     AMAZON_NOVA_CANVAS: Final[BedrockModel]  # deprecated: Model 'amazon.nova-canvas-v1:0' has LEGACY status
-    AMAZON_NOVA_PREMIER: Final[BedrockModel]  # deprecated: Model 'amazon.nova-premier-v1:0' has LEGACY status
     AMAZON_NOVA_REEL: Final[BedrockModel]  # deprecated: Model 'amazon.nova-reel-v1:1' has LEGACY status
-    AMAZON_NOVA_SONIC: Final[BedrockModel]  # deprecated: Model 'amazon.nova-sonic-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status

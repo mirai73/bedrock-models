@@ -92,6 +92,9 @@
   "anthropic.claude-opus-5": {
     "last_changed": "2026-07-28"
   },
+  "anthropic.claude-opus-5-5": {
+    "last_changed": "2026-09-23"
+  },
   "anthropic.claude-sonnet-4-20250514-v1:0": {
     "last_changed": "2026-06-20"
   },
@@ -123,19 +126,19 @@
     "last_changed": "2026-06-20"
   },
   "deepseek.v3.1": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "deepseek.v3.2": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "google.gemma-3-12b-it": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "google.gemma-3-27b-it": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "google.gemma-3-4b-it": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "google.gemma-4-26b-a4b": {
     "last_changed": "2026-07-01"
@@ -171,28 +174,28 @@
     "last_changed": "2026-06-20"
   },
   "minimax.minimax-m2": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "minimax.minimax-m2.1": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "minimax.minimax-m2.5": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.devstral-2-123b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.magistral-small-2509": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.ministral-3-14b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.ministral-3-3b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.ministral-3-8b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.mistral-7b-instruct-v0:2": {
     "last_changed": "2026-06-20"
@@ -204,7 +207,7 @@
     "last_changed": "2026-06-20"
   },
   "mistral.mistral-large-3-675b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.mistral-small-2402-v1:0": {
     "last_changed": "2026-06-20"
@@ -216,34 +219,34 @@
     "last_changed": "2026-06-20"
   },
   "mistral.voxtral-mini-3b-2507": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "mistral.voxtral-small-24b-2507": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "moonshot.kimi-k2-thinking": {
     "last_changed": "2026-06-20"
   },
   "moonshotai.kimi-k2-thinking": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "moonshotai.kimi-k2.5": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "moonshotai.kimi-k3": {
     "last_changed": "2026-09-18"
   },
   "nvidia.nemotron-nano-12b-v2": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "nvidia.nemotron-nano-3-30b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "nvidia.nemotron-nano-9b-v2": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "nvidia.nemotron-super-3-120b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "openai.gpt-5.4": {
     "last_changed": "2026-08-03"
@@ -269,62 +272,68 @@
   "openai.gpt-6-astra": {
     "last_changed": "2026-09-09"
   },
+  "openai.gpt-6-luna": {
+    "last_changed": "2026-09-23"
+  },
+  "openai.gpt-6-sol": {
+    "last_changed": "2026-09-23"
+  },
   "openai.gpt-oss-120b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "openai.gpt-oss-120b-1:0": {
     "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-20b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "openai.gpt-oss-20b-1:0": {
     "last_changed": "2026-06-20"
   },
   "openai.gpt-oss-safeguard-120b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "openai.gpt-oss-safeguard-20b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "qwen.qwen3-235b-a22b-2507": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "qwen.qwen3-235b-a22b-2507-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-32b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "qwen.qwen3-32b-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-30b-a3b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "qwen.qwen3-coder-30b-a3b-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-480b-a35b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "qwen.qwen3-coder-480b-a35b-v1:0": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-coder-next": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "qwen.qwen3-next-80b-a3b": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-next-80b-a3b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "qwen.qwen3-vl-235b-a22b": {
     "last_changed": "2026-06-20"
   },
   "qwen.qwen3-vl-235b-a22b-instruct": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "stability.sd3-5-large-v1:0": {
     "last_changed": "2026-06-20"
@@ -384,7 +393,7 @@
     "last_changed": "2026-06-20"
   },
   "writer.palmyra-vision-7b": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "writer.palmyra-x4-v1:0": {
     "last_changed": "2026-06-20"
@@ -399,16 +408,16 @@
     "last_changed": "2026-08-20"
   },
   "zai.glm-4.6": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "zai.glm-4.7": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "zai.glm-4.7-flash": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "zai.glm-5": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-23"
   },
   "amazon.nova-premier-v1:0": {
     "last_changed": "2026-06-20",

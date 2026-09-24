@@ -4241,7 +4241,8 @@
       ],
       "ap-southeast-4": [
         "AU",
-        "GLOBAL"
+        "GLOBAL",
+        "ON_DEMAND"
       ],
       "ap-southeast-5": [
         "GLOBAL"
@@ -4489,6 +4490,7 @@
       }
     },
     "mantle_supported_regions": [
+      "ap-southeast-4",
       "us-east-1"
     ],
     "mantle_apis": [

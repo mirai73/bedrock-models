@@ -275,6 +275,8 @@ class RuntimeModels:
     NVIDIA_NEMOTRON_NANO_3_30B: Final[BedrockModel]
     NVIDIA_NEMOTRON_NANO_9B: Final[BedrockModel]
     NVIDIA_NEMOTRON_SUPER_3_120B: Final[BedrockModel]
+    OPENAI_GPT_5_4: Final[BedrockModel]
+    OPENAI_GPT_5_5: Final[BedrockModel]
     OPENAI_GPT_5_6_LUNA: Final[BedrockModel]
     OPENAI_GPT_5_6_SOL: Final[BedrockModel]
     OPENAI_GPT_5_6_TERRA: Final[BedrockModel]

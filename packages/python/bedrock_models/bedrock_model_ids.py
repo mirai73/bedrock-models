@@ -306,6 +306,8 @@ class RuntimeModels:
     NVIDIA_NEMOTRON_NANO_3_30B = BedrockModel("nvidia.nemotron-nano-3-30b")
     NVIDIA_NEMOTRON_NANO_9B = BedrockModel("nvidia.nemotron-nano-9b-v2")
     NVIDIA_NEMOTRON_SUPER_3_120B = BedrockModel("nvidia.nemotron-super-3-120b")
+    OPENAI_GPT_5_4 = BedrockModel("openai.gpt-5.4")
+    OPENAI_GPT_5_5 = BedrockModel("openai.gpt-5.5")
     OPENAI_GPT_5_6_LUNA = BedrockModel("openai.gpt-5.6-luna")
     OPENAI_GPT_5_6_SOL = BedrockModel("openai.gpt-5.6-sol")
     OPENAI_GPT_5_6_TERRA = BedrockModel("openai.gpt-5.6-terra")

@@ -87,9 +87,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -155,6 +152,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -426,10 +426,6 @@
         "APAC",
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "APAC",
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "APAC"
       ],
@@ -484,6 +480,10 @@
       "us-west-2": [
         "ON_DEMAND",
         "US"
+      ],
+      "ap-southeast-3": [
+        "APAC",
+        "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -552,17 +552,6 @@
           "ap-southeast-1",
           "ap-southeast-2"
         ],
-        "ap-southeast-3": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2",
-          "ap-southeast-3",
-          "ap-southeast-4"
-        ],
         "ap-southeast-4": [
           "ap-northeast-1",
           "ap-northeast-2",
@@ -596,6 +585,17 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
+        ],
+        "ap-southeast-3": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-south-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-southeast-3",
+          "ap-southeast-4"
         ]
       },
       "CA": {
@@ -724,9 +724,6 @@
         "APAC",
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "APAC"
-      ],
       "ap-southeast-5": [
         "APAC"
       ],
@@ -766,6 +763,9 @@
       ],
       "us-west-2": [
         "US"
+      ],
+      "ap-southeast-3": [
+        "APAC"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -832,17 +832,6 @@
           "ap-southeast-1",
           "ap-southeast-2"
         ],
-        "ap-southeast-3": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2",
-          "ap-southeast-3",
-          "ap-southeast-4"
-        ],
         "ap-southeast-5": [
           "ap-northeast-1",
           "ap-northeast-2",
@@ -866,6 +855,17 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
+        ],
+        "ap-southeast-3": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-south-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-southeast-3",
+          "ap-southeast-4"
         ]
       },
       "EU": {
@@ -980,10 +980,6 @@
         "APAC",
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "APAC",
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "APAC"
       ],
@@ -1029,6 +1025,10 @@
       ],
       "us-west-2": [
         "US"
+      ],
+      "ap-southeast-3": [
+        "APAC",
+        "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -1097,17 +1097,6 @@
           "ap-southeast-1",
           "ap-southeast-2"
         ],
-        "ap-southeast-3": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2",
-          "ap-southeast-3",
-          "ap-southeast-4"
-        ],
         "ap-southeast-4": [
           "ap-northeast-1",
           "ap-northeast-2",
@@ -1141,6 +1130,17 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
+        ],
+        "ap-southeast-3": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-south-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-southeast-3",
+          "ap-southeast-4"
         ]
       },
       "EU": {
@@ -1793,9 +1793,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -1865,6 +1862,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -2017,9 +2017,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -2088,6 +2085,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -2292,9 +2292,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL"
@@ -2372,6 +2369,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -2653,9 +2653,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -2731,6 +2728,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -2940,9 +2940,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL"
@@ -3022,6 +3019,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -3255,9 +3255,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL",
@@ -3339,6 +3336,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -3587,9 +3587,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL",
@@ -3671,6 +3668,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -3916,9 +3916,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL",
@@ -4000,6 +3997,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -4236,9 +4236,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL",
@@ -4318,6 +4315,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -4549,9 +4549,6 @@
       "ap-southeast-2": [
         "APAC"
       ],
-      "ap-southeast-3": [
-        "APAC"
-      ],
       "ap-southeast-4": [
         "APAC"
       ],
@@ -4597,6 +4594,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "APAC"
       ]
     },
     "model_lifecycle_status": "LEGACY",
@@ -4694,17 +4694,6 @@
           "ap-southeast-2",
           "ap-southeast-4"
         ],
-        "ap-southeast-3": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-south-2",
-          "ap-southeast-1",
-          "ap-southeast-2",
-          "ap-southeast-3",
-          "ap-southeast-4"
-        ],
         "ap-southeast-4": [
           "ap-northeast-1",
           "ap-northeast-2",
@@ -4738,6 +4727,17 @@
           "ap-southeast-3",
           "ap-southeast-4",
           "ap-southeast-7"
+        ],
+        "ap-southeast-3": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-south-2",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          "ap-southeast-3",
+          "ap-southeast-4"
         ]
       },
       "EU": {
@@ -4896,9 +4896,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL"
@@ -4976,6 +4973,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -5212,9 +5212,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL"
@@ -5294,6 +5291,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -5534,9 +5534,6 @@
         "AU",
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "AU",
         "GLOBAL",
@@ -5618,6 +5615,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -5966,9 +5966,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -6027,6 +6024,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -6263,9 +6263,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "eu-north-1": [
         "ON_DEMAND"
       ],
@@ -6276,6 +6273,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -6322,9 +6322,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -6344,6 +6341,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -6408,9 +6408,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -6430,6 +6427,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -6498,9 +6498,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -6529,6 +6526,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -6601,9 +6601,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -6632,6 +6629,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -6704,9 +6704,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -6735,6 +6732,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7282,9 +7282,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -7313,6 +7310,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7384,9 +7384,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -7415,6 +7412,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7486,9 +7486,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -7517,6 +7514,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7588,9 +7588,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -7619,6 +7616,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7690,9 +7690,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -7721,6 +7718,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7793,9 +7793,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -7824,6 +7821,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7896,9 +7896,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -7927,6 +7924,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -7999,9 +7999,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -8030,6 +8027,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -8223,9 +8223,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -8245,6 +8242,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -8476,9 +8476,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -8507,6 +8504,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -8579,9 +8579,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -8610,6 +8607,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -8723,9 +8723,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -8745,6 +8742,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -8809,9 +8809,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -8831,6 +8828,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -8927,9 +8927,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -8998,6 +8995,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -9117,9 +9117,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -9148,6 +9145,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -9220,9 +9220,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -9251,6 +9248,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -9322,9 +9322,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -9353,6 +9350,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -9424,9 +9424,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -9455,6 +9452,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -9493,23 +9493,141 @@
   },
   "openai.gpt-5.4": {
     "regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "mx-central-1",
+      "sa-east-1",
       "us-east-1",
       "us-east-2",
+      "us-west-1",
       "us-west-2"
     ],
     "inference_types": {
+      "af-south-1": [
+        "GLOBAL"
+      ],
+      "ap-east-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-1": [
+        "GLOBAL"
+      ],
+      "ap-northeast-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-3": [
+        "GLOBAL"
+      ],
+      "ap-south-1": [
+        "GLOBAL"
+      ],
+      "ap-south-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-4": [
+        "GLOBAL"
+      ],
+      "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
+      "ap-southeast-7": [
+        "GLOBAL"
+      ],
+      "ca-central-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "ca-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "eu-central-1": [
+        "GLOBAL"
+      ],
+      "eu-central-2": [
+        "GLOBAL"
+      ],
+      "eu-north-1": [
+        "GLOBAL"
+      ],
+      "eu-south-1": [
+        "GLOBAL"
+      ],
+      "eu-south-2": [
+        "GLOBAL"
+      ],
+      "eu-west-1": [
+        "GLOBAL"
+      ],
+      "eu-west-2": [
+        "GLOBAL"
+      ],
+      "eu-west-3": [
+        "GLOBAL"
+      ],
+      "il-central-1": [
+        "GLOBAL"
+      ],
+      "mx-central-1": [
+        "GLOBAL"
+      ],
+      "sa-east-1": [
+        "GLOBAL"
+      ],
       "us-east-1": [
-        "ON_DEMAND"
+        "GLOBAL",
+        "ON_DEMAND",
+        "US"
       ],
       "us-east-2": [
-        "ON_DEMAND"
+        "GLOBAL",
+        "ON_DEMAND",
+        "US"
+      ],
+      "us-west-1": [
+        "GLOBAL",
+        "US"
       ],
       "us-west-2": [
-        "ON_DEMAND"
+        "GLOBAL",
+        "ON_DEMAND",
+        "US"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
     "inputModalities": [
+      "IMAGE",
       "TEXT"
     ],
     "outputModalities": [
@@ -9517,6 +9635,73 @@
     ],
     "responseStreamingSupported": true,
     "customizationsSupported": [],
+    "runtime_supported": true,
+    "inferenceProfile": {
+      "GLOBAL": [
+        "af-south-1",
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-6",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "US": {
+        "ca-central-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "ca-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
+    },
     "mantle_supported_regions": [
       "us-east-1",
       "us-east-2",
@@ -9565,19 +9750,140 @@
   },
   "openai.gpt-5.5": {
     "regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "mx-central-1",
+      "sa-east-1",
       "us-east-1",
-      "us-east-2"
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
     ],
     "inference_types": {
+      "af-south-1": [
+        "GLOBAL"
+      ],
+      "ap-east-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-1": [
+        "GLOBAL"
+      ],
+      "ap-northeast-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-3": [
+        "GLOBAL"
+      ],
+      "ap-south-1": [
+        "GLOBAL"
+      ],
+      "ap-south-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-4": [
+        "GLOBAL"
+      ],
+      "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
+      "ap-southeast-7": [
+        "GLOBAL"
+      ],
+      "ca-central-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "ca-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "eu-central-1": [
+        "GLOBAL"
+      ],
+      "eu-central-2": [
+        "GLOBAL"
+      ],
+      "eu-north-1": [
+        "GLOBAL"
+      ],
+      "eu-south-1": [
+        "GLOBAL"
+      ],
+      "eu-south-2": [
+        "GLOBAL"
+      ],
+      "eu-west-1": [
+        "GLOBAL"
+      ],
+      "eu-west-2": [
+        "GLOBAL"
+      ],
+      "eu-west-3": [
+        "GLOBAL"
+      ],
+      "il-central-1": [
+        "GLOBAL"
+      ],
+      "mx-central-1": [
+        "GLOBAL"
+      ],
+      "sa-east-1": [
+        "GLOBAL"
+      ],
       "us-east-1": [
-        "ON_DEMAND"
+        "GLOBAL",
+        "ON_DEMAND",
+        "US"
       ],
       "us-east-2": [
-        "ON_DEMAND"
+        "GLOBAL",
+        "ON_DEMAND",
+        "US"
+      ],
+      "us-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-2": [
+        "GLOBAL",
+        "US"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
     "inputModalities": [
+      "IMAGE",
       "TEXT"
     ],
     "outputModalities": [
@@ -9585,6 +9891,69 @@
     ],
     "responseStreamingSupported": true,
     "customizationsSupported": [],
+    "runtime_supported": true,
+    "inferenceProfile": {
+      "GLOBAL": [
+        "af-south-1",
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-6",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "US": {
+        "ca-central-1": [
+          "us-east-1",
+          "us-east-2"
+        ],
+        "ca-west-1": [
+          "us-east-1",
+          "us-east-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
+    },
     "mantle_supported_regions": [
       "us-east-1",
       "us-east-2"
@@ -9683,9 +10052,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -9750,6 +10116,9 @@
         "GLOBAL",
         "ON_DEMAND",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -9905,9 +10274,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -9971,6 +10337,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -10117,9 +10486,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -10184,6 +10550,9 @@
         "GLOBAL",
         "ON_DEMAND",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -10345,9 +10714,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -10417,6 +10783,9 @@
         "GLOBAL",
         "ON_DEMAND",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -10570,9 +10939,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -10642,6 +11008,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -10795,9 +11164,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -10867,6 +11233,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -10993,9 +11362,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -11024,6 +11390,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11085,9 +11454,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "eu-central-1": [
         "ON_DEMAND"
       ],
@@ -11113,6 +11479,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11162,9 +11531,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -11193,6 +11559,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11254,9 +11623,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "eu-central-1": [
         "ON_DEMAND"
       ],
@@ -11282,6 +11648,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11331,9 +11700,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -11362,6 +11728,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11433,9 +11802,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -11464,6 +11830,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11535,9 +11904,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -11566,6 +11932,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11624,9 +11993,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "eu-central-1": [
         "ON_DEMAND"
       ],
@@ -11643,6 +12009,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11692,9 +12061,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -11723,6 +12089,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11784,9 +12153,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "eu-central-1": [
         "ON_DEMAND"
       ],
@@ -11812,6 +12178,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11861,9 +12230,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -11892,6 +12258,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -11953,9 +12322,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "eu-central-1": [
         "ON_DEMAND"
       ],
@@ -11981,6 +12347,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -12027,9 +12396,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -12049,6 +12415,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -12102,9 +12471,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "eu-north-1": [
         "ON_DEMAND"
       ],
@@ -12115,6 +12481,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -12164,9 +12533,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -12195,6 +12561,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -12322,9 +12691,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -12353,6 +12719,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -12480,9 +12849,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -12511,6 +12877,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -13411,9 +13780,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -13486,6 +13852,9 @@
       "us-west-2": [
         "GLOBAL",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -13673,9 +14042,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -13704,6 +14070,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -13948,9 +14317,6 @@
       "ap-southeast-2": [
         "GLOBAL"
       ],
-      "ap-southeast-3": [
-        "GLOBAL"
-      ],
       "ap-southeast-4": [
         "GLOBAL"
       ],
@@ -14013,6 +14379,9 @@
         "GLOBAL",
         "ON_DEMAND",
         "US"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -14135,9 +14504,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -14166,6 +14532,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -14233,9 +14602,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -14255,6 +14621,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -14323,9 +14692,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -14354,6 +14720,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },
@@ -14422,9 +14791,6 @@
       "ap-southeast-2": [
         "ON_DEMAND"
       ],
-      "ap-southeast-3": [
-        "ON_DEMAND"
-      ],
       "ap-southeast-4": [
         "ON_DEMAND"
       ],
@@ -14444,6 +14810,9 @@
         "ON_DEMAND"
       ],
       "us-west-2": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-3": [
         "ON_DEMAND"
       ]
     },

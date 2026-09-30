@@ -72,7 +72,7 @@
     "last_changed": "2026-08-14"
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-09-30"
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
     "last_changed": "2026-07-09"
@@ -90,7 +90,7 @@
     "last_changed": "2026-08-07"
   },
   "anthropic.claude-opus-5": {
-    "last_changed": "2026-07-28"
+    "last_changed": "2026-09-30"
   },
   "anthropic.claude-opus-5-5": {
     "last_changed": "2026-09-24"
@@ -105,7 +105,7 @@
     "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-5": {
-    "last_changed": "2026-07-16"
+    "last_changed": "2026-09-30"
   },
   "anthropic.claude-sonnet-5-5": {
     "last_changed": "2026-09-29"
@@ -135,13 +135,13 @@
     "last_changed": "2026-09-23"
   },
   "google.gemma-3-12b-it": {
-    "last_changed": "2026-09-29"
+    "last_changed": "2026-09-30"
   },
   "google.gemma-3-27b-it": {
     "last_changed": "2026-09-23"
   },
   "google.gemma-3-4b-it": {
-    "last_changed": "2026-09-29"
+    "last_changed": "2026-09-30"
   },
   "google.gemma-4-26b-a4b": {
     "last_changed": "2026-07-01"
@@ -192,10 +192,10 @@
     "last_changed": "2026-09-23"
   },
   "mistral.ministral-3-14b-instruct": {
-    "last_changed": "2026-09-29"
+    "last_changed": "2026-09-30"
   },
   "mistral.ministral-3-3b-instruct": {
-    "last_changed": "2026-09-29"
+    "last_changed": "2026-09-30"
   },
   "mistral.ministral-3-8b-instruct": {
     "last_changed": "2026-09-23"
@@ -246,7 +246,7 @@
     "last_changed": "2026-09-23"
   },
   "nvidia.nemotron-nano-9b-v2": {
-    "last_changed": "2026-09-29"
+    "last_changed": "2026-09-30"
   },
   "nvidia.nemotron-super-3-120b": {
     "last_changed": "2026-09-23"
@@ -273,13 +273,16 @@
     "last_changed": "2026-08-18"
   },
   "openai.gpt-6-astra": {
-    "last_changed": "2026-09-09"
+    "last_changed": "2026-09-30"
   },
   "openai.gpt-6-luna": {
     "last_changed": "2026-09-23"
   },
   "openai.gpt-6-sol": {
     "last_changed": "2026-09-23"
+  },
+  "openai.gpt-6.1-sol": {
+    "last_changed": "2026-09-30"
   },
   "openai.gpt-oss-120b": {
     "last_changed": "2026-09-23"

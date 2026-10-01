@@ -346,38 +346,6 @@
     "customizationsSupported": [],
     "runtime_supported": true
   },
-  "amazon.nova-canvas-v1:0": {
-    "regions": [
-      "ap-northeast-1",
-      "eu-west-1",
-      "us-east-1"
-    ],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND",
-        "PROVISIONED"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "outputModalities": [
-      "IMAGE"
-    ],
-    "responseStreamingSupported": false,
-    "customizationsSupported": [
-      "FINE_TUNING"
-    ],
-    "runtime_supported": true
-  },
   "amazon.nova-lite-v1:0": {
     "regions": [
       "ap-east-2",
@@ -1215,56 +1183,6 @@
         ]
       }
     }
-  },
-  "amazon.nova-reel-v1:0": {
-    "regions": [
-      "ap-northeast-1",
-      "eu-west-1",
-      "us-east-1"
-    ],
-    "inference_types": {
-      "ap-northeast-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-1": [
-        "ON_DEMAND"
-      ],
-      "us-east-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "outputModalities": [
-      "VIDEO"
-    ],
-    "responseStreamingSupported": false,
-    "customizationsSupported": [],
-    "runtime_supported": true
-  },
-  "amazon.nova-reel-v1:1": {
-    "regions": [
-      "us-east-1"
-    ],
-    "inference_types": {
-      "us-east-1": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "outputModalities": [
-      "VIDEO"
-    ],
-    "responseStreamingSupported": false,
-    "customizationsSupported": [],
-    "runtime_supported": true
   },
   "amazon.rerank-v1:0": {
     "regions": [
@@ -2554,6 +2472,31 @@
         ]
       }
     }
+  },
+  "anthropic.claude-mulberry-trn2-208k-20251001": {
+    "regions": [
+      "ap-south-1"
+    ],
+    "inference_types": {
+      "ap-south-1": [
+        "ON_DEMAND"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "inputModalities": [
+      "TEXT"
+    ],
+    "outputModalities": [
+      "TEXT"
+    ],
+    "responseStreamingSupported": true,
+    "customizationsSupported": [],
+    "mantle_supported_regions": [
+      "ap-south-1"
+    ],
+    "mantle_apis": [
+      "messages"
+    ]
   },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
     "regions": [
@@ -4187,6 +4130,7 @@
       }
     },
     "mantle_supported_regions": [
+      "ap-northeast-2",
       "ap-southeast-4",
       "eu-north-1",
       "eu-west-1",
@@ -5819,6 +5763,8 @@
       }
     },
     "mantle_supported_regions": [
+      "ap-northeast-2",
+      "ap-southeast-1",
       "ap-southeast-4",
       "eu-north-1",
       "eu-west-1",
@@ -5906,33 +5852,43 @@
         "GLOBAL"
       ],
       "ca-central-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "ca-west-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "eu-central-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-central-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-north-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-south-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-south-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-1": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-2": [
+        "EU",
         "GLOBAL"
       ],
       "eu-west-3": [
+        "EU",
         "GLOBAL"
       ],
       "il-central-1": [
@@ -5945,16 +5901,20 @@
         "GLOBAL"
       ],
       "us-east-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-east-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-west-1": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ],
       "us-west-2": [
-        "GLOBAL"
+        "GLOBAL",
+        "US"
       ]
     },
     "model_lifecycle_status": "ACTIVE",
@@ -5969,6 +5929,74 @@
     "customizationsSupported": [],
     "runtime_supported": true,
     "inferenceProfile": {
+      "EU": {
+        "eu-central-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-central-2": [
+          "eu-central-1",
+          "eu-central-2",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-north-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-south-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-south-2": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-west-1": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ],
+        "eu-west-2": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-2",
+          "eu-west-3"
+        ],
+        "eu-west-3": [
+          "eu-central-1",
+          "eu-north-1",
+          "eu-south-1",
+          "eu-south-2",
+          "eu-west-1",
+          "eu-west-3"
+        ]
+      },
       "GLOBAL": [
         "af-south-1",
         "ap-east-2",
@@ -6001,7 +6029,42 @@
         "us-east-2",
         "us-west-1",
         "us-west-2"
-      ]
+      ],
+      "US": {
+        "ca-central-1": [
+          "ca-central-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "ca-west-1": [
+          "ca-west-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
     }
   },
   "cohere.embed-english-v3": {

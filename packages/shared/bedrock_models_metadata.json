@@ -14,9 +14,6 @@
   "amazon.nova-2-sonic-v1:0": {
     "last_changed": "2026-06-20"
   },
-  "amazon.nova-canvas-v1:0": {
-    "last_changed": "2026-06-20"
-  },
   "amazon.nova-lite-v1:0": {
     "last_changed": "2026-06-20"
   },
@@ -24,12 +21,6 @@
     "last_changed": "2026-06-20"
   },
   "amazon.nova-pro-v1:0": {
-    "last_changed": "2026-06-20"
-  },
-  "amazon.nova-reel-v1:0": {
-    "last_changed": "2026-06-20"
-  },
-  "amazon.nova-reel-v1:1": {
     "last_changed": "2026-06-20"
   },
   "amazon.rerank-v1:0": {
@@ -74,6 +65,9 @@
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
     "last_changed": "2026-09-30"
   },
+  "anthropic.claude-mulberry-trn2-208k-20251001": {
+    "last_changed": "2026-10-01"
+  },
   "anthropic.claude-opus-4-1-20250805-v1:0": {
     "last_changed": "2026-07-09"
   },
@@ -90,7 +84,7 @@
     "last_changed": "2026-08-07"
   },
   "anthropic.claude-opus-5": {
-    "last_changed": "2026-09-30"
+    "last_changed": "2026-10-01"
   },
   "anthropic.claude-opus-5-5": {
     "last_changed": "2026-09-24"
@@ -105,10 +99,10 @@
     "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-5": {
-    "last_changed": "2026-09-30"
+    "last_changed": "2026-10-01"
   },
   "anthropic.claude-sonnet-5-5": {
-    "last_changed": "2026-09-29"
+    "last_changed": "2026-10-01"
   },
   "cohere.embed-english-v3": {
     "last_changed": "2026-06-20"
@@ -428,9 +422,21 @@
   "zai.glm-5": {
     "last_changed": "2026-09-23"
   },
+  "amazon.nova-canvas-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-10-01"
+  },
   "amazon.nova-premier-v1:0": {
     "last_changed": "2026-06-20",
     "deleted": "2026-09-15"
+  },
+  "amazon.nova-reel-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-10-01"
+  },
+  "amazon.nova-reel-v1:1": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-10-01"
   },
   "amazon.nova-sonic-v1:0": {
     "last_changed": "2026-06-20",

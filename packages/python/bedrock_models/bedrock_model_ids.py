@@ -33,6 +33,7 @@ class _DeprecatedModelDescriptor:
 class Models:
     """Static class containing Bedrock foundation model IDs as constants for Models."""
 
+    AMAZON_NOVA_2_5_SONIC = BedrockModel("amazon.nova-2-5-sonic")
     AMAZON_NOVA_2_LITE = BedrockModel("amazon.nova-2-lite-v1:0")
     AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS = BedrockModel("amazon.nova-2-multimodal-embeddings-v1:0")
     AMAZON_NOVA_2_SONIC = BedrockModel("amazon.nova-2-sonic-v1:0")
@@ -241,6 +242,7 @@ class MantleModels:
 class RuntimeModels:
     """Static class containing Bedrock foundation model IDs as constants for RuntimeModels."""
 
+    AMAZON_NOVA_2_5_SONIC = BedrockModel("amazon.nova-2-5-sonic")
     AMAZON_NOVA_2_LITE = BedrockModel("amazon.nova-2-lite-v1:0")
     AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS = BedrockModel("amazon.nova-2-multimodal-embeddings-v1:0")
     AMAZON_NOVA_2_SONIC = BedrockModel("amazon.nova-2-sonic-v1:0")

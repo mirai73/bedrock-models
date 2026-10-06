@@ -6,6 +6,7 @@ class BedrockModel(str):
 
 class Models:
 
+    AMAZON_NOVA_2_5_SONIC: Final[BedrockModel]
     AMAZON_NOVA_2_LITE: Final[BedrockModel]
     AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS: Final[BedrockModel]
     AMAZON_NOVA_2_SONIC: Final[BedrockModel]
@@ -210,6 +211,7 @@ class MantleModels:
 
 class RuntimeModels:
 
+    AMAZON_NOVA_2_5_SONIC: Final[BedrockModel]
     AMAZON_NOVA_2_LITE: Final[BedrockModel]
     AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS: Final[BedrockModel]
     AMAZON_NOVA_2_SONIC: Final[BedrockModel]

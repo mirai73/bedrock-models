@@ -5,6 +5,9 @@
   "ai21.jamba-1-5-mini-v1:0": {
     "last_changed": "2026-06-20"
   },
+  "amazon.nova-2-5-sonic": {
+    "last_changed": "2026-10-06"
+  },
   "amazon.nova-2-lite-v1:0": {
     "last_changed": "2026-07-01"
   },
@@ -96,7 +99,7 @@
     "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-4-6": {
-    "last_changed": "2026-07-01"
+    "last_changed": "2026-10-06"
   },
   "anthropic.claude-sonnet-5": {
     "last_changed": "2026-10-02"

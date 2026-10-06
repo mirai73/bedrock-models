@@ -29,6 +29,7 @@ export class BedrockModel extends String {
 export const Models = {
   AI21_JAMBA_1_5_LARGE: new BedrockModel('ai21.jamba-1-5-large-v1:0'),
   AI21_JAMBA_1_5_MINI: new BedrockModel('ai21.jamba-1-5-mini-v1:0'),
+  AMAZON_NOVA_2_5_SONIC: new BedrockModel('amazon.nova-2-5-sonic'),
   AMAZON_NOVA_2_LITE: new BedrockModel('amazon.nova-2-lite-v1:0'),
   AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS: new BedrockModel('amazon.nova-2-multimodal-embeddings-v1:0'),
   AMAZON_NOVA_2_SONIC: new BedrockModel('amazon.nova-2-sonic-v1:0'),
@@ -239,6 +240,7 @@ export const MantleModels = {
 export const RuntimeModels = {
   AI21_JAMBA_1_5_LARGE: new BedrockModel('ai21.jamba-1-5-large-v1:0'),
   AI21_JAMBA_1_5_MINI: new BedrockModel('ai21.jamba-1-5-mini-v1:0'),
+  AMAZON_NOVA_2_5_SONIC: new BedrockModel('amazon.nova-2-5-sonic'),
   AMAZON_NOVA_2_LITE: new BedrockModel('amazon.nova-2-lite-v1:0'),
   AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS: new BedrockModel('amazon.nova-2-multimodal-embeddings-v1:0'),
   AMAZON_NOVA_2_SONIC: new BedrockModel('amazon.nova-2-sonic-v1:0'),

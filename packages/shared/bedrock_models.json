@@ -39,6 +39,40 @@
     "customizationsSupported": [],
     "runtime_supported": true
   },
+  "amazon.nova-2-5-sonic": {
+    "regions": [
+      "ap-northeast-1",
+      "eu-north-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "ap-northeast-1": [
+        "ON_DEMAND"
+      ],
+      "eu-north-1": [
+        "ON_DEMAND"
+      ],
+      "us-east-1": [
+        "ON_DEMAND"
+      ],
+      "us-west-2": [
+        "ON_DEMAND"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "inputModalities": [
+      "SPEECH",
+      "TEXT"
+    ],
+    "outputModalities": [
+      "SPEECH",
+      "TEXT"
+    ],
+    "responseStreamingSupported": true,
+    "customizationsSupported": [],
+    "runtime_supported": true
+  },
   "amazon.nova-2-lite-v1:0": {
     "regions": [
       "ap-east-2",
@@ -5422,11 +5456,7 @@
           "us-east-2",
           "us-west-2"
         ],
-        "us-east-2": [
-          "us-east-1",
-          "us-east-2",
-          "us-west-2"
-        ],
+        "us-east-2": [],
         "us-west-1": [
           "us-east-1",
           "us-east-2",

@@ -18,7 +18,7 @@
     "last_changed": "2026-06-20"
   },
   "amazon.nova-lite-v1:0": {
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-10-07"
   },
   "amazon.nova-micro-v1:0": {
     "last_changed": "2026-06-20"
@@ -99,7 +99,7 @@
     "last_changed": "2026-07-01"
   },
   "anthropic.claude-sonnet-4-6": {
-    "last_changed": "2026-10-06"
+    "last_changed": "2026-10-07"
   },
   "anthropic.claude-sonnet-5": {
     "last_changed": "2026-10-02"
@@ -234,7 +234,7 @@
     "last_changed": "2026-09-23"
   },
   "moonshotai.kimi-k3": {
-    "last_changed": "2026-09-18"
+    "last_changed": "2026-10-07"
   },
   "nvidia.nemotron-nano-12b-v2": {
     "last_changed": "2026-09-23"
@@ -424,6 +424,9 @@
   },
   "zai.glm-5": {
     "last_changed": "2026-09-23"
+  },
+  "zai.glm-5.3": {
+    "last_changed": "2026-10-07"
   },
   "amazon.nova-canvas-v1:0": {
     "last_changed": "2026-06-20",

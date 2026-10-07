@@ -164,6 +164,7 @@ export const Models = {
   ZAI_GLM_4_7: new BedrockModel('zai.glm-4.7'),
   ZAI_GLM_4_7_FLASH: new BedrockModel('zai.glm-4.7-flash'),
   ZAI_GLM_5: new BedrockModel('zai.glm-5'),
+  ZAI_GLM_5_3: new BedrockModel('zai.glm-5.3'),
 };
 
 /**
@@ -360,5 +361,6 @@ export const RuntimeModels = {
   ZAI_GLM_4_7: new BedrockModel('zai.glm-4.7'),
   ZAI_GLM_4_7_FLASH: new BedrockModel('zai.glm-4.7-flash'),
   ZAI_GLM_5: new BedrockModel('zai.glm-5'),
+  ZAI_GLM_5_3: new BedrockModel('zai.glm-5.3'),
 };
 

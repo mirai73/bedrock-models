@@ -138,6 +138,7 @@ class Models:
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
     ZAI_GLM_5: Final[BedrockModel]
+    ZAI_GLM_5_3: Final[BedrockModel]
     AI21_JAMBA_1_5_LARGE: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
@@ -328,6 +329,7 @@ class RuntimeModels:
     ZAI_GLM_4_7: Final[BedrockModel]
     ZAI_GLM_4_7_FLASH: Final[BedrockModel]
     ZAI_GLM_5: Final[BedrockModel]
+    ZAI_GLM_5_3: Final[BedrockModel]
     AI21_JAMBA_1_5_LARGE: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status

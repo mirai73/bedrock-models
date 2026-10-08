@@ -18,7 +18,7 @@
     "last_changed": "2026-06-20"
   },
   "amazon.nova-lite-v1:0": {
-    "last_changed": "2026-10-07"
+    "last_changed": "2026-10-08"
   },
   "amazon.nova-micro-v1:0": {
     "last_changed": "2026-06-20"
@@ -67,6 +67,9 @@
   },
   "anthropic.claude-haiku-4-5-20251001-v1:0": {
     "last_changed": "2026-09-30"
+  },
+  "anthropic.claude-haiku-5-5": {
+    "last_changed": "2026-10-08"
   },
   "anthropic.claude-mulberry-trn2-208k-20251001": {
     "last_changed": "2026-10-01"

@@ -664,7 +664,11 @@
           "us-east-2",
           "us-west-2"
         ],
-        "us-east-2": [],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
         "us-west-1": [
           "us-east-1",
           "us-east-2",
@@ -2768,6 +2772,7 @@
         "il-central-1",
         "mx-central-1",
         "sa-east-1",
+        "us-east-1",
         "us-east-2",
         "us-west-1",
         "us-west-2"
@@ -5294,7 +5299,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "IMAGE",
       "TEXT"

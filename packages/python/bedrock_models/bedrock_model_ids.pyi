@@ -34,7 +34,6 @@ class Models:
     ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_5_5: Final[BedrockModel]
-    ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_6: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_5_5: Final[BedrockModel]
@@ -145,6 +144,7 @@ class Models:
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
+    ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
 
 class MantleModels:
@@ -240,7 +240,6 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_OPUS_4_8: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_OPUS_5_5: Final[BedrockModel]
-    ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_4_6: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_5: Final[BedrockModel]
     ANTHROPIC_CLAUDE_SONNET_5_5: Final[BedrockModel]
@@ -338,4 +337,5 @@ class RuntimeModels:
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
+    ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status

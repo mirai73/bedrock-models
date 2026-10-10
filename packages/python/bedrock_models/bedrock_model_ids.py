@@ -61,7 +61,6 @@ class Models:
     ANTHROPIC_CLAUDE_OPUS_4_8 = BedrockModel("anthropic.claude-opus-4-8")
     ANTHROPIC_CLAUDE_OPUS_5 = BedrockModel("anthropic.claude-opus-5")
     ANTHROPIC_CLAUDE_OPUS_5_5 = BedrockModel("anthropic.claude-opus-5-5")
-    ANTHROPIC_CLAUDE_SONNET_4_5_20250929 = BedrockModel("anthropic.claude-sonnet-4-5-20250929-v1:0")
     ANTHROPIC_CLAUDE_SONNET_4_6 = BedrockModel("anthropic.claude-sonnet-4-6")
     ANTHROPIC_CLAUDE_SONNET_5 = BedrockModel("anthropic.claude-sonnet-5")
     ANTHROPIC_CLAUDE_SONNET_5_5 = BedrockModel("anthropic.claude-sonnet-5-5")
@@ -172,6 +171,7 @@ class Models:
     AI21_JAMBA_1_5_MINI = _DeprecatedModelDescriptor("ai21.jamba-1-5-mini-v1:0", "Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = _DeprecatedModelDescriptor("anthropic.claude-opus-4-1-20250805-v1:0", "Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-20250514-v1:0", "Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    ANTHROPIC_CLAUDE_SONNET_4_5_20250929 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-5-20250929-v1:0", "Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     TWELVELABS_MARENGO_EMBED_2_7 = _DeprecatedModelDescriptor("twelvelabs.marengo-embed-2-7-v1:0", "Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
 
 
@@ -271,7 +271,6 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_OPUS_4_8 = BedrockModel("anthropic.claude-opus-4-8")
     ANTHROPIC_CLAUDE_OPUS_5 = BedrockModel("anthropic.claude-opus-5")
     ANTHROPIC_CLAUDE_OPUS_5_5 = BedrockModel("anthropic.claude-opus-5-5")
-    ANTHROPIC_CLAUDE_SONNET_4_5_20250929 = BedrockModel("anthropic.claude-sonnet-4-5-20250929-v1:0")
     ANTHROPIC_CLAUDE_SONNET_4_6 = BedrockModel("anthropic.claude-sonnet-4-6")
     ANTHROPIC_CLAUDE_SONNET_5 = BedrockModel("anthropic.claude-sonnet-5")
     ANTHROPIC_CLAUDE_SONNET_5_5 = BedrockModel("anthropic.claude-sonnet-5-5")
@@ -369,4 +368,5 @@ class RuntimeModels:
     AI21_JAMBA_1_5_MINI = _DeprecatedModelDescriptor("ai21.jamba-1-5-mini-v1:0", "Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805 = _DeprecatedModelDescriptor("anthropic.claude-opus-4-1-20250805-v1:0", "Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     ANTHROPIC_CLAUDE_SONNET_4_20250514 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-20250514-v1:0", "Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
+    ANTHROPIC_CLAUDE_SONNET_4_5_20250929 = _DeprecatedModelDescriptor("anthropic.claude-sonnet-4-5-20250929-v1:0", "Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")
     TWELVELABS_MARENGO_EMBED_2_7 = _DeprecatedModelDescriptor("twelvelabs.marengo-embed-2-7-v1:0", "Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status and may be removed by AWS. Consider migrating to a newer model.")

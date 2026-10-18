@@ -1,0 +1,79 @@
+name: PR Tests
+
+# Runs only once a reviewer approves a PR (not on every push), plus manual runs.
+# pull_request_review runs against the PR merge ref with a read-only token and,
+# for forks, no access to secrets.
+on:
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-tests-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Python tests
+    if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: latest
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      # Same as release.yml: replace the git symlinks with real copies
+      - name: Copy shared JSON and metadata files
+        run: |
+          rm -f packages/python/bedrock_models/bedrock_models.json
+          cp packages/shared/bedrock_models.json packages/python/bedrock_models/bedrock_models.json
+          rm -f packages/python/bedrock_models/bedrock_models_metadata.json
+          cp packages/shared/bedrock_models_metadata.json packages/python/bedrock_models/bedrock_models_metadata.json
+
+      - name: Install dependencies
+        working-directory: packages/python
+        run: poetry install --no-interaction
+
+      - name: Run tests
+        working-directory: packages/python
+        run: poetry run pytest tests/
+
+      - name: Build package
+        working-directory: packages/python
+        run: poetry build
+
+  typescript:
+    name: TypeScript build and tests
+    if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build and test
+        run: pnpm test

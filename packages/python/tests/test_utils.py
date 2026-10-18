@@ -224,7 +224,7 @@ def test_save_to_json_metadata(tmp_path):
     assert models_file.exists()
     assert metadata_file.exists()
     
-    with open(metadata_file, "r") as f:
+    with open(metadata_file, "r", encoding="utf-8") as f:
         meta_data = json.load(f)
         
     assert "model-a" in meta_data
@@ -241,7 +241,7 @@ def test_save_to_json_metadata(tmp_path):
         "model-a": {"last_changed": "2020-01-01"},
         "model-b": {"last_changed": "2020-01-01"}
     }
-    with open(metadata_file, "w") as f:
+    with open(metadata_file, "w", encoding="utf-8") as f:
         json.dump(historical_meta, f)
         
     # Run again with model-b modified and model-a unchanged
@@ -261,7 +261,7 @@ def test_save_to_json_metadata(tmp_path):
     }
     save_to_json(modified_mapping, filename=str(models_file))
     
-    with open(metadata_file, "r") as f:
+    with open(metadata_file, "r", encoding="utf-8") as f:
         meta_data = json.load(f)
         
     # model-a unchanged -> retains historical date
@@ -284,7 +284,7 @@ def test_save_to_json_metadata(tmp_path):
     }
     save_to_json(deleted_mapping, filename=str(models_file))
     
-    with open(metadata_file, "r") as f:
+    with open(metadata_file, "r", encoding="utf-8") as f:
         meta_data = json.load(f)
         
     # model-a unchanged
@@ -297,7 +297,7 @@ def test_save_to_json_metadata(tmp_path):
     
     # 4. Resurrect model-b
     save_to_json(modified_mapping, filename=str(models_file))
-    with open(metadata_file, "r") as f:
+    with open(metadata_file, "r", encoding="utf-8") as f:
         meta_data = json.load(f)
         
     # model-b resurrected -> 'deleted' is removed, 'last_changed' updated to current_date
@@ -413,9 +413,9 @@ def test_save_to_json_with_failed_regions(tmp_path):
         "model-a": {"last_changed": "2025-01-01"}
     }
 
-    with open(models_file, "w") as f:
+    with open(models_file, "w", encoding="utf-8") as f:
         json.dump(initial_models, f)
-    with open(metadata_file, "w") as f:
+    with open(metadata_file, "w", encoding="utf-8") as f:
         json.dump(initial_metadata, f)
 
     # Flaky run mapping where ap-southeast-4 call failed / throttled
@@ -435,13 +435,13 @@ def test_save_to_json_with_failed_regions(tmp_path):
     save_to_json(flaky_scan_mapping, filename=str(models_file), failed_regions={"ap-southeast-4"})
 
     # Verify models file preserved the state
-    with open(models_file, "r") as f:
+    with open(models_file, "r", encoding="utf-8") as f:
         saved_models = json.load(f)
     assert saved_models["model-a"]["inference_types"]["ap-southeast-4"] == ["AU", "GLOBAL", "ON_DEMAND"]
     assert "ap-southeast-4" in saved_models["model-a"]["mantle_supported_regions"]
 
     # Verify metadata last_changed was NOT bumped (remains 2025-01-01)
-    with open(metadata_file, "r") as f:
+    with open(metadata_file, "r", encoding="utf-8") as f:
         saved_metadata = json.load(f)
     assert saved_metadata["model-a"]["last_changed"] == "2025-01-01"
 

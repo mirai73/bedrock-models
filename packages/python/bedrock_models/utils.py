@@ -10,7 +10,7 @@ from typing import Optional
 def load_model_data() -> dict:
     """Load the bedrock_models.json data."""
     json_path = Path(__file__).parent / "bedrock_models.json"
-    with open(json_path, "r") as f:
+    with open(json_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 

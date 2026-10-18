@@ -874,7 +874,7 @@ def save_to_json(
     old_models = {}
     if os.path.exists(filename):
         try:
-            with open(filename, 'r') as f:
+            with open(filename, 'r', encoding='utf-8') as f:
                 old_models = json.load(f)
         except Exception as e:
             print(f"Warning: Could not load existing models file: {e}")
@@ -888,7 +888,7 @@ def save_to_json(
     old_metadata = {}
     if os.path.exists(metadata_filename):
         try:
-            with open(metadata_filename, 'r') as f:
+            with open(metadata_filename, 'r', encoding='utf-8') as f:
                 old_metadata = json.load(f)
         except Exception as e:
             print(f"Warning: Could not load existing metadata file: {e}")
@@ -932,12 +932,12 @@ def save_to_json(
         }
 
     # Write bedrock_models.json
-    with open(filename, 'w') as f:
+    with open(filename, 'w', encoding='utf-8') as f:
         json.dump(sorted_mapping, f, indent=2)
     print(f"\nSaved model definitions to {filename}")
 
     # Write bedrock_models_metadata.json
-    with open(metadata_filename, 'w') as f:
+    with open(metadata_filename, 'w', encoding='utf-8') as f:
         json.dump(new_metadata, f, indent=2)
     print(f"Saved metadata definitions to {metadata_filename}")
 

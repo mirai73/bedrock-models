@@ -97,7 +97,7 @@ def generate_python(classes_to_generate, output_file, stub_file):
             msg = f"Model '{model_id}' has LEGACY status and may be removed by AWS. Consider migrating to a newer model."
             lines.append(f'    {field_name} = _DeprecatedModelDescriptor("{model_id}", "{msg}")')
         
-    with open(output_file, 'w') as f:
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
         
     stub_lines = [
@@ -120,7 +120,7 @@ def generate_python(classes_to_generate, output_file, stub_file):
             model_id = legacy_models[field_name]
             stub_lines.append(f'    {field_name}: Final[BedrockModel]  # deprecated: Model \'{model_id}\' has LEGACY status')
             
-    with open(stub_file, 'w') as f:
+    with open(stub_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(stub_lines) + '\n')
 
 def generate_typescript(classes_to_generate, output_file):
@@ -169,7 +169,7 @@ def generate_typescript(classes_to_generate, output_file):
             ''
         ])
     
-    with open(output_file, 'w') as f:
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
 def main():
@@ -181,7 +181,7 @@ def main():
     py_stub = root / 'packages/python/bedrock_models/bedrock_model_ids.pyi'
     ts_output = root / 'packages/typescript/src/models.ts'
     
-    with open(json_path, 'r') as f:
+    with open(json_path, 'r', encoding='utf-8') as f:
         model_mapping = json.load(f)
         
     active_models, legacy_models = collect_models(model_mapping)

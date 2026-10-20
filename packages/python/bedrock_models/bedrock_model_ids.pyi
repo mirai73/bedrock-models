@@ -121,7 +121,6 @@ class Models:
     STABILITY_STABLE_IMAGE_ULTRA: Final[BedrockModel]
     STABILITY_STABLE_OUTPAINT: Final[BedrockModel]
     STABILITY_STABLE_STYLE_TRANSFER: Final[BedrockModel]
-    TWELVELABS_PEGASUS_1_2: Final[BedrockModel]
     TWELVELABS_PEGASUS_1_5: Final[BedrockModel]
     WRITER_PALMYRA_VISION_7B: Final[BedrockModel]
     XAI_GROK_4_3: Final[BedrockModel]
@@ -144,6 +143,7 @@ class Models:
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-3-0-v1:0' has LEGACY status
+    TWELVELABS_PEGASUS_1_2: Final[BedrockModel]  # deprecated: Model 'twelvelabs.pegasus-1-2-v1:0' has LEGACY status
     WRITER_PALMYRA_X4: Final[BedrockModel]  # deprecated: Model 'writer.palmyra-x4-v1:0' has LEGACY status
     WRITER_PALMYRA_X5: Final[BedrockModel]  # deprecated: Model 'writer.palmyra-x5-v1:0' has LEGACY status
 
@@ -316,7 +316,6 @@ class RuntimeModels:
     STABILITY_STABLE_IMAGE_ULTRA: Final[BedrockModel]
     STABILITY_STABLE_OUTPAINT: Final[BedrockModel]
     STABILITY_STABLE_STYLE_TRANSFER: Final[BedrockModel]
-    TWELVELABS_PEGASUS_1_2: Final[BedrockModel]
     TWELVELABS_PEGASUS_1_5: Final[BedrockModel]
     WRITER_PALMYRA_VISION_7B: Final[BedrockModel]
     XAI_GROK_4_6: Final[BedrockModel]
@@ -337,5 +336,6 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-3-0-v1:0' has LEGACY status
+    TWELVELABS_PEGASUS_1_2: Final[BedrockModel]  # deprecated: Model 'twelvelabs.pegasus-1-2-v1:0' has LEGACY status
     WRITER_PALMYRA_X4: Final[BedrockModel]  # deprecated: Model 'writer.palmyra-x4-v1:0' has LEGACY status
     WRITER_PALMYRA_X5: Final[BedrockModel]  # deprecated: Model 'writer.palmyra-x5-v1:0' has LEGACY status

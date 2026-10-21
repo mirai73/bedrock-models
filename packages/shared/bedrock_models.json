@@ -1458,7 +1458,8 @@
   "anthropic.claude-3-5-sonnet-20240620-v1:0": {
     "regions": [
       "ap-northeast-2",
-      "ap-south-1"
+      "ap-south-1",
+      "ap-southeast-1"
     ],
     "inference_types": {
       "ap-northeast-2": [
@@ -1466,6 +1467,9 @@
       ],
       "ap-south-1": [
         "APAC"
+      ],
+      "ap-southeast-1": [
+        "ON_DEMAND"
       ]
     },
     "model_lifecycle_status": "LEGACY",
@@ -1494,13 +1498,17 @@
   "anthropic.claude-3-5-sonnet-20241022-v2:0": {
     "regions": [
       "ap-northeast-2",
-      "ap-south-1"
+      "ap-south-1",
+      "ap-southeast-1"
     ],
     "inference_types": {
       "ap-northeast-2": [
         "APAC"
       ],
       "ap-south-1": [
+        "APAC"
+      ],
+      "ap-southeast-1": [
         "APAC"
       ]
     },
@@ -1526,6 +1534,14 @@
           "ap-southeast-2"
         ],
         "ap-south-1": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-northeast-3",
+          "ap-south-1",
+          "ap-southeast-1",
+          "ap-southeast-2"
+        ],
+        "ap-southeast-1": [
           "ap-northeast-1",
           "ap-northeast-2",
           "ap-northeast-3",
@@ -1578,6 +1594,7 @@
     "regions": [
       "ap-northeast-2",
       "ap-south-1",
+      "ap-southeast-1",
       "ca-central-1",
       "eu-central-2",
       "eu-west-3",
@@ -1588,6 +1605,9 @@
         "ON_DEMAND"
       ],
       "ap-south-1": [
+        "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
         "ON_DEMAND"
       ],
       "ca-central-1": [
@@ -1618,6 +1638,7 @@
   "anthropic.claude-3-sonnet-20240229-v1:0": {
     "regions": [
       "ap-south-1",
+      "ap-southeast-1",
       "ca-central-1",
       "eu-west-2",
       "sa-east-1"
@@ -1625,6 +1646,9 @@
     "inference_types": {
       "ap-south-1": [
         "ON_DEMAND"
+      ],
+      "ap-southeast-1": [
+        "APAC"
       ],
       "ca-central-1": [
         "ON_DEMAND"
@@ -1646,7 +1670,18 @@
     ],
     "responseStreamingSupported": true,
     "customizationsSupported": [],
-    "runtime_supported": true
+    "runtime_supported": true,
+    "inferenceProfile": {
+      "APAC": {
+        "ap-southeast-1": [
+          "ap-northeast-1",
+          "ap-northeast-2",
+          "ap-south-1",
+          "ap-southeast-1",
+          "ap-southeast-2"
+        ]
+      }
+    }
   },
   "anthropic.claude-fable-5": {
     "regions": [

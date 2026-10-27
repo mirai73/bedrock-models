@@ -281,6 +281,9 @@
   "openai.gpt-6.1-sol": {
     "last_changed": "2026-09-30"
   },
+  "openai.gpt-6.1-terra": {
+    "last_changed": "2026-10-27"
+  },
   "openai.gpt-oss-120b": {
     "last_changed": "2026-09-23"
   },

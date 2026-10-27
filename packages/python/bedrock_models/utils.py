@@ -11,6 +11,14 @@ def load_model_data() -> dict:
     """Load the bedrock_models.json data."""
     json_path = Path(__file__).parent / "bedrock_models.json"
     with open(json_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    try:
+        return json.loads(content)
+    except json.JSONDecodeError:
+        # On Windows git checkouts without symlink support, the file contains the relative target path
+        target_path = (json_path.parent / content.strip()).resolve()
+        with open(target_path, "r", encoding="utf-8") as f:
+            return json.load(f)
         return json.load(f)
 
 

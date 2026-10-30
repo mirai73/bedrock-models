@@ -2589,10 +2589,12 @@
         "GLOBAL"
       ],
       "ca-central-1": [
+        "CA",
         "GLOBAL",
         "US"
       ],
       "ca-west-1": [
+        "CA",
         "GLOBAL",
         "US"
       ],
@@ -2674,6 +2676,16 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
+        ]
+      },
+      "CA": {
+        "ca-central-1": [
+          "ca-central-1",
+          "ca-west-1"
+        ],
+        "ca-west-1": [
+          "ca-central-1",
+          "ca-west-1"
         ]
       },
       "EU": {

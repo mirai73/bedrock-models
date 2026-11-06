@@ -6793,6 +6793,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6823,6 +6824,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -6872,6 +6876,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6896,6 +6901,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6926,6 +6932,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -6975,6 +6984,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6999,6 +7009,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7029,6 +7040,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7078,6 +7092,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7577,6 +7592,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7607,6 +7623,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7655,6 +7674,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7679,6 +7699,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7709,6 +7730,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7757,6 +7781,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7781,6 +7806,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7811,6 +7837,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7859,6 +7888,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7883,6 +7913,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7913,6 +7944,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7961,6 +7995,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7985,6 +8020,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8015,6 +8051,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8064,6 +8103,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8088,6 +8128,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8118,6 +8159,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8167,6 +8211,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8191,6 +8236,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8221,6 +8267,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8270,6 +8319,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8294,6 +8344,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8324,6 +8375,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8373,6 +8427,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8771,6 +8826,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8801,6 +8857,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8850,6 +8909,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8874,6 +8934,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8904,6 +8965,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8953,6 +9017,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9424,6 +9489,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9454,6 +9520,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9503,6 +9572,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9527,6 +9597,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9557,6 +9628,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9605,6 +9679,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9629,6 +9704,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9659,6 +9735,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9707,6 +9786,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9731,6 +9811,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9761,6 +9842,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9809,6 +9893,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12131,6 +12216,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12161,6 +12247,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12208,6 +12297,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12300,6 +12390,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12330,6 +12421,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12377,6 +12471,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12469,6 +12564,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12499,6 +12595,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12547,6 +12646,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12571,6 +12671,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12601,6 +12702,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12649,6 +12753,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12673,6 +12778,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12703,6 +12809,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12750,6 +12859,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12830,6 +12940,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12860,6 +12971,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12907,6 +13021,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12999,6 +13114,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13029,6 +13145,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -13076,6 +13195,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13302,6 +13422,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13332,6 +13453,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -13380,6 +13504,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13460,6 +13585,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13490,6 +13616,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -13537,6 +13666,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13618,6 +13748,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13648,6 +13779,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -13697,6 +13831,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15014,6 +15149,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15044,6 +15180,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -15094,6 +15233,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15691,6 +15831,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15721,6 +15862,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -15768,6 +15912,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15879,6 +16024,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15909,6 +16055,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -15957,6 +16106,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",

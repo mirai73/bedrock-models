@@ -1455,100 +1455,13 @@
     "customizationsSupported": [],
     "runtime_supported": true
   },
-  "anthropic.claude-3-5-sonnet-20240620-v1:0": {
-    "regions": [
-      "ap-northeast-2"
-    ],
-    "inference_types": {
-      "ap-northeast-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "outputModalities": [
-      "TEXT"
-    ],
-    "responseStreamingSupported": true,
-    "customizationsSupported": [],
-    "runtime_supported": true
-  },
-  "anthropic.claude-3-5-sonnet-20241022-v2:0": {
-    "regions": [
-      "ap-northeast-2"
-    ],
-    "inference_types": {
-      "ap-northeast-2": [
-        "APAC"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "outputModalities": [
-      "TEXT"
-    ],
-    "responseStreamingSupported": true,
-    "customizationsSupported": [],
-    "runtime_supported": true,
-    "inferenceProfile": {
-      "APAC": {
-        "ap-northeast-2": [
-          "ap-northeast-1",
-          "ap-northeast-2",
-          "ap-northeast-3",
-          "ap-south-1",
-          "ap-southeast-1",
-          "ap-southeast-2"
-        ]
-      }
-    }
-  },
-  "anthropic.claude-3-7-sonnet-20250219-v1:0": {
-    "regions": [
-      "eu-west-2"
-    ],
-    "inference_types": {
-      "eu-west-2": [
-        "ON_DEMAND"
-      ]
-    },
-    "model_lifecycle_status": "LEGACY",
-    "inputModalities": [
-      "IMAGE",
-      "TEXT"
-    ],
-    "outputModalities": [
-      "TEXT"
-    ],
-    "responseStreamingSupported": true,
-    "customizationsSupported": [],
-    "runtime_supported": true
-  },
   "anthropic.claude-3-haiku-20240307-v1:0": {
     "regions": [
-      "ap-northeast-2",
       "ca-central-1",
-      "eu-central-2",
-      "eu-west-3",
-      "sa-east-1"
+      "eu-west-3"
     ],
     "inference_types": {
-      "ap-northeast-2": [
-        "ON_DEMAND"
-      ],
       "ca-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-central-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
         "ON_DEMAND"
       ],
       "eu-west-3": [
@@ -1569,18 +1482,10 @@
   },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
     "regions": [
-      "ca-central-1",
-      "eu-west-2",
-      "sa-east-1"
+      "ca-central-1"
     ],
     "inference_types": {
       "ca-central-1": [
-        "ON_DEMAND"
-      ],
-      "eu-west-2": [
-        "ON_DEMAND"
-      ],
-      "sa-east-1": [
         "ON_DEMAND"
       ]
     },
@@ -1821,6 +1726,223 @@
     ]
   },
   "anthropic.claude-fable-5-1": {
+    "regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "mx-central-1",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "af-south-1": [
+        "GLOBAL"
+      ],
+      "ap-east-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-1": [
+        "GLOBAL"
+      ],
+      "ap-northeast-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-3": [
+        "GLOBAL"
+      ],
+      "ap-south-1": [
+        "GLOBAL"
+      ],
+      "ap-south-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
+      ],
+      "ap-southeast-4": [
+        "GLOBAL"
+      ],
+      "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
+      "ap-southeast-7": [
+        "GLOBAL"
+      ],
+      "ca-central-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "ca-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "eu-central-1": [
+        "GLOBAL"
+      ],
+      "eu-central-2": [
+        "GLOBAL"
+      ],
+      "eu-north-1": [
+        "GLOBAL"
+      ],
+      "eu-south-1": [
+        "GLOBAL"
+      ],
+      "eu-south-2": [
+        "GLOBAL"
+      ],
+      "eu-west-1": [
+        "GLOBAL"
+      ],
+      "eu-west-2": [
+        "GLOBAL"
+      ],
+      "eu-west-3": [
+        "GLOBAL"
+      ],
+      "il-central-1": [
+        "GLOBAL"
+      ],
+      "mx-central-1": [
+        "GLOBAL"
+      ],
+      "sa-east-1": [
+        "GLOBAL"
+      ],
+      "us-east-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-east-2": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-2": [
+        "GLOBAL",
+        "US"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
+    "outputModalities": [
+      "TEXT"
+    ],
+    "responseStreamingSupported": true,
+    "customizationsSupported": [],
+    "runtime_supported": true,
+    "inferenceProfile": {
+      "GLOBAL": [
+        "af-south-1",
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-6",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "US": {
+        "ca-central-1": [
+          "ca-central-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "ca-west-1": [
+          "ca-west-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
+    }
+  },
+  "anthropic.claude-fable-5-2": {
     "regions": [
       "af-south-1",
       "ap-east-2",
@@ -2502,10 +2624,12 @@
         "GLOBAL"
       ],
       "ca-central-1": [
+        "CA",
         "GLOBAL",
         "US"
       ],
       "ca-west-1": [
+        "CA",
         "GLOBAL",
         "US"
       ],
@@ -2587,6 +2711,16 @@
         "ap-southeast-4": [
           "ap-southeast-2",
           "ap-southeast-4"
+        ]
+      },
+      "CA": {
+        "ca-central-1": [
+          "ca-central-1",
+          "ca-west-1"
+        ],
+        "ca-west-1": [
+          "ca-central-1",
+          "ca-west-1"
         ]
       },
       "EU": {
@@ -4674,8 +4808,7 @@
         "sa-east-1",
         "us-east-1",
         "us-east-2",
-        "us-west-1",
-        "us-west-2"
+        "us-west-1"
       ],
       "JP": {
         "ap-northeast-1": [
@@ -6434,7 +6567,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -6694,6 +6827,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6724,6 +6858,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -6773,6 +6910,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6797,6 +6935,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6827,6 +6966,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -6876,6 +7018,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6900,6 +7043,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -6930,6 +7074,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -6979,6 +7126,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7155,7 +7303,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -7203,7 +7351,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -7251,7 +7399,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -7306,7 +7454,7 @@
         "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -7342,7 +7490,7 @@
         "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -7374,7 +7522,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "IMAGE",
       "TEXT"
@@ -7432,7 +7580,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "IMAGE",
       "TEXT"
@@ -7478,6 +7626,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7508,6 +7657,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7556,6 +7708,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7580,6 +7733,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7610,6 +7764,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7658,6 +7815,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7682,6 +7840,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7712,6 +7871,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7760,6 +7922,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7784,6 +7947,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7814,6 +7978,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7862,6 +8029,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7886,6 +8054,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7916,6 +8085,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -7965,6 +8137,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -7989,6 +8162,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8019,6 +8193,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8068,6 +8245,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8092,6 +8270,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8122,6 +8301,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8171,6 +8353,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8195,6 +8378,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8225,6 +8409,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8274,6 +8461,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8330,7 +8518,7 @@
         "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -8562,7 +8750,7 @@
         "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -8672,6 +8860,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8702,6 +8891,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8751,6 +8943,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8775,6 +8968,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -8805,6 +8999,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -8854,6 +9051,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9316,6 +9514,235 @@
       }
     }
   },
+  "moonshotai.kimi-k3.1": {
+    "regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "mx-central-1",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "af-south-1": [
+        "GLOBAL"
+      ],
+      "ap-east-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-1": [
+        "GLOBAL"
+      ],
+      "ap-northeast-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-3": [
+        "GLOBAL"
+      ],
+      "ap-south-1": [
+        "GLOBAL",
+        "IN"
+      ],
+      "ap-south-2": [
+        "GLOBAL",
+        "IN"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
+      ],
+      "ap-southeast-4": [
+        "GLOBAL"
+      ],
+      "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
+      "ap-southeast-7": [
+        "GLOBAL"
+      ],
+      "ca-central-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "ca-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "eu-central-1": [
+        "GLOBAL"
+      ],
+      "eu-central-2": [
+        "GLOBAL"
+      ],
+      "eu-north-1": [
+        "GLOBAL"
+      ],
+      "eu-south-1": [
+        "GLOBAL"
+      ],
+      "eu-south-2": [
+        "GLOBAL"
+      ],
+      "eu-west-1": [
+        "GLOBAL"
+      ],
+      "eu-west-2": [
+        "GLOBAL"
+      ],
+      "eu-west-3": [
+        "GLOBAL"
+      ],
+      "il-central-1": [
+        "GLOBAL"
+      ],
+      "mx-central-1": [
+        "GLOBAL"
+      ],
+      "sa-east-1": [
+        "GLOBAL"
+      ],
+      "us-east-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-east-2": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-2": [
+        "GLOBAL",
+        "US"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
+    "outputModalities": [
+      "TEXT"
+    ],
+    "responseStreamingSupported": true,
+    "customizationsSupported": [],
+    "runtime_supported": true,
+    "inferenceProfile": {
+      "GLOBAL": [
+        "af-south-1",
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-6",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "IN": {
+        "ap-south-1": [
+          "ap-south-1",
+          "ap-south-2"
+        ],
+        "ap-south-2": [
+          "ap-south-1",
+          "ap-south-2"
+        ]
+      },
+      "US": {
+        "ca-central-1": [
+          "ca-central-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "ca-west-1": [
+          "ca-west-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
+    }
+  },
   "nvidia.nemotron-nano-12b-v2": {
     "regions": [
       "ap-northeast-1",
@@ -9325,6 +9752,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9355,6 +9783,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9404,6 +9835,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9428,6 +9860,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9458,6 +9891,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9506,6 +9942,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9530,6 +9967,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9560,6 +9998,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9608,6 +10049,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9632,6 +10074,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -9662,6 +10105,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -9710,6 +10156,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -11798,6 +12245,231 @@
       "responses"
     ]
   },
+  "openai.gpt-6.1-terra": {
+    "regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "mx-central-1",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_types": {
+      "af-south-1": [
+        "GLOBAL"
+      ],
+      "ap-east-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-1": [
+        "GLOBAL"
+      ],
+      "ap-northeast-2": [
+        "GLOBAL"
+      ],
+      "ap-northeast-3": [
+        "GLOBAL"
+      ],
+      "ap-south-1": [
+        "GLOBAL"
+      ],
+      "ap-south-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-1": [
+        "GLOBAL"
+      ],
+      "ap-southeast-2": [
+        "GLOBAL"
+      ],
+      "ap-southeast-3": [
+        "GLOBAL"
+      ],
+      "ap-southeast-4": [
+        "GLOBAL"
+      ],
+      "ap-southeast-5": [
+        "GLOBAL"
+      ],
+      "ap-southeast-6": [
+        "GLOBAL"
+      ],
+      "ap-southeast-7": [
+        "GLOBAL"
+      ],
+      "ca-central-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "ca-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "eu-central-1": [
+        "GLOBAL"
+      ],
+      "eu-central-2": [
+        "GLOBAL"
+      ],
+      "eu-north-1": [
+        "GLOBAL"
+      ],
+      "eu-south-1": [
+        "GLOBAL"
+      ],
+      "eu-south-2": [
+        "GLOBAL"
+      ],
+      "eu-west-1": [
+        "GLOBAL"
+      ],
+      "eu-west-2": [
+        "GLOBAL"
+      ],
+      "eu-west-3": [
+        "GLOBAL"
+      ],
+      "il-central-1": [
+        "GLOBAL"
+      ],
+      "mx-central-1": [
+        "GLOBAL"
+      ],
+      "sa-east-1": [
+        "GLOBAL"
+      ],
+      "us-east-1": [
+        "GLOBAL",
+        "ON_DEMAND",
+        "US"
+      ],
+      "us-east-2": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-1": [
+        "GLOBAL",
+        "US"
+      ],
+      "us-west-2": [
+        "GLOBAL",
+        "US"
+      ]
+    },
+    "model_lifecycle_status": "ACTIVE",
+    "inputModalities": [
+      "IMAGE",
+      "TEXT"
+    ],
+    "outputModalities": [
+      "TEXT"
+    ],
+    "responseStreamingSupported": true,
+    "customizationsSupported": [],
+    "runtime_supported": true,
+    "inferenceProfile": {
+      "GLOBAL": [
+        "af-south-1",
+        "ap-east-2",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-south-1",
+        "ap-south-2",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-southeast-3",
+        "ap-southeast-4",
+        "ap-southeast-5",
+        "ap-southeast-6",
+        "ap-southeast-7",
+        "ca-central-1",
+        "ca-west-1",
+        "eu-central-1",
+        "eu-central-2",
+        "eu-north-1",
+        "eu-south-1",
+        "eu-south-2",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "il-central-1",
+        "mx-central-1",
+        "sa-east-1",
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2"
+      ],
+      "US": {
+        "ca-central-1": [
+          "ca-central-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "ca-west-1": [
+          "ca-west-1",
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-east-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ],
+        "us-west-1": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2"
+        ],
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
+      }
+    },
+    "mantle_supported_regions": [
+      "us-east-1"
+    ],
+    "mantle_apis": [
+      "completions",
+      "responses"
+    ]
+  },
   "openai.gpt-oss-120b": {
     "regions": [
       "ap-northeast-1",
@@ -11807,6 +12479,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -11837,6 +12510,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -11884,6 +12560,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -11976,6 +12653,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12006,6 +12684,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12053,6 +12734,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12145,6 +12827,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12175,6 +12858,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12223,6 +12909,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12247,6 +12934,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12277,6 +12965,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12325,6 +13016,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12349,6 +13041,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12379,6 +13072,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12426,6 +13122,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12506,6 +13203,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12536,6 +13234,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12583,6 +13284,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12675,6 +13377,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12705,6 +13408,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -12752,6 +13458,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -12978,6 +13685,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13008,6 +13716,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -13056,6 +13767,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13136,6 +13848,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13166,6 +13879,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -13213,6 +13929,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13294,6 +14011,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -13324,6 +14042,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -13373,6 +14094,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -14328,7 +15050,7 @@
         "US"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT",
       "VIDEO"
@@ -14690,6 +15412,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -14720,6 +15443,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -14770,6 +15496,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15350,7 +16077,11 @@
           "us-west-1",
           "us-west-2"
         ],
-        "us-west-2": []
+        "us-west-2": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2"
+        ]
       }
     }
   },
@@ -15363,6 +16094,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15393,6 +16125,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -15440,6 +16175,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15551,6 +16287,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -15581,6 +16318,9 @@
         "ON_DEMAND"
       ],
       "ap-southeast-4": [
+        "ON_DEMAND"
+      ],
+      "ca-central-1": [
         "ON_DEMAND"
       ],
       "eu-central-1": [
@@ -15629,6 +16369,7 @@
       "ap-southeast-2",
       "ap-southeast-3",
       "ap-southeast-4",
+      "ca-central-1",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",

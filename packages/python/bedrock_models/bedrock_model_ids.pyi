@@ -37,7 +37,6 @@ class Models:
     COHERE_EMBED_ENGLISH: Final[BedrockModel]
     COHERE_EMBED_MULTILINGUAL: Final[BedrockModel]
     COHERE_RERANK: Final[BedrockModel]
-    DEEPSEEK_R1: Final[BedrockModel]
     DEEPSEEK_V3: Final[BedrockModel]
     DEEPSEEK_V3_1: Final[BedrockModel]
     DEEPSEEK_V3_2: Final[BedrockModel]
@@ -48,13 +47,6 @@ class Models:
     GOOGLE_GEMMA_4_31B: Final[BedrockModel]
     GOOGLE_GEMMA_4_E2B: Final[BedrockModel]
     LUMA_RAY: Final[BedrockModel]
-    META_LLAMA3_1_70B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_1_8B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_3_70B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_70B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_8B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA4_MAVERICK_17B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA4_SCOUT_17B_INSTRUCT: Final[BedrockModel]
     MINIMAX_MINIMAX_M2: Final[BedrockModel]
     MINIMAX_MINIMAX_M2_1: Final[BedrockModel]
     MINIMAX_MINIMAX_M2_5: Final[BedrockModel]
@@ -63,12 +55,10 @@ class Models:
     MISTRAL_MINISTRAL_3_14B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MINISTRAL_3_3B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MINISTRAL_3_8B_INSTRUCT: Final[BedrockModel]
-    MISTRAL_MISTRAL_7B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MISTRAL_LARGE_2402: Final[BedrockModel]
     MISTRAL_MISTRAL_LARGE_2407: Final[BedrockModel]
     MISTRAL_MISTRAL_LARGE_3_675B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MISTRAL_SMALL_2402: Final[BedrockModel]
-    MISTRAL_MIXTRAL_8X7B_INSTRUCT: Final[BedrockModel]
     MISTRAL_PIXTRAL_LARGE_2502: Final[BedrockModel]
     MISTRAL_VOXTRAL_MINI_3B_2507: Final[BedrockModel]
     MISTRAL_VOXTRAL_SMALL_24B_2507: Final[BedrockModel]
@@ -136,14 +126,21 @@ class Models:
     ZAI_GLM_5_3: Final[BedrockModel]
     AI21_JAMBA_1_5_LARGE: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
+    DEEPSEEK_R1: Final[BedrockModel]  # deprecated: Model 'deepseek.r1-v1:0' has LEGACY status
+    META_LLAMA3_1_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-70b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_1_8B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-8b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_3_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-3-70b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-70b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_8B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-8b-instruct-v1:0' has LEGACY status
+    META_LLAMA4_MAVERICK_17B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama4-maverick-17b-instruct-v1:0' has LEGACY status
+    META_LLAMA4_SCOUT_17B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama4-scout-17b-instruct-v1:0' has LEGACY status
+    MISTRAL_MISTRAL_7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mistral-7b-instruct-v0:2' has LEGACY status
+    MISTRAL_MIXTRAL_8X7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mixtral-8x7b-instruct-v0:1' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-3-0-v1:0' has LEGACY status
     TWELVELABS_PEGASUS_1_2: Final[BedrockModel]  # deprecated: Model 'twelvelabs.pegasus-1-2-v1:0' has LEGACY status
@@ -247,20 +244,12 @@ class RuntimeModels:
     COHERE_EMBED_ENGLISH: Final[BedrockModel]
     COHERE_EMBED_MULTILINGUAL: Final[BedrockModel]
     COHERE_RERANK: Final[BedrockModel]
-    DEEPSEEK_R1: Final[BedrockModel]
     DEEPSEEK_V3: Final[BedrockModel]
     DEEPSEEK_V3_2: Final[BedrockModel]
     GOOGLE_GEMMA_3_12B_IT: Final[BedrockModel]
     GOOGLE_GEMMA_3_27B_IT: Final[BedrockModel]
     GOOGLE_GEMMA_3_4B_IT: Final[BedrockModel]
     LUMA_RAY: Final[BedrockModel]
-    META_LLAMA3_1_70B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_1_8B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_3_70B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_70B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA3_8B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA4_MAVERICK_17B_INSTRUCT: Final[BedrockModel]
-    META_LLAMA4_SCOUT_17B_INSTRUCT: Final[BedrockModel]
     MINIMAX_MINIMAX_M2: Final[BedrockModel]
     MINIMAX_MINIMAX_M2_1: Final[BedrockModel]
     MINIMAX_MINIMAX_M2_5: Final[BedrockModel]
@@ -269,12 +258,10 @@ class RuntimeModels:
     MISTRAL_MINISTRAL_3_14B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MINISTRAL_3_3B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MINISTRAL_3_8B_INSTRUCT: Final[BedrockModel]
-    MISTRAL_MISTRAL_7B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MISTRAL_LARGE_2402: Final[BedrockModel]
     MISTRAL_MISTRAL_LARGE_2407: Final[BedrockModel]
     MISTRAL_MISTRAL_LARGE_3_675B_INSTRUCT: Final[BedrockModel]
     MISTRAL_MISTRAL_SMALL_2402: Final[BedrockModel]
-    MISTRAL_MIXTRAL_8X7B_INSTRUCT: Final[BedrockModel]
     MISTRAL_PIXTRAL_LARGE_2502: Final[BedrockModel]
     MISTRAL_VOXTRAL_MINI_3B_2507: Final[BedrockModel]
     MISTRAL_VOXTRAL_SMALL_24B_2507: Final[BedrockModel]
@@ -333,14 +320,21 @@ class RuntimeModels:
     ZAI_GLM_5_3: Final[BedrockModel]
     AI21_JAMBA_1_5_LARGE: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-large-v1:0' has LEGACY status
     AI21_JAMBA_1_5_MINI: Final[BedrockModel]  # deprecated: Model 'ai21.jamba-1-5-mini-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_5_SONNET_20240620: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20240620-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_5_SONNET_20241022: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-5-sonnet-20241022-v2:0' has LEGACY status
-    ANTHROPIC_CLAUDE_3_7_SONNET_20250219: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-7-sonnet-20250219-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
+    DEEPSEEK_R1: Final[BedrockModel]  # deprecated: Model 'deepseek.r1-v1:0' has LEGACY status
+    META_LLAMA3_1_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-70b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_1_8B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-8b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_3_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-3-70b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-70b-instruct-v1:0' has LEGACY status
+    META_LLAMA3_8B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-8b-instruct-v1:0' has LEGACY status
+    META_LLAMA4_MAVERICK_17B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama4-maverick-17b-instruct-v1:0' has LEGACY status
+    META_LLAMA4_SCOUT_17B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama4-scout-17b-instruct-v1:0' has LEGACY status
+    MISTRAL_MISTRAL_7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mistral-7b-instruct-v0:2' has LEGACY status
+    MISTRAL_MIXTRAL_8X7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mixtral-8x7b-instruct-v0:1' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-3-0-v1:0' has LEGACY status
     TWELVELABS_PEGASUS_1_2: Final[BedrockModel]  # deprecated: Model 'twelvelabs.pegasus-1-2-v1:0' has LEGACY status

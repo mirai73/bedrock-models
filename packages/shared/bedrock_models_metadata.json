@@ -42,7 +42,7 @@
     "last_changed": "2026-06-20"
   },
   "anthropic.claude-3-haiku-20240307-v1:0": {
-    "last_changed": "2026-11-14"
+    "last_changed": "2026-11-18"
   },
   "anthropic.claude-3-sonnet-20240229-v1:0": {
     "last_changed": "2026-11-14"
@@ -281,6 +281,12 @@
   "openai.gpt-6.1-terra": {
     "last_changed": "2026-10-27"
   },
+  "openai.gpt-6.2-astra": {
+    "last_changed": "2026-11-18"
+  },
+  "openai.gpt-6.2-sol": {
+    "last_changed": "2026-11-18"
+  },
   "openai.gpt-oss-120b": {
     "last_changed": "2026-11-06"
   },
@@ -431,9 +437,6 @@
   "zai.glm-5.3": {
     "last_changed": "2026-10-07"
   },
-  "anthropic.claude-sonnet-4-20250514-v1:0": {
-    "last_changed": "2026-06-20"
-  },
   "amazon.nova-canvas-v1:0": {
     "last_changed": "2026-06-20",
     "deleted": "2026-10-01"
@@ -481,6 +484,10 @@
   "anthropic.claude-opus-4-6": {
     "last_changed": "2026-08-30",
     "deleted": "2026-09-01"
+  },
+  "anthropic.claude-sonnet-4-20250514-v1:0": {
+    "last_changed": "2026-06-20",
+    "deleted": "2026-11-18"
   },
   "cohere.command-r-plus-v1:0": {
     "last_changed": "2026-06-20",

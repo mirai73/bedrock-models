@@ -80,6 +80,8 @@ class Models:
     OPENAI_GPT_5_6_TERRA: Final[BedrockModel]
     OPENAI_GPT_6_1_SOL: Final[BedrockModel]
     OPENAI_GPT_6_1_TERRA: Final[BedrockModel]
+    OPENAI_GPT_6_2_ASTRA: Final[BedrockModel]
+    OPENAI_GPT_6_2_SOL: Final[BedrockModel]
     OPENAI_GPT_6_ASTRA: Final[BedrockModel]
     OPENAI_GPT_6_LUNA: Final[BedrockModel]
     OPENAI_GPT_6_SOL: Final[BedrockModel]
@@ -129,7 +131,6 @@ class Models:
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
     DEEPSEEK_R1: Final[BedrockModel]  # deprecated: Model 'deepseek.r1-v1:0' has LEGACY status
     META_LLAMA3_1_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-70b-instruct-v1:0' has LEGACY status
@@ -280,6 +281,8 @@ class RuntimeModels:
     OPENAI_GPT_5_6_TERRA: Final[BedrockModel]
     OPENAI_GPT_6_1_SOL: Final[BedrockModel]
     OPENAI_GPT_6_1_TERRA: Final[BedrockModel]
+    OPENAI_GPT_6_2_ASTRA: Final[BedrockModel]
+    OPENAI_GPT_6_2_SOL: Final[BedrockModel]
     OPENAI_GPT_6_ASTRA: Final[BedrockModel]
     OPENAI_GPT_6_LUNA: Final[BedrockModel]
     OPENAI_GPT_6_SOL: Final[BedrockModel]
@@ -323,7 +326,6 @@ class RuntimeModels:
     ANTHROPIC_CLAUDE_3_HAIKU_20240307: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-haiku-20240307-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_3_SONNET_20240229: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-3-sonnet-20240229-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_OPUS_4_1_20250805: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-opus-4-1-20250805-v1:0' has LEGACY status
-    ANTHROPIC_CLAUDE_SONNET_4_20250514: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-20250514-v1:0' has LEGACY status
     ANTHROPIC_CLAUDE_SONNET_4_5_20250929: Final[BedrockModel]  # deprecated: Model 'anthropic.claude-sonnet-4-5-20250929-v1:0' has LEGACY status
     DEEPSEEK_R1: Final[BedrockModel]  # deprecated: Model 'deepseek.r1-v1:0' has LEGACY status
     META_LLAMA3_1_70B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama3-1-70b-instruct-v1:0' has LEGACY status

@@ -14558,7 +14558,7 @@
         "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "IMAGE",
       "TEXT"
@@ -14819,7 +14819,7 @@
         "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],
@@ -15127,7 +15127,7 @@
         "ON_DEMAND"
       ]
     },
-    "model_lifecycle_status": "ACTIVE",
+    "model_lifecycle_status": "LEGACY",
     "inputModalities": [
       "TEXT"
     ],

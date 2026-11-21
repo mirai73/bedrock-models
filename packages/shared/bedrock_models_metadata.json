@@ -345,7 +345,7 @@
     "last_changed": "2026-11-06"
   },
   "stability.sd3-5-large-v1:0": {
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-11-21"
   },
   "stability.stable-conservative-upscale-v1:0": {
     "last_changed": "2026-06-20"
@@ -363,7 +363,7 @@
     "last_changed": "2026-06-20"
   },
   "stability.stable-image-core-v1:1": {
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-11-21"
   },
   "stability.stable-image-erase-object-v1:0": {
     "last_changed": "2026-06-20"
@@ -384,7 +384,7 @@
     "last_changed": "2026-06-20"
   },
   "stability.stable-image-ultra-v1:1": {
-    "last_changed": "2026-06-20"
+    "last_changed": "2026-11-21"
   },
   "stability.stable-outpaint-v1:0": {
     "last_changed": "2026-06-20"

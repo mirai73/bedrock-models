@@ -100,20 +100,17 @@ class Models:
     QWEN_QWEN3_NEXT_80B_A3B_INSTRUCT: Final[BedrockModel]
     QWEN_QWEN3_VL_235B_A22B: Final[BedrockModel]
     QWEN_QWEN3_VL_235B_A22B_INSTRUCT: Final[BedrockModel]
-    STABILITY_SD3_5_LARGE: Final[BedrockModel]
     STABILITY_STABLE_CONSERVATIVE_UPSCALE: Final[BedrockModel]
     STABILITY_STABLE_CREATIVE_UPSCALE: Final[BedrockModel]
     STABILITY_STABLE_FAST_UPSCALE: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_CONTROL_SKETCH: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_CONTROL_STRUCTURE: Final[BedrockModel]
-    STABILITY_STABLE_IMAGE_CORE: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_ERASE_OBJECT: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_INPAINT: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_REMOVE_BACKGROUND: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_SEARCH_RECOLOR: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_SEARCH_REPLACE: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_STYLE_GUIDE: Final[BedrockModel]
-    STABILITY_STABLE_IMAGE_ULTRA: Final[BedrockModel]
     STABILITY_STABLE_OUTPAINT: Final[BedrockModel]
     STABILITY_STABLE_STYLE_TRANSFER: Final[BedrockModel]
     TWELVELABS_PEGASUS_1_5: Final[BedrockModel]
@@ -142,6 +139,9 @@ class Models:
     META_LLAMA4_SCOUT_17B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama4-scout-17b-instruct-v1:0' has LEGACY status
     MISTRAL_MISTRAL_7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mistral-7b-instruct-v0:2' has LEGACY status
     MISTRAL_MIXTRAL_8X7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mixtral-8x7b-instruct-v0:1' has LEGACY status
+    STABILITY_SD3_5_LARGE: Final[BedrockModel]  # deprecated: Model 'stability.sd3-5-large-v1:0' has LEGACY status
+    STABILITY_STABLE_IMAGE_CORE: Final[BedrockModel]  # deprecated: Model 'stability.stable-image-core-v1:1' has LEGACY status
+    STABILITY_STABLE_IMAGE_ULTRA: Final[BedrockModel]  # deprecated: Model 'stability.stable-image-ultra-v1:1' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-3-0-v1:0' has LEGACY status
     TWELVELABS_PEGASUS_1_2: Final[BedrockModel]  # deprecated: Model 'twelvelabs.pegasus-1-2-v1:0' has LEGACY status
@@ -297,20 +297,17 @@ class RuntimeModels:
     QWEN_QWEN3_CODER_NEXT: Final[BedrockModel]
     QWEN_QWEN3_NEXT_80B_A3B: Final[BedrockModel]
     QWEN_QWEN3_VL_235B_A22B: Final[BedrockModel]
-    STABILITY_SD3_5_LARGE: Final[BedrockModel]
     STABILITY_STABLE_CONSERVATIVE_UPSCALE: Final[BedrockModel]
     STABILITY_STABLE_CREATIVE_UPSCALE: Final[BedrockModel]
     STABILITY_STABLE_FAST_UPSCALE: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_CONTROL_SKETCH: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_CONTROL_STRUCTURE: Final[BedrockModel]
-    STABILITY_STABLE_IMAGE_CORE: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_ERASE_OBJECT: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_INPAINT: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_REMOVE_BACKGROUND: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_SEARCH_RECOLOR: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_SEARCH_REPLACE: Final[BedrockModel]
     STABILITY_STABLE_IMAGE_STYLE_GUIDE: Final[BedrockModel]
-    STABILITY_STABLE_IMAGE_ULTRA: Final[BedrockModel]
     STABILITY_STABLE_OUTPAINT: Final[BedrockModel]
     STABILITY_STABLE_STYLE_TRANSFER: Final[BedrockModel]
     TWELVELABS_PEGASUS_1_5: Final[BedrockModel]
@@ -337,6 +334,9 @@ class RuntimeModels:
     META_LLAMA4_SCOUT_17B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'meta.llama4-scout-17b-instruct-v1:0' has LEGACY status
     MISTRAL_MISTRAL_7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mistral-7b-instruct-v0:2' has LEGACY status
     MISTRAL_MIXTRAL_8X7B_INSTRUCT: Final[BedrockModel]  # deprecated: Model 'mistral.mixtral-8x7b-instruct-v0:1' has LEGACY status
+    STABILITY_SD3_5_LARGE: Final[BedrockModel]  # deprecated: Model 'stability.sd3-5-large-v1:0' has LEGACY status
+    STABILITY_STABLE_IMAGE_CORE: Final[BedrockModel]  # deprecated: Model 'stability.stable-image-core-v1:1' has LEGACY status
+    STABILITY_STABLE_IMAGE_ULTRA: Final[BedrockModel]  # deprecated: Model 'stability.stable-image-ultra-v1:1' has LEGACY status
     TWELVELABS_MARENGO_EMBED_2_7: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-2-7-v1:0' has LEGACY status
     TWELVELABS_MARENGO_EMBED_3_0: Final[BedrockModel]  # deprecated: Model 'twelvelabs.marengo-embed-3-0-v1:0' has LEGACY status
     TWELVELABS_PEGASUS_1_2: Final[BedrockModel]  # deprecated: Model 'twelvelabs.pegasus-1-2-v1:0' has LEGACY status
